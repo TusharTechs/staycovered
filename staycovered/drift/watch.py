@@ -235,3 +235,76 @@ def replay(url: str, summarise: bool = False) -> list[DriftEvent]:
         out.append(DriftEvent(url, b.title, b.jurisdiction, a.id, b.id, d.old_as_of, d.new_as_of, added, removed,
                               stale_facts(a.id, b.text), summ))
     return out
+
+
+# ---------- what to re-check ----------
+
+def affected_cases(ev: DriftEvent) -> list[dict]:
+    """Cases whose worksheet used a stale fact, or whose outcome differs under the old vs new rules."""
+    from .. import store
+    from ..engine.compute import worksheet
+
+    stale = set(ev.stale_facts)
+    old_on = date.fromisoformat(ev.old_as_of) if ev.old_as_of else None
+    new_on = date.fromisoformat(ev.new_as_of)
+    out = []
+    for rec in store.all_cases():
+        if rec.case.jurisdiction != ev.jurisdiction and ev.jurisdiction != "US":
+            continue
+        ws_new = worksheet(rec.case, new_on)
+        used = {f for r in ws_new.results for f in r.facts_used} | {f for e in ws_new.exemptions for f in e.fact_ids}
+        reasons = []
+        hit = sorted(used & stale)
+        if hit:
+            reasons.append(f"uses rules that changed: {', '.join(hit)}")
+        if old_on:
+            ws_old = worksheet(rec.case, old_on)
+            before = [r.status for r in ws_old.results]
+            after = [r.status for r in ws_new.results]
+            if before != after:
+                reasons.append(f"outcome changed: {', '.join(before)} → {', '.join(after)}")
+        if reasons:
+            out.append({"case_id": rec.case.id, "client_name": rec.client_name, "reasons": reasons})
+    return out
+
+
+def flag_cases(ev: DriftEvent) -> list[dict]:
+    """Persist re-check flags on affected cases (live mode)."""
+    from .. import store
+
+    hits = affected_cases(ev)
+    for h in hits:
+        rec = store.load(h["case_id"])
+        msg = f"Rules changed on {ev.new_as_of} ({ev.title}) — re-check: {'; '.join(h['reasons'])}"
+        if not any(f.get("message") == msg for f in rec.flags):
+            rec.flags.append({"kind": "drift", "date": ev.new_as_of, "message": msg, "facts": ev.stale_facts})
+            store.save(rec)
+    return hits
+
+
+REPLAY_CACHE = config.RUNTIME_DIR / "replay_cache.json"
+
+
+def replay_all(jurisdiction: str, summarise: bool = True) -> list[dict]:
+    """All historical change events for allow-listed pages of a jurisdiction, with summaries (cached)."""
+    cache = json.loads(REPLAY_CACHE.read_text()) if REPLAY_CACHE.exists() else {}
+    out = []
+    for p in allowlist():
+        if p["jurisdiction"] not in (jurisdiction, "US"):
+            continue
+        for ev in replay(p["url"], summarise=False):
+            key = f"{ev.old_id}->{ev.new_id}"
+            if summarise and key not in cache:
+                d = Diff(ev.url, ev.old_id, ev.new_id, ev.old_as_of, ev.new_as_of, ev.added, ev.removed)
+                try:
+                    cache[key] = summarize(d, ev.title).model_dump()
+                except Exception as e:  # noqa: BLE001
+                    cache[key] = {"headline": "Change detected (summary unavailable)", "details": [], "who_is_affected": "",
+                                  "navigator_action": "", "substantive": True, "error": str(e)[:200]}
+                REPLAY_CACHE.write_text(json.dumps(cache, indent=2))
+            ev.summary = cache.get(key)
+            row = asdict(ev)
+            row["added"], row["removed"] = ev.added[:25], ev.removed[:25]
+            row["affected_cases"] = affected_cases(ev)
+            out.append(row)
+    return sorted(out, key=lambda r: r["new_as_of"])

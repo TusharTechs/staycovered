@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { api, fmtDate, today, type CaseSummary, type Fact } from '../api'
+import { api, fmtDate, today, type CaseSummary, type DriftEvent, type Fact } from '../api'
 import { Card, Cite, Spinner, StatusPill } from '../components/ui'
 import AskBox from '../components/AskBox'
 
@@ -29,8 +29,10 @@ export default function TimeMachine() {
   const [cases, setCases] = useState<CaseSummary[] | null>(null)
   const [prevCases, setPrevCases] = useState<Record<string, string>>({})
   const [playing, setPlaying] = useState(false)
+  const [events, setEvents] = useState<DriftEvent[]>([])
   const timer = useRef<number | null>(null)
 
+  useEffect(() => { api.replay().then(setEvents).catch(() => setEvents([])) }, [])
   useEffect(() => {
     api.timeline().then(t => {
       const ds = new Set<string>(Object.keys(LABELS))
@@ -101,6 +103,8 @@ export default function TimeMachine() {
         </div>
       </Card>
 
+      <RuleChanges events={events.filter(e => e.new_as_of <= asOf && (e.summary?.substantive ?? true))} asOf={asOf} />
+
       <div className="grid gap-5 lg:grid-cols-5">
         <Card className="lg:col-span-3" title={`What the official rules said on ${fmtDate(asOf)}`} actions={facts && <span className="text-xs text-muted">{facts.length} facts in force or announced</span>}>
           {!facts && <Spinner />}
@@ -150,5 +154,35 @@ export default function TimeMachine() {
         </div>
       </div>
     </div>
+  )
+}
+
+function RuleChanges({ events, asOf }: { events: DriftEvent[]; asOf: string }) {
+  if (events.length === 0) return null
+  const latest = [...events].reverse()
+  return (
+    <Card title="Official pages that changed (detected by drift-watch)" actions={<span className="text-xs text-muted">{events.length} change{events.length > 1 ? 's' : ''} up to {fmtDate(asOf)}</span>}>
+      <ol className="space-y-3">
+        {latest.slice(0, 4).map(e => (
+          <li key={e.new_id} className={`rounded-lg border p-3 ${e.new_as_of === asOf ? 'border-warn bg-warn-soft/60' : 'border-line'}`}>
+            <div className="flex flex-wrap items-baseline gap-2">
+              <span className="text-xs tabular-nums text-muted">{e.old_as_of} → {e.new_as_of}</span>
+              <span className="text-sm font-medium">{e.summary?.headline ?? `${e.title} changed`}</span>
+            </div>
+            {e.summary?.details?.length ? <ul className="mt-1 list-disc pl-5 text-xs space-y-0.5">{e.summary.details.slice(0, 4).map((d, i) => <li key={i}>{d}</li>)}</ul> : null}
+            {e.summary?.navigator_action && <p className="mt-1 text-xs"><b>Navigator action:</b> {e.summary.navigator_action}</p>}
+            {e.affected_cases.length > 0 && (
+              <p className="mt-1 text-xs text-warn">⟳ Re-check {e.affected_cases.length} case{e.affected_cases.length > 1 ? 's' : ''}: {e.affected_cases.map(c => c.client_name).join(', ')}</p>
+            )}
+            <details className="mt-1 text-[11px] text-muted"><summary className="cursor-pointer">Exact text added / removed</summary>
+              <div className="grid md:grid-cols-2 gap-2 mt-1">
+                <div><div className="font-semibold text-bad">Removed</div>{e.removed.slice(0, 8).map((x, i) => <p key={i} className="line-through decoration-bad/50">{x}</p>)}</div>
+                <div><div className="font-semibold text-ok">Added</div>{e.added.slice(0, 8).map((x, i) => <p key={i}>{x}</p>)}</div>
+              </div>
+            </details>
+          </li>
+        ))}
+      </ol>
+    </Card>
   )
 }

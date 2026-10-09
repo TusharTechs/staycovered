@@ -68,6 +68,7 @@ export const api = {
   locate: (source_id: string, quote: string) => fetch(`/api/sources/${source_id}/locate` + q({ quote })).then(j<{ context: string; title: string; url: string; as_of: string }>),
   addDoc: (id: string, body: { name: string; kind: string; member_id?: string; text: string }) =>
     fetch(`/api/cases/${id}/documents`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }).then(j<{ worksheet: Worksheet }>),
+  replay: (jurisdiction = 'NE') => fetch('/api/drift/replay' + q({ jurisdiction })).then(j<DriftEvent[]>),
   calls: () => fetch('/api/log/calls').then(j<Record<string, unknown>[]>),
   tavily: () => fetch('/api/log/tavily').then(j<Record<string, unknown>[]>),
   bench: () => fetch('/api/bench/results').then(j<Record<string, unknown>>),
@@ -75,4 +76,11 @@ export const api = {
 
 export const fmtDate = (s: string | null | undefined) =>
   s ? new Date(s + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—'
-export const today = () => new Date().toISOString().slice(0, 10)
+export const today = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}` }
+
+export interface DriftEvent {
+  url: string; title: string; jurisdiction: string; old_id: string | null; new_id: string
+  old_as_of: string | null; new_as_of: string; added: string[]; removed: string[]; stale_facts: string[]
+  summary: { headline: string; details: string[]; who_is_affected: string; navigator_action: string; substantive: boolean } | null
+  affected_cases: { case_id: string; client_name: string; reasons: string[] }[]
+}

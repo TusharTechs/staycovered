@@ -122,7 +122,7 @@ def facts(as_of: str | None = None, jurisdiction: str = "NE") -> list[dict]:
     return [
         {**{k: (v.isoformat() if isinstance(v, date) else v) for k, v in asdict(f).items() if k != "citations"},
          "citations": [asdict(c) for c in f.citations]}
-        for f in rules.facts_as_of(on, {"US", jurisdiction})
+        for f in rules.facts_known(on, {"US", jurisdiction})
     ]
 
 
@@ -174,7 +174,15 @@ def drift_events() -> list[dict]:
 def drift_check() -> list[dict]:
     if not config.TAVILY_API_KEY:
         raise HTTPException(400, "TAVILY_API_KEY not set")
-    return [asdict(e) for e in watch.check_live()]
+    out = []
+    for e in watch.check_live():
+        out.append(asdict(e) | {"affected_cases": watch.flag_cases(e)})
+    return out
+
+
+@app.get("/api/drift/replay")
+def drift_replay(jurisdiction: str = "NE", summarise: bool = True) -> list[dict]:
+    return watch.replay_all(jurisdiction, summarise=summarise)
 
 
 # ---------- under the hood ----------
