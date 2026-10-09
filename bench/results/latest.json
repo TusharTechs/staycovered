@@ -1,0 +1,105 @@
+{
+  "version": "bench-v0",
+  "split": "dev",
+  "date": "2026-10-10",
+  "n_questions": 47,
+  "systems": [
+    {
+      "system": "frozen-super",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "score": 0.47517730496453897,
+      "ci_low": 0.3581560283687943,
+      "ci_high": 0.6028368794326241,
+      "n": 47,
+      "errors": 0,
+      "drift_sensitive_score": 0.2708333333333333
+    },
+    {
+      "system": "rag-latest",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "score": 0.7553191489361702,
+      "ci_low": 0.6453900709219857,
+      "ci_high": 0.851063829787234,
+      "n": 47,
+      "errors": 0,
+      "citation_validity": 0.7802197802197802,
+      "unsupported_rate": 0.0425531914893617,
+      "drift_sensitive_score": 0.53125
+    },
+    {
+      "system": "staycovered",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "score": 0.8439716312056738,
+      "ci_low": 0.7624113475177305,
+      "ci_high": 0.9148936170212766,
+      "n": 47,
+      "errors": 0,
+      "citation_validity": 0.711340206185567,
+      "unsupported_rate": 0.06382978723404255,
+      "drift_sensitive_score": 0.7604166666666666
+    }
+  ],
+  "by_category": {
+    "applicability": {
+      "frozen-super": 0.8333333333333334,
+      "rag-latest": 1.0,
+      "staycovered": 1.0
+    },
+    "calculation": {
+      "frozen-super": 0.6666666666666666,
+      "rag-latest": 1.0,
+      "staycovered": 1.0
+    },
+    "exemption": {
+      "frozen-super": 0.5185185185185186,
+      "rag-latest": 0.6851851851851852,
+      "staycovered": 0.7592592592592592
+    },
+    "good_cause": {
+      "frozen-super": 0.5,
+      "rag-latest": 0.8333333333333334,
+      "staycovered": 0.8333333333333334
+    },
+    "income_alternative": {
+      "frozen-super": 0.27777777777777773,
+      "rag-latest": 0.6666666666666666,
+      "staycovered": 0.75
+    },
+    "lookback": {
+      "frozen-super": 0.5,
+      "rag-latest": 0.5,
+      "staycovered": 0.5
+    },
+    "notice_cure": {
+      "frozen-super": 0.625,
+      "rag-latest": 0.75,
+      "staycovered": 1.0
+    },
+    "requirement": {
+      "frozen-super": 0.5,
+      "rag-latest": 0.9,
+      "staycovered": 0.9
+    },
+    "timeline": {
+      "frozen-super": 0.2,
+      "rag-latest": 0.6666666666666666,
+      "staycovered": 0.8666666666666666
+    },
+    "verification": {
+      "frozen-super": 0.4166666666666667,
+      "rag-latest": 0.75,
+      "staycovered": 0.9166666666666666
+    }
+  },
+  "judge": {
+    "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+    "human_agreement": null
+  },
+  "notes": [
+    "Questions and rubrics were drafted with AI assistance from captured official sources, reviewed, and committed before tuning.",
+    "Every rubric criterion cites verbatim official text (verified by script).",
+    "Each question is asked 'as of' a date; frozen models are told that date.",
+    "rag-latest is an ablation: the same pipeline with today's sources, ignoring the question date."
+  ],
+  "nemotron_usd": 0.463
+}

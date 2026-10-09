@@ -1,522 +1,528 @@
 {
- "source_pdf": "sources/raw/NE/ne-declaration-mltc118-20260715.pdf",
+ "source_id": "ne-declaration-mltc118-2026-05-29",
+ "source_pdf": "sources/raw/NE/ne-declaration-mltc118-2026-05-29.pdf",
+ "form": "MLTC-118 5/2026",
  "pages": 5,
  "has_acroform": true,
  "field_count": 103,
+ "field_type_counts": {
+  "text": 64,
+  "button/checkbox": 39
+ },
  "fields": {
   "First Name": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "First Name"
   },
   "Middle Initial": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Middle Initial"
   },
   "Last Name": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Last Name"
   },
   "Address": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Address"
   },
   "Date of Birth": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Date of Birth"
   },
   "Last 4 digits of Social Security Number": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Last 4 digits of Social Security Number"
   },
   "Name": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Name"
   },
   "Date of Birth_2": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Date of Birth:"
   },
   "Last 4 of SSN": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Last 4 of SSN:"
   },
   "Number of volunteer hours per month": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Number of volunteer hours per month"
   },
   "Name of Organizations": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Name of Organization(s"
   },
   "Addresses": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Address(es"
   },
   "Organization Contacts": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Organization Contact(s):"
   },
   "Names": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Name(s"
   },
   "Phones": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Phone(s"
   },
   "Number of hours per month": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Number of hours per month"
   },
   "Name of the Work Programs": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Name of the Work Program(s"
   },
   "Addresses_2": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Address(es"
   },
   "Work Program Contacts": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Work Program Contact(s"
   },
   "Names_2": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Name(s"
   },
   "Phones_2": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Phone(s"
   },
   "Name of school or program": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Name of school or program"
   },
   "Number of credit hours enrolled": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Number of credit hours enrolled"
   },
   "Enrollment begin date": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Enrollment begin date"
   },
   "Anticipated graduation date if applicable": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Anticipated graduation date (if applicable"
   },
   "If no to the above questions describe your relationship to the child who you provide care to": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "If no to the above questions, describe your relationship to the child who you provide care to:"
   },
   "If no to the above questions how many hours of caregiving are provided": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "If no to the above questions, how many hours of caregiving are provided?"
   },
   "If no to the above questions describe your relationship to the individual who you provide care to": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "If no to the above questions, describe your relationship to the individual who you provide care to:"
   },
   "How many hours of caregiving are provided": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "How many hours of caregiving are provided"
   },
   "Most Recent Release Date": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Most Recent Release Date"
   },
   "Name of Facility": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Name of Facility"
   },
   "Address_2": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Address"
   },
   "Describe the health conditions the individual has that fit the list above 1": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Describe the health condition(s) the individual has that fit the list above [1]"
   },
   "Describe the health conditions the individual has that fit the list above 2": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Describe the health condition(s) the individual has that fit the list above [2]"
   },
   "1": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "[1]"
   },
   "2": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "[2]"
   },
   "Names_3": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Name(s"
   },
   "Addresses_3": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Address(es"
   },
   "Telephone numbers": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Telephone number(s"
   },
   "Name of Facility_2": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Name of Facility"
   },
   "Facility Address": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Facility Address"
   },
   "Contact Name": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Contact Name"
   },
   "Phone": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Phone"
   },
   "Dates of Service": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Date(s) of Service"
   },
   "If yes effective date of disability rating": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "If yes, effective date of disability rating"
   },
   "Dates of Service_2": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Date(s) of Service"
   },
   "Name of Facility_3": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Name of Facility"
   },
   "Dates of Service_3": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Date(s) of Service"
   },
   "Name of Facilitys": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Name of Facility(s"
   },
   "Addresses_4": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Address(es"
   },
   "Name of individuals receiving medical care": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Name of individual(s) receiving medical care"
   },
   "Describe the health conditions being treated 1": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Describe the health condition(s) being treated [1]"
   },
   "Describe the health conditions being treated 2": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Describe the health condition(s) being treated [2]"
   },
   "Reason for travel outside the individuals community 1": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Reason for travel outside the individual\u2019s community [1]"
   },
   "Reason for travel outside the individuals community 2": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Reason for travel outside the individual\u2019s community [2]"
   },
   "Date": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Date:"
   },
   "Date_2": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Date:"
   },
   "I Additional comments": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "I Additional comments"
   },
   "No_2": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "Yes1": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Yes1"
   },
   "No1": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No1"
   },
   "Chronic condition": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "chronic condition"
   },
   "Chronic condition2": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Chronic condition2"
   },
   "provide care1": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "provide care1"
   },
   "Incarcerated yes": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "incarcerated yes"
   },
   "Incarcerated 12 mo No": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Incarcerated 12 mo No"
   },
   "Incarcerated 12 mo Yes": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Incarcerated 12 mo Yes"
   },
   "serious or complex medical condition  Yes": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "serious or complex medical condition.  Yes"
   },
   "Yes9": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Ye9"
   },
   "Yes13": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Yes"
   },
   "No8": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "Yes8": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Yes"
   },
   "Yes2": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Yes"
   },
   "Yes3": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Yes"
   },
   "No3": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "Yes10": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Yes"
   },
   "Yes4": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Yes"
   },
   "No4": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "Yes5": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Yes"
   },
   "No5": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "Yes6": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Yes"
   },
   "No6": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "Yes7": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Yes"
   },
   "No7": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "No9": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "No10": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "Yes11": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Yes"
   },
   "Yes12": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Yes"
   },
   "No11": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "No12": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "No13": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "Yes14": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Yes"
   },
   "No14": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "Yes15": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Yes"
   },
   "No15": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "Yes16": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Yes"
   },
   "No16": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "Yes17": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "Yes"
   },
   "No17": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "serious or complex medical condition  No": {
-   "type": "/Btn",
-   "value": "None",
+   "type": "button/checkbox",
+   "value": null,
    "tooltip": "No"
   },
   "Applicant/Beneficiary Signature": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Applicant/Beneficiary Signature"
   },
   "Signature and relationship of person who helped": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "Signature and relationship of person who helped"
   },
   "Additional Comments2": {
-   "type": "/Tx",
-   "value": "None",
+   "type": "text",
+   "value": null,
    "tooltip": "If you would like to fill out this form electronically, scan this QR code or go on line to iServe.Nebraska.gov for more"
   }
  }

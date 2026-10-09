@@ -133,12 +133,19 @@ def spent(since: float) -> float:
     return sum(json.loads(l)["usd"] for l in llm.CALL_LOG.read_text().splitlines() if l.strip() and json.loads(l)["ts"] >= since)
 
 
-def run(split: str, systems: list[str], limit: int | None, max_usd: float, workers: int) -> dict:
+def run(split: str, systems: list[str], limit: int | None, max_usd: float, workers: int, reuse: list[str] | None = None) -> dict:
     qs = load_questions(split)
     if limit:
         qs = qs[:limit]
     t0 = time.time()
     records: dict[str, list[dict]] = {s: [] for s in systems}
+    if reuse:  # carry over unchanged systems from the latest full run of this split
+        prev = sorted(RDIR.glob(f"*-{split}.json"))
+        if prev:
+            old = json.loads(prev[-1].read_text())["records"]
+            for s in reuse:
+                if s in old:
+                    records[s] = old[s]
 
     def one(sname: str, q: dict) -> dict:
         if spent(t0) > max_usd:
@@ -152,7 +159,7 @@ def run(split: str, systems: list[str], limit: int | None, max_usd: float, worke
         except Exception as e:  # noqa: BLE001
             return {"qid": q["id"], "error": f"{type(e).__name__}: {str(e)[:300]}"}
 
-    for sname in systems:
+    for sname in [x for x in systems if not (reuse and x in reuse and records.get(x))]:
         w = 2 if sname == "frozen-frontier" else workers
         with ThreadPoolExecutor(w) as ex:
             records[sname] = list(ex.map(lambda q: one(sname, q), qs))
@@ -204,8 +211,9 @@ def main() -> None:
     ap.add_argument("--limit", type=int)
     ap.add_argument("--max-usd", type=float, default=3.0)
     ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--reuse", default="", help="comma-separated systems to copy from the latest run of this split")
     a = ap.parse_args()
-    run(a.split, a.systems.split(","), a.limit, a.max_usd, a.workers)
+    run(a.split, a.systems.split(","), a.limit, a.max_usd, a.workers, [x for x in a.reuse.split(",") if x])
 
 
 if __name__ == "__main__":
