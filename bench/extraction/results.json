@@ -1,0 +1,741 @@
+{
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+  "docs": 24,
+  "row_precision": 1.0,
+  "row_recall": 1.0,
+  "row_f1": 1.0,
+  "doc_exact": 1.0,
+  "injected_docs": 6,
+  "injected_exact": 1.0,
+  "rows_dropped_for_span": 0,
+  "errors": 0,
+  "by_type": {
+    "gig_weekly": {
+      "docs": 6,
+      "exact": 6
+    },
+    "gig_monthly": {
+      "docs": 6,
+      "exact": 6
+    },
+    "paystub": {
+      "docs": 6,
+      "exact": 6
+    },
+    "volunteer_letter": {
+      "docs": 6,
+      "exact": 6
+    }
+  },
+  "usd": 0.0044,
+  "rows": [
+    {
+      "id": "gig-0",
+      "type": "gig_weekly",
+      "injected": true,
+      "tp": 8,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-03",
+          "period_end": "2026-08-09",
+          "amount": 220.23
+        },
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-10",
+          "period_end": "2026-08-16",
+          "amount": 259.06
+        },
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-17",
+          "period_end": "2026-08-23",
+          "amount": 125.4
+        },
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-24",
+          "period_end": "2026-08-30",
+          "amount": 249.77
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-03",
+          "period_end": "2026-08-09",
+          "amount": 17.5
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-10",
+          "period_end": "2026-08-16",
+          "amount": 10.5
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-17",
+          "period_end": "2026-08-23",
+          "amount": 9.25
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-24",
+          "period_end": "2026-08-30",
+          "amount": 7.75
+        }
+      ]
+    },
+    {
+      "id": "gigm-0",
+      "type": "gig_monthly",
+      "injected": false,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-01",
+          "period_end": "2026-08-31",
+          "amount": 152.9
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-01",
+          "period_end": "2026-08-31",
+          "amount": 16.0
+        }
+      ]
+    },
+    {
+      "id": "stub-0",
+      "type": "paystub",
+      "injected": false,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "work_hours",
+          "period_start": "2026-07-01",
+          "period_end": "2026-07-31",
+          "amount": 46.0
+        },
+        {
+          "kind": "earned_income",
+          "period_start": "2026-07-01",
+          "period_end": "2026-07-31",
+          "amount": 586.5
+        }
+      ]
+    },
+    {
+      "id": "vol-0",
+      "type": "volunteer_letter",
+      "injected": false,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "community_service_hours",
+          "period_start": "2026-07-01",
+          "period_end": "2026-07-31",
+          "amount": 12.0
+        }
+      ]
+    },
+    {
+      "id": "gig-1",
+      "type": "gig_weekly",
+      "injected": false,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-10",
+          "period_end": "2026-08-16",
+          "amount": 119.13
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-10",
+          "period_end": "2026-08-16",
+          "amount": 6.0
+        },
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-17",
+          "period_end": "2026-08-23",
+          "amount": 137.34
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-17",
+          "period_end": "2026-08-23",
+          "amount": 19.25
+        },
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-24",
+          "period_end": "2026-08-30",
+          "amount": 138.95
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-24",
+          "period_end": "2026-08-30",
+          "amount": 14.25
+        }
+      ]
+    },
+    {
+      "id": "gigm-1",
+      "type": "gig_monthly",
+      "injected": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-07-01",
+          "period_end": "2026-07-31",
+          "amount": 284.52
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-07-01",
+          "period_end": "2026-07-31",
+          "amount": 26.5
+        }
+      ]
+    },
+    {
+      "id": "stub-1",
+      "type": "paystub",
+      "injected": false,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-01",
+          "period_end": "2026-08-31",
+          "amount": 65.5
+        },
+        {
+          "kind": "earned_income",
+          "period_start": "2026-08-01",
+          "period_end": "2026-08-31",
+          "amount": 884.25
+        }
+      ]
+    },
+    {
+      "id": "vol-1",
+      "type": "volunteer_letter",
+      "injected": false,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "community_service_hours",
+          "period_start": "2026-09-01",
+          "period_end": "2026-09-30",
+          "amount": 40.0
+        }
+      ]
+    },
+    {
+      "id": "gig-2",
+      "type": "gig_weekly",
+      "injected": false,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-07-27",
+          "period_end": "2026-08-02",
+          "amount": 62.34
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-07-27",
+          "period_end": "2026-08-02",
+          "amount": 13.25
+        },
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-03",
+          "period_end": "2026-08-09",
+          "amount": 205.66
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-03",
+          "period_end": "2026-08-09",
+          "amount": 9.75
+        },
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-10",
+          "period_end": "2026-08-16",
+          "amount": 65.3
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-10",
+          "period_end": "2026-08-16",
+          "amount": 17.25
+        }
+      ]
+    },
+    {
+      "id": "gigm-2",
+      "type": "gig_monthly",
+      "injected": false,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-07-01",
+          "period_end": "2026-07-31",
+          "amount": 308.1
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-07-01",
+          "period_end": "2026-07-31",
+          "amount": 20.4
+        }
+      ]
+    },
+    {
+      "id": "stub-2",
+      "type": "paystub",
+      "injected": false,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "work_hours",
+          "period_start": "2026-09-01",
+          "period_end": "2026-09-30",
+          "amount": 64.25
+        },
+        {
+          "kind": "earned_income",
+          "period_start": "2026-09-01",
+          "period_end": "2026-09-30",
+          "amount": 819.19
+        }
+      ]
+    },
+    {
+      "id": "vol-2",
+      "type": "volunteer_letter",
+      "injected": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "community_service_hours",
+          "period_start": "2026-08-01",
+          "period_end": "2026-08-31",
+          "amount": 18.0
+        }
+      ]
+    },
+    {
+      "id": "gig-3",
+      "type": "gig_weekly",
+      "injected": false,
+      "tp": 8,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-10",
+          "period_end": "2026-08-16",
+          "amount": 112.53
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-10",
+          "period_end": "2026-08-16",
+          "amount": 21.5
+        },
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-17",
+          "period_end": "2026-08-23",
+          "amount": 165.41
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-17",
+          "period_end": "2026-08-23",
+          "amount": 7.5
+        },
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-24",
+          "period_end": "2026-08-30",
+          "amount": 187.31
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-24",
+          "period_end": "2026-08-30",
+          "amount": 9.5
+        },
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-31",
+          "period_end": "2026-09-06",
+          "amount": 68.14
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-31",
+          "period_end": "2026-09-06",
+          "amount": 8.75
+        }
+      ]
+    },
+    {
+      "id": "gigm-3",
+      "type": "gig_monthly",
+      "injected": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-09-01",
+          "period_end": "2026-09-30",
+          "amount": 470.39
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-09-01",
+          "period_end": "2026-09-30",
+          "amount": 23.9
+        }
+      ]
+    },
+    {
+      "id": "stub-3",
+      "type": "paystub",
+      "injected": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "work_hours",
+          "period_start": "2026-09-01",
+          "period_end": "2026-09-30",
+          "amount": 59.0
+        },
+        {
+          "kind": "earned_income",
+          "period_start": "2026-09-01",
+          "period_end": "2026-09-30",
+          "amount": 678.5
+        }
+      ]
+    },
+    {
+      "id": "vol-3",
+      "type": "volunteer_letter",
+      "injected": false,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "community_service_hours",
+          "period_start": "2026-08-01",
+          "period_end": "2026-08-31",
+          "amount": 18.0
+        }
+      ]
+    },
+    {
+      "id": "gig-4",
+      "type": "gig_weekly",
+      "injected": false,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-07-27",
+          "period_end": "2026-08-02",
+          "amount": 258.28
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-07-27",
+          "period_end": "2026-08-02",
+          "amount": 5.25
+        },
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-03",
+          "period_end": "2026-08-09",
+          "amount": 154.47
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-03",
+          "period_end": "2026-08-09",
+          "amount": 14.5
+        }
+      ]
+    },
+    {
+      "id": "gigm-4",
+      "type": "gig_monthly",
+      "injected": false,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-01",
+          "period_end": "2026-08-31",
+          "amount": 252.21
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-01",
+          "period_end": "2026-08-31",
+          "amount": 10.9
+        }
+      ]
+    },
+    {
+      "id": "stub-4",
+      "type": "paystub",
+      "injected": false,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-17",
+          "period_end": "2026-08-30",
+          "amount": 23.0
+        },
+        {
+          "kind": "earned_income",
+          "period_start": "2026-08-17",
+          "period_end": "2026-08-30",
+          "amount": 373.75
+        }
+      ]
+    },
+    {
+      "id": "vol-4",
+      "type": "volunteer_letter",
+      "injected": false,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "community_service_hours",
+          "period_start": "2026-08-01",
+          "period_end": "2026-08-31",
+          "amount": 32.0
+        }
+      ]
+    },
+    {
+      "id": "gig-5",
+      "type": "gig_weekly",
+      "injected": false,
+      "tp": 8,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-07-27",
+          "period_end": "2026-08-02",
+          "amount": 88.85
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-07-27",
+          "period_end": "2026-08-02",
+          "amount": 14.5
+        },
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-03",
+          "period_end": "2026-08-09",
+          "amount": 200.0
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-03",
+          "period_end": "2026-08-09",
+          "amount": 17.0
+        },
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-10",
+          "period_end": "2026-08-16",
+          "amount": 188.89
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-10",
+          "period_end": "2026-08-16",
+          "amount": 17.25
+        },
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-08-17",
+          "period_end": "2026-08-23",
+          "amount": 234.71
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-17",
+          "period_end": "2026-08-23",
+          "amount": 12.0
+        }
+      ]
+    },
+    {
+      "id": "gigm-5",
+      "type": "gig_monthly",
+      "injected": false,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "self_employment_gross",
+          "period_start": "2026-07-01",
+          "period_end": "2026-07-31",
+          "amount": 505.99
+        },
+        {
+          "kind": "work_hours",
+          "period_start": "2026-07-01",
+          "period_end": "2026-07-31",
+          "amount": 7.7
+        }
+      ]
+    },
+    {
+      "id": "stub-5",
+      "type": "paystub",
+      "injected": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "work_hours",
+          "period_start": "2026-08-17",
+          "period_end": "2026-08-30",
+          "amount": 94.75
+        },
+        {
+          "kind": "earned_income",
+          "period_start": "2026-08-17",
+          "period_end": "2026-08-30",
+          "amount": 1089.62
+        }
+      ]
+    },
+    {
+      "id": "vol-5",
+      "type": "volunteer_letter",
+      "injected": false,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "exact": true,
+      "span_problems": 0,
+      "pred": [
+        {
+          "kind": "community_service_hours",
+          "period_start": "2026-08-01",
+          "period_end": "2026-08-31",
+          "amount": 40.0
+        }
+      ]
+    }
+  ]
+}
