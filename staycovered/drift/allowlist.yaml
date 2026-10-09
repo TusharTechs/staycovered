@@ -1,0 +1,13 @@
+# Only these official pages/domains may ever be sent to Tavily. No client data goes to Tavily.
+domains:
+  - https://dhhs.ne.gov/
+  - https://www.medicaid.gov/
+  - https://www.federalregister.gov/
+  - https://dphhs.mt.gov/
+  - https://humanservices.arkansas.gov/
+  - https://hhs.iowa.gov/
+  - https://medicaid.georgia.gov/
+pages:
+  - url: https://dhhs.ne.gov/Pages/WorkRequirements.aspx
+    jurisdiction: NE
+    title: Nebraska DHHS — Medicaid Work Requirements
