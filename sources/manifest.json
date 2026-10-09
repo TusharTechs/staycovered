@@ -42,7 +42,8 @@
     "raw_path": "sources/raw/US/fed-statute-hr1-pl119-21-2025-07-04.html",
     "text_path": "sources/text/US/fed-statute-hr1-pl119-21-2025-07-04.txt",
     "sha256": "84000b07c382db50ead04ce65b70983e2dcd699a931d80cd3d2edac584e9004d",
-    "notes": "Full enacted public law (331 pp). Section 71119 starts at the line beginning 'SEC. 71119.' in the text file. Statute uses `` '' quote marks."
+    "notes": "Full enacted public law (331 pp). Section 71119 starts at the line beginning 'SEC. 71119.' in the text file. Statute uses `` '' quote marks.",
+    "retrieval": false
   },
   {
     "id": "cms-cib-2025-12-08",
@@ -118,5 +119,21 @@
     "text_path": "sources/text/US/medicaid-gov-ce-landing-2026-10-09.txt",
     "sha256": "7e90560d859aa70bb73eab7387fafa8c5f795054bc82e21b59f84131b8c862da",
     "notes": "Live page fetched on as_of date. Lists IFR, fact sheet, decks, CIB 12/08/2025, tech pledges. Contains no FAQs or SMD letters."
+  },
+  {
+    "id": "fed-statute-sec71119-2025-07-04",
+    "jurisdiction": "US",
+    "title": "Public Law 119-21 (H.R.1) Sec. 71119 \u2014 Medicaid community engagement requirements",
+    "publisher": "GPO / U.S. Congress",
+    "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm",
+    "wayback_url": null,
+    "as_of": "2025-07-04",
+    "retrieved_at": "2026-10-09T18:20:53Z",
+    "content_type": "text/html",
+    "raw_path": "sources/raw/US/fed-statute-hr1-pl119-21-2025-07-04.html",
+    "text_path": "sources/text/US/fed-statute-sec71119-2025-07-04.txt",
+    "sha256": "b82fb49e3fb7f4903b1a16a5aed24a747a82c49d4fa42bb639a35ee74c5c52cf",
+    "notes": "Section 71119 excerpted from the full public law text (same raw file) for retrieval.",
+    "retrieval": true
   }
 ]

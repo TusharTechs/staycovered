@@ -44,10 +44,30 @@ def chunks_for(source_id: str, size: int = 900, overlap: int = 150) -> tuple[Chu
     return tuple(out)
 
 
+def rank_facts(query: str, facts: list, k: int = 24) -> list:
+    """BM25 over fact statements + quotes; keeps the context focused on the question."""
+    if len(facts) <= k:
+        return facts
+    texts = [tokens(f.statement + " " + f.topic + " " + " ".join(c.quote for c in f.citations)) for f in facts]
+    df = Counter(t for ts in texts for t in set(ts))
+    N = len(texts)
+    avg = sum(len(ts) for ts in texts) / N
+    q = tokens(query)
+    scored = []
+    for f, ts in zip(facts, texts):
+        tf = Counter(ts)
+        sc = sum(math.log(1 + (N - df[t] + 0.5) / (df[t] + 0.5)) * tf[t] * 2.2 / (tf[t] + 1.2 * (0.25 + 0.75 * len(ts) / avg))
+                 for t in q if t in tf)
+        scored.append((sc, f))
+    scored.sort(key=lambda x: -x[0])
+    return [f for _, f in scored[:k]]
+
+
 def search(query: str, on: date, jurisdictions: set[str] | None = None, k: int = 8) -> list[tuple[float, Chunk]]:
     docs: list[Chunk] = []
     for s in sources.sources_as_of(on, jurisdictions):
-        docs.extend(chunks_for(s.id))
+        if s.retrieval:
+            docs.extend(chunks_for(s.id))
     if not docs:
         return []
     toks = [tokens(c.text) for c in docs]

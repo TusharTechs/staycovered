@@ -38,6 +38,7 @@ class Source:
     text_path: str
     wayback_url: str | None = None
     publisher: str = ""
+    retrieval: bool = True
 
     @property
     def text(self) -> str:
@@ -75,6 +76,7 @@ def all_sources() -> list[Source]:
                 text_path=e["text_path"],
                 wayback_url=e.get("wayback_url"),
                 publisher=e.get("publisher", ""),
+                retrieval=e.get("retrieval", True),
             )
         )
     return out
