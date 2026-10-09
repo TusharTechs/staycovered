@@ -32,7 +32,7 @@ class Contribution:
 class MonthResult:
     month: str  # YYYY-MM
     member_id: str
-    status: Literal["meets", "does_not_meet", "insufficient_evidence"]
+    status: Literal["meets", "depends_on_expenses", "does_not_meet", "insufficient_evidence"]
     path: str | None  # hours | household_income | combined | seasonal_average
     activity_hours: float
     household_income: float
@@ -43,6 +43,8 @@ class MonthResult:
     contributions: list[Contribution]
     ambiguities: list[str]
     facts_used: list[str]
+    gross_self_employment: float = 0.0
+    expense_headroom: float | None = None  # meets if business expenses are at most this much (depends_on_expenses)
 
 
 @dataclass
@@ -117,9 +119,12 @@ def _member_month(case: Case, member: Member, key: str, p: Params) -> MonthResul
     facts_used = [p.get(k).fact_id for k in ("monthly_hours", "min_wage", "income_multiplier_hours") if p.get(k).fact_id]
 
     activity_hours = 0.0
-    household_income = 0.0
-    member_income = 0.0
+    net_income = 0.0  # countable without further information (wages, unearned, stated net self-employment)
+    gross_se = 0.0  # gig/self-employment payouts before expenses: countable only after expenses
+    member_net = 0.0
+    member_gross = 0.0
     applicable = [m for m in case.household if m.applicable_adult]
+    household_basis = bool(p["income_basis_household"])
 
     for e in case.ledger:
         amt, share = prorate(e, key)
@@ -138,56 +143,96 @@ def _member_month(case: Case, member: Member, key: str, p: Params) -> MonthResul
             activity_hours += amt
             contributions.append(c)
         elif _income_value(e.kind):
-            counts_household = bool(p["income_basis_household"])
-            if counts_household or e.member_id == member.id:
-                household_income += amt
+            mine = e.member_id == member.id
+            if household_basis or mine:
                 contributions.append(c)
-            if e.member_id == member.id:
-                member_income += amt
-            if e.kind == Kind.SELF_EMPLOYMENT_GROSS:
-                msg = (f"Entry {e.id} is gross self-employment/gig income. MAGI counts self-employment income net of "
-                       "business expenses; if expenses exist, countable income may be lower.")
-                if msg not in ambiguities:
-                    ambiguities.append(msg)
+                if e.kind == Kind.SELF_EMPLOYMENT_GROSS:
+                    gross_se += amt
+                else:
+                    net_income += amt
+            if mine:
+                if e.kind == Kind.SELF_EMPLOYMENT_GROSS:
+                    member_gross += amt
+                else:
+                    member_net += amt
 
-    if p["income_basis_household"]:
+    if household_basis:
         facts_used.append(p.get("income_basis_household").fact_id or "default:income_basis_household")
+    if gross_se > 0:
+        ambiguities.append(
+            f"${gross_se:,.2f} is gig/self-employment payout before expenses. Income counts after business expenses "
+            "(fuel, mileage, phone), so only part of it may count."
+        )
 
-    # income -> hours proxy, allocated across applicable adults (equal split by default: a 'reasonable method')
-    income_hours = 0.0
-    if p["income_to_hours_allowed"] and float(p["min_wage"]) > 0:
-        pool_hours = household_income / float(p["min_wage"])
-        income_hours = pool_hours / max(1, len(applicable)) if p["income_basis_household"] else member_income / float(p["min_wage"])
-        if p["income_basis_household"] and len(applicable) > 1:
-            ambiguities.append(
-                f"Income-to-hours split equally across {len(applicable)} adults subject to the requirement; "
-                "the state chooses the allocation method."
-            )
-    combined = activity_hours + income_hours
+    min_wage = float(p["min_wage"])
+    hours_req = float(p["monthly_hours"])
+    n_adults = max(1, len(applicable))
+    if household_basis and len(applicable) > 1 and p["income_to_hours_allowed"]:
+        ambiguities.append(
+            f"Income-to-hours split equally across {len(applicable)} adults subject to the requirement; "
+            "the state chooses the allocation method."
+        )
 
-    seasonal_avg = None
-    if member.seasonal_worker:
+    def income_hours(inc_household: float, inc_member: float) -> float:
+        if not p["income_to_hours_allowed"] or min_wage <= 0:
+            return 0.0
+        return (inc_household / n_adults) / min_wage if household_basis else inc_member / min_wage
+
+    def seasonal(include_gross: bool) -> float | None:
+        if not member.seasonal_worker:
+            return None
         n = int(p["seasonal_months"])
         window = prev_months(month_bounds(key)[1] + timedelta(days=1), n)
         tot = 0.0
         for k2 in window:
             for e in case.ledger:
-                if _income_value(e.kind) and (p["income_basis_household"] or e.member_id == member.id):
-                    tot += prorate(e, k2)[0]
-        seasonal_avg = tot / n
+                if not _income_value(e.kind) or not (household_basis or e.member_id == member.id):
+                    continue
+                if e.kind == Kind.SELF_EMPLOYMENT_GROSS and not include_gross:
+                    continue
+                tot += prorate(e, k2)[0]
+        return tot / n
 
-    hours_req = float(p["monthly_hours"])
-    status, path = "does_not_meet", None
-    if activity_hours >= hours_req:
-        status, path = "meets", "hours"
-    elif household_income >= threshold:
-        status, path = "meets", "household_income"
-    elif combined >= hours_req:
-        status, path = "meets", "combined"
-    elif seasonal_avg is not None and seasonal_avg >= threshold:
-        status, path = "meets", "seasonal_average"
-    elif not contributions:
-        status = "insufficient_evidence"
+    def evaluate(inc: float, inc_member: float, include_gross: bool) -> str | None:
+        if activity_hours >= hours_req:
+            return "hours"
+        if inc >= threshold:
+            return "household_income"
+        if activity_hours + income_hours(inc, inc_member) >= hours_req:
+            return "combined"
+        sa = seasonal(include_gross)
+        if sa is not None and sa >= threshold:
+            return "seasonal_average"
+        return None
+
+    status, path, headroom = "does_not_meet", None, None
+    sure = evaluate(net_income, member_net, False)
+    if sure:
+        status, path = "meets", sure
+    else:
+        maybe = evaluate(net_income + gross_se, member_net + member_gross, True)
+        if maybe and gross_se > 0:
+            # Report the most forgiving path: how much in expenses can there be and the month still passes?
+            options = []
+            total = net_income + gross_se
+            if total >= threshold:
+                options.append(("household_income", total - threshold))
+            if p["income_to_hours_allowed"] and min_wage > 0:
+                need_income = max(0.0, hours_req - activity_hours) * min_wage * (n_adults if household_basis else 1)
+                have = total if household_basis else (member_net + member_gross)
+                if have >= need_income:
+                    options.append(("combined", have - need_income))
+            if options:
+                path, headroom = max(options, key=lambda o: o[1])
+            else:
+                path = maybe
+            status = "depends_on_expenses"
+        elif not contributions:
+            status = "insufficient_evidence"
+
+    household_income = net_income + gross_se
+    ih = income_hours(household_income, member_net + member_gross)
+    seasonal_avg = seasonal(True)
 
     return MonthResult(
         month=key,
@@ -197,25 +242,27 @@ def _member_month(case: Case, member: Member, key: str, p: Params) -> MonthResul
         activity_hours=round(activity_hours, 2),
         household_income=round(household_income, 2),
         income_threshold=round(threshold, 2),
-        income_hours_equivalent=round(income_hours, 2),
-        combined_hours=round(combined, 2),
+        income_hours_equivalent=round(ih, 2),
+        combined_hours=round(activity_hours + ih, 2),
         seasonal_average_income=None if seasonal_avg is None else round(seasonal_avg, 2),
         contributions=contributions,
         ambiguities=ambiguities,
         facts_used=[f for f in facts_used if f],
+        gross_self_employment=round(gross_se, 2),
+        expense_headroom=None if headroom is None else round(headroom, 2),
     )
 
 
 EXEMPTION_SCREENS: list[tuple[str, str, str, list[str]]] = [
     # attribute, key, label, candidate fact ids
-    ("pregnant_or_postpartum", "pregnant_postpartum", "Pregnant or postpartum", ["US.exemption.pregnant_postpartum"]),
-    ("caretaker_of_young_child", "caretaker_child", "Parent or caretaker of a young child", ["US.exemption.caretaker_child"]),
-    ("caretaker_of_disabled_person", "caretaker_disabled", "Caretaker of a person with a disability", ["US.exemption.caretaker_disabled"]),
-    ("veteran_total_disability", "veteran_disability", "Veteran with a total disability rating", ["US.exemption.veteran_total_disability"]),
-    ("american_indian_alaska_native", "ai_an", "American Indian / Alaska Native", ["US.exemption.ai_an"]),
-    ("in_sud_treatment", "sud_treatment", "In substance use disorder treatment", ["US.exemption.sud_treatment"]),
-    ("meets_snap_or_tanf_work_rules", "snap_tanf", "Meets SNAP or TANF work requirements", ["US.exemption.snap_tanf_compliance"]),
-    ("recently_incarcerated", "incarceration", "Incarcerated or recently released", ["US.exemption.incarceration"]),
+    ("pregnant_or_postpartum", "pregnant_postpartum", "Pregnant or postpartum", ["{J}.exemption.pregnant_postpartum", "US.exemption.pregnant_postpartum"]),
+    ("caretaker_of_young_child", "caretaker_child", "Parent or caretaker of a young child", ["{J}.exemption.parent_caregiver_dependent_child", "US.exemption.parent_caregiver_dependent_child"]),
+    ("caretaker_of_disabled_person", "caretaker_disabled", "Caretaker of a person with a disability", ["{J}.exemption.parent_caregiver_dependent_child", "US.exemption.parent_caregiver_dependent_child", "US.exemption.disabled_individual_definition"]),
+    ("veteran_total_disability", "veteran_disability", "Veteran with a total disability rating", ["{J}.exemption.veteran_total_disability", "US.exemption.veteran_total_disability"]),
+    ("american_indian_alaska_native", "ai_an", "American Indian / Alaska Native", ["{J}.exemption.american_indian_alaska_native", "US.exemption.american_indian_alaska_native"]),
+    ("in_sud_treatment", "sud_treatment", "In substance use disorder treatment", ["{J}.exemption.substance_use_treatment", "US.exemption.substance_use_treatment"]),
+    ("meets_snap_or_tanf_work_rules", "snap_tanf", "Meets SNAP or TANF work requirements", ["{J}.exemption.snap_work_requirements", "US.exemption.snap_work_requirements", "US.exemption.tanf_work_requirements"]),
+    ("recently_incarcerated", "incarceration", "Incarcerated or recently released", ["{J}.exemption.recent_inmate", "US.exemption.recent_inmate"]),
 ]
 
 
@@ -228,12 +275,12 @@ def screen_exemptions(case: Case, on: date) -> list[ExemptionFlag]:
             continue
         for attr, key, label, fids in EXEMPTION_SCREENS:
             if getattr(m, attr) is True:
-                found = [f for f in fids if rules.fact(f, on)]
+                found = [fid for f in fids if rules.fact(fid := f.format(J=case.jurisdiction), on) or rules.fact(fid)]
                 out.append(ExemptionFlag(m.id, key, label, found,
                                          "Possible exemption — confirm with the state agency and keep proof."))
         if m.medically_frail_indicators:
             out.append(ExemptionFlag(m.id, "medically_frail", "Possible medical frailty: " + ", ".join(m.medically_frail_indicators),
-                                     [f for f in ["US.exemption.medically_frail"] if rules.fact(f, on)],
+                                     [fid for f in ["{J}.exemption.medically_frail_definition", "US.exemption.medically_frail_definition"] if rules.fact(fid := f.format(J=case.jurisdiction))],
                                      "Ask the client's clinician for a statement; the agency decides frailty."))
     return out
 

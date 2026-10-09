@@ -52,12 +52,15 @@ Rules:
 
 def _context(question: str, jurisdiction: str, on: date, k: int = 8) -> tuple[str, list[str], list[str]]:
     juris = {"US", jurisdiction}
-    facts = rules.facts_as_of(on, juris)
+    facts = rules.facts_known(on, juris)
     hits = retrieval.search(question, on, juris, k=k)
     lines = [f"# Official rules as of {on.isoformat()} ({', '.join(sorted(juris))})", "", "## Facts"]
     for f in facts:
         cs = "; ".join(f'[{c.source_id}] "{c.quote}"' for c in f.citations[:2])
-        lines.append(f"- ({f.id}) {f.statement} — {cs}")
+        when = ""
+        if f.effective_from and f.effective_from > on:
+            when = f" [takes effect {f.effective_from.isoformat()}]"
+        lines.append(f"- ({f.id}){when} {f.statement} — {cs}")
     lines += ["", "## Passages"]
     for _, c in hits:
         s = sources.get(c.source_id)

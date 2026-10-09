@@ -1,0 +1,91 @@
+{
+  "case": {
+    "id": "tom-becker",
+    "jurisdiction": "NE",
+    "household": [
+      {
+        "id": "tom",
+        "name": "Tom Becker",
+        "age": 58,
+        "applicable_adult": true,
+        "seasonal_worker": false,
+        "pregnant_or_postpartum": null,
+        "caretaker_of_young_child": null,
+        "caretaker_of_disabled_person": null,
+        "veteran_total_disability": null,
+        "american_indian_alaska_native": null,
+        "medically_frail_indicators": [],
+        "in_sud_treatment": null,
+        "meets_snap_or_tanf_work_rules": null,
+        "recently_incarcerated": null
+      },
+      {
+        "id": "linda",
+        "name": "Linda Becker",
+        "age": 55,
+        "applicable_adult": false,
+        "seasonal_worker": false,
+        "pregnant_or_postpartum": null,
+        "caretaker_of_young_child": null,
+        "caretaker_of_disabled_person": null,
+        "veteran_total_disability": null,
+        "american_indian_alaska_native": null,
+        "medically_frail_indicators": [],
+        "in_sud_treatment": null,
+        "meets_snap_or_tanf_work_rules": null,
+        "recently_incarcerated": null
+      }
+    ],
+    "client_id": "tom",
+    "ledger": [
+      {
+        "id": "becker-stub-r1",
+        "member_id": "linda",
+        "kind": "earned_income",
+        "period_start": "2026-09-01",
+        "period_end": "2026-09-30",
+        "amount": 2104.0,
+        "payer": "Heartland Medical Billing",
+        "source": {
+          "doc_id": "becker-stub",
+          "span": "Gross earnings: $2,104.00",
+          "page": null
+        },
+        "note": ""
+      }
+    ],
+    "event": "renewal",
+    "event_date": "2026-10-12",
+    "notice_date": null,
+    "notes": ""
+  },
+  "client_name": "Tom Becker",
+  "navigator": "Demo navigator",
+  "language": "en",
+  "documents": [
+    {
+      "id": "becker-stub",
+      "name": "Linda's pay statement",
+      "kind": "income",
+      "member_id": "linda",
+      "text": "Heartland Medical Billing — Pay Statement (SYNTHETIC)\nEmployee: Linda Becker\nPay period: September 1, 2026 to September 30, 2026\nGross earnings: $2,104.00\n",
+      "extracted": {
+        "gold": [
+          {
+            "kind": "earned_income",
+            "period_start": "2026-09-01",
+            "period_end": "2026-09-30",
+            "amount": 2104.0,
+            "payer": "Heartland Medical Billing",
+            "span": "Gross earnings: $2,104.00"
+          }
+        ]
+      },
+      "problems": []
+    }
+  ],
+  "notice": null,
+  "flags": [],
+  "synthetic": true,
+  "updated": "2026-10-09"
+}

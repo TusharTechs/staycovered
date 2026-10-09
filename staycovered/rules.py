@@ -53,6 +53,17 @@ def _d(v: Any) -> date | None:
     return date.fromisoformat(str(v)[:10])
 
 
+def _known_from(declared: date | None, cites: tuple[Citation, ...]) -> date | None:
+    """A fact is knowable from the earliest captured source that states it; the declared date is only a fallback."""
+    dates = []
+    for c in cites:
+        try:
+            dates.append(sources.get(c.source_id).as_of)
+        except KeyError:
+            pass
+    return min(dates) if dates else declared
+
+
 @lru_cache(maxsize=1)
 def _load() -> tuple[Fact, ...]:
     facts: list[Fact] = []
@@ -60,6 +71,7 @@ def _load() -> tuple[Fact, ...]:
         doc = yaml.safe_load(p.read_text()) or {}
         j = doc.get("jurisdiction", p.stem)
         for f in doc.get("facts", []) or []:
+            cites = tuple(Citation(c["source_id"], c["quote"]) for c in f.get("citations", []) or [])
             facts.append(
                 Fact(
                     id=f["id"],
@@ -70,8 +82,8 @@ def _load() -> tuple[Fact, ...]:
                     unit=f.get("unit"),
                     effective_from=_d(f.get("effective_from")),
                     effective_to=_d(f.get("effective_to")),
-                    known_from=_d(f.get("known_from")),
-                    citations=tuple(Citation(c["source_id"], c["quote"]) for c in f.get("citations", []) or []),
+                    known_from=_known_from(_d(f.get("known_from")), cites),
+                    citations=cites,
                     confidence=f.get("confidence", "high"),
                     notes=f.get("notes", "") or "",
                 )
@@ -96,6 +108,18 @@ def facts_as_of(on: date, jurisdictions: set[str] | None = None, *, require_know
         if not f.in_force(on):
             continue
         if require_knowable and not f.knowable(on):
+            continue
+        out.append(f)
+    return out
+
+
+def facts_known(on: date, jurisdictions: set[str] | None = None) -> list[Fact]:
+    """Facts published by `on` that are in force on `on` or scheduled to take effect later (not yet expired)."""
+    out = []
+    for f in _load():
+        if jurisdictions and f.jurisdiction not in jurisdictions:
+            continue
+        if not f.knowable(on) or (f.effective_to and on >= f.effective_to):
             continue
         out.append(f)
     return out

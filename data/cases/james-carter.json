@@ -1,0 +1,144 @@
+{
+  "case": {
+    "id": "james-carter",
+    "jurisdiction": "NE",
+    "household": [
+      {
+        "id": "james",
+        "name": "James Carter",
+        "age": 41,
+        "applicable_adult": true,
+        "seasonal_worker": true,
+        "pregnant_or_postpartum": null,
+        "caretaker_of_young_child": null,
+        "caretaker_of_disabled_person": null,
+        "veteran_total_disability": null,
+        "american_indian_alaska_native": null,
+        "medically_frail_indicators": [],
+        "in_sud_treatment": null,
+        "meets_snap_or_tanf_work_rules": null,
+        "recently_incarcerated": null
+      }
+    ],
+    "client_id": "james",
+    "ledger": [
+      {
+        "id": "james-stub-r1",
+        "member_id": "james",
+        "kind": "earned_income",
+        "period_start": "2026-05-01",
+        "period_end": "2026-05-31",
+        "amount": 3612.0,
+        "payer": "Prairie Roof & Siding",
+        "source": {
+          "doc_id": "james-stub",
+          "span": "Pay period: 05/01/2026 - 05/31/2026   Hours: 172.0   Gross pay: $3,612.00",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "james-stub-r2",
+        "member_id": "james",
+        "kind": "earned_income",
+        "period_start": "2026-06-01",
+        "period_end": "2026-06-30",
+        "amount": 3811.5,
+        "payer": "Prairie Roof & Siding",
+        "source": {
+          "doc_id": "james-stub",
+          "span": "Pay period: 06/01/2026 - 06/30/2026   Hours: 181.5   Gross pay: $3,811.50",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "james-stub-r3",
+        "member_id": "james",
+        "kind": "earned_income",
+        "period_start": "2026-07-01",
+        "period_end": "2026-07-31",
+        "amount": 3696.0,
+        "payer": "Prairie Roof & Siding",
+        "source": {
+          "doc_id": "james-stub",
+          "span": "Pay period: 07/01/2026 - 07/31/2026   Hours: 176.0   Gross pay: $3,696.00",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "james-stub-r4",
+        "member_id": "james",
+        "kind": "earned_income",
+        "period_start": "2026-08-01",
+        "period_end": "2026-08-15",
+        "amount": 1701.0,
+        "payer": "Prairie Roof & Siding",
+        "source": {
+          "doc_id": "james-stub",
+          "span": "Pay period: 08/01/2026 - 08/15/2026   Hours: 81.0    Gross pay: $1,701.00",
+          "page": null
+        },
+        "note": ""
+      }
+    ],
+    "event": "renewal",
+    "event_date": "2026-10-05",
+    "notice_date": null,
+    "notes": ""
+  },
+  "client_name": "James Carter",
+  "navigator": "Demo navigator",
+  "language": "en",
+  "documents": [
+    {
+      "id": "james-stub",
+      "name": "Prairie Roof earnings statement",
+      "kind": "income",
+      "member_id": "james",
+      "text": "PRAIRIE ROOF & SIDING LLC — EARNINGS STATEMENT (SYNTHETIC)\nEmployee: James Carter\nSeasonal crew — season ended Aug 15, 2026\nPay period: 05/01/2026 - 05/31/2026   Hours: 172.0   Gross pay: $3,612.00\nPay period: 06/01/2026 - 06/30/2026   Hours: 181.5   Gross pay: $3,811.50\nPay period: 07/01/2026 - 07/31/2026   Hours: 176.0   Gross pay: $3,696.00\nPay period: 08/01/2026 - 08/15/2026   Hours: 81.0    Gross pay: $1,701.00\n",
+      "extracted": {
+        "gold": [
+          {
+            "kind": "earned_income",
+            "period_start": "2026-05-01",
+            "period_end": "2026-05-31",
+            "amount": 3612.0,
+            "payer": "Prairie Roof & Siding",
+            "span": "Pay period: 05/01/2026 - 05/31/2026   Hours: 172.0   Gross pay: $3,612.00"
+          },
+          {
+            "kind": "earned_income",
+            "period_start": "2026-06-01",
+            "period_end": "2026-06-30",
+            "amount": 3811.5,
+            "payer": "Prairie Roof & Siding",
+            "span": "Pay period: 06/01/2026 - 06/30/2026   Hours: 181.5   Gross pay: $3,811.50"
+          },
+          {
+            "kind": "earned_income",
+            "period_start": "2026-07-01",
+            "period_end": "2026-07-31",
+            "amount": 3696.0,
+            "payer": "Prairie Roof & Siding",
+            "span": "Pay period: 07/01/2026 - 07/31/2026   Hours: 176.0   Gross pay: $3,696.00"
+          },
+          {
+            "kind": "earned_income",
+            "period_start": "2026-08-01",
+            "period_end": "2026-08-15",
+            "amount": 1701.0,
+            "payer": "Prairie Roof & Siding",
+            "span": "Pay period: 08/01/2026 - 08/15/2026   Hours: 81.0    Gross pay: $1,701.00"
+          }
+        ]
+      },
+      "problems": []
+    }
+  ],
+  "notice": null,
+  "flags": [],
+  "synthetic": true,
+  "updated": "2026-10-09"
+}

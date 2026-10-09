@@ -1,0 +1,133 @@
+{
+  "case": {
+    "id": "aisha-mohammed",
+    "jurisdiction": "NE",
+    "household": [
+      {
+        "id": "aisha",
+        "name": "Aisha Mohammed",
+        "age": 29,
+        "applicable_adult": true,
+        "seasonal_worker": false,
+        "pregnant_or_postpartum": null,
+        "caretaker_of_young_child": null,
+        "caretaker_of_disabled_person": null,
+        "veteran_total_disability": null,
+        "american_indian_alaska_native": null,
+        "medically_frail_indicators": [],
+        "in_sud_treatment": null,
+        "meets_snap_or_tanf_work_rules": null,
+        "recently_incarcerated": null
+      }
+    ],
+    "client_id": "aisha",
+    "ledger": [
+      {
+        "id": "aisha-stub-r1",
+        "member_id": "aisha",
+        "kind": "earned_income",
+        "period_start": "2026-09-01",
+        "period_end": "2026-09-30",
+        "amount": 702.0,
+        "payer": "Corner Grocers",
+        "source": {
+          "doc_id": "aisha-stub",
+          "span": "Gross: $702.00",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "aisha-stub-r2",
+        "member_id": "aisha",
+        "kind": "work_hours",
+        "period_start": "2026-09-01",
+        "period_end": "2026-09-30",
+        "amount": 52.0,
+        "payer": "Corner Grocers",
+        "source": {
+          "doc_id": "aisha-stub",
+          "span": "Regular hours: 52.00",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "aisha-pantry-r1",
+        "member_id": "aisha",
+        "kind": "community_service_hours",
+        "period_start": "2026-09-01",
+        "period_end": "2026-09-30",
+        "amount": 20.0,
+        "payer": "Lincoln Community Food Pantry",
+        "source": {
+          "doc_id": "aisha-pantry",
+          "span": "for a total of 20 hours",
+          "page": null
+        },
+        "note": ""
+      }
+    ],
+    "event": "noncompliance_notice",
+    "event_date": "2026-10-01",
+    "notice_date": "2026-10-02",
+    "notes": ""
+  },
+  "client_name": "Aisha Mohammed",
+  "navigator": "Demo navigator",
+  "language": "en",
+  "documents": [
+    {
+      "id": "aisha-stub",
+      "name": "Corner Grocers pay stub",
+      "kind": "income",
+      "member_id": "aisha",
+      "text": "Corner Grocers — Pay Stub (SYNTHETIC)\nEmployee: Aisha Mohammed\nPay period: 09/01/2026 - 09/30/2026\nRegular hours: 52.00   Rate: $13.50   Gross: $702.00\n",
+      "extracted": {
+        "gold": [
+          {
+            "kind": "earned_income",
+            "period_start": "2026-09-01",
+            "period_end": "2026-09-30",
+            "amount": 702.0,
+            "payer": "Corner Grocers",
+            "span": "Gross: $702.00"
+          },
+          {
+            "kind": "work_hours",
+            "period_start": "2026-09-01",
+            "period_end": "2026-09-30",
+            "amount": 52.0,
+            "payer": "Corner Grocers",
+            "span": "Regular hours: 52.00"
+          }
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "aisha-pantry",
+      "name": "Food pantry volunteer letter",
+      "kind": "income",
+      "member_id": "aisha",
+      "text": "Lincoln Community Food Pantry (SYNTHETIC)\nTo whom it may concern,\nAisha Mohammed volunteered with our pantry in September 2026 for a total of 20 hours (sorting and distribution).\nSigned, Volunteer Coordinator\n",
+      "extracted": {
+        "gold": [
+          {
+            "kind": "community_service_hours",
+            "period_start": "2026-09-01",
+            "period_end": "2026-09-30",
+            "amount": 20.0,
+            "payer": "Lincoln Community Food Pantry",
+            "span": "for a total of 20 hours"
+          }
+        ]
+      },
+      "problems": []
+    }
+  ],
+  "notice": null,
+  "flags": [],
+  "synthetic": true,
+  "updated": "2026-10-09"
+}

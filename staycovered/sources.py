@@ -24,6 +24,7 @@ def norm(text: str) -> str:
         .replace("—", "-")
         .replace(" ", " ")
     )
+    text = text.replace(" ", " ").replace(" ", " ").replace("​", "")
     return _WS.sub(" ", text).strip()
 
 

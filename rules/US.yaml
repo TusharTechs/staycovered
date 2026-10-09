@@ -1,0 +1,1823 @@
+# Federal fact pack for StayCovered. Generated; every citation quote is verified verbatim by scripts/verify_citations.py
+jurisdiction: US
+name: United States (federal)
+facts:
+- id: US.applicability.geography
+  topic: applicability
+  statement: The community engagement requirement applies to the 50 States and DC, not the territories.
+  value:
+  - 50 states
+  - DC
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: apply to the 50 States and the District of Columbia. These sections do not apply to the territories.
+  confidence: high
+  notes: ''
+- id: US.applicability.adult_group
+  topic: applicability
+  statement: Applicable individuals include those eligible for or enrolled in the Medicaid adult (expansion)
+    group at 42 CFR 435.119, unless they are specified excluded individuals.
+  value: 42 CFR 435.119
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: An applicable individual is an individual who is not a specified excluded individual as defined
+      at Sec. 435.554 and who is--
+  - source_id: fed-ifr-2026-06-03
+    quote: (a) Eligible to enroll or is enrolled under the State plan under Sec. 435.119; or
+  - source_id: fed-ifr-2026-06-03
+    quote: (d) Community engagement. As of the implementation date in accordance with Sec. 435.559, the
+      50 States and the District of Columbia must provide that eligibility under this section is subject
+      to the community engagement requirement
+  confidence: high
+  notes: ''
+- id: US.applicability.age_range
+  topic: applicability
+  statement: The adult group covers individuals age 19 through 64; the 1115-demonstration prong of 'applicable
+    individual' likewise requires at least 19 and under 65.
+  value:
+  - 19
+  - 64
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: Coverage for individuals age 19 or older and under age 65 at or below 133 percent FPL
+  - source_id: fed-ifr-2026-06-03
+    quote: (1) At least 19 and under 65 years of age;
+  confidence: high
+  notes: ''
+- id: US.applicability.section_1115_demonstrations
+  topic: applicability
+  statement: Individuals in a section 1115 demonstration providing minimum essential coverage are applicable
+    individuals if 19-64, not pregnant, not on Medicare, and not otherwise eligible under the State plan.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: '(b) Otherwise eligible to enroll or is enrolled in a demonstration project under section 1115(a)(2)
+      of the Act that provides coverage that meets minimum essential coverage requirements as defined
+      under Sec. 435.4, and who is:'
+  - source_id: fed-ifr-2026-06-03
+    quote: (4) Not otherwise eligible to enroll under the State plan.
+  confidence: high
+  notes: ''
+- id: US.applicability.waiver_prohibited
+  topic: applicability
+  statement: Federal law prohibits waiving the community engagement requirement under section 1115.
+  value: true
+  unit: bool
+  effective_from: '2025-07-04'
+  effective_to: null
+  known_from: '2025-07-04'
+  citations:
+  - source_id: fed-statute-hr1-pl119-21-2025-07-04
+    quote: Notwithstanding section 1115(a), the provisions of this subsection may not be waived.
+  confidence: high
+  notes: ''
+- id: US.requirement.hours_per_month
+  topic: requirement
+  statement: An applicable individual meets the requirement for a month by working not less than 80 hours.
+  value: 80
+  unit: hours
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (1) The individual works not less than 80 hours.
+  confidence: high
+  notes: ''
+- id: US.requirement.community_service
+  topic: requirement
+  statement: Completing not less than 80 hours of community service in a month satisfies the requirement.
+  value: 80
+  unit: hours
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (2) The individual completes not less than 80 hours of community service.
+  confidence: high
+  notes: ''
+- id: US.requirement.work_program
+  topic: requirement
+  statement: Participating in a work program for not less than 80 hours in a month satisfies the requirement.
+  value: 80
+  unit: hours
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (3) The individual participates in a work program for not less than 80 hours.
+  confidence: high
+  notes: ''
+- id: US.requirement.education_half_time
+  topic: requirement
+  statement: Being enrolled in an educational program at least half-time satisfies the requirement for
+    the month (no hour count needed).
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (4) The individual is enrolled in an educational program at least half-time.
+  confidence: high
+  notes: ''
+- id: US.requirement.combination
+  topic: requirement
+  statement: Any combination of work, community service, and work-program activities totaling at least
+    80 hours satisfies the requirement; educational hours cannot be combined if the person is enrolled
+    at least half-time.
+  value: 80
+  unit: hours
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: for a total of not less than 80 hours; however, States are not permitted to combine educational
+      program hours with another activity if the individual is enrolled in an educational program at least
+      half-time.
+  confidence: high
+  notes: ''
+- id: US.requirement.work_definition
+  topic: requirement
+  statement: Work includes paid work, in-kind work (goods or services), and unpaid work other than community
+    service.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (ii) Work in exchange for goods or services (``in-kind'' work); and
+  - source_id: fed-ifr-2026-06-03
+    quote: (iii) Unpaid work (other than community service as defined in this paragraph (b)).
+  confidence: high
+  notes: ''
+- id: US.requirement.community_service_definition
+  topic: requirement
+  statement: Community service is unpaid work with a structured program for the direct benefit of the
+    community under public or nonprofit auspices; the organization must be able to track and confirm hours
+    and must not serve a partisan purpose.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: Community service means unpaid work, completed voluntarily or because of a mandate by court
+      order, with a structured program
+  - source_id: fed-ifr-2026-06-03
+    quote: a point of contact who can confirm the hours completed.
+  confidence: high
+  notes: ''
+- id: US.requirement.educational_program_definition
+  topic: requirement
+  statement: Educational program means higher education, career and technical education, high school,
+    or a State-approved high-school-equivalency program.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (i) An institution of higher education as defined in section 101 of the Higher Education Act
+      of 1965 (20 U.S.C. 1001);
+  - source_id: fed-ifr-2026-06-03
+    quote: (iv) A State-approved program of study leading to a certificate of high school equivalence
+      for an applicable individual who has not received a high school diploma.
+  confidence: high
+  notes: ''
+- id: US.requirement.enrollment_status_set_by_school
+  topic: requirement
+  statement: Half-time vs full-time vs less-than-half-time status is determined by the school or institution.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: enrollment status in an educational program (full-time, half-time, less than half-time) is
+      determined by the school or institution.
+  confidence: high
+  notes: ''
+- id: US.requirement.less_than_half_time_hours
+  topic: requirement
+  statement: For credit-hour programs with less-than-half-time enrollment, educational hours = credit
+    hours x 3 hours per week x 4.33 weeks; these hours are added to other activity hours.
+  value:
+    hours_per_credit_hour_per_week: 3
+    weeks_per_month: 4.33
+  unit: hours
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (i) Multiply the number of each one credit hour of instruction by 3 to get the total of education
+      hours in a week.
+  - source_id: fed-ifr-2026-06-03
+    quote: by 4.33 weeks to get total hours in a 1-month period.
+  confidence: high
+  notes: ''
+- id: US.requirement.work_program_definition
+  topic: requirement
+  statement: Work program means WIOA title I programs, Trade Act section 236 programs, State-approved
+    employment and training programs (including SNAP E&T), veterans employment and training programs,
+    and SNAP workforce partnerships; supervised job search alone does not qualify.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (i) A program under title I of the Workforce Innovation and Opportunity Act (WIOA)
+  - source_id: fed-ifr-2026-06-03
+    quote: other than a supervised job search program or job search training program.
+  confidence: high
+  notes: ''
+- id: US.income_alternative.threshold_formula
+  topic: income_alternative
+  statement: A person meets the requirement for a month if monthly income is at least the Federal minimum
+    wage multiplied by 80 hours.
+  value: federal_minimum_wage * 80
+  unit: usd
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (1) An applicable individual demonstrates community engagement for a month if the individual
+      has a monthly income that is not less than the applicable Federal minimum wage requirement under
+      29 U.S.C. 206(a)(1)(C) multiplied by 80 hours.
+  confidence: high
+  notes: ''
+- id: US.income_alternative.threshold_2026
+  topic: income_alternative
+  statement: With the 2026 Federal minimum wage of $7.25/hour, the monthly income threshold is $580.
+  value: 580
+  unit: usd
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: In 2026, the Federal minimum wage is $7.25 per hour,
+  - source_id: fed-ifr-2026-06-03
+    quote: multiplied by 80 equals $580.
+  confidence: high
+  notes: Uses the Federal minimum wage in effect when the State applies the test; the IFR notes this would
+    change if FLSA section 6 is amended.
+- id: US.income_alternative.federal_wage_only
+  topic: income_alternative
+  statement: States may not substitute a higher or lower State minimum wage, a tipped wage, or the $4.25
+    introductory youth wage; the single Federal minimum wage in 29 U.S.C. 206(a)(1)(C) applies.
+  value: 7.25
+  unit: usd
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: States may not use such State-specific minimum wages in place of the applicable Federal minimum
+      wage
+  - source_id: fed-ifr-2026-06-03
+    quote: States may not use a tipped wage (regardless of the industry or type of work) to identify the
+      income threshold
+  - source_id: fed-ifr-2026-06-03
+    quote: we interpret the Federal minimum wage to be the single, general minimum wage at section 6(a)(1)(C)
+      of the FLSA for all applicable individuals
+  confidence: high
+  notes: ''
+- id: US.income_alternative.magi_household_income
+  topic: income_alternative
+  statement: Monthly income for the income test is MAGI-based income for the person's MAGI household (42
+    CFR 435.603), i.e. total household income, not just the individual's own earnings.
+  value: MAGI household income
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (2) The agency must determine the monthly income based on the individual's MAGI-based income,
+      for their MAGI-based household, as defined at Sec. 435.603
+  - source_id: fed-ifr-2026-06-03
+    quote: Under Sec. 435.603(d) and (f), household income is the total income of everyone in the individual's
+      household.
+  confidence: high
+  notes: ''
+- id: US.income_alternative.earned_and_unearned
+  topic: income_alternative
+  statement: Countable MAGI income includes earned income and countable unearned income; CMS rejected
+    counting only earned income.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: generally includes earned income as well as countable unearned income, meaning that States
+      must take into account all of this income
+  - source_id: fed-ifr-2026-06-03
+    quote: We considered using different interpretations of ``monthly income'' for the calculation. For
+      example, we considered counting only earned income
+  confidence: high
+  notes: ''
+- id: US.income_alternative.assessed_month
+  topic: income_alternative
+  statement: Income is evaluated for the month(s) of the review period being assessed (not the month of
+    application or renewal).
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: States generally must evaluate the monthly income for the month or months of the review period
+  confidence: high
+  notes: ''
+- id: US.income_alternative.applies_to_1115
+  topic: income_alternative
+  statement: MAGI-based income counting is required even for 1115-demonstration populations that do not
+    otherwise use MAGI.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: we nevertheless require States to use MAGI-based methodologies for the purpose of determining
+      income under Sec. 435.552(f) and (g)
+  confidence: high
+  notes: ''
+- id: US.income_alternative.seasonal_worker
+  topic: income_alternative
+  statement: A seasonal worker (26 USC 45R(d)(5)(B)) meets the requirement if average monthly income over
+    the preceding six months is at least Federal minimum wage x 80 hours.
+  value:
+    months: 6
+    threshold_2026_usd: 580
+  unit: usd
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: had an average monthly income over the preceding six months that is not less than the applicable
+      Federal minimum wage requirement under 29 U.S.C. 206(a)(1)(C) multiplied by 80 hours.
+  confidence: high
+  notes: ''
+- id: US.income_alternative.seasonal_worker_mechanics
+  topic: income_alternative
+  statement: 'Where a State has no reasonably-predictable-changes methodology, the seasonal test averages
+    the 6 months preceding each assessed month; where it does, the State''s prorated MAGI monthly income
+    is used. Example: 2 months at $1,500 averaged over 6 = $500, below $580.'
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: the State would use the individual's average income over the preceding 6 months, as provided
+      at section 1902(xx)(2)(G) of the Act.
+  - source_id: fed-ifr-2026-06-03
+    quote: Because $500 is below $580, this individual is not considered to be demonstrating community
+      engagement in June based on the 6-month average monthly income for seasonal workers.
+  - source_id: fed-ifr-2026-06-03
+    quote: States must use their reasonably predictable changes methodology to determine monthly income
+      when an individual has fluctuating income that is subject to the State's methodology.
+  confidence: medium
+  notes: ''
+- id: US.income_alternative.income_to_hours_option
+  topic: income_alternative
+  statement: If monthly income is below Federal minimum wage x 80 and the State has no documentation of
+    hours worked, the State may convert income to work hours by dividing monthly MAGI income by the Federal
+    minimum wage; the resulting hours are combined with other activities.
+  value: income / federal_minimum_wage
+  unit: hours
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: the agency must calculate the hours for work by dividing the monthly income as determined under
+      paragraph (f)(2) of this section by the applicable Federal minimum wage requirement under 29 U.S.C.
+      206(a)(1)(C).
+  - source_id: fed-ifr-2026-06-03
+    quote: this option must only be used when the monthly income is less than the applicable Federal minimum
+      wage multiplied by 80 hours and the State does not have information regarding the number of hours
+      worked
+  confidence: high
+  notes: State option ('may'); the division is mandatory only if the State elects the option.
+- id: US.income_alternative.income_to_hours_example
+  topic: income_alternative
+  statement: 'CMS example: $380 verified monthly income / $7.25 = 52 hours worked, leaving 28 more hours
+    needed from other activities.'
+  value:
+    income: 380
+    hours_credited: 52
+    hours_remaining: 28
+  unit: hours
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: the individual can be credited with having worked 52 hours for the month ($380 divided by $7.25).
+      The individual would then need to participate in an additional 28 hours (80-52 = 28) of community
+      engagement activities to meet the requirement for the month.
+  confidence: high
+  notes: ''
+- id: US.income_alternative.household_allocation
+  topic: income_alternative
+  statement: When converting household MAGI income to hours, the State must use a reasonable method to
+    allocate work hours between members of the household; the IFR does not prescribe the method.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: the agency must use a reasonable method to allocate work hours between members of the household.
+  - source_id: fed-ifr-2026-06-03
+    quote: the State must use a reasonable method to allocate hours, between members of the household.
+  confidence: high
+  notes: ''
+- id: US.lookback.application
+  topic: lookback
+  statement: At application, the State requires demonstration of community engagement for at least 1 but
+    not more than 3 consecutive months immediately preceding the month of application, as specified by
+    the State.
+  value:
+    min: 1
+    max: 3
+  unit: months
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: demonstration of community engagement for at least one, but not more than 3 consecutive months,
+      as specified in the State plan, immediately preceding the month of application.
+  confidence: high
+  notes: ''
+- id: US.lookback.renewal
+  topic: lookback
+  statement: At renewal, the State requires demonstration for 1 or more months (State-specified), consecutive
+    or not, within the period between the most recent determination/redetermination and the date renewal
+    is due.
+  value:
+    min: 1
+  unit: months
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: months, as specified in the State plan and subject to paragraph (b) of this section, whether
+      or not consecutive--
+  - source_id: fed-ifr-2026-06-03
+    quote: During the period between the effective date of such individual's most recent determination
+      or redetermination at renewal, as applicable, and the date the individual's renewal is due
+  confidence: high
+  notes: The number of months is set by each State plan; no federal maximum is stated for renewal other
+    than the cap that the requirement cannot exceed the period since the last determination.
+- id: US.lookback.no_longer_than_eligibility_period
+  topic: lookback
+  statement: A State may not require demonstration for a period longer than the applicable review period.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (b) A State must not require an applicable individual to demonstrate community engagement for
+      a period that exceeds the period specified in paragraph (a)(2)(i), (ii), or (iii) of this section,
+      as applicable.
+  confidence: high
+  notes: ''
+- id: US.lookback.first_renewal_after_implementation
+  topic: lookback
+  statement: For a beneficiary enrolled as of the State's implementation date, compliance must be verified
+    at the first renewal initiated on or after the implementation date.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: the agency must verify compliance with the community engagement requirement at the applicable
+      individual's first renewal initiated on or after the implementation date.
+  confidence: high
+  notes: ''
+- id: US.verification.frequency_renewal
+  topic: verification
+  statement: Compliance is verified at each regularly scheduled redetermination; most affected adults
+    renew every 6 months under SSA 1902(e)(14)(L) (not American Indians or most 1115 enrollees, who renew
+    every 12 months).
+  value:
+    default_months_between_renewals: 6
+  unit: months
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2025-07-04'
+  citations:
+  - source_id: fed-statute-hr1-pl119-21-2025-07-04
+    quote: the State shall verify (in accordance with procedures specified by the Secretary) that each
+      such individual has met the requirement to demonstrate community engagement under paragraph (1)
+      during each such individual's regularly scheduled redetermination of eligibility, except that a
+      State may provide for such verifications more frequently.
+  - source_id: fed-ifr-2026-06-03
+    quote: most individuals required to demonstrate community engagement are also subject to the new 6-month
+      renewal requirement under section 1902(e)(14)(L) of the Act.
+  - source_id: fed-ifr-2026-06-03
+    quote: The 6-month renewal requirement does not apply to American Indians or to individuals enrolled
+      in section 1115 demonstrations
+  confidence: medium
+  notes: ''
+- id: US.verification.more_frequent_option
+  topic: verification
+  statement: States may verify compliance more frequently than each regularly scheduled redetermination.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: (d) State option to conduct more frequent verifications. States may verify that an applicable
+      individual has met the requirement to demonstrate community engagement more frequently than each
+      regularly scheduled redetermination
+  - source_id: fed-ifr-2026-06-03
+    quote: (d) State option to conduct more frequent verifications. States may verify that an applicable
+      individual has met the requirement to demonstrate community engagement more frequently than each
+      regularly scheduled redetermination
+  confidence: high
+  notes: ''
+- id: US.verification.ex_parte_first
+  topic: verification
+  statement: States must use reliable information available to them (data matches, payroll, claims, etc.)
+    to verify compliance, deemed compliance, or exclusion before requesting additional information from
+    the individual.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: The agency must establish processes to use reliable information available to the State to verify
+      that an applicable individual has demonstrated community engagement
+  - source_id: fed-ifr-2026-06-03
+    quote: The agency must establish processes to use reliable information available to the State to verify
+      that an applicable individual has demonstrated community engagement
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: before requesting additional information from the individual.
+  - source_id: fed-ifr-2026-06-03
+    quote: before requesting additional information from the individual.
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: An individual must not be required to provide documentation or other additional information
+      unless information needed by the agency could not be verified using reliable information available
+      to the State
+  - source_id: fed-ifr-2026-06-03
+    quote: An individual must not be required to provide documentation or other additional information
+      unless information needed by the agency could not be verified using reliable information available
+      to the State
+  confidence: high
+  notes: ''
+- id: US.verification.reliable_information_sources
+  topic: verification
+  statement: Reliable information includes electronic data sources, other agency data, the Federal data
+    service, case records, payroll data, claims adjudicated in the preceding 12 months, and encounter
+    data for the preceding 12 months.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: (vi) Payroll data;
+  - source_id: fed-ifr-2026-06-03
+    quote: (vi) Payroll data;
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: (vii) Claim(s) relevant to the individual that have been adjudicated in the preceding 12 months,
+      including those that have been paid, pended or denied; and
+  - source_id: fed-ifr-2026-06-03
+    quote: (vii) Claim(s) relevant to the individual that have been adjudicated in the preceding 12 months,
+      including those that have been paid, pended or denied; and
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: (viii) Encounter data, as relevant to the individual, for the preceding 12 months.
+  - source_id: fed-ifr-2026-06-03
+    quote: (viii) Encounter data, as relevant to the individual, for the preceding 12 months.
+  confidence: high
+  notes: ''
+- id: US.verification.federal_data_service
+  topic: verification
+  statement: States must obtain compliance information through the Secretary's electronic data service
+    to the extent available there.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: The agency must obtain information regarding compliance with or exception or exclusion from
+      the community engagement requirement through the electronic data service established by the Secretary
+      to the extent the information is available through such service
+  - source_id: fed-ifr-2026-06-03
+    quote: The agency must obtain information regarding compliance with or exception or exclusion from
+      the community engagement requirement through the electronic data service established by the Secretary
+      to the extent the information is available through such service
+  confidence: high
+  notes: ''
+- id: US.verification.self_attestation_through_2027
+  topic: verification
+  statement: Before January 1, 2028, when no reliable data exists or it is not reasonably compatible with
+    what the person reports, the State may require documentation or accept other information (including
+    attestation) per 42 CFR 435.952(c).
+  value:
+    applies_before: '2028-01-01'
+  unit: date
+  effective_from: '2027-01-01'
+  effective_to: '2027-12-31'
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: (i) Before January 1, 2028, the agency may require documentation or accept other information
+      as provided in Sec. 435.952(c) when there is no reliable information available to the State or the
+      reliable information is not reasonably compatible with the information provided by or on behalf
+      of the individual.
+  - source_id: fed-ifr-2026-06-03
+    quote: (i) Before January 1, 2028, the agency may require documentation or accept other information
+      as provided in Sec. 435.952(c) when there is no reliable information available to the State or the
+      reliable information is not reasonably compatible with the information provided by or on behalf
+      of the individual.
+  confidence: high
+  notes: ''
+- id: US.verification.documentation_from_2028
+  topic: verification
+  statement: Beginning January 1, 2028, when data is missing or not reasonably compatible, the State must
+    require documentation whenever it is reasonably available.
+  value:
+    applies_from: '2028-01-01'
+  unit: date
+  effective_from: '2028-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: (ii) Beginning on January 1, 2028, when there is no reliable information available to the State
+      or the reliable information is not reasonably compatible with the information provided by or on
+      behalf of the individual, the agency must require documentation whenever documentation is reasonably
+      available.
+  - source_id: fed-ifr-2026-06-03
+    quote: (ii) Beginning on January 1, 2028, when there is no reliable information available to the State
+      or the reliable information is not reasonably compatible with the information provided by or on
+      behalf of the individual, the agency must require documentation whenever documentation is reasonably
+      available.
+  confidence: high
+  notes: ''
+- id: US.verification.no_denial_for_missing_documents
+  topic: verification
+  statement: The State must accept other information when no documentation is reasonably available and
+    may not deny or terminate solely because the person cannot produce documentation that does not exist
+    or is not reasonably available.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: (A) Accept information other than documentation to verify an individual's eligibility when
+      there is no reasonably available documentation; and
+  - source_id: fed-ifr-2026-06-03
+    quote: (A) Accept information other than documentation to verify an individual's eligibility when
+      there is no reasonably available documentation; and
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: May not deny or terminate eligibility solely because the individual is unable to produce documentation
+      where none exists or is reasonably available
+  - source_id: fed-ifr-2026-06-03
+    quote: May not deny or terminate eligibility solely because the individual is unable to produce documentation
+      where none exists or is reasonably available
+  confidence: high
+  notes: ''
+- id: US.verification.enroll_first_verify_exclusion_later
+  topic: verification
+  statement: If compliance is verified and the person may be a specified excluded individual but more
+    information is needed, the State must enroll promptly and verify the exclusion after enrollment (or
+    after the next redetermination).
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: the agency must enroll the individual promptly using the verified information and attempt to
+      verify eligibility for the exclusion post-enrollment
+  - source_id: fed-ifr-2026-06-03
+    quote: the agency must enroll the individual promptly using the verified information and attempt to
+      verify eligibility for the exclusion post-enrollment
+  confidence: high
+  notes: ''
+- id: US.verification.exceptions_self_report
+  topic: verification
+  statement: States may elect not to seek further information from an individual who reports qualifying
+    for a mandatory exception when there is no reliable data.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2025-07-04'
+  citations:
+  - source_id: fed-statute-hr1-pl119-21-2025-07-04
+    quote: and may elect to not require an individual to verify information resulting in such deeming
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: the State may elect the option under section 1902(xx)(3)(A) of the Act not to seek further
+      information from the applicable individual.
+  confidence: high
+  notes: ''
+- id: US.verification.frailty_attestation_through_2027
+  topic: verification
+  statement: Before January 1, 2028, if data is missing or incompatible, a State may require documentation
+    or accept a statement under penalty of perjury to verify medical frailty each time it verifies frailty.
+  value:
+    applies_before: '2028-01-01'
+  unit: date
+  effective_from: '2027-01-01'
+  effective_to: '2027-12-31'
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: (i) Before January 1, 2028, when there is no reliable information available to the State or
+      the reliable information is not reasonably compatible with the information provided by or on behalf
+      of the individual, the agency may require documentation or accept a statement or other information
+      under penalty of perjury
+  - source_id: fed-ifr-2026-06-03
+    quote: (i) Before January 1, 2028, when there is no reliable information available to the State or
+      the reliable information is not reasonably compatible with the information provided by or on behalf
+      of the individual, the agency may require documentation or accept a statement or other information
+      under penalty of perjury
+  confidence: high
+  notes: ''
+- id: US.verification.frailty_attestation_from_2028
+  topic: verification
+  statement: From January 1, 2028, a State may accept a medical-frailty statement under penalty of perjury
+    only once per period of enrollment; it must verify frailty with data or documentation at the next
+    scheduled redetermination.
+  value:
+    applies_from: '2028-01-01'
+  unit: date
+  effective_from: '2028-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: (ii) Beginning on January 1, 2028, the agency may accept a statement or other information provided
+      under penalty of perjury that provides sufficient information, as determined by the State, to verify
+      qualification for the exclusion only once during the beneficiary's period of enrollment
+  - source_id: fed-ifr-2026-06-03
+    quote: (ii) Beginning on January 1, 2028, the agency may accept a statement or other information provided
+      under penalty of perjury that provides sufficient information, as determined by the State, to verify
+      qualification for the exclusion only once during the beneficiary's period of enrollment
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: At the individual's first regularly scheduled redetermination after such status was determined
+      using the individual's statement provided under penalty of perjury or other information as described
+      in this paragraph (f)(1)(ii), the agency must verify
+  - source_id: fed-ifr-2026-06-03
+    quote: At the individual's first regularly scheduled redetermination after such status was determined
+      using the individual's statement provided under penalty of perjury or other information as described
+      in this paragraph (f)(1)(ii), the agency must verify
+  confidence: high
+  notes: ''
+- id: US.verification.frailty_reverify_12_months
+  topic: verification
+  statement: After verifying medical frailty, the State must re-verify it at least every 12 months.
+  value: 12
+  unit: months
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: the agency must reverify this status at least every 12 months.
+  - source_id: fed-ifr-2026-06-03
+    quote: the agency must reverify this status at least every 12 months.
+  confidence: high
+  notes: ''
+- id: US.verification.frailty_claims_lookback
+  topic: verification
+  statement: To verify frailty ex parte, States must attempt to use claims adjudicated in the preceding
+    12 months (paid, pended, or denied) and encounter data.
+  value: 12
+  unit: months
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: including claim(s) relevant to the individual that have been adjudicated in the preceding 12
+      months, including those that have been paid, pended or denied, and encounter data, as relevant to
+      the individual.
+  - source_id: fed-ifr-2026-06-03
+    quote: including claim(s) relevant to the individual that have been adjudicated in the preceding 12
+      months, including those that have been paid, pended or denied, and encounter data, as relevant to
+      the individual.
+  confidence: high
+  notes: ''
+- id: US.exemption.under_19
+  topic: exemption
+  statement: 'Mandatory exception: individuals under age 19 for part or all of the month are deemed compliant.'
+  value: 19
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (1) Under the age of 19 years;
+  confidence: high
+  notes: Deemed-compliant 'exception' for the month; applicable adults are 19-64 anyway.
+- id: US.exemption.medicare
+  topic: exemption
+  statement: 'Mandatory exception: individuals entitled to or enrolled in Medicare Part A, or enrolled
+    in Part B, are deemed compliant.'
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (2) Entitled to or enrolled for Medicare benefits under part A or enrolled for benefits under
+      part B of title XVIII of the Act;
+  confidence: high
+  notes: ''
+- id: US.exemption.mandatory_coverage_groups
+  topic: exemption
+  statement: 'Mandatory exception: individuals in mandatory coverage groups under 1902(a)(10)(A)(i)(I)-(VII)
+    are deemed compliant.'
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (3) Described in any mandatory coverage groups in subclauses (I) through (VII) of section 1902(a)(10)(A)(i)
+      of the Act under the Medicaid State plan; or,
+  confidence: high
+  notes: ''
+- id: US.exemption.recent_inmate
+  topic: exemption
+  statement: 'Mandatory exception: a person who was an inmate of a public institution at any point in
+    the 3 months ending on the first day of the month is deemed compliant for that month.'
+  value: 3
+  unit: months
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (b) At any point during the 3-month period ending on the first day of that month, the individual
+      was an inmate of a public institution.
+  confidence: high
+  notes: ''
+- id: US.exemption.current_inmate
+  topic: exemption
+  statement: 'Specified excluded individual: an inmate of a public institution (per 42 CFR 435.1010).'
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (9) The individual is an inmate of a public institution, as defined at Sec. 435.1010.
+  confidence: high
+  notes: ''
+- id: US.exemption.excluded_not_subject
+  topic: exemption
+  statement: Specified excluded individuals are not applicable individuals; community engagement is not
+    a condition of their eligibility.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: Community engagement is not a condition of eligibility for specified excluded individuals.
+  confidence: high
+  notes: ''
+- id: US.exemption.former_foster_care
+  topic: exemption
+  statement: 'Specified excluded individual: former foster care youth in the 1902(a)(10)(A)(i)(IX) group,
+    regardless of whether they turned 18 on or after Jan 1, 2023.'
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (1) The individual meets the definition of the eligibility group serving former foster care
+      children, described at section 1902(a)(10)(A)(i)(IX) of the Act
+  confidence: high
+  notes: ''
+- id: US.exemption.american_indian_alaska_native
+  topic: exemption
+  statement: 'Specified excluded individual: an Indian as defined at 42 CFR 447.51 (includes Urban Indians
+    and California Indians per statute).'
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2025-07-04'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (2) The individual meets the definition of Indian at Sec. 447.51 of this subchapter.
+  - source_id: fed-statute-hr1-pl119-21-2025-07-04
+    quote: is an Indian or an Urban Indian (as such terms are defined in paragraphs (13) and
+  confidence: high
+  notes: ''
+- id: US.exemption.parent_caregiver_dependent_child
+  topic: exemption
+  statement: 'Specified excluded individual: a parent, guardian, caretaker relative, or family caregiver
+    of a dependent child (13 or younger) or a disabled individual.'
+  value: 13
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2025-07-04'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (3) The individual is a parent, guardian, caretaker relative, or family caregiver, as each
+      is defined in this section
+  - source_id: fed-ifr-2026-06-03
+    quote: Dependent child means a child 13 years of age or under who relies on another individual for
+      care.
+  - source_id: fed-statute-hr1-pl119-21-2025-07-04
+    quote: who is the parent, guardian, caretaker relative, or family caregiver (as defined in section
+      2 of the RAISE Family Caregivers Act) of a dependent child 13 years of age and under or a disabled
+      individual;
+  confidence: high
+  notes: A child turning 14 ends the exclusion (IFR example). Multiple caregivers in one household may
+    each qualify.
+- id: US.exemption.disabled_individual_definition
+  topic: exemption
+  statement: For the caregiver exclusion, 'disabled individual' means someone meeting the ADA definition
+    of disability (28 CFR 35.108); they need not be on Medicaid or other federal disability programs.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: Disabled individual means an individual who meets the Americans with Disabilities Act definition
+      of disability at 28 CFR 35.108.
+  - source_id: fed-ifr-2026-06-03
+    quote: An individual need not be eligible for Medicaid or other Federal programs on the basis of a
+      disability to be a disabled individual under this definition.
+  confidence: high
+  notes: ''
+- id: US.exemption.family_caregiver_80_hours
+  topic: exemption
+  statement: A family caregiver who does not live with and is not a relative of the care recipient qualifies
+    if providing at least 80 hours per month of assistance that is not solely incidental; co-resident
+    or relative caregivers qualify with regular, not solely incidental assistance.
+  value: 80
+  unit: hours
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: for whom he or she provides not less than 80 hours of assistance that is not solely incidental
+      in nature per month.
+  - source_id: fed-ifr-2026-06-03
+    quote: (A) The individual primarily resides with a dependent child or disabled individual, as these
+      terms are defined in this section, for whom he or she provides assistance that occurs on a regular
+      basis and is not solely incidental in nature.
+  confidence: high
+  notes: ''
+- id: US.exemption.veteran_total_disability
+  topic: exemption
+  statement: 'Specified excluded individual: a veteran with a VA disability rated 100 percent (total)
+    under 38 U.S.C. 1155 (temporary or permanent).'
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (4) The individual is a veteran with a temporary or permanent disability from the Department
+      of Veterans Affairs, rated as 100 percent (total) under 38 U.S.C. 1155.
+  confidence: high
+  notes: ''
+- id: US.exemption.medically_frail_definition
+  topic: exemption
+  statement: 'Specified excluded individual: someone medically frail or with special medical needs, defined
+    as a person whose physical, mental, or other behavioral health condition significantly impairs the
+    ability to comply with the requirement AND who falls in one of five categories.'
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: 'is defined as an individual whose physical, mental, or other behavioral health condition significantly
+      impairs the individual''s ability to comply with the community engagement requirement in this subpart
+      and is an individual:'
+  confidence: high
+  notes: ''
+- id: US.exemption.medically_frail_categories
+  topic: exemption
+  statement: 'The five categories: blind or disabled (SSA 1614); substance use disorder (excluding stable
+    recovery); disabling mental disorder; physical, intellectual, or developmental disability significantly
+    impairing one or more ADLs; serious or complex medical condition.'
+  value: 5
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (A) Who is blind or disabled (as defined in section 1614 of the Social Security Act);
+  - source_id: fed-ifr-2026-06-03
+    quote: (B) With a substance use disorder, excluding an individual in stable recovery
+  - source_id: fed-ifr-2026-06-03
+    quote: (E) With a serious or complex medical condition which is a medical condition that is life threatening
+  - source_id: fed-ifr-2026-06-03
+    quote: (C) With a disabling mental disorder;
+  - source_id: fed-ifr-2026-06-03
+    quote: (D) With a physical, intellectual, or developmental disability that significantly impairs their
+      ability to perform one or more activities of daily living; or
+  confidence: high
+  notes: ''
+- id: US.exemption.medically_frail_sud_stable_recovery
+  topic: exemption
+  statement: A person with a substance use disorder who is in stable recovery (5 or more years) is not
+    covered by the SUD frailty category.
+  value: 5 years
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (B) With a substance use disorder, excluding an individual in stable recovery (which means,
+      an individual who is in recovery for 5 or more years);
+  confidence: high
+  notes: Value 5 is in YEARS (unit field has no years option).
+- id: US.exemption.medically_frail_serious_complex_definition
+  topic: exemption
+  statement: A serious or complex medical condition is one that is life threatening, seriously disabling,
+    causes significant pain, requires frequent monitoring or multi-specialty coordination, etc. (IOM-based
+    list of attributes).
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (E) With a serious or complex medical condition which is a medical condition that is life threatening,
+      seriously disabling without necessarily being life threatening, causing significant pain or discomfort
+      that can cause serious interruptions to life activities
+  confidence: high
+  notes: ''
+- id: US.exemption.medically_frail_state_condition_list
+  topic: exemption
+  statement: States must maintain an auditable list of qualifying conditions and a reasonable process
+    for individuals not on the list to request consideration.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (A) The list must be auditable, justifiable, and consistent with the definitions established
+      in paragraphs (a)(5)(i)(A) through (E) of this section.
+  - source_id: fed-ifr-2026-06-03
+    quote: (C) If an individual does not have a disease, diagnosis, disorder, or health condition on this
+      list, the State must have reasonable processes and criteria in place for such individual to request
+      consideration for the exclusion
+  confidence: high
+  notes: ''
+- id: US.exemption.tanf_work_requirements
+  topic: exemption
+  statement: 'Specified excluded individual: someone compliant with State requirements imposed under section
+    407 of the Act (TANF work requirements).'
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (6) The individual is compliant with any requirements imposed by the State, in accordance with
+      section 407 of the Act.
+  confidence: high
+  notes: ''
+- id: US.exemption.snap_work_requirements
+  topic: exemption
+  statement: 'Specified excluded individual: a member of a household receiving SNAP who is not exempt
+    from the SNAP work requirement.'
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (7) The individual is a member of a household that receives Supplemental Nutrition Assistance
+      Program (SNAP) benefits under 7 U.S.C. 2015 and is not exempt from a work requirement under such
+      Act.
+  confidence: high
+  notes: ''
+- id: US.exemption.substance_use_treatment
+  topic: exemption
+  statement: 'Specified excluded individual: someone participating in a drug addiction or alcoholic treatment
+    and rehabilitation program (FNA section 3(h)); States may set a minimum time commitment consistent
+    with clinical guidelines.'
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (8) The individual is participating in a drug addiction or alcoholic treatment and rehabilitation
+      program
+  - source_id: fed-ifr-2026-06-03
+    quote: States may establish a minimum time commitment, consistent with appropriate clinical guidelines,
+      for participation in such a program.
+  confidence: high
+  notes: ''
+- id: US.exemption.pregnant_postpartum
+  topic: exemption
+  statement: 'Specified excluded individual: someone pregnant or entitled to postpartum medical assistance
+    under SSA 1902(e)(5) or (16).'
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (10) The individual is pregnant or entitled to postpartum medical assistance under section
+      1902(e)(5) or (16) of the Act.
+  confidence: high
+  notes: ''
+- id: US.good_cause.hardship_state_option
+  topic: good_cause
+  statement: Short-term hardship exceptions are optional; a State may elect to deem a person compliant
+    for a month with a qualifying hardship event.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (a) Scope. At State option, the agency may provide that an applicable individual
+  confidence: high
+  notes: ''
+- id: US.good_cause.hardship_hospitalization
+  topic: good_cause
+  statement: 'Hardship event: receiving inpatient hospital, nursing facility, ICF/IID, or inpatient psychiatric
+    services (or other services of similar acuity) for all or part of the month; requires a request.'
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: A short-term hardship event exists when, for all or part of a month, and subject to a request
+      in the circumstances described in paragraphs (d)(1) and (4) of this section by an applicable individual
+      or an individual acting on behalf of the applicable individual
+  - source_id: fed-ifr-2026-06-03
+    quote: (i) Inpatient hospital services as defined at Sec. 440.10 of this subchapter, nursing facility
+      services as defined at Sec. 440.155 of this subchapter
+  confidence: high
+  notes: ''
+- id: US.good_cause.hardship_disaster
+  topic: good_cause
+  statement: 'Hardship event: residing in a county with a presidentially declared emergency or disaster;
+    no individual request may be required.'
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (2) The applicable individual resides in a county or equivalent unit of local government in
+      which there exists an emergency or disaster declared by the President
+  - source_id: fed-ifr-2026-06-03
+    quote: A State must not require an applicable individual, or an individual acting on behalf of the
+      applicable individual, to make a request for the circumstances described in paragraphs (d)(2) and
+      (3) of this section.
+  confidence: high
+  notes: ''
+- id: US.good_cause.hardship_unemployment
+  topic: good_cause
+  statement: 'Hardship event: residing in a county whose unemployment rate is at or above the lesser of
+    8 percent or 1.5 times the national rate (State must request and CMS determine); no individual request
+    required.'
+  value:
+    percent: 8
+    multiple_of_national: 1.5
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: the applicable individual resides in a county or equivalent unit of local government in which
+      the unemployment rate is at or above the lesser of--
+  - source_id: fed-ifr-2026-06-03
+    quote: (i) 8 percent; or
+  - source_id: fed-ifr-2026-06-03
+    quote: (ii) 1.5 times the national unemployment rate.
+  confidence: high
+  notes: ''
+- id: US.good_cause.hardship_medical_travel
+  topic: good_cause
+  statement: 'Hardship event: the person or a dependent must travel outside their community for an extended
+    period for medical services for a serious or complex condition not available locally; requires a request.'
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: A short-term hardship event exists when, for all or part of a month, and subject to a request
+      in the circumstances described in paragraphs (d)(1) and (4) of this section by an applicable individual
+      or an individual acting on behalf of the applicable individual
+  - source_id: fed-ifr-2026-06-03
+    quote: must travel outside of their community of residence for an extended period of time (which could
+      be for part or all of a month or longer) to receive medical services necessary to treat a serious
+      or complex medical condition
+  confidence: high
+  notes: ''
+- id: US.good_cause.hardship_not_for_excluded
+  topic: good_cause
+  statement: The hardship exception does not apply to specified excluded individuals.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (f) Excluded individuals. A State must not apply paragraph (a) of this section to a specified
+      excluded individual defined at Sec. 435.554.
+  confidence: high
+  notes: ''
+- id: US.good_cause.hardship_automatic_when_state_elects
+  topic: good_cause
+  statement: States that elect hardship exceptions must apply disaster and unemployment-based exceptions
+    automatically, without requesting information from the person.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: Apply an automatic short-term hardship exception to applicable individuals if, for part or
+      all of a month for which such applicable individuals are required to demonstrate community engagement,
+      the individuals reside in a county
+  - source_id: fed-ifr-2026-06-03
+    quote: Apply an automatic short-term hardship exception to applicable individuals if, for part or
+      all of a month for which such applicable individuals are required to demonstrate community engagement,
+      the individuals reside in a county
+  confidence: high
+  notes: ''
+- id: US.notice.noncompliance_notice_required
+  topic: notice
+  statement: If a State cannot verify compliance, it must send a notice of noncompliance (stating how
+    to show compliance, the deadline, consequences including loss of premium tax credits, and how to reapply).
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: (1) Provide such individual with the notice of noncompliance described in paragraph (c) of
+      this section;
+  - source_id: fed-ifr-2026-06-03
+    quote: (1) Provide such individual with the notice of noncompliance described in paragraph (c) of
+      this section;
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: A description of the consequences of noncompliance with the community engagement requirement
+      and failure to respond to the notice of noncompliance for Medicaid eligibility and eligibility for
+      advance payments of the premium tax credit (APTC) and the premium tax credit (PTC)
+  - source_id: fed-ifr-2026-06-03
+    quote: A description of the consequences of noncompliance with the community engagement requirement
+      and failure to respond to the notice of noncompliance for Medicaid eligibility and eligibility for
+      advance payments of the premium tax credit (APTC) and the premium tax credit (PTC)
+  confidence: high
+  notes: ''
+- id: US.notice.deemed_received_after_5_days
+  topic: notice
+  statement: A noncompliance notice is considered received 5 days after the date on the notice unless
+    the person shows otherwise.
+  value: 5
+  unit: days
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: Is considered to be received 5 days after the date on the notice, unless the applicant or beneficiary
+      shows that he or she did not receive the notice within the 5-day period.
+  - source_id: fed-ifr-2026-06-03
+    quote: Is considered to be received 5 days after the date on the notice, unless the applicant or beneficiary
+      shows that he or she did not receive the notice within the 5-day period.
+  confidence: high
+  notes: ''
+- id: US.cure.period_30_days
+  topic: cure
+  statement: The person has 30 calendar days from receipt of the noncompliance notice to show compliance,
+    deemed compliance (exception), or that they are not an applicable individual (e.g. excluded).
+  value: 30
+  unit: days
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2025-07-04'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: (2) Provide such individual with a period of 30 calendar days beginning on the date on which
+      such notice of noncompliance is received by the individual
+  - source_id: fed-ifr-2026-06-03
+    quote: (2) Provide such individual with a period of 30 calendar days beginning on the date on which
+      such notice of noncompliance is received by the individual
+  - source_id: fed-statute-hr1-pl119-21-2025-07-04
+    quote: (ii)(I) provide such individual with a period of 30 calendar days, beginning on the date on
+      which such notice of noncompliance is received by the individual, to--
+  confidence: high
+  notes: ''
+- id: US.cure.coverage_continues
+  topic: cure
+  statement: Enrolled beneficiaries continue to receive Medicaid during the 30-day cure period.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2025-07-04'
+  citations:
+  - source_id: fed-statute-hr1-pl119-21-2025-07-04
+    quote: continue to provide such individual with medical assistance during such 30-calendar- day period
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: (3) Continue to furnish Medicaid for an enrolled beneficiary until the individual is determined
+      ineligible consistent with Sec. 435.930(b).
+  - source_id: fed-ifr-2026-06-03
+    quote: (3) Continue to furnish Medicaid for an enrolled beneficiary until the individual is determined
+      ineligible consistent with Sec. 435.930(b).
+  confidence: high
+  notes: ''
+- id: US.cure.consequence_deny_or_disenroll
+  topic: cure
+  statement: If no satisfactory showing is made, the State must deny the application or disenroll the
+    person no later than the end of the month following the month the 30-day period ends, after considering
+    other eligibility bases and giving written notice and fair hearing rights.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: Disenroll such beneficiary not later than the end of the month following the month in which
+      the 30-calendar day period under paragraph (a)(2) of this section ends and after the provision of
+      advance written notice and fair hearing rights
+  - source_id: fed-ifr-2026-06-03
+    quote: Disenroll such beneficiary not later than the end of the month following the month in which
+      the 30-calendar day period under paragraph (a)(2) of this section ends and after the provision of
+      advance written notice and fair hearing rights
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: Consider all other bases of eligibility for medical assistance under the State plan (or waiver
+      of such plan)
+  - source_id: fed-ifr-2026-06-03
+    quote: Consider all other bases of eligibility for medical assistance under the State plan (or waiver
+      of such plan)
+  confidence: high
+  notes: ''
+- id: US.notice.advance_notice_10_days
+  topic: notice
+  statement: Terminations require at least 10 days' advance written notice with fair hearing rights.
+  value: 10
+  unit: days
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: the State must provide written notice (including at least 10 days advance notice in the case
+      of an eligibility termination or reduction)
+  confidence: medium
+  notes: Derived from existing 42 CFR 431.211 as restated in the IFR preamble.
+- id: US.cure.no_reapply_restriction
+  topic: cure
+  statement: States may not restrict reapplication or later eligibility because of a prior denial or disenrollment
+    for noncompliance.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: An agency must not impose any restriction on an applicable individual's ability to re-apply
+      for coverage
+  - source_id: fed-ifr-2026-06-03
+    quote: An agency must not impose any restriction on an applicable individual's ability to re-apply
+      for coverage
+  confidence: high
+  notes: ''
+- id: US.cure.reconsideration_period
+  topic: cure
+  statement: A person disenrolled for failing to submit information requested in the noncompliance notice
+    who submits it during the reconsideration period (42 CFR 435.916(a)(3)(iii)) must have eligibility
+    reconsidered.
+  value: null
+  unit: text
+  effective_from: '2027-01-01'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: (f) Reconsideration period. A State must reconsider eligibility consistent with Sec. 435.916(a)(3)(iii)
+  - source_id: fed-ifr-2026-06-03
+    quote: (f) Reconsideration period. A State must reconsider eligibility consistent with Sec. 435.916(a)(3)(iii)
+  confidence: high
+  notes: Reconsideration period length (90 days) is in 42 CFR 435.916, not in the captured sources.
+- id: US.process.marketplace_subsidies_lost
+  topic: process
+  statement: A person losing Medicaid for failing community engagement is treated as eligible for minimum
+    essential coverage and so is precluded from advance premium tax credits and premium tax credits.
+  value: null
+  unit: text
+  effective_from: '2025-07-04'
+  effective_to: null
+  known_from: '2025-07-04'
+  citations:
+  - source_id: fed-statute-hr1-pl119-21-2025-07-04
+    quote: an individual shall be deemed to be eligible for minimum essential coverage described in section
+      5000A(f)(1)(A)(ii) of such Code for a month if such individual would have been eligible for medical
+      assistance
+  - source_id: fed-ifr-2026-06-03
+    quote: is precluded from eligibility for APTC and PTC.
+  confidence: high
+  notes: ''
+- id: US.process.fair_hearing
+  topic: process
+  statement: Denials and disenrollments require written notice and an opportunity for a fair hearing.
+  value: null
+  unit: text
+  effective_from: '2025-07-04'
+  effective_to: null
+  known_from: '2025-07-04'
+  citations:
+  - source_id: fed-statute-hr1-pl119-21-2025-07-04
+    quote: the individual is provided written notice and granted an opportunity for a fair hearing in
+      accordance with subsection (a)(3).
+  confidence: high
+  notes: ''
+- id: US.timeline.statutory_start
+  topic: timeline
+  statement: States must begin requiring community engagement no later than the first day of the first
+    quarter beginning after December 31, 2026 (i.e. January 1, 2027), or earlier at State option.
+  value: '2027-01-01'
+  unit: date
+  effective_from: '2025-07-04'
+  effective_to: null
+  known_from: '2025-07-04'
+  citations:
+  - source_id: fed-statute-hr1-pl119-21-2025-07-04
+    quote: beginning not later than the first day of the first quarter that begins after December 31,
+      2026, or, at the option of the State under a waiver or demonstration project under section 1115
+      or the State plan, such earlier date as the State may specify
+  confidence: high
+  notes: ''
+- id: US.timeline.ifr_implementation_deadline
+  topic: timeline
+  statement: The IFR requires States to implement the requirement for medical assistance furnished on
+    or after January 1, 2027, unless granted a good faith exemption.
+  value: '2027-01-01'
+  unit: date
+  effective_from: '2026-07-31'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: as a condition of eligibility for medical assistance furnished on or after January 1, 2027.
+  confidence: high
+  notes: ''
+- id: US.timeline.early_implementation
+  topic: timeline
+  statement: States may implement before January 1, 2027 under the State plan or a section 1115 demonstration.
+  value: null
+  unit: bool
+  effective_from: '2026-07-31'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (b) The agency may elect to implement Sec. Sec. 435.550 through 435.563 before January 1, 2027
+  confidence: high
+  notes: ''
+- id: US.timeline.ifr_effective_date
+  topic: timeline
+  statement: The interim final rule (91 FR 33348, published June 3, 2026) is effective July 31, 2026;
+    comments were due July 31, 2026.
+  value: '2026-07-31'
+  unit: date
+  effective_from: '2026-07-31'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: 'Effective date: These regulations are effective on July 31, 2026.'
+  - source_id: fed-ifr-2026-06-03
+    quote: 'Comment date: To be assured consideration, comments must be received at one of the addresses
+      provided below, by July 31, 2026.'
+  confidence: high
+  notes: ''
+- id: US.timeline.ifr_correction
+  topic: timeline
+  statement: A correction published June 29, 2026 restated 42 CFR 435.557 (verification) and 435.558 (noncompliance
+    procedures); the corrected text supersedes the June 3 version of those sections.
+  value: '2026-06-29'
+  unit: date
+  effective_from: '2026-06-29'
+  effective_to: null
+  known_from: '2026-06-29'
+  citations:
+  - source_id: fed-ifr-correction-2026-06-29
+    quote: 'Beginning on page 33476, Sec. 435.557 and Sec. 435.558 should read as follows:'
+  confidence: high
+  notes: ''
+- id: US.timeline.outreach_notice
+  topic: timeline
+  statement: States must notify affected enrollees of the requirement 3 months plus the State-chosen application
+    look-back months before January 1, 2027 (or the State's earlier start date).
+  value: null
+  unit: text
+  effective_from: '2026-07-31'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (1) Three months plus the number of months specified by the State under Sec. 435.556(a)(1)--
+  - source_id: fed-ifr-2026-06-03
+    quote: (i) Prior to January 1, 2027, or, if applicable, prior to the State's earlier implementation
+      date as elected by the state under Sec. 435.559(b); or
+  confidence: medium
+  notes: ''
+- id: US.timeline.good_faith_exemption_cap
+  topic: timeline
+  statement: A CMS good-faith-effort exemption expires no later than December 31, 2028 and cannot be renewed
+    past that date.
+  value: '2028-12-31'
+  unit: date
+  effective_from: '2025-07-04'
+  effective_to: null
+  known_from: '2025-07-04'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: An exemption granted under paragraph (a) of this section shall expire no later than December
+      31, 2028, and may not be renewed beyond such date.
+  - source_id: fed-statute-hr1-pl119-21-2025-07-04
+    quote: shall expire not later than December 31, 2028, and may not be renewed beyond such date.
+  confidence: high
+  notes: ''
+- id: US.timeline.good_faith_initial_6_months
+  topic: timeline
+  statement: CMS will approve initial good faith effort exemptions for a period not to exceed 6 months;
+    CMS may grant one or more extensions if the State continues to show good faith effort.
+  value: 6
+  unit: months
+  effective_from: '2026-07-31'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (1) CMS will approve initial good faith effort exemptions for a period not to exceed 6 months.
+  - source_id: fed-ifr-2026-06-03
+    quote: (2) CMS may grant one or more extensions of an exemption if the State continues to demonstrate
+      a good faith effort
+  confidence: high
+  notes: ''
+- id: US.timeline.good_faith_criteria
+  topic: timeline
+  statement: CMS considers State actions taken, significant barriers (funding, systems, procurement),
+    a detailed plan/timeline/milestones, and exigent circumstances; exempt States must file quarterly
+    progress reports and CMS may terminate early.
+  value: null
+  unit: text
+  effective_from: '2026-07-31'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: (3) The State's detailed plan and timeline and milestones for fully implementing the community
+      engagements requirement; and
+  - source_id: fed-ifr-2026-06-03
+    quote: (4) Any exigent circumstances, such as an administrative or other emergency beyond the agency's
+      control
+  - source_id: fed-ifr-2026-06-03
+    quote: (1) A quarterly report on the State's status in achieving the milestones
+  confidence: high
+  notes: ''
+- id: US.timeline.good_faith_expected_volume
+  topic: timeline
+  statement: CMS estimated about 10 States would apply for a good-faith exemption and about 2 would be
+    approved.
+  value:
+    apply: 10
+    approve: 2
+  unit: text
+  effective_from: '2026-07-31'
+  effective_to: null
+  known_from: '2026-06-03'
+  citations:
+  - source_id: fed-ifr-2026-06-03
+    quote: of the approximately 10 States that we expect to apply, we will approve approximately 2 States
+      for a good faith effort exemption.
+  confidence: medium
+  notes: Burden-estimate assumption, not a cap; actual approvals not in captured sources.
+- id: US.timeline.cms_landing_page_start
+  topic: timeline
+  statement: CMS medicaid.gov states that beginning January 1, 2027, states must condition Medicaid eligibility
+    for applicable individuals on community engagement.
+  value: '2027-01-01'
+  unit: date
+  effective_from: '2026-10-09'
+  effective_to: null
+  known_from: '2026-10-09'
+  citations:
+  - source_id: medicaid-gov-ce-landing-2026-10-09
+    quote: beginning January 1, 2027, states must condition Medicaid eligibility for
+  confidence: high
+  notes: ''
+- id: US.process.cms_frailty_guidance_posted
+  topic: process
+  statement: CMS posted a medical frailty slide deck ('Implementing Medical Frailty Under Community Engagement')
+    on 09/08/2026; it is the only frailty document on the medicaid.gov community engagement page.
+  value: '2026-09-08'
+  unit: date
+  effective_from: '2026-09-08'
+  effective_to: null
+  known_from: '2026-10-09'
+  citations:
+  - source_id: medicaid-gov-ce-landing-2026-10-09
+    quote: Implementing Medical Frailty Under Community Engagement (Section 71119 of WFTC Legislation)
+      Slide Deck (Posted 09/08/2026)
+  confidence: high
+  notes: ''
+- id: US.process.frailty_no_additional_categories
+  topic: process
+  statement: CMS says States may not extend medical frailty beyond the five statutory categories, and
+    in every category the condition must significantly impair ability to comply.
+  value: null
+  unit: text
+  effective_from: '2026-09-08'
+  effective_to: null
+  known_from: '2026-09-08'
+  citations:
+  - source_id: cms-frailty-deck-2026-09-08
+    quote: CMS is not providing states with the flexibility to include populations beyond the five categories
+      included in the statute.
+  - source_id: cms-frailty-deck-2026-09-08
+    quote: This requirement applies to all the medically frail categories.
+  confidence: high
+  notes: ''
+- id: US.process.frailty_tiered_framework_optional
+  topic: process
+  statement: CMS's three-tier frailty framework (Tier 1 standalone diagnoses; Tier 2 diagnoses plus supplemental
+    data; Tier 3 manual documentation review) is an example, not required.
+  value: 3
+  unit: text
+  effective_from: '2026-09-08'
+  effective_to: null
+  known_from: '2026-09-08'
+  citations:
+  - source_id: cms-frailty-deck-2026-09-08
+    quote: States are not required to use this example tiered medical frailty framework.
+  - source_id: cms-frailty-deck-2026-09-08
+    quote: For individuals where there is insufficient data OR no data for Tier 1 or 2, this triggers
+      a manual individualized review
+  confidence: high
+  notes: ''
+- id: US.process.frailty_ex_parte_expected
+  topic: process
+  statement: CMS expects States to verify medical frailty ex parte from claims/encounter data where possible
+    without requiring the individual to submit information.
+  value: null
+  unit: text
+  effective_from: '2026-09-08'
+  effective_to: null
+  known_from: '2026-09-08'
+  citations:
+  - source_id: cms-frailty-deck-2026-09-08
+    quote: states must, where possible, verify medical frailty on an ex parte basis using reliable information
+      available to the state without requiring the individual to submit additional information.
+  confidence: high
+  notes: ''
+- id: US.process.frailty_rerun_cadence
+  topic: process
+  statement: CMS suggests re-running frailty identification logic at least once every 12 months.
+  value: 12
+  unit: months
+  effective_from: '2026-09-08'
+  effective_to: null
+  known_from: '2026-09-08'
+  citations:
+  - source_id: cms-frailty-deck-2026-09-08
+    quote: Establish a cadence to re-run the logic (at least once every 12 months)
+  confidence: medium
+  notes: ''
+- id: US.contact.cms_medicaidworks
+  topic: contact
+  statement: CMS technical assistance contact for community engagement is MedicaidWorks@cms.hhs.gov (directed
+    at States).
+  value: MedicaidWorks@cms.hhs.gov
+  unit: text
+  effective_from: '2026-10-09'
+  effective_to: null
+  known_from: '2026-10-09'
+  citations:
+  - source_id: medicaid-gov-ce-landing-2026-10-09
+    quote: States can email MedicaidWorks@cms.hhs.gov for technical assistance related to community engagement.
+  confidence: high
+  notes: ''
+open_questions:
+- Which States have requested or been granted CMS good-faith-effort exemptions (and for how long)? Not
+  in any captured federal source; see state fact packs / CMS announcements.
+- How each State allocates converted work hours among household members ('reasonable method') -- the IFR
+  leaves this to States; check State plans/SPAs.
+- Whether self-employment income for the 42 CFR 435.603 MAGI test is gross or net of business expenses
+  -- the IFR says MAGI-based but does not address gig/self-employment netting explicitly in the captured
+  passages; defer to 435.603 and State practice.
+- Exact number of look-back months at application (1-3) and verification months at renewal are State choices;
+  see state packs.
+- 'Operational guidance on Marketplace/APTC coordination: IFR says ''We expect to issue operational guidance'';
+  none found among captured sources.'
+- Status of the multi-state lawsuit (D. Mass.) and the D. Md. suit challenging the IFR's medical frailty
+  definition -- reported in secondary sources only; no court documents captured.
+- CMCS informational bulletins (11/18/2025, 12/08/2025), the IFC overview slide deck (07/27/2026), and
+  the CMS fact sheet pre-date or summarize the IFR; the 12/08/2025 CIB was captured as cms-cib-2025-12-08
+  but no facts rely on it. No FAQs or State Medicaid Director letters were listed on the medicaid.gov
+  community engagement landing page as of 2026-10-09.
+- Definitions of when documentation is 'reasonably available' (relevant from 2028-01-01) are State-defined;
+  not specified in the IFR text captured.
+- Whether CMS has issued any further corrections or amendments to the IFR after 2026-06-29 (only one correction,
+  C1-2026-11094, found via federalregister.gov API).
+- The IFR defines 'disabling mental disorder', 'blind or disabled' and ADL-impairing disability only by
+  reference to statute/SSA 1614; CMS declined to define further (see frailty deck slide 6) -- State definitions
+  will vary.

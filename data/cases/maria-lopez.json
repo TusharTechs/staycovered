@@ -1,0 +1,366 @@
+{
+  "case": {
+    "id": "maria-lopez",
+    "jurisdiction": "NE",
+    "household": [
+      {
+        "id": "maria",
+        "name": "Maria Lopez",
+        "age": 34,
+        "applicable_adult": true,
+        "seasonal_worker": false,
+        "pregnant_or_postpartum": null,
+        "caretaker_of_young_child": null,
+        "caretaker_of_disabled_person": null,
+        "veteran_total_disability": null,
+        "american_indian_alaska_native": null,
+        "medically_frail_indicators": [],
+        "in_sud_treatment": null,
+        "meets_snap_or_tanf_work_rules": null,
+        "recently_incarcerated": null
+      }
+    ],
+    "client_id": "maria",
+    "ledger": [
+      {
+        "id": "maria-dashbite-r1",
+        "member_id": "maria",
+        "kind": "self_employment_gross",
+        "period_start": "2026-07-27",
+        "period_end": "2026-08-02",
+        "amount": 164.2,
+        "payer": "DashBite",
+        "source": {
+          "doc_id": "maria-dashbite",
+          "span": "Total payout: $164.20",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "maria-dashbite-r2",
+        "member_id": "maria",
+        "kind": "work_hours",
+        "period_start": "2026-07-27",
+        "period_end": "2026-08-02",
+        "amount": 13.17,
+        "payer": "DashBite",
+        "source": {
+          "doc_id": "maria-dashbite",
+          "span": "Active time: 13 hr 10 min",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "maria-dashbite-r3",
+        "member_id": "maria",
+        "kind": "self_employment_gross",
+        "period_start": "2026-08-03",
+        "period_end": "2026-08-09",
+        "amount": 201.55,
+        "payer": "DashBite",
+        "source": {
+          "doc_id": "maria-dashbite",
+          "span": "Total payout: $201.55",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "maria-dashbite-r4",
+        "member_id": "maria",
+        "kind": "work_hours",
+        "period_start": "2026-08-03",
+        "period_end": "2026-08-09",
+        "amount": 16.08,
+        "payer": "DashBite",
+        "source": {
+          "doc_id": "maria-dashbite",
+          "span": "Active time: 16 hr 5 min",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "maria-dashbite-r5",
+        "member_id": "maria",
+        "kind": "self_employment_gross",
+        "period_start": "2026-08-10",
+        "period_end": "2026-08-16",
+        "amount": 142.1,
+        "payer": "DashBite",
+        "source": {
+          "doc_id": "maria-dashbite",
+          "span": "Total payout: $142.10",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "maria-dashbite-r6",
+        "member_id": "maria",
+        "kind": "work_hours",
+        "period_start": "2026-08-10",
+        "period_end": "2026-08-16",
+        "amount": 11.67,
+        "payer": "DashBite",
+        "source": {
+          "doc_id": "maria-dashbite",
+          "span": "Active time: 11 hr 40 min",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "maria-dashbite-r7",
+        "member_id": "maria",
+        "kind": "self_employment_gross",
+        "period_start": "2026-08-17",
+        "period_end": "2026-08-23",
+        "amount": 188.0,
+        "payer": "DashBite",
+        "source": {
+          "doc_id": "maria-dashbite",
+          "span": "Total payout: $188.00",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "maria-dashbite-r8",
+        "member_id": "maria",
+        "kind": "work_hours",
+        "period_start": "2026-08-17",
+        "period_end": "2026-08-23",
+        "amount": 15.0,
+        "payer": "DashBite",
+        "source": {
+          "doc_id": "maria-dashbite",
+          "span": "Active time: 15 hr 0 min",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "maria-dashbite-r9",
+        "member_id": "maria",
+        "kind": "self_employment_gross",
+        "period_start": "2026-08-24",
+        "period_end": "2026-08-30",
+        "amount": 97.35,
+        "payer": "DashBite",
+        "source": {
+          "doc_id": "maria-dashbite",
+          "span": "Total payout: $97.35",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "maria-dashbite-r10",
+        "member_id": "maria",
+        "kind": "work_hours",
+        "period_start": "2026-08-24",
+        "period_end": "2026-08-30",
+        "amount": 8.33,
+        "payer": "DashBite",
+        "source": {
+          "doc_id": "maria-dashbite",
+          "span": "Active time: 8 hr 20 min",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "maria-carthop-r1",
+        "member_id": "maria",
+        "kind": "self_employment_gross",
+        "period_start": "2026-08-01",
+        "period_end": "2026-08-31",
+        "amount": 137.4,
+        "payer": "CartHop",
+        "source": {
+          "doc_id": "maria-carthop",
+          "span": "Total earnings: $137.40",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "maria-carthop-r2",
+        "member_id": "maria",
+        "kind": "work_hours",
+        "period_start": "2026-08-01",
+        "period_end": "2026-08-31",
+        "amount": 10.5,
+        "payer": "CartHop",
+        "source": {
+          "doc_id": "maria-carthop",
+          "span": "Hours on batches: 10.5",
+          "page": null
+        },
+        "note": ""
+      }
+    ],
+    "event": "noncompliance_notice",
+    "event_date": "2026-09-01",
+    "notice_date": "2026-09-20",
+    "notes": ""
+  },
+  "client_name": "Maria Lopez",
+  "navigator": "Demo navigator",
+  "language": "es",
+  "documents": [
+    {
+      "id": "maria-notice",
+      "name": "State notice (Sep 20)",
+      "kind": "notice",
+      "member_id": "maria",
+      "text": "NEBRASKA DEPARTMENT OF HEALTH AND HUMAN SERVICES — SAMPLE (SYNTHETIC DEMO)\nNotice date: September 20, 2026\nCase number: DEMO-40417\nMARIA LOPEZ\n\nMedicaid Work Requirements: We need more information\nOur records do not show that you met the work requirement for August 2026.\nYou must work, volunteer, go to school, or be in a work program for at least 80 hours a month,\nor have monthly income of at least $580.\n\nWhat you need to do: Send proof of your hours or income for August 2026, or tell us why you should be exempt.\nYou have 30 days from the date of this notice to respond. If we do not hear from you, your Medicaid may end.\nHow to respond: Upload documents at iServe Nebraska, mail them to the address below, or call 1-855-632-7633.\n",
+      "extracted": {
+        "gold": []
+      },
+      "problems": []
+    },
+    {
+      "id": "maria-dashbite",
+      "name": "DashBite weekly earnings",
+      "kind": "income",
+      "member_id": "maria",
+      "text": "DashBite Driver — Weekly Earnings Summary (SYNTHETIC)\nDriver: Maria Lopez\nWeek of Jul 27, 2026 – Aug 2, 2026\nTotal payout: $164.20   Active time: 13 hr 10 min   Deliveries: 21\nWeek of Aug 3, 2026 – Aug 9, 2026\nTotal payout: $201.55   Active time: 16 hr 5 min   Deliveries: 26\nWeek of Aug 10, 2026 – Aug 16, 2026\nTotal payout: $142.10   Active time: 11 hr 40 min   Deliveries: 18\nWeek of Aug 17, 2026 – Aug 23, 2026\nTotal payout: $188.00   Active time: 15 hr 0 min   Deliveries: 24\nWeek of Aug 24, 2026 – Aug 30, 2026\nTotal payout: $97.35   Active time: 8 hr 20 min   Deliveries: 12\nPayouts are before expenses such as fuel and vehicle costs.\n",
+      "extracted": {
+        "gold": [
+          {
+            "kind": "self_employment_gross",
+            "period_start": "2026-07-27",
+            "period_end": "2026-08-02",
+            "amount": 164.2,
+            "payer": "DashBite",
+            "span": "Total payout: $164.20"
+          },
+          {
+            "kind": "work_hours",
+            "period_start": "2026-07-27",
+            "period_end": "2026-08-02",
+            "amount": 13.17,
+            "payer": "DashBite",
+            "span": "Active time: 13 hr 10 min"
+          },
+          {
+            "kind": "self_employment_gross",
+            "period_start": "2026-08-03",
+            "period_end": "2026-08-09",
+            "amount": 201.55,
+            "payer": "DashBite",
+            "span": "Total payout: $201.55"
+          },
+          {
+            "kind": "work_hours",
+            "period_start": "2026-08-03",
+            "period_end": "2026-08-09",
+            "amount": 16.08,
+            "payer": "DashBite",
+            "span": "Active time: 16 hr 5 min"
+          },
+          {
+            "kind": "self_employment_gross",
+            "period_start": "2026-08-10",
+            "period_end": "2026-08-16",
+            "amount": 142.1,
+            "payer": "DashBite",
+            "span": "Total payout: $142.10"
+          },
+          {
+            "kind": "work_hours",
+            "period_start": "2026-08-10",
+            "period_end": "2026-08-16",
+            "amount": 11.67,
+            "payer": "DashBite",
+            "span": "Active time: 11 hr 40 min"
+          },
+          {
+            "kind": "self_employment_gross",
+            "period_start": "2026-08-17",
+            "period_end": "2026-08-23",
+            "amount": 188.0,
+            "payer": "DashBite",
+            "span": "Total payout: $188.00"
+          },
+          {
+            "kind": "work_hours",
+            "period_start": "2026-08-17",
+            "period_end": "2026-08-23",
+            "amount": 15.0,
+            "payer": "DashBite",
+            "span": "Active time: 15 hr 0 min"
+          },
+          {
+            "kind": "self_employment_gross",
+            "period_start": "2026-08-24",
+            "period_end": "2026-08-30",
+            "amount": 97.35,
+            "payer": "DashBite",
+            "span": "Total payout: $97.35"
+          },
+          {
+            "kind": "work_hours",
+            "period_start": "2026-08-24",
+            "period_end": "2026-08-30",
+            "amount": 8.33,
+            "payer": "DashBite",
+            "span": "Active time: 8 hr 20 min"
+          }
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "maria-carthop",
+      "name": "CartHop monthly statement",
+      "kind": "income",
+      "member_id": "maria",
+      "text": "CartHop Shopper — Monthly Statement (SYNTHETIC)\nShopper: M. Lopez\nStatement period: August 1, 2026 – August 31, 2026\nBatches completed: 9\nEarnings (before tips): $96.40\nCustomer tips: $41.00\nTotal earnings: $137.40\nHours on batches: 10.5\n",
+      "extracted": {
+        "gold": [
+          {
+            "kind": "self_employment_gross",
+            "period_start": "2026-08-01",
+            "period_end": "2026-08-31",
+            "amount": 137.4,
+            "payer": "CartHop",
+            "span": "Total earnings: $137.40"
+          },
+          {
+            "kind": "work_hours",
+            "period_start": "2026-08-01",
+            "period_end": "2026-08-31",
+            "amount": 10.5,
+            "payer": "CartHop",
+            "span": "Hours on batches: 10.5"
+          }
+        ]
+      },
+      "problems": []
+    }
+  ],
+  "notice": {
+    "notice_type": "noncompliance",
+    "notice_date": "2026-09-20",
+    "respond_by": null,
+    "months_in_question": [
+      "2026-08"
+    ],
+    "requested_items": [
+      "Proof of hours or income for August 2026, or a reason you should be exempt"
+    ],
+    "how_to_respond": [
+      "Upload at iServe Nebraska",
+      "Mail to DHHS",
+      "Call 1-855-632-7633"
+    ]
+  },
+  "flags": [],
+  "synthetic": true,
+  "updated": "2026-10-09"
+}

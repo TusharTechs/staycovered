@@ -1,0 +1,154 @@
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { api, fmtDate, today, type CaseSummary, type Fact } from '../api'
+import { Card, Cite, Spinner, StatusPill } from '../components/ui'
+import AskBox from '../components/AskBox'
+
+type Milestone = { date: string; label: string; detail: string }
+
+// Hand-curated labels for the real policy timeline; every date also comes from cited rule facts or snapshots.
+const LABELS: Record<string, string> = {
+  '2025-07-04': 'H.R.1 signed',
+  '2026-05-01': 'Nebraska starts (new applicants)',
+  '2026-06-03': 'Federal rule published',
+  '2026-07-01': 'Nebraska: existing enrollees',
+  '2026-07-31': 'Federal rule effective',
+  '2026-08-01': 'Nebraska: first disenrollments',
+  '2026-09-08': 'CMS frailty guidance',
+  '2026-09-14': 'Nebraska process update',
+  '2027-01-01': 'Nationwide start',
+  '2028-01-01': 'Documentation required',
+}
+
+const TOPIC_ORDER = ['timeline', 'applicability', 'requirement', 'income_alternative', 'lookback', 'verification', 'exemption', 'good_cause', 'notice', 'cure', 'reporting', 'process', 'contact']
+
+export default function TimeMachine() {
+  const [dates, setDates] = useState<string[]>([])
+  const [idx, setIdx] = useState(0)
+  const [facts, setFacts] = useState<Fact[] | null>(null)
+  const [prevIds, setPrevIds] = useState<Set<string>>(new Set())
+  const [cases, setCases] = useState<CaseSummary[] | null>(null)
+  const [prevCases, setPrevCases] = useState<Record<string, string>>({})
+  const [playing, setPlaying] = useState(false)
+  const timer = useRef<number | null>(null)
+
+  useEffect(() => {
+    api.timeline().then(t => {
+      const ds = new Set<string>(Object.keys(LABELS))
+      t.dates.forEach(d => { if (d.date >= '2025-07-01' && d.date <= '2028-06-30') ds.add(d.date) })
+      ds.add(today())
+      const sorted = [...ds].sort()
+      setDates(sorted)
+      setIdx(sorted.indexOf(today()))
+    })
+  }, [])
+
+  const asOf = dates[idx]
+  useEffect(() => {
+    if (!asOf) return
+    const before = new Set((facts ?? []).map(f => f.id + (f.effective_from ?? '')))
+    const beforeCases = Object.fromEntries((cases ?? []).map(c => [c.id, c.status]))
+    api.facts(asOf).then(fs => { setPrevIds(before); setFacts(fs) })
+    api.cases(asOf).then(cs => { setPrevCases(beforeCases); setCases(cs) })
+  }, [asOf])
+
+  useEffect(() => {
+    if (!playing) { if (timer.current) window.clearInterval(timer.current); return }
+    timer.current = window.setInterval(() => setIdx(i => (i + 1 < dates.length ? i + 1 : (setPlaying(false), i))), 2600)
+    return () => { if (timer.current) window.clearInterval(timer.current) }
+  }, [playing, dates.length])
+
+  const grouped = useMemo(() => {
+    const g: Record<string, Fact[]> = {}
+    for (const f of facts ?? []) (g[f.topic] ??= []).push(f)
+    return TOPIC_ORDER.filter(t => g[t]).map(t => [t, g[t]] as const)
+  }, [facts])
+
+  const milestones: Milestone[] = dates.map(d => ({ date: d, label: LABELS[d] ?? (d === today() ? 'Today' : ''), detail: '' }))
+  const isNew = (f: Fact) => prevIds.size > 0 && !prevIds.has(f.id + (f.effective_from ?? ''))
+
+  return (
+    <div className="space-y-5">
+      <div>
+        <h1 className="font-serif text-3xl tracking-tight">Rule Time Machine</h1>
+        <p className="text-muted text-sm mt-1 max-w-3xl">AI models are frozen at their training date. Medicaid rules aren't. Move through the real policy timeline and watch the official sources, the answers and the caseload change with it.</p>
+      </div>
+
+      <Card>
+        <div className="flex flex-wrap items-center gap-4 pt-3">
+          <button onClick={() => setPlaying(p => !p)} className="rounded-full bg-brand text-white h-10 w-10 grid place-items-center" aria-label={playing ? 'Pause' : 'Play timeline'}>
+            {playing ? '❚❚' : '▶'}
+          </button>
+          <div>
+            <div className="text-xs text-muted">Rules as of</div>
+            <div className="text-2xl font-semibold tabular-nums">{fmtDate(asOf)}</div>
+          </div>
+          <div className="text-sm text-brand font-medium">{LABELS[asOf] ?? (asOf === today() ? 'Today' : '')}</div>
+        </div>
+        <div className="mt-4">
+          <label htmlFor="tm" className="sr-only">Timeline position</label>
+          <input id="tm" type="range" min={0} max={Math.max(0, dates.length - 1)} value={idx} onChange={e => { setPlaying(false); setIdx(+e.target.value) }}
+            className="w-full accent-[#0f5d5d]" aria-valuetext={fmtDate(asOf)} />
+          <ol className="mt-2 flex flex-wrap gap-1.5">
+            {milestones.filter(m => m.label).map(m => (
+              <li key={m.date}>
+                <button onClick={() => { setPlaying(false); setIdx(dates.indexOf(m.date)) }}
+                  className={`rounded-full border px-2.5 py-1 text-[11px] ${m.date === asOf ? 'border-brand bg-brand text-white' : m.date < asOf ? 'border-brand/30 bg-brand-soft text-brand' : 'border-line bg-white text-muted'}`}>
+                  <span className="tabular-nums">{m.date}</span> · {m.label}
+                </button>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Card>
+
+      <div className="grid gap-5 lg:grid-cols-5">
+        <Card className="lg:col-span-3" title={`What the official rules said on ${fmtDate(asOf)}`} actions={facts && <span className="text-xs text-muted">{facts.length} facts in force or announced</span>}>
+          {!facts && <Spinner />}
+          {facts && facts.length === 0 && <p className="text-sm text-muted">Nothing had been published yet on this date.</p>}
+          <div className="space-y-4 max-h-[34rem] overflow-auto pr-1">
+            {grouped.map(([topic, fs]) => (
+              <div key={topic}>
+                <h3 className="text-[11px] font-semibold uppercase tracking-wide text-muted mb-1">{topic.replace(/_/g, ' ')}</h3>
+                <ul className="space-y-1.5">
+                  {fs.map(f => (
+                    <li key={f.id + f.effective_from} className={`rounded-md px-2 py-1.5 text-sm ${isNew(f) ? 'bg-warn-soft ring-1 ring-warn/40' : ''}`}>
+                      {isNew(f) && <span className="mr-1 rounded bg-warn px-1 text-[10px] font-semibold text-white">NEW</span>}
+                      <span className={f.jurisdiction === 'US' ? '' : 'font-medium'}>{f.jurisdiction !== 'US' && <span className="text-brand">[{f.jurisdiction}] </span>}{f.statement}</span>
+                      {f.effective_from && f.effective_from > asOf && <span className="ml-1 text-[11px] text-muted">(takes effect {fmtDate(f.effective_from)})</span>}
+                      {f.citations[0] && <Cite sourceId={f.citations[0].source_id} quote={f.citations[0].quote} label="source" />}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        <div className="lg:col-span-2 space-y-5">
+          <Card title="Ask — frozen model vs. rules as of this date">
+            <AskBox key={asOf} asOf={asOf} compare suggestions={[
+              'When do Nebraska Medicaid work requirements start for people already enrolled?',
+              'How is medical frailty verified?',
+              'Does a spouse\'s income count toward the $580 income test?',
+            ]} />
+          </Card>
+          <Card title="Caseload on this date">
+            {!cases && <Spinner />}
+            <ul className="space-y-1.5 text-sm">
+              {cases?.map(c => {
+                const changed = prevCases[c.id] && prevCases[c.id] !== c.status
+                return (
+                  <li key={c.id} className={`flex items-center gap-2 rounded px-2 py-1 ${changed ? 'bg-warn-soft' : ''}`}>
+                    <span className="flex-1">{c.client_name}</span>
+                    {changed && <span className="text-[10px] font-semibold text-warn">CHANGED</span>}
+                    <StatusPill status={c.status} />
+                  </li>
+                )
+              })}
+            </ul>
+          </Card>
+        </div>
+      </div>
+    </div>
+  )
+}

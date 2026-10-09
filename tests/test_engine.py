@@ -57,7 +57,27 @@ def test_does_not_meet_and_gross_gig_flagged():
     ws = worksheet(case([entry("g", "c", Kind.SELF_EMPLOYMENT_GROSS, "2026-09-01", "2026-09-30", 300)]))
     r = ws.results[0]
     assert r.status == "does_not_meet"
-    assert any("gross" in a for a in r.ambiguities)
+    assert any("before expenses" in a for a in r.ambiguities)
+
+
+def test_gross_gig_income_only_counts_after_expenses():
+    # $800 of gig payouts + 20 hours. Income test alone: expenses <= $220. Combined (60 more hours = $435 of income
+    # at $7.25): expenses <= $365. The engine reports the most forgiving path.
+    ws = worksheet(case([
+        entry("g", "c", Kind.SELF_EMPLOYMENT_GROSS, "2026-09-01", "2026-09-30", 800),
+        entry("h", "c", Kind.WORK_HOURS, "2026-09-01", "2026-09-30", 20),
+    ]))
+    r = ws.results[0]
+    assert r.status == "depends_on_expenses" and r.path == "combined"
+    assert r.expense_headroom == 365.0
+
+
+def test_wages_plus_gig_net_known_part_decides():
+    ws = worksheet(case([
+        entry("w", "c", Kind.EARNED_INCOME, "2026-09-01", "2026-09-30", 600),
+        entry("g", "c", Kind.SELF_EMPLOYMENT_GROSS, "2026-09-01", "2026-09-30", 100),
+    ]))
+    assert ws.results[0].status == "meets"
 
 
 def test_insufficient_evidence_when_no_rows():

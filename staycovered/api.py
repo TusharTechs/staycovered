@@ -50,7 +50,8 @@ def list_cases(as_of: str | None = None) -> list[dict]:
             "cure_deadline": ws.cure_deadline.isoformat() if ws.cure_deadline else None,
             "days_left": (ws.cure_deadline - on).days if ws.cure_deadline else None,
             "status": "meets" if statuses and all(s == "meets" for s in statuses) else
-                      ("insufficient_evidence" if "insufficient_evidence" in statuses else "at_risk"),
+                      ("insufficient_evidence" if "insufficient_evidence" in statuses else
+                       "depends_on_expenses" if "does_not_meet" not in statuses else "at_risk"),
             "possible_exemptions": len(ws.exemptions), "flags": rec.flags, "synthetic": rec.synthetic,
         })
     return sorted(out, key=lambda c: (c["days_left"] is None, c["days_left"] or 0))

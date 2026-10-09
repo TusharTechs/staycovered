@@ -1,0 +1,73 @@
+import { NavLink, Route, Routes } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { api } from './api'
+import Caseload from './pages/Caseload'
+import CasePage from './pages/CasePage'
+import TimeMachine from './pages/TimeMachine'
+import Bench from './pages/Bench'
+import UnderHood from './pages/UnderHood'
+
+function Logo() {
+  return (
+    <svg viewBox="0 0 32 32" className="h-7 w-7" aria-hidden="true">
+      <rect width="32" height="32" rx="7" fill="#0f5d5d" />
+      <path d="M16 6l9 4v6c0 5.5-3.8 9.2-9 10-5.2-.8-9-4.5-9-10v-6z" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinejoin="round" />
+      <path d="M11.5 16.2l3.2 3.2 5.8-6.2" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+const nav = [
+  { to: '/', label: 'Caseload', end: true },
+  { to: '/time-machine', label: 'Rule Time Machine' },
+  { to: '/bench', label: 'WorkReqBench' },
+  { to: '/under-the-hood', label: 'Under the hood' },
+]
+
+export default function App() {
+  const [health, setHealth] = useState<{ nebius: boolean; tavily: boolean; sources: number; facts: number } | null>(null)
+  useEffect(() => { api.health().then(setHealth).catch(() => setHealth(null)) }, [])
+  return (
+    <div className="min-h-full flex flex-col">
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:p-2 focus:bg-white">Skip to content</a>
+      <header className="bg-white border-b border-line">
+        <div className="mx-auto max-w-7xl px-4 h-14 flex items-center gap-6">
+          <NavLink to="/" className="flex items-center gap-2 font-semibold text-ink">
+            <Logo /> <span className="text-lg tracking-tight">StayCovered</span>
+          </NavLink>
+          <nav aria-label="Main" className="flex gap-1 overflow-x-auto">
+            {nav.map(n => (
+              <NavLink key={n.to} to={n.to} end={n.end}
+                className={({ isActive }) => `px-3 py-1.5 rounded-md text-sm whitespace-nowrap ${isActive ? 'bg-brand-soft text-brand font-medium' : 'text-muted hover:text-ink hover:bg-paper'}`}>
+                {n.label}
+              </NavLink>
+            ))}
+          </nav>
+          <div className="ml-auto hidden md:flex items-center gap-3 text-xs text-muted">
+            {health && <span>{health.sources} official sources · {health.facts} rule facts</span>}
+            <span className="inline-flex items-center gap-1 rounded-full bg-paper px-2 py-0.5 border border-line">
+              <span className={`h-1.5 w-1.5 rounded-full ${health?.nebius ? 'bg-ok' : 'bg-warn'}`} /> Nemotron · Nebius
+            </span>
+            <span className="inline-flex items-center gap-1 rounded-full bg-paper px-2 py-0.5 border border-line">
+              <span className={`h-1.5 w-1.5 rounded-full ${health?.tavily ? 'bg-ok' : 'bg-warn'}`} /> Tavily
+            </span>
+          </div>
+        </div>
+      </header>
+      <main id="main" className="flex-1 mx-auto w-full max-w-7xl px-4 py-6">
+        <Routes>
+          <Route path="/" element={<Caseload />} />
+          <Route path="/cases/:id" element={<CasePage />} />
+          <Route path="/time-machine" element={<TimeMachine />} />
+          <Route path="/bench" element={<Bench />} />
+          <Route path="/under-the-hood" element={<UnderHood />} />
+        </Routes>
+      </main>
+      <footer className="border-t border-line bg-white text-xs text-muted">
+        <div className="mx-auto max-w-7xl px-4 py-3">
+          StayCovered organises evidence against published rules. It does not decide eligibility — the state agency does. Demo cases are synthetic.
+        </div>
+      </footer>
+    </div>
+  )
+}

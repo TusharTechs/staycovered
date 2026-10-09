@@ -1,0 +1,41 @@
+{
+  "case": {
+    "id": "robert-nguyen",
+    "jurisdiction": "NE",
+    "household": [
+      {
+        "id": "robert",
+        "name": "Robert Nguyen",
+        "age": 47,
+        "applicable_adult": true,
+        "seasonal_worker": false,
+        "pregnant_or_postpartum": null,
+        "caretaker_of_young_child": null,
+        "caretaker_of_disabled_person": null,
+        "veteran_total_disability": null,
+        "american_indian_alaska_native": null,
+        "medically_frail_indicators": [
+          "type 2 diabetes with neuropathy",
+          "recent hospitalization"
+        ],
+        "in_sud_treatment": null,
+        "meets_snap_or_tanf_work_rules": null,
+        "recently_incarcerated": null
+      }
+    ],
+    "client_id": "robert",
+    "ledger": [],
+    "event": "noncompliance_notice",
+    "event_date": "2026-10-01",
+    "notice_date": "2026-10-06",
+    "notes": ""
+  },
+  "client_name": "Robert Nguyen",
+  "navigator": "Demo navigator",
+  "language": "en",
+  "documents": [],
+  "notice": null,
+  "flags": [],
+  "synthetic": true,
+  "updated": "2026-10-09"
+}
