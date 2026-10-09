@@ -43,15 +43,14 @@ def list_cases(as_of: str | None = None) -> list[dict]:
     out = []
     for rec in store.all_cases():
         ws = worksheet(rec.case, on)
-        statuses = [r.status for r in ws.results]
+        status = {"meets": "meets", "conditional": "conditional", "does_not_meet": "at_risk",
+                  "insufficient_evidence": "insufficient_evidence"}[ws.overall]
         out.append({
             "id": rec.case.id, "client_name": rec.client_name, "event": rec.case.event,
             "event_date": rec.case.event_date.isoformat(),
             "cure_deadline": ws.cure_deadline.isoformat() if ws.cure_deadline else None,
             "days_left": (ws.cure_deadline - on).days if ws.cure_deadline else None,
-            "status": "meets" if statuses and all(s == "meets" for s in statuses) else
-                      ("insufficient_evidence" if "insufficient_evidence" in statuses else
-                       "depends_on_expenses" if "does_not_meet" not in statuses else "at_risk"),
+            "status": status,
             "possible_exemptions": len(ws.exemptions), "flags": rec.flags, "synthetic": rec.synthetic,
         })
     return sorted(out, key=lambda c: (c["days_left"] is None, c["days_left"] or 0))

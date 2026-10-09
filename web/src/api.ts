@@ -1,4 +1,4 @@
-export type Status = 'meets' | 'depends_on_expenses' | 'does_not_meet' | 'insufficient_evidence'
+export type Status = 'meets' | 'conditional' | 'does_not_meet' | 'insufficient_evidence'
 
 export interface CaseSummary {
   id: string
@@ -7,7 +7,7 @@ export interface CaseSummary {
   event_date: string
   cure_deadline: string | null
   days_left: number | null
-  status: 'meets' | 'at_risk' | 'insufficient_evidence' | 'depends_on_expenses'
+  status: 'meets' | 'at_risk' | 'insufficient_evidence' | 'conditional'
   possible_exemptions: number
   flags: { kind: string; message: string; date?: string; facts?: string[] }[]
   synthetic: boolean
@@ -15,14 +15,13 @@ export interface CaseSummary {
 
 export interface Contribution { entry_id: string; member_id: string; kind: string; amount: number; share: number; doc_id: string | null; span: string }
 export interface MonthResult {
-  month: string; member_id: string; status: Status; path: string | null
-  activity_hours: number; household_income: number; income_threshold: number
-  income_hours_equivalent: number; combined_hours: number; seasonal_average_income: number | null
-  gross_self_employment: number; expense_headroom: number | null
-  contributions: Contribution[]; ambiguities: string[]; facts_used: string[]
+  month: string; member_id: string; status: Status; path: string | null; conditions: string[]
+  activity_hours: number; own_income: number; own_gross_self_employment: number; household_other_income: number
+  income_threshold: number; income_hours_equivalent: number; combined_hours: number; seasonal_average_income: number | null
+  expense_headroom: number | null; contributions: Contribution[]; ambiguities: string[]; facts_used: string[]
 }
 export interface Worksheet {
-  case_id: string; jurisdiction: string; as_of: string; months: string[]; results: MonthResult[]
+  case_id: string; jurisdiction: string; as_of: string; review: string; months: string[]; results: MonthResult[]; overall: Status; cure_note: string
   exemptions: { member_id: string; key: string; label: string; fact_ids: string[]; action: string }[]
   cure_deadline: string | null
   params: Record<string, { value: unknown; fact_id: string | null; verified: boolean; label: string }>

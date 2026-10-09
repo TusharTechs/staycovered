@@ -69,8 +69,11 @@
       }
     ],
     "event": "noncompliance_notice",
-    "event_date": "2026-10-01",
+    "event_date": "2026-10-02",
     "notice_date": "2026-10-02",
+    "months_in_question": [
+      "2026-09"
+    ],
     "notes": ""
   },
   "client_name": "Aisha Mohammed",
@@ -129,5 +132,5 @@
   "notice": null,
   "flags": [],
   "synthetic": true,
-  "updated": "2026-10-09"
+  "updated": "2026-10-10"
 }

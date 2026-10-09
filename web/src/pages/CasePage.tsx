@@ -5,7 +5,7 @@ import { Card, Spinner, StatusPill } from '../components/ui'
 import AskBox from '../components/AskBox'
 
 const PATH: Record<string, string> = {
-  hours: '80+ activity hours', household_income: 'household income ≥ threshold',
+  hours: '80+ activity hours', income: 'income ≥ threshold',
   combined: 'activity hours + income converted to hours', seasonal_average: 'seasonal 6-month average',
 }
 
@@ -40,6 +40,7 @@ export default function CasePage() {
             <div className="rounded-xl border border-bad/30 bg-bad-soft px-4 py-2 text-bad">
               <div className="text-xs">Respond by</div>
               <div className="text-lg font-semibold">{fmtDate(ws.cure_deadline)}</div>
+              {ws.cure_note && <div className="max-w-56 text-[10px] leading-tight text-bad/80">{ws.cure_note}</div>}
             </div>
           )}
           <a href={`/api/cases/${rec.case.id}/packet.pdf`} className="rounded-lg bg-brand px-4 py-2.5 text-sm font-medium text-white hover:opacity-90">Download packet (PDF)</a>
@@ -57,6 +58,10 @@ export default function CasePage() {
           {rec.notice && <NoticeCard notice={rec.notice} caseId={rec.case.id} />}
 
           <Card title="Attestation worksheet" actions={<span className="text-xs text-muted">rules in force {fmtDate(ws.as_of)}</span>}>
+            <div className="mb-3 flex flex-wrap items-center gap-2 text-sm">
+              <span className="text-muted">Overall:</span> <StatusPill status={ws.overall} />
+              <span className="text-xs text-muted">· Review rule: {ws.review}</span>
+            </div>
             <p className="text-xs text-muted mb-3">Arithmetic is done by code, never by the AI. Click a month to see every number's source.</p>
             <div className="space-y-2">
               {ws.results.map(r => <MonthRow key={r.month} r={r} open={open === r.month} onToggle={() => setOpen(open === r.month ? null : r.month)} docs={docs} />)}
@@ -123,15 +128,16 @@ function MonthRow({ r, open, onToggle, docs }: { r: MonthResult; open: boolean; 
         <StatusPill status={r.status} />
         {r.path && <span className="text-xs text-muted">via {PATH[r.path]}</span>}
         <span className="ml-auto flex gap-4 text-xs tabular-nums text-muted">
-          <span><b className="text-ink">{r.activity_hours}</b> hrs</span>
-          <span><b className="text-ink">${r.household_income.toLocaleString()}</b> / ${r.income_threshold} household income</span>
-          <span><b className="text-ink">{r.combined_hours}</b> combined hrs</span>
+          <span><b className="text-ink">{r.activity_hours}</b> / 80 hrs</span>
+          <span><b className="text-ink">${(r.own_income + r.own_gross_self_employment).toLocaleString()}</b> / ${r.income_threshold} income{r.own_gross_self_employment > 0 && ' (incl. gig, before expenses)'}</span>
+          {r.household_other_income > 0 && <span><b className="text-ink">${r.household_other_income.toLocaleString()}</b> others in household</span>}
         </span>
       </button>
-      {r.status === 'depends_on_expenses' && r.expense_headroom !== null && (
+      {r.status === 'conditional' && r.conditions.length > 0 && (
         <div className="border-t border-line bg-warn-soft/60 px-3 py-2 text-sm">
-          <b>Meets if business expenses for the month are ${r.expense_headroom.toLocaleString(undefined, { maximumFractionDigits: 2 })} or less.</b>{' '}
-          <span className="text-muted">${r.gross_self_employment.toLocaleString()} is gig payout before fuel, mileage and phone costs. Ask the client for a mileage log or expense records.</span>
+          <b>Meets only if:</b>
+          <ul className="list-disc pl-5">{r.conditions.map((c, i) => <li key={i}>{c}</li>)}</ul>
+          {r.expense_headroom !== null && <p className="text-xs text-muted mt-1">Ask the client for a mileage log or expense records for the month.</p>}
         </div>
       )}
       {open && (

@@ -1,0 +1,404 @@
+# Georgia Pathways to Coverage fact pack
+jurisdiction: GA
+name: Georgia (Pathways to Coverage)
+facts:
+- id: GA.timeline.rules_change_2027
+  topic: timeline
+  statement: Pathways eligibility requirements change January 1, 2027 due to federal H.R. 1; current members are not affected until renewal in 2027.
+  value: '2027-01-01'
+  unit: date
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: Beginning on January 1, 2027, the Georgia Pathways to Coverage eligibility requirements will change due to federal law (Working Families Tax Cut/H.R. 1 legislation). Current Pathways members will not be affected until renewal in 2027.
+  confidence: high
+  notes: ''
+- id: GA.applicability.applicable_individual
+  topic: applicability
+  statement: Pathways applicants must be age 19-64, income at or below 100% FPL, in or eligible for the state plan adult group, not pregnant, not on Medicare Part A or B, and not eligible for a mandatory/optional Medicaid group.
+  value:
+  - age 19-64
+  - income <=100% FPL
+  - not pregnant
+  - no Medicare A/B
+  unit: text
+  effective_from: 2023-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: Income at or below 100% of the Federal Poverty Level
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: Not enrolled in Medicare Part A or B
+  confidence: high
+  notes: ''
+- id: GA.applicability.income_limit_2026
+  topic: applicability
+  statement: '2026 income limit (100% FPL): $15,960 per year for one person; $27,320 per year for a family of three.'
+  value:
+  - 15960
+  - 27320
+  unit: usd
+  effective_from: 2026-01-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-faq-2026-10-09
+    quote: $15,960 per year or $1,330 on average per month for one person
+  - source_id: ga-pathways-faq-2026-10-09
+    quote: $27,320 per year or $2,277 on average per month for a family of three
+  confidence: high
+  notes: ''
+- id: GA.requirement.hours_80
+  topic: requirement
+  statement: Must demonstrate at least 80 hours per month of community engagement (called qualifying activities before 2027).
+  value: 80
+  unit: hours
+  effective_from: 2023-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: Like the current program, individuals are required to demonstrate at least 80 hours per month of certain activities.
+  confidence: high
+  notes: ''
+- id: GA.requirement.activities_2026
+  topic: requirement
+  statement: 'Current qualifying activities: work, community service, work program, education; job readiness, inpatient/short-term skilled nursing stays, habilitation/rehabilitation incl. SUD treatment, and being parent of a child under 6 currently count and will stop counting as activities on Jan 1, 2027.'
+  value: null
+  unit: null
+  effective_from: 2023-07-01
+  effective_to: 2026-12-31
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: Participate in job readiness activities (will now be included as an educational program activity)
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: Be the Parent or Legal Guardian of a child under six years of age (see the “Specified Excluded Individual” section below)
+  confidence: high
+  notes: ''
+- id: GA.requirement.activities_2027
+  topic: requirement
+  statement: 'From Jan. 1, 2027 community engagement activities: work at least 80 hours (incl. self-employment); 80 hours community service; 80 hours in a work program; education at least half-time; earn at least $580 per month (income must be under 100% FPL); seasonal workers: average of $580 over previous 6 months.'
+  value:
+  - work 80h
+  - community service 80h
+  - work program 80h
+  - education half-time
+  - income >= $580
+  unit: text
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: Earn a monthly income of at least $580 (income must be under 100% FPL).
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: Enrolled in an educational program at least half-time
+  confidence: high
+  notes: ''
+- id: GA.income_alternative.580_2027
+  topic: income_alternative
+  statement: 'New from Jan 1, 2027: earning at least $580 per month counts (income must be under 100% FPL); seasonal workers use a 6-month average.'
+  value: 580
+  unit: usd
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: For seasonal workers, earn an average monthly income over the previous 6 months of at least $580 (income must be under 100% FPL).
+  confidence: high
+  notes: ''
+- id: GA.requirement.combine_activities
+  topic: requirement
+  statement: Individuals may combine activities to reach 80 hours per month.
+  value: 80
+  unit: hours
+  effective_from: 2023-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: Like the current program, individuals may combine the community engagement activities to meet the 80-hours-per-month requirement.
+  confidence: high
+  notes: ''
+- id: GA.requirement.job_search_not_counted
+  topic: requirement
+  statement: Time spent looking for a job does not count as a qualifying activity.
+  value: false
+  unit: bool
+  effective_from: 2023-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-faq-2026-10-09
+    quote: No, time spent looking for a job does not count as a qualifying activity.
+  confidence: high
+  notes: ''
+- id: GA.reporting.monthly_17th.v1
+  topic: reporting
+  statement: 'Aug 2024 FAQ: members reported qualifying activity hours each month by the 17th (e.g., January hours by February 17 to stay covered in March); missing the deadline without Good Cause stopped coverage on the last day of the month.'
+  value: 17
+  unit: days
+  effective_from: 2024-08-04
+  effective_to: 2025-09-03
+  known_from: 2024-08-04
+  citations:
+  - source_id: ga-pathways-faq-2024-08-04
+    quote: You must report your hours by the 17th of each month. For instance, you would report your January hours by February 17 to stay covered in March.
+  - source_id: ga-pathways-faq-2024-08-04
+    quote: If you do not report your 80 hours of qualifying activities by the 17th of the month or receive a Good Cause Exception, your coverage will stop.
+  confidence: high
+  notes: ''
+- id: GA.reporting.application_and_annual_renewal.v2
+  topic: reporting
+  statement: 'Sept 2025 FAQ onward: qualifying activity hours are reported at the time of application and annual renewal (not monthly); activities may be verified.'
+  value: null
+  unit: null
+  effective_from: 2025-09-04
+  effective_to: null
+  known_from: 2025-09-04
+  citations:
+  - source_id: ga-pathways-faq-2025-09-04
+    quote: You must report your qualifying activity hours at the time of application and annual renewal.
+  confidence: high
+  notes: Change from monthly reporting occurred between 2024-08-04 and 2025-09-04 captures (press reports date it to Oct 2025; the Sept 4, 2025 capture already shows it).
+- id: GA.reporting.application_and_annual_renewal.live
+  topic: reporting
+  statement: 'Live site: report qualifying activity hours at application and annual renewal.'
+  value: null
+  unit: null
+  effective_from: 2025-09-04
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-qualifying-activities-2026-10-09
+    quote: You must report your qualifying activity hours at the time of application and annual renewal.
+  confidence: high
+  notes: ''
+- id: GA.reporting.2027_continuous_compliance
+  topic: reporting
+  statement: 'From Jan 1, 2027: must complete community engagement for at least one month immediately before the month of application, continuing monthly during Pathways enrollment, and at annual renewal.'
+  value: 1
+  unit: months
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: individuals must complete community engagement for at least one month immediately before the month of application, continuing monthly during Pathways enrollment, and at annual renewal.
+  confidence: high
+  notes: ''
+- id: GA.verification.documents
+  topic: verification
+  statement: Verification may include pay stubs, employer statements, timesheets; self-employment calendar/worksheet; supervisor/organization statements for community service; registrar enrollment or class schedule for education.
+  value:
+  - pay stubs
+  - employer statement
+  - timesheet
+  - work calendar
+  - community service statement
+  - class schedule/enrollment
+  unit: text
+  effective_from: 2023-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-qualifying-activities-2026-10-09
+    quote: Pay stubs
+  - source_id: ga-pathways-qualifying-activities-2026-10-09
+    quote: Official course enrollment for the current semester from the Office of the Registrar
+  confidence: high
+  notes: ''
+- id: GA.verification.proof_to_keep_2027
+  topic: verification
+  statement: DFCS may ask for proof of 80 hours or at least $580 per month (without earning more than 100% FPL), such as pay stubs, school records and volunteer logs.
+  value: null
+  unit: null
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: Keep proof, such as pay stubs, school records and volunteer logs.
+  confidence: high
+  notes: ''
+- id: GA.exemption.2027_exceptions
+  topic: exemption
+  statement: 'From 2027: exceptions for under 19; Medicare A/B; mandatory Medicaid groups; inmate of a public institution within 3 months before the application month.'
+  value: null
+  unit: null
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: An inmate of a public institution at any point during the 3-month period ending on the first day of the application month in which the individual is otherwise subject to the community engagement requirement
+  confidence: high
+  notes: ''
+- id: GA.exemption.2027_specified_excluded
+  topic: exemption
+  statement: 'Specified excluded individuals: AI/AN; former foster youth; inmate; medically frail; TANF/SNAP work requirements; drug/alcohol treatment participant; pregnant or postpartum 0-12 months; parent/guardian/caretaker relative/family caregiver of a dependent child 13 and under or of a disabled individual; veteran with total disability rating.'
+  value: null
+  unit: null
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: Are a parent, guardian, caretaker relative or family caregiver of a dependent child 13 years of age and under or of a disabled individual
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: Are a veteran with a total disability rating
+  confidence: high
+  notes: ''
+- id: GA.exemption.2027_short_term_hardship
+  topic: good_cause
+  statement: 'From 2027 short-term hardship exceptions: inpatient hospital/nursing facility/ICF-IID/inpatient psychiatric services (must request approval from the state); medical travel outside the community (must request approval); county disaster declaration and high-unemployment exceptions require CMS approval before Georgia can use them.'
+  value: null
+  unit: null
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: 'An applicable individual receiving inpatient hospital services, nursing facility services, services in an Intermediate Care Facility for Individuals with Intellectual Disabilities (ICF/IID), inpatient psychiatric hospital services, or other services with a similar level of acute care. (Note: The individual must request approval from the state)'
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: '(Note: The State must obtain CMS approval before this specific exception can be utilized in Georgia.)'
+  confidence: high
+  notes: ''
+- id: GA.good_cause.up_to_120_hours
+  topic: good_cause
+  statement: Current Pathways members may request a Good Cause Exception for up to 120 hours per certification year when unable to complete 80 hours in a month.
+  value: 120
+  unit: hours
+  effective_from: 2023-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-good-cause-2026-10-09
+    quote: You can request a Good Cause Exception for up to 120 hours per certification year so that you maintain coverage even when unexpected things happen.
+  confidence: high
+  notes: ''
+- id: GA.good_cause.how_to_request
+  topic: good_cause
+  statement: Request a Good Cause Exception online at gateway.ga.gov, in person at a DFCS office, by mail to a DFCS office, or by phone at 1-877-423-4746 (711 for hearing/speech); phone requests can be documented online, by mail or in person.
+  value: 1-877-423-4746
+  unit: text
+  effective_from: 2023-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-good-cause-2026-10-09
+    quote: By phone at 1-877-423-4746 or 711 for those who are deaf, hard of hearing, deaf-blind or have difficulty speaking.
+  confidence: high
+  notes: ''
+- id: GA.good_cause.categories
+  topic: good_cause
+  statement: 'Good Cause examples: family emergency or life event; birth/adoption/foster placement/death of immediate family; temporary illness or short-term injury (over three consecutive days); serious illness or hospitalization; natural or human-caused disaster; temporary homelessness; COVID-19 illness or exposure; "Other".'
+  value:
+  - family emergency
+  - birth/adoption/death
+  - temporary illness
+  - serious illness or hospitalization
+  - disaster
+  - homelessness
+  - COVID-19
+  - other
+  unit: text
+  effective_from: 2023-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-good-cause-2026-10-09
+    quote: Temporary homelessness.
+  - source_id: ga-pathways-good-cause-2026-10-09
+    quote: If you have a different reason to be considered for not completing 80 hours of qualifying activities, select “Other” on the Gateway Customer Portal.
+  confidence: high
+  notes: ''
+- id: GA.cure.2024_restore_coverage
+  topic: cure
+  statement: 'Aug 2024 FAQ: if coverage stopped for missing the 17th reporting deadline, reporting 80 hours by the 17th of a later month restored coverage on the 1st of the following month.'
+  value: null
+  unit: null
+  effective_from: 2024-08-04
+  effective_to: 2025-09-03
+  known_from: 2024-08-04
+  citations:
+  - source_id: ga-pathways-faq-2024-08-04
+    quote: To restore your coverage, you will need to report 80 hours of qualifying activities by the 17th of the month. Your coverage will then resume on the 1st of the following month.
+  confidence: high
+  notes: ''
+- id: GA.consequence.noncompliance_2027
+  topic: good_cause
+  statement: From 2027 noncompliance may result in loss of benefits; members get an opportunity to provide additional information before termination and can appeal via fair hearing.
+  value: null
+  unit: null
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: Members will have the opportunity to provide additional information through a process before benefits are terminated.
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: Members can also appeal the state’s decision through the fair hearing process.
+  confidence: high
+  notes: ''
+- id: GA.reporting.apply_channels
+  topic: reporting
+  statement: Apply or report at gateway.ga.gov, in person or by mail at a DFCS office, or by phone at 1-877-423-4746.
+  value: 1-877-423-4746
+  unit: text
+  effective_from: 2023-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-faq-2026-10-09
+    quote: The easiest way to apply is online at gateway.ga.gov.
+  confidence: high
+  notes: ''
+- id: GA.reporting.report_changes_10_days
+  topic: reporting
+  statement: Members must report household/income/resource changes within 10 calendar days; failing to do so may mean repaying benefits and possible fraud prosecution.
+  value: 10
+  unit: days
+  effective_from: 2023-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: You must report these changes within 10 calendar days of the date on which the change occurs.
+  confidence: high
+  notes: ''
+- id: GA.process.prior_month_eligibility_2027
+  topic: process
+  statement: From Jan 1, 2027 applicants can request two months of eligibility before the application month and must show 80 hours of community engagement in the month before the application month.
+  value: 2
+  unit: months
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: this new legislation will allow for a Pathways applicant to request two months of eligibility prior to the month that they are applying for benefits.
+  confidence: high
+  notes: ''
+- id: GA.contact.dfcs
+  topic: contact
+  statement: DFCS Customer Contact Center 877-423-4746.
+  value: 877-423-4746
+  unit: text
+  effective_from: 2026-10-09
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ga-pathways-hr1-changes-2026-10-09
+    quote: DFCS Customer Contact Center at 877-423-4746
+  confidence: high
+  notes: ''
+open_questions:
+- Georgia 2027 verification procedures, notice timing and cure days not yet published on captured pages ("More information will be provided").
+- Pathways waiver expiration (Dec 31, 2026) and any extension not verified from a primary state document in this pack.
+- Wayback snapshot at original July 2023 launch not available on the current domain; August 2024 and September 2025 captures used instead.

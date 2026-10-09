@@ -1,0 +1,116 @@
+Community Engagement and Work Requirement Verification Implementation
+Division of County Operations Director Mary Franklin
+Division of Medical Services Director Elizabeth Pitman
+Specialty Medicaid Populations Director Melissa Weatherton
+Community Engagement and Work Requirement Why is this important? Finding a job brings purpose, meaning, and economic independence, which leads to better health. Find your career, embrace your future, and learn more at AR.gov/engage
+Community Engagement and Work Requirement The federal budget bill signed into law last summer requires states to mandate that some Medicaid recipients and applicants demonstrate community engagement to receive benefits. States must be in compliance by Jan. 1, 2027 to continue receiving federal funds necessary to administer the Medicaid program for these beneficiaries.
+Affected Population
+Why Start Preparation Now?
+Individuals aged 19-64 served by ARHOME, Arkansas’ Medicaid expansion program and who are not exempt.
+To ensure coverage for as many recipients as possible, thereby reducing the risk of uncompensated care, DHS needs time to establish a thoroughly tested verification system and to educate ARHOME enrollees on this change.
+ARHOME Waiver Changes More than 210,000 ARHOME recipients are subject to the Community Engagement and Work Requirements identified in the federal budget act, which will be required in the new ARHOME Waiver.
+Engagement Hours Required 80 hours per month of one or more of the following activities:
+1. Employment*
+2. Work program participation
+3. Educational enrollment
+4. Community Service
+Engagement Exemptions
+Verification Details
+Certain populations are exempt from federal requirements, for example:
+1. Disabled veterans
+2. Caregivers
+3. Pregnant and Postpartum women
+4. Special medical needs
+States must determine if a Medicaid applicant met requirements first upon application and then again every six months. States are encouraged to use available data where possible, coupled with outbound outreach.
+* ARHOME recipients can alternately meet the monthly employment requirement by earning at least $580 per month, which represents the federal minimum wage of $7.25/hour multiplied by 80 hours.
+Verification Implementation Overview By January 1, 2027, DHS must implement a verification system and process for determining Community Engagement and Work Requirement compliance, non-compliance, or exemption.
+How it will work Automated Verification
+Outbound Verification Center
+DHS will first attempt an automated, or ex parte, verification by checking data already available to the State (e.g., wage data, SNAP applications).
+DHS is procuring a Customer Service Center (CSC) vendor, who will perform outbound calls to verify Community Engagement when the automated process cannot.
+DHS will log these automated checks in the Medicaid eligibility system and notify recipients of compliance status.
+The vendor will accept information through various modes and upload verification of compliance to the system.
+Verification Timeline DHS is approaching the development of Community Engagement and Work Requirement verification in three phrases. Prior to Go-Live, DHS will not implement closures or penalties.
+Phase 1
+Phase 2
+Phase 3
+Sept. 2025 - Jun. 2026
+Jul. 2026 - Dec. 2026
+Jan. 1, 2027 - Ongoing
+Preparation & Testing
+Soft Implementation
+Verification Go-Live
+DHS shall develop the ex parte infrastructure, prepare beneficiary communications, and educate State stakeholders on ARHOME Waiver changes.
+DCO will practice implementing ex parte verification and launch communications to beneficiaries. The CSC vendor will develop and test the outbound system infrastructure. Beneficiary eligibility will not be impacted.
+ARHOME Waiver changes go live. Closures and penalties will be instituted beginning at go-live. DCO shall make suspension determinations. Life360 will continue during this period.
+Soft Launch On July 1, 2026, the State will begin a “practice” period for Community Engagement and Work Requirement verification without penalties. This soft launch will help the State identify areas for improvement and help beneficiaries understand the new requirements. July 1, 2026
+December 1, 2026
+Automated processes begin
+Beneficiary Communications
+Outbound System Build
+Outbound Implementation
+Automated verification for Community Engagement and Work Requirements goes live. Recipients will receive notice of compliance or noncompliance without penalties.
+ARHOME beneficiaries begin receiving targeted information on Community Engagement and Work Requirements, system changes, and maintaining benefits through DHS and the CSC vendor.
+The CSC vendor initiates the outbound system build and collaborates with DHS to train CSC staff on non-automated verification and outbound call management.
+The CSC vendor will begin performing outbound communication to obtain documentation verifying the status of ARHome beneficiaries as either exempt, compliant, or noncompliant.
+Full launch of program
+On January 1, 2027, ARIES and the CSC vendor will continue performing Community Engagement and Work Requirement verification. Non-compliant members will receive penalties and suspensions.
+Go-Live Verification Process Flow if exempt/compliant
+DCO determines compliance/exemption by checking an existing data source or CSC performs outbound call to member, gathers documentation, and determines compliance/exemption. if non-compliant
+Beneficiary receives compliance notice from DHS.
+Beneficiary notified of noncompliance, after which the beneficiary has 30 days to show compliance.
+DHS makes determination to suspend Medicaid benefits.
+if non-compliant
+Learn more Additional resources are available at ar.gov/engage, and we will continue to update this website with additional information.
+Frequently Asked Questions Could this program still change? •
+The overall aim of the program to require ARHOME beneficiaries to work, volunteer, or take classes will not change.
+•
+However, there may be some adjustments in how the program is implemented.
+•
+We are awaiting additional guidance from the Centers for Medicare and Medicaid Services, the federal agency that oversees Medicaid across all states.
+•
+The soft launch is an opportunity to test systems and improve our program, and we may make changes based upon this feedback.
+•
+We will share updates at ar.gov/engage, and also through direct communications with beneficiaries. Now is the time to make sure your contact information is updated.
+Frequently Asked Questions What are the exemptions?
+You may be exempt if:
+• You are pregnant or entitled to postpartum medical assistance
+• You are under 19 or over 64
+• You are a former foster child under 26
+• You are a tribal member or Alaska Native
+• You are a veteran with rated disabilities
+• You are a medically frail individual
+• You are participating in a substance use or alcohol use disorder treatment program
+• You meet the TANF/SNAP work requirement
+• You are a parent or caregiver of a dependent child aged 13 or younger, or someone with a disability
+• You are entitled to or enrolled in Medicare Part A or enrolled in Medicare Part B
+Frequently Asked Questions How is this different from Arkansas Works, the previous work requirement that was in effect in 2018? •
+The 2018 program required monthly reporting / attestation by beneficiaries. The ARHOME community engagement and work requirement will require demonstration of compliance or exemption at application and at renewal.
+•
+The new requirement relies first on an automated check and will then move to a Customer Service Center that will reach out to beneficiaries.
+•
+Arkansas also now has an integrated online eligibility system with a portal for beneficiaries called Access Arkansas through which beneficiaries can manage their cases, submit applications or renewals, receive notices, and provide any needed documentation.
+Frequently Asked Questions What lessons learned from the 2018 requirement have been applied to this new program? •
+Two key takeaways from Arkansas Works were the need to provide clear communications through multiple means and the need for simplicity in design and personal interaction rather than overreliance on technology.
+•
+We are communicating with beneficiaries in a variety of ways to ensure they are prepared for the new requirement. This includes notices, emails and texts, outreach from the customer service center, posts on social media, digital bulletin board in our offices, news releases, town halls like this one, and more.
+•
+The simplicity in design and personal interaction have informed the plan for the customer service center. And beneficiaries whose circumstances cannot be verified through data sources will be able to provide information online, by visiting a local county office, or sending in documents through regular mail or email.
+Frequently Asked Questions If I have to report information to show compliance with the requirement, how do I do it? •
+DHS will first attempt to use existing data sources to confirm you meet the requirement automatically.
+•
+If this is successful, you will be notified and you won’t have to report anything at all.
+•
+If you need to report some information to determine compliance, a representative from the Customer Service Center will reach out. They will explain what is needed and how to report it.
+•
+At that point, you may need to report online, by phone, or in person.
+Frequently Asked Questions How do I update my information to ensure you can reach me? •
+Call the Access Arkansas hotline at 1-855-3721084
+•
+Go online at access.arkansas.gov or ar.gov/accessanywhere
+•
+Visit your local DHS county office to update your information. Find the addresses of all county offices at humanservices.arkansas.gov
+•
+You can also sign up for email and text alerts using your Access Arkansas account. Watch a video detailing how to do this at ar.gov/update.
+Community Engagement and Work Requirement
+Questions?

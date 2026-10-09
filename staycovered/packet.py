@@ -15,8 +15,9 @@ from . import rules
 from .engine.compute import Worksheet
 from .store import CaseRecord
 
-STATUS = {"meets": "Meets requirement", "does_not_meet": "Does not meet yet", "insufficient_evidence": "No evidence yet"}
-PATH = {"hours": "80+ activity hours", "household_income": "household income at or above threshold",
+STATUS = {"meets": "Meets requirement", "conditional": "Meets only if (see conditions)", "does_not_meet": "Does not meet yet",
+          "insufficient_evidence": "No evidence yet"}
+PATH = {"hours": "80+ activity hours", "income": "income at or above threshold",
         "combined": "activity hours + income converted to hours", "seasonal_average": "6-month seasonal income average"}
 
 
@@ -37,16 +38,18 @@ def build_packet(rec: CaseRecord, ws: Worksheet) -> bytes:
     if rec.synthetic:
         story.append(Paragraph("<b>SYNTHETIC DEMO DATA — not a real person.</b>", body))
     if ws.cure_deadline:
-        story.append(Paragraph(f"<b>Respond by: {ws.cure_deadline.isoformat()}</b> (notice dated {rec.case.notice_date}).", body))
+        story.append(Paragraph(f"<b>Respond by: {ws.cure_deadline.isoformat()}</b> (notice dated {rec.case.notice_date}; {ws.cure_note})", body))
     story.append(Spacer(1, 8))
     story.append(Paragraph("This packet organises the client's own documents against the published rules. "
                            "It is not an eligibility decision. The state agency decides.", small))
 
     story.append(Paragraph("Summary by month", h))
-    rows = [["Month", "Result", "How", "Activity hrs", "Household income", "Combined hrs"]]
+    story.append(Paragraph(f"Review rule: {ws.review}. Overall: <b>{STATUS[ws.overall]}</b>.", body))
+    rows = [["Month", "Result", "How", "Activity hrs", "Client income", "Other income"]]
     for r in ws.results:
-        rows.append([r.month, STATUS[r.status], PATH.get(r.path or "", "—"), f"{r.activity_hours:g}",
-                     f"${r.household_income:,.2f} (need ${r.income_threshold:,.0f})", f"{r.combined_hours:g}"])
+        inc = f"${r.own_income:,.2f}" + (f" + ${r.own_gross_self_employment:,.2f} gig (before expenses)" if r.own_gross_self_employment else "")
+        rows.append([r.month, Paragraph(STATUS[r.status], small), PATH.get(r.path or "", "—"), f"{r.activity_hours:g}",
+                     Paragraph(inc + f" (need ${r.income_threshold:,.0f})", small), f"${r.household_other_income:,.2f}"])
     t = Table(rows, repeatRows=1, colWidths=[0.7 * inch, 1.3 * inch, 1.7 * inch, 0.8 * inch, 1.6 * inch, 0.8 * inch])
     t.setStyle(TableStyle([("FONTSIZE", (0, 0), (-1, -1), 8.5), ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#e8eef5")),
                            ("GRID", (0, 0), (-1, -1), 0.4, colors.grey), ("VALIGN", (0, 0), (-1, -1), "TOP")]))
@@ -64,6 +67,11 @@ def build_packet(rec: CaseRecord, ws: Worksheet) -> bytes:
                             ("GRID", (0, 0), (-1, -1), 0.4, colors.grey), ("VALIGN", (0, 0), (-1, -1), "TOP")]))
     story.append(et)
 
+    conds = [f"{r.month}: {c}" for r in ws.results for c in r.conditions]
+    if conds:
+        story.append(Paragraph("Conditions the outcome depends on", h))
+        for c in conds:
+            story.append(Paragraph("• " + c, small))
     amb = sorted({a for r in ws.results for a in r.ambiguities})
     if amb or ws.warnings:
         story.append(Paragraph("Things to confirm with the agency", h))

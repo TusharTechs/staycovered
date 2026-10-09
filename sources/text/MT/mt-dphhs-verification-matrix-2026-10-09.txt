@@ -1,0 +1,102 @@
+Verification Matrix
+Montana Medicaid: What documentation do I need to show I meet the community engagement requirement or have an exclusion?
+DPHHS carefully evaluated each category excluded from community engagement requirements and avoided reliance on self-declaration wherever possible, instead prioritizing available data sources and other forms of verification. Auditable self-declaration is limited to a few exclusion categories and permitted only when verification is not reasonably available or would create undue burden for highly vulnerable populations. Where auditable self-declaration is accepted, the department generally verifies the information at redetermination, using available data and other verification methods.
+Important: For applications, providing documentation is optional upon application submission. You may receive an additional request for verifications after your application is processed and checked against existing data sources. The table below indicates which activities and exclusions can be checked against an existing data source at ex parte (autorenewal).
+Category
+Activity / Exclusion
+Data Check Available at Ex Parte (Auto Renewal)
+Other Ways for an Individual to Verify (if data check unsuccessful or not available)
+Qualified Activities
+Employment
+Y - Department of Labor wage data
+Pay stubs, tax returns (for self-employed/seasonal workers), documentation verifying hours worked for in-kind employment (submitted with Medicaid CE Reporting Log in Appendix A)
+Qualified Activities
+Community Service
+N
+Community Service / Apprenticeship / Internship / GED Verification Form (Appendix A)
+Qualified Activities
+Workforce Training
+N
+Work Programs Participation Department of Labor and Industry Form (Appendix A)
+Qualified Activities
+Education
+N
+Documentation from school (e.g., school schedule or transcript) (submitted with Medicaid CE Reporting Log in Appendix A)
+Specified Exclusions
+American Indian/Alaska Native (AI/AN)
+Y – CHIMES Eligibility System Data
+Self-Declaration Form (Appendix B), Enrollment number, IHS documentation
+Specified Exclusions
+Former Foster Youth (FFY) under age 26 who were on Medicaid and in foster care when they turned 18
+N
+Self-Declaration Form (Appendix B)
+Specified Exclusions
+Inmate of a public institution (e.g., jail, prison)
+N
+Facility documentation (e.g., jail or prison records)
+Specified Exclusions
+People with a medical condition or health needs that impact their ability to work or do other community engagement activities (medically frail)
+Y – Medically Frail Interface with DPHHS Medicaid Claims (Go-live 10/1)
+New applicants: Self-Declaration Form (Appendix B)
+Existing clients: Provider Attestation Form (Appendix B)
+Specified Exclusions
+Parent, guardian, caretaker relative, or family caregiver of a dependent child under age 14 or a disabled individual
+Y – CHIMES Eligibility System Data (for family caregiver of dependent child only)
+Self-Declaration Form (Appendix B)
+Specified Exclusions
+People in a drug or alcohol rehabilitation or treatment program
+N
+Provider documentation confirming treatment at American Society of Addiction Medicine (ASAM) level 2.1 or above
+Specified Exclusions
+People who meet TANF work requirements, or receive SNAP and are subject to SNAP work requirements
+Y – CHIMES Eligibility System Data
+N/A – DPHHS first verifies using existing data
+Specified Exclusions
+Women who are pregnant or postpartum (up to 12 months)
+N
+Self-Declaration Form (Appendix B)
+Specified Exclusions
+Veterans with a total (100%) disability rating
+N
+Statement from the Department of Veterans Affairs (VA) showing disability rating of 100%
+Mandatory Exceptions
+Children aged 18 or younger
+Y – CHIMES Eligibility System Data
+N/A
+Mandatory Exceptions
+People eligible for or enrolled in Medicare
+Y – CHIMES Eligibility System Data
+Letter from the Social Security Administration (SSA) or Medicare card
+Mandatory Exceptions
+People eligible for Medicaid for any other eligibility group
+Y – CHIMES Eligibility System Data
+N/A
+Mandatory Exceptions
+People incarcerated in the last three months
+N
+Facility documentation (e.g., jail or prison records)
+Mandatory Exceptions
+Short-term hardship: Receiving inpatient services
+N
+Provider or facility documentation
+Mandatory Exceptions
+Short-term hardship: Residing in a county with an emergency disaster declaration
+N/A – DPHHS monitors data and automatically applies this exception to applicable individuals if a declaration is made in a Montana county
+N/A
+Mandatory Exceptions
+Short-term hardship: Residing in a county with high unemployment
+N/A – DPHHS monitors data and automatically applies this exception if a county meets criteria (note: DPHHS has currently not elected to enact this short-term hardship)
+N/A
+Mandatory Exceptions
+Short-term hardship: Person or dependent who must travel outside of their community for medical services for a serious or complex medical condition
+N
+Provider documentation
+LANGUAGE ASSISTANCE
+NOTICE OF USE OF PROTECTED HEALTH INFORMATION
+LEGISLATURE
+CAREERS
+NONDISCRIMINATION NOTICE / POLICY
+CONTACT WEBMASTER
+ACCESSIBILITY, DISCLAIMER AND WEB STANDARDS
+PRIVACY & SECURITY
+ACCESSIBILITY

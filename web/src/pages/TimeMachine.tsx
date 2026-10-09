@@ -8,13 +8,18 @@ type Milestone = { date: string; label: string; detail: string }
 // Hand-curated labels for the real policy timeline; every date also comes from cited rule facts or snapshots.
 const LABELS: Record<string, string> = {
   '2025-07-04': 'H.R.1 signed',
+  '2025-12-17': 'Nebraska announces work requirements',
+  '2026-04-14': 'Nebraska page rewritten',
+  '2026-04-29': 'Nebraska: May/June renewals deferred',
   '2026-05-01': 'Nebraska starts (new applicants)',
+  '2026-05-12': 'Nebraska FAQ: household income "may count"',
   '2026-06-03': 'Federal rule published',
-  '2026-07-01': 'Nebraska: existing enrollees',
-  '2026-07-31': 'Federal rule effective',
-  '2026-08-01': 'Nebraska: first disenrollments',
+  '2026-06-29': 'Federal rule corrected',
+  '2026-07-22': 'Nebraska: Dawson County hardship',
+  '2026-07-31': 'Federal rule effective; NE renewals begin',
   '2026-09-08': 'CMS frailty guidance',
-  '2026-09-14': 'Nebraska process update',
+  '2026-09-12': 'Nebraska: 14-county hardship',
+  '2026-09-15': 'Nebraska frailty process updated',
   '2027-01-01': 'Nationwide start',
   '2028-01-01': 'Documentation required',
 }

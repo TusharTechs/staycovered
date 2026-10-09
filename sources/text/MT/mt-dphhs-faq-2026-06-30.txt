@@ -1,0 +1,107 @@
+Frequently Asked Questions
+Starting on July 1, 2026, under the House Reconciliation bill (H.R. 1), also known as “H.R. 1” or the “One Big Beautiful Bill Act,” Montana will introduce community engagement requirements for certain Montana Medicaid members.
+This FAQ reflects information known as of the publish date and can change as updates from CMS become available.
+The FAQ below covers the following topics:
+Implementation timeline and key dates
+Overview of community engagement requirements
+Who is affected by the community engagement requirements
+Who is excluded
+Compliance and verification
+Interaction with other programs
+Six-month redetermination
+Appeals and coverage protections
+Eligibility worker operations and state systems
+Stakeholder engagement and updates
+Broader policy and impact
+Overview of New Community Engagement Requirements
+What are the new community engagement requirements?
+The community engagement requirements require non-excluded adults on Medicaid Expansion, ages 19-64, to participate in community engagement activities to keep their health coverage.
+The main community engagement requirements are:
+80 hours a month: You must spend at least 80 hours each month doing certain activities.
+You can meet these hours through:
+Working at a job
+Community service or volunteering
+Workforce training or job readiness programs through the State of Montana
+Going to school
+Mixing activities: You can mix these together. For example, you could work 60 hours and do community service for 20 hours.
+These community engagement requirements apply to you if:
+You are between the ages of 19-64.
+You are covered under the Medicaid Expansion (low-income adults).
+You do not have an exclusion.
+Who is Affected?
+Who has to follow the new community engagement requirements?
+Adults ages 19-64 who are part of Montana’s Medicaid Expansion program. These individuals must either meet the 80-hour requirement through community engagement activities or qualify for an exclusion.
+Who is in the “Medicaid Expansion population”?
+This refers to adults who are eligible for Medicaid under the Affordable Care Act expansion (income up to approximately 138% of the federal poverty level).
+Who is Excluded?
+How do I know if I am excluded?
+Some people do not have to follow the community engagement requirements. This is called being excluded. You might be excluded if you are in the following groups:
+American Indian/Alaska Natives
+Caregivers for children under age 14 or persons with disabilities
+Children aged 18 or younger
+Former Foster Youth under age 26
+Inmates of a public institution or incarcerated in the last three months
+People with a medical condition or health needs that impact ability to work or do other community engagement activities
+People who meet TANF work requirements, or receive SNAP and are subject to SNAP work requirements
+People in a drug or alcohol rehabilitation or treatment program
+People who are pregnant or postpartum (up to 12 months)
+People eligible for Medicare
+Veterans with a total disability rating
+People experiencing the following short-term hardships:
+Receive inpatient hospital services, nursing facility services, services in an intermediate care facility for individuals with intellectual disabilities, inpatient psychiatric hospital services, or similar services
+Reside in a county where there is an emergency or disaster declaration
+Reside in a county that has an unemployment rate greater than the lesser of 8 percent or 1.5 times the national unemployment rate
+You or your dependent must travel outside of your community for an extended period to receive medical services necessary to treat a serious or complex medical condition that are not available within the community you live in
+How is “medically frail” defined?
+Federal law uses the term “medically frail” for people who have a medical condition or health needs that impact their ability to work or do other community engagement activities.
+You might be “medically frail” if you:
+Have one or more of the following conditions or health needs
+Are blind or disabled
+Have a substance use disorder
+Have a disabling mental disorder
+Have a physical, intellectual, or developmental disability
+Have a serious or complex medical condition
+And can verify that one of these conditions or health needs impacts your ability to work or do other community engagement activities.
+DPHHS will share additional details on Montana’s approach to Medically Frail on this website as they are confirmed.
+If I am a parent of someone with a disability, do I have to follow the community engagement requirements?
+If you are the parent of a person with a disability who requires your care, you do not have to follow the new community engagement requirements. This is true no matter how old your child is.
+I am in the Montana Medicaid for Workers with Disabilities program. Do the community engagement requirements apply to me?
+No. If you are already in this program, you do not need to worry about these new requirements. You just need to keep following the same rules you already use for your job and your income. Nothing has changed for you.
+Are older adults subject to the community engagement requirements?
+No, only Medicaid Expansion adults aged 19-64.
+Are people receiving Supplemental Security Income (SSI) or Social Security Disability Insurance (SSDI) subject to the new rules?
+No. If you receive SSI or SSDI disability payments, you do not have to follow the community engagement requirements. People with disabilities do not have to meet the new requirements.
+Compliance and Verification
+How do I show I meet the community engagement requirements or have an exclusion?
+DPHHS has a verification matrix that shows what proof is needed for each qualifying activity and exclusion. You will need to provide documents or other proof needed to verify the specific activities and exclusions that apply to you. Please reference the verification matrix for additional information.
+How often do I need to show verification of community engagement activities or exclusion from those activities?
+When demonstrating compliance for community engagement activities:
+At application, you must show that you met CE requirements for the month prior to your application (a one-month lookback).
+At redetermination, you must show that you met CE requirements for three months of your redetermination review period (a three-month lookback - does not need to be three months in a row).
+When demonstrating that you have an exclusion:
+Most exclusions are evaluated at the month of application or redetermination.
+Some exclusions (people eligible for Medicare, people incarcerated within the past three months, and people experiencing the established short-term hardships) are evaluated based on the lookback periods above.
+How does someone with seasonal income verify they met the community engagement requirements?
+Members with seasonal income can meet the community engagement requirement by completing 80 hours in a month. Members can show they met this requirement by checking if their average monthly income over the past 6 months is at least $7.25 per hour for 80 hours. If they do not complete 80 hours of seasonal work, they can combine activities such as volunteering and school to reach the monthly total.
+How does a student verify they met the community engagement requirements?
+Members enrolled in a college, career and technical education program, or high school/GED program and attending at least half-time can meet the requirement by providing a transcript or school schedule showing half-time or full-time attendance. If the transcript does not specify attendance level, 13 hours per month will count for each 1 credit completed. If needed, students can also combine school with other activities, such as work or volunteering, to meet the monthly requirement.
+Six-Month Redetermination
+Once I’m determined eligible for Medicaid, how often am I required to redetermine my coverage?
+Beginning January 2027, most people must redetermine coverage every six months. At that time, to keep your health coverage, you must show that you still qualify and meet the community engagement requirements. This does not apply to American Indian/Alaskan Natives, as they must redetermine coverage every 12 months.
+Appeals and Coverage Protection
+What happens if I can’t verify that I’ve met the community engagement requirements?
+From July through September 2026, DPHHS will review community engagement for applications and redeterminations, but people will not be denied coverage or disenrolled for not meeting the requirement during this time.
+Starting in October 2026, DPHHS will continue to review community engagement for applications and redeterminations, and people who do not meet the requirement may be denied coverage or disenrolled.
+Can individuals appeal eligibility decisions related to community engagement requirements?
+Yes. Members can appeal decisions by following the instructions on their Notice of Adverse Action. Montana’s appeals process will be outlined in official notices and on the DPHHS website.
+How will notice and communication work?
+DPHHS will send updated notices indicating whether members need to meet community engagement requirements, how they can comply, and how to verify they have completed them. Members are encouraged to create an account on the Self Service Portal and opt-in to email communications.
+LANGUAGE ASSISTANCE
+NOTICE OF USE OF PROTECTED HEALTH INFORMATION
+LEGISLATURE
+CAREERS
+NONDISCRIMINATION NOTICE / POLICY
+CONTACT WEBMASTER
+ACCESSIBILITY, DISCLAIMER AND WEB STANDARDS
+PRIVACY & SECURITY
+ACCESSIBILITY

@@ -6,8 +6,30 @@ domains:
   - https://dphhs.mt.gov/
   - https://humanservices.arkansas.gov/
   - https://hhs.iowa.gov/
+  - https://pathways.georgia.gov/
   - https://medicaid.georgia.gov/
 pages:
   - url: https://dhhs.ne.gov/Pages/WorkRequirements.aspx
     jurisdiction: NE
     title: Nebraska DHHS — Medicaid Work Requirements
+  - url: https://dhhs.ne.gov/Documents/MLTC-WR-Requirements-FAQ.pdf
+    jurisdiction: NE
+    title: Nebraska DHHS — Work Requirements FAQ
+  - url: https://dphhs.mt.gov/medicaidchanges
+    jurisdiction: MT
+    title: Montana DPHHS — Medicaid changes
+  - url: https://dphhs.mt.gov/medicaidchanges/faqs
+    jurisdiction: MT
+    title: Montana DPHHS — Medicaid changes FAQ
+  - url: https://humanservices.arkansas.gov/divisions-shared-services/medical-services/healthcare-programs/arhome/arhome-community-engagement-requirement/
+    jurisdiction: AR
+    title: Arkansas DHS — ARHOME community engagement requirement
+  - url: https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements
+    jurisdiction: IA
+    title: Iowa HHS — IHAWP community engagement requirements
+  - url: https://pathways.georgia.gov/about-pathways/faqs
+    jurisdiction: GA
+    title: Georgia Pathways — FAQs
+  - url: https://www.medicaid.gov/resources-for-states/working-families-tax-cut-legislation/community-engagement
+    jurisdiction: US
+    title: Medicaid.gov — Community engagement

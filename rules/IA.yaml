@@ -1,0 +1,446 @@
+# Iowa IHAWP community engagement requirements fact pack
+jurisdiction: IA
+name: Iowa
+facts:
+- id: IA.start_date.new_applicants
+  topic: timeline
+  statement: Iowa community engagement requirements take effect December 1, 2026 for individuals who apply for IHAWP on or after that date.
+  value: '2026-12-01'
+  unit: date
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-09-03
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: These requirements take effect December 1, 2026, for individuals who apply on or after that date.
+  - source_id: ia-hhs-cer-deck-2026-09-03
+    quote: Individuals who apply on or after December 1, 2026, must meet CER to be eligible for IHAWP.
+  confidence: high
+  notes: ''
+- id: IA.start_date.current_members
+  topic: timeline
+  statement: Current IHAWP members must meet the requirement at renewals dated February 2027 or later (first renewal cohort February 2027).
+  value: 2027-02
+  unit: date
+  effective_from: 2027-02-01
+  effective_to: null
+  known_from: 2026-09-03
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: These requirements apply to active IHAWP members with renewal dates on or after February 2027.
+  - source_id: ia-hhs-cer-deck-2026-09-03
+    quote: First renewal cohort for active Iowa members who must meet CER to be eligible at renewal.
+  confidence: high
+  notes: ''
+- id: IA.timeline.outreach
+  topic: timeline
+  statement: CMS/HHS outreach (letters, emails, text) runs July through November 2026 per the Sept 3 deck (July-August per the Sept 10 deck).
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: 2026-11-30
+  known_from: 2026-09-03
+  citations:
+  - source_id: ia-hhs-cer-deck-2026-09-03
+    quote: July through November 2026
+  confidence: medium
+  notes: The Sept 10 deck says "July through August 2026"; decks differ.
+- id: IA.timeline.six_month_renewals
+  topic: process
+  statement: Iowa will transition IHAWP members to 6-month renewals at their next scheduled renewal; first cohort renews March 2027.
+  value: 2027-03
+  unit: date
+  effective_from: 2027-03-01
+  effective_to: null
+  known_from: 2026-09-10
+  citations:
+  - source_id: ia-hhs-cer-deck-mac-bac-2026-09-10
+    quote: Iowa will transition IHAWP members at the next scheduled renewal. The first renewal cohort to transition will be individuals with a renewal due in March 2027.
+  confidence: high
+  notes: ''
+- id: IA.timeline.page_before_details
+  topic: process
+  statement: The May 10, 2026 Iowa HHS page was a brief placeholder saying Iowa would adjust implementation to align with federal law, with no hours, exclusions, dates, or lookback; Member Services 1-800-338-8366 was the contact.
+  value: null
+  unit: null
+  effective_from: 2026-05-10
+  effective_to: 2026-09-15
+  known_from: 2026-05-10
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-05-10
+    quote: Iowa will adjust our work requirements implementation to align with this federal law, which differs slightly from the state legislation.
+  - source_id: ia-hhs-ihawp-cer-page-2026-05-10
+    quote: call Medicaid Member Services toll free at 1-800-338-8366
+  confidence: high
+  notes: Fuller page content first captured 2026-09-16; effective_to is approximate (between 2026-05-10 and 2026-09-16 no captures retrieved).
+- id: IA.applicability.population
+  topic: applicability
+  statement: Applies to IHAWP adults aged 19 to 64 who don't meet an exclusion.
+  value:
+  - IHAWP
+  - age 19-64
+  - not excluded
+  unit: text
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: Community engagement requirements apply to adults aged 19 to 64 who don't meet an exclusion.
+  confidence: high
+  notes: ''
+- id: IA.requirement.hours_80
+  topic: requirement
+  statement: Must spend at least 80 hours each month on one or more of work, job training, education, community service (can be combined).
+  value: 80
+  unit: hours
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-07-02
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: 'you must spend at least 80 hours each month on one or more of these activities:'
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: You can combine different activities to reach your 80 hours.
+  confidence: high
+  notes: ''
+- id: IA.income_alternative.580
+  topic: income_alternative
+  statement: Earning at least $580 per month (federal minimum wage basis) meets the work requirement; seasonal income is averaged over six months.
+  value: 580
+  unit: usd
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-07-02
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: 'Work: Work for 80 hours per month or earn at least $580 per month (based on federal minimum wage).* Income from seasonal work may be averaged over six months.'
+  confidence: high
+  notes: ''
+- id: IA.requirement.work_types
+  topic: requirement
+  statement: Work can be paid, in-kind (goods/services), or unpaid work; self-employment and seasonal work count.
+  value:
+  - paid
+  - in-kind
+  - unpaid
+  - self-employment
+  - seasonal
+  unit: text
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: Work in exchange for goods or services (in-kind work)
+  - source_id: ia-hhs-member-notice-470-0346-2026-10-09
+    quote: 'Work: This includes full or part-time work, self-employment, or seasonal work.'
+  confidence: high
+  notes: ''
+- id: IA.requirement.education
+  topic: requirement
+  statement: Education counts if enrolled at least half-time in high school/GED, community college, vocational/technical school, 4-year college, or graduate program.
+  value: null
+  unit: null
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: Enrolling in an education program at least half-time meets work requirements.
+  confidence: high
+  notes: ''
+- id: IA.requirement.community_service
+  topic: requirement
+  statement: Community service is unpaid work with a structured program for the benefit of the community; it may be court ordered; not partisan, not benefiting specific individuals, not purely recreational.
+  value: null
+  unit: null
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: Community service hours do not have to be voluntary. They may be court ordered.
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: Community service cannot be partisan activities, benefit specific individuals, or be purely recreational in nature.
+  confidence: high
+  notes: ''
+- id: IA.requirement.job_training
+  topic: requirement
+  statement: 'Job training: qualifying job training or work program for 80+ hours per month.'
+  value: 80
+  unit: hours
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-07-02
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: Enroll in a qualifying job training or work program for 80+ hours per month.
+  confidence: high
+  notes: ''
+- id: IA.lookback.application
+  topic: lookback
+  statement: At application the requirement must be met for the month before the application month.
+  value: 1
+  unit: months
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-09-03
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: Applicants must meet the requirement for the month immediately preceding their application month.
+  - source_id: ia-hhs-cer-deck-2026-09-03
+    quote: Application – the month before the month of application
+  confidence: high
+  notes: ''
+- id: IA.lookback.renewal
+  topic: lookback
+  statement: At renewal, members must meet the requirement for any two months in the review period since their last determination or renewal.
+  value: 2
+  unit: months
+  effective_from: 2027-02-01
+  effective_to: null
+  known_from: 2026-09-03
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: Members must meet the requirement for any two months during the review period since their last eligibility determination or renewal.
+  - source_id: ia-hhs-cer-deck-2026-09-03
+    quote: Renewal – at least two months since the last renewal or application
+  confidence: high
+  notes: ''
+- id: IA.verification.records_first
+  topic: verification
+  statement: Iowa HHS checks records to see if you already meet the requirements or are excluded; if more proof is needed it sends a letter telling you what to send.
+  value: null
+  unit: null
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: Iowa HHS will check records to see if you already meet the requirements or are excluded.
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: If HHS needs more proof, they will send you a letter telling you what to send.
+  confidence: high
+  notes: ''
+- id: IA.verification.portal
+  topic: verification
+  statement: Applicants and members will use the Community Engagement Portal (CEP) to submit verification of exclusion or compliance.
+  value: null
+  unit: null
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-09-03
+  citations:
+  - source_id: ia-hhs-cer-deck-2026-09-03
+    quote: Community Engagement Portal (CEP) - Portal applicants and members will access to submit verification to demonstrate exclusion from or compliance with CER
+  confidence: high
+  notes: ''
+- id: IA.verification.medical_documentation
+  topic: verification
+  statement: The state may require medical documentation for the medically frail exclusion.
+  value: null
+  unit: null
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: 'NOTE: The state may require medical documentation for the medically frail exclusion.'
+  confidence: high
+  notes: ''
+- id: IA.verification.track_hours_now
+  topic: verification
+  statement: HHS advises members to track hours now and gather documents (proof of work, volunteering, training, school, or exclusion).
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-09-16
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: Keep track of any work, volunteer, job training, or school hours you complete each month.
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: Gather documents in case you need to show proof that you meet the community engagement requirement or that you qualify for an exclusion.
+  confidence: high
+  notes: ''
+- id: IA.notice.member_letter
+  topic: notice
+  statement: HHS mails a Notice of Community Engagement Requirements (form 470-0346, 06/26) saying most IHAWP members must follow new requirements and failure could result in loss of Medicaid or Marketplace coverage.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ia-hhs-member-notice-470-0346-2026-10-09
+    quote: Failure to meet requirements could result in loss of Medicaid or Marketplace coverage.
+  - source_id: ia-hhs-member-notice-470-0346-2026-10-09
+    quote: 470-0346 (06/26)
+  confidence: high
+  notes: ''
+- id: IA.notice.two_months_since_last_review
+  topic: notice
+  statement: The member letter says that after December 1, 2026 members may need to prove they worked, studied or helped their community for at least two months since their last Medicaid review.
+  value: 2
+  unit: months
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ia-hhs-member-notice-470-0346-2026-10-09
+    quote: After December 1, 2026, you may need to prove that you are working, going to school, or helping in your community for at least two months since your last Medicaid review.
+  confidence: high
+  notes: ''
+- id: IA.notice.30_day_notice_of_noncompliance
+  topic: cure
+  statement: Iowa policy includes a 30-Day Notice of Non-Compliance.
+  value: 30
+  unit: days
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-09-03
+  citations:
+  - source_id: ia-hhs-cer-deck-2026-09-03
+    quote: 30-Day Notice of Non-Compliance
+  confidence: medium
+  notes: The captured sources name the 30-day notice but do not describe its content or what happens at day 30.
+- id: IA.consequence.denial_or_discontinuance
+  topic: good_cause
+  statement: If the requirement applies and is not met, Medicaid coverage may be denied or discontinued; the person can apply again at any time and may qualify for Marketplace coverage without financial help.
+  value: null
+  unit: null
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-09-16
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: If the new requirement applies to you and you don’t meet it, your Medicaid coverage may be denied or discontinued.
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: You can apply again at any time.
+  confidence: high
+  notes: ''
+- id: IA.reporting.phone
+  topic: contact
+  statement: 'Report a change or ask questions: 1-877-347-5678, Monday-Friday 8:00 a.m.-4:30 p.m.; email CEoutreach@hhs.iowa.gov for community engagement questions; IMCSC@hhs.iowa.gov to report a change.'
+  value: 1-877-347-5678
+  unit: text
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ia-hhs-member-notice-470-0346-2026-10-09
+    quote: To report a change call 1-877-347-5678 Monday through Friday from 8:00 a.m. to 4:30 p.m.
+  - source_id: ia-hhs-member-notice-470-0346-2026-10-09
+    quote: CEoutreach@hhs.iowa.gov
+  confidence: high
+  notes: ''
+- id: IA.reporting.self_service_portal
+  topic: reporting
+  statement: Self-Service Portal at hhsservices.iowa.gov/apspssp/ssp.portal; the virtual assistant "Ellie" helps determine whether the requirements apply.
+  value: https://hhsservices.iowa.gov/apspssp/ssp.portal
+  unit: text
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ia-hhs-member-notice-470-0346-2026-10-09
+    quote: visit our Self-Service Portal at hhsservices.iowa.gov/apspssp/ssp.portal and chat with Ellie, our virtual assistant.
+  confidence: high
+  notes: ''
+- id: IA.exemption.exclusion_list
+  topic: exemption
+  statement: 'Exclusions: American Indian/Alaska Native; under 19 or over 64; medically frail or special medical needs; pregnant or birth in last 12 months while on Iowa Medicaid; caregivers of a child under 14 or someone with a disability; drug/alcohol treatment; SNAP or FIP work program participants; veterans rated totally disabled; currently or recently in jail or prison.'
+  value:
+  - AI/AN
+  - under 19/over 64
+  - medically frail
+  - pregnant/postpartum 12 mo
+  - caregiver child<14 or disabled person
+  - drug/alcohol treatment
+  - SNAP/FIP work
+  - total-disability veteran
+  - jail/prison
+  unit: text
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-09-16
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: Caregivers of children under 14 or someone with a disability
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: Veterans rated as totally disabled
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: Individuals currently or recently in jail or prison
+  confidence: high
+  notes: ''
+- id: IA.exemption.pregnancy
+  topic: exemption
+  statement: Pregnant or had a baby in the last 12 months while on Iowa Medicaid.
+  value: 12
+  unit: months
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-07-02
+  citations:
+  - source_id: ia-hhs-member-notice-470-0346-2026-10-09
+    quote: You are pregnant or had a baby in the last 12 months while on Iowa Medicaid
+  confidence: high
+  notes: ''
+- id: IA.process.mcp_role
+  topic: process
+  statement: Managed care plans may do outreach and share data but cannot track activities or issue formal noncompliance notices.
+  value: null
+  unit: null
+  effective_from: 2026-09-10
+  effective_to: null
+  known_from: 2026-09-10
+  citations:
+  - source_id: ia-hhs-cer-deck-mac-bac-2026-09-10
+    quote: Issue formal notifications to members regarding noncompliance.
+  confidence: high
+  notes: ''
+- id: IA.process.resources
+  topic: process
+  statement: Volunteer Iowa Get Connected platform lists qualifying volunteer opportunities.
+  value: null
+  unit: null
+  effective_from: 2026-10-09
+  effective_to: null
+  known_from: 2026-09-16
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-10-09
+    quote: Volunteer Iowa’s Get Connected platform provides an easy way to find and sign up for local volunteer opportunities that qualify toward these requirements.
+  confidence: high
+  notes: ''
+- id: IA.verification.reporting_details_pending
+  topic: verification
+  statement: Sept 16 page FAQ "How will I report my hours?" said more information would be shared at a later date; by Oct 9 it said HHS checks records first and sends a letter if more proof is needed.
+  value: null
+  unit: null
+  effective_from: 2026-09-16
+  effective_to: 2026-10-08
+  known_from: 2026-09-16
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-09-16
+    quote: More information will be shared at a later date.
+  confidence: high
+  notes: Superseded by verification.records_first in the live page; change date between 2026-09-16 and 2026-10-09.
+- id: IA.verification.medical_documentation.sept16_absent
+  topic: exemption
+  statement: The Sept 16 page said "Some people on the IHAWP program do not have to complete community engagement activities" and listed exclusions without the medical-documentation note later added on the live page.
+  value: null
+  unit: null
+  effective_from: 2026-09-16
+  effective_to: 2026-10-08
+  known_from: 2026-09-16
+  citations:
+  - source_id: ia-hhs-ihawp-cer-page-2026-09-16
+    quote: Some people on the IHAWP program do not have to complete community engagement activities.
+  confidence: medium
+  notes: Absence of the note is inferred from comparing page text.
+open_questions:
+- No Iowa verification matrix or document list per activity found; "letter telling you what to send" is the only description.
+- What happens when the 30-Day Notice of Non-Compliance period ends (loss date, cure steps) is not described in captured sources.
+- The Iowa medically frail condition list/process and documentation standard are not published in captured sources (page says documentation may be required).
+- Wayback captures of the Iowa page between 2026-05-10 and 2026-09-16 (none exist per CDX) and between 2026-09-16 and 2026-10-09 were not available, so exact change dates are unknown.

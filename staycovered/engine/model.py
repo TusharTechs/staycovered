@@ -71,4 +71,5 @@ class Case(BaseModel):
     event: Literal["application", "renewal", "noncompliance_notice"] = "renewal"
     event_date: date
     notice_date: date | None = None
+    months_in_question: list[str] = Field(default_factory=list)  # YYYY-MM named in an agency notice
     notes: str = ""

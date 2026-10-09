@@ -20,10 +20,10 @@ const statusStyle: Record<string, string> = {
   does_not_meet: 'bg-bad-soft text-bad',
   at_risk: 'bg-bad-soft text-bad',
   insufficient_evidence: 'bg-warn-soft text-warn',
-  depends_on_expenses: 'bg-warn-soft text-warn',
+  conditional: 'bg-warn-soft text-warn',
 }
 const statusLabel: Record<string, string> = {
-  meets: 'Meets', does_not_meet: 'Short', at_risk: 'At risk', insufficient_evidence: 'Needs evidence', depends_on_expenses: 'Depends on expenses',
+  meets: 'Meets', does_not_meet: 'Short', at_risk: 'At risk', insufficient_evidence: 'Needs evidence', conditional: 'Conditional',
 }
 
 export function StatusPill({ status }: { status: string }) {

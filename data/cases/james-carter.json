@@ -86,6 +86,7 @@
     "event": "renewal",
     "event_date": "2026-10-05",
     "notice_date": null,
+    "months_in_question": [],
     "notes": ""
   },
   "client_name": "James Carter",
@@ -140,5 +141,5 @@
   "notice": null,
   "flags": [],
   "synthetic": true,
-  "updated": "2026-10-09"
+  "updated": "2026-10-10"
 }

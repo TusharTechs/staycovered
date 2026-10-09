@@ -1,0 +1,371 @@
+# Arkansas ARHOME community engagement fact pack
+jurisdiction: AR
+name: Arkansas
+facts:
+- id: AR.start_date.enforcement
+  topic: timeline
+  statement: Full Arkansas community engagement and work requirement (with penalties) starts January 1, 2027.
+  value: '2027-01-01'
+  unit: date
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-02-23
+  citations:
+  - source_id: ar-dhs-news-soft-launch-2026-02-23
+    quote: no penalties will be in effect until January 1, 2027
+  - source_id: ar-dhs-arhome-faq-2026-05-18
+    quote: The community engagement and work requirement will go into effect on January 1, 2027.
+  confidence: high
+  notes: ''
+- id: AR.start_date.soft_launch
+  topic: timeline
+  statement: 'Soft implementation began July 1, 2026: automated checks run and beneficiaries are notified of status, with no penalties in 2026.'
+  value: '2026-07-01'
+  unit: date
+  effective_from: 2026-07-01
+  effective_to: 2026-12-31
+  known_from: 2026-02-23
+  citations:
+  - source_id: ar-dhs-news-soft-launch-2026-02-23
+    quote: Under the soft implementation starting on July 1, DHS will begin running automated processes to determine if beneficiaries are exempt, meeting, or not meeting the community engagement requirement.
+  - source_id: ar-dhs-ce-page-2026-10-06
+    quote: DHS launched a soft implementation of the requirement on July 1, 2026, but no penalties will be in effect until January 1, 2027.
+  confidence: high
+  notes: ''
+- id: AR.start_date.soft_launch.future_tense
+  topic: timeline
+  statement: The July 9, 2026 page described the soft implementation as starting July 1, 2026 with no penalties until Jan. 1, 2027 (future-tense wording); by October 6 it said DHS "launched" it.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-07-09
+  citations:
+  - source_id: ar-dhs-ce-page-2026-07-09
+    quote: DHS will launch a soft implementation of the requirement starting July 1, 2026, but no penalties will be in effect until Jan. 1., 2027.
+  confidence: high
+  notes: Wording change only.
+- id: AR.timeline.phases
+  topic: timeline
+  statement: 'DHS verification phases: Phase 1 preparation Sept 2025-Jun 2026; Phase 2 soft implementation Jul 2026-Dec 2026 (no closures or penalties); Phase 3 verification go-live Jan 1, 2027 onward (closures and penalties begin).'
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ar-dhs-townhall-slides-2026-10-09
+    quote: Prior to Go-Live, DHS will not implement closures or penalties.
+  confidence: high
+  notes: ''
+- id: AR.timeline.outbound_calls_december
+  topic: timeline
+  statement: Customer service center vendor begins outbound outreach to beneficiaries in December 2026.
+  value: 2026-12
+  unit: date
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-02-23
+  citations:
+  - source_id: ar-dhs-news-soft-launch-2026-02-23
+    quote: That vendor will begin reaching out to beneficiaries in December leading up to the full launch of the program
+  confidence: high
+  notes: ''
+- id: AR.applicability.population
+  topic: applicability
+  statement: Applies to adults aged 19-64 enrolled in ARHOME (Medicaid expansion) who are not exempt; more than 210,000 ARHOME recipients are subject.
+  value:
+  - age 19-64
+  - ARHOME
+  - not exempt
+  unit: text
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-02-23
+  citations:
+  - source_id: ar-dhs-news-soft-launch-2026-02-23
+    quote: The work and community engagement requirement will apply to Arkansans aged 19 to 64 enrolled in ARHOME unless they are exempt.
+  - source_id: ar-dhs-townhall-slides-2026-10-09
+    quote: More than 210,000 ARHOME recipients are subject to the Community Engagement and Work Requirements
+  confidence: high
+  notes: ''
+- id: AR.requirement.hours_80
+  topic: requirement
+  statement: Must work, volunteer, or take classes for a combined 80 hours per month (20 hours per week).
+  value: 80
+  unit: hours
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-02-23
+  citations:
+  - source_id: ar-dhs-ce-page-2026-10-06
+    quote: This means you will need to work, volunteer, or take classes for a combined total of 80 hours per month to keep your benefits beginning on January 1, 2027.
+  - source_id: ar-dhs-arhome-faq-2026-05-18
+    quote: must work, volunteer, or go to school for at least 20 hours per week (80 hours per month)
+  confidence: high
+  notes: ''
+- id: AR.requirement.activities
+  topic: requirement
+  statement: 'Qualifying activities: employment, work program participation, educational enrollment, community service.'
+  value:
+  - employment
+  - work program
+  - education
+  - community service
+  unit: text
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ar-dhs-townhall-slides-2026-10-09
+    quote: 1. Employment* 2. Work program participation 3. Educational enrollment 4. Community Service
+  confidence: medium
+  notes: Slide text order may be extracted differently; the four activities appear on the Engagement Hours Required slide.
+- id: AR.income_alternative.580
+  topic: income_alternative
+  statement: ARHOME recipients can meet the monthly employment requirement by earning at least $580 per month (federal minimum wage $7.25 x 80 hours).
+  value: 580
+  unit: usd
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ar-dhs-townhall-slides-2026-10-09
+    quote: ARHOME recipients can alternately meet the monthly employment requirement by earning at least $580 per month, which represents the federal minimum wage of $7.25/hour multiplied by 80 hours.
+  confidence: high
+  notes: ''
+- id: AR.requirement.volunteer_state_funded
+  topic: requirement
+  statement: 'Per the FAQ, volunteering must be at a state-funded organization (examples: libraries, DHS, Department of Health, public schools).'
+  value: null
+  unit: null
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-05-18
+  citations:
+  - source_id: ar-dhs-arhome-faq-2026-05-18
+    quote: you must work, volunteer at a state-funded organization, participate in school activities, or use a combination of these activities to reach a total of 20 hours per week (80 hours per month)
+  confidence: high
+  notes: May 18 FAQ version; the live FAQ (blocked to automated fetch) may differ.
+- id: AR.verification.frequency
+  topic: verification
+  statement: DHS describes verification at application and then every six months (federal requirement); the 2018 monthly-reporting model is not used.
+  value: 6
+  unit: months
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ar-dhs-townhall-slides-2026-10-09
+    quote: States must determine if a Medicaid applicant met requirements first upon application and then again every six months.
+  confidence: high
+  notes: ''
+- id: AR.verification.not_monthly_reporting
+  topic: verification
+  statement: Unlike the 2018 Arkansas Works program (monthly reporting/attestation), compliance or exemption is demonstrated at application and at renewal.
+  value: null
+  unit: null
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ar-dhs-townhall-slides-2026-10-09
+    quote: The ARHOME community engagement and work requirement will require demonstration of compliance or exemption at application and at renewal.
+  confidence: high
+  notes: ''
+- id: AR.verification.automated_first
+  topic: verification
+  statement: DHS first tries automated (ex parte) verification using data already available (e.g., wage data, SNAP applications); if confirmed the person is notified and reports nothing.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ar-dhs-townhall-slides-2026-10-09
+    quote: DHS will first attempt an automated, or ex parte, verification by checking data already available to the State (e.g., wage data, SNAP applications).
+  - source_id: ar-dhs-townhall-slides-2026-10-09
+    quote: If this is successful, you will be notified and you won’t have to report anything at all.
+  confidence: high
+  notes: ''
+- id: AR.verification.customer_service_center
+  topic: verification
+  statement: If automated checks fail, a Customer Service Center representative reaches out by phone to explain what is needed and how to report it.
+  value: null
+  unit: null
+  effective_from: 2026-12-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ar-dhs-townhall-slides-2026-10-09
+    quote: If you need to report some information to determine compliance, a representative from the Customer Service Center will reach out. They will explain what is needed and how to report it.
+  confidence: high
+  notes: ''
+- id: AR.reporting.channels
+  topic: reporting
+  statement: 'If reporting is needed: online, by phone, or in person at a county office; also regular mail or email for documents.'
+  value: null
+  unit: null
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-05-18
+  citations:
+  - source_id: ar-dhs-arhome-faq-2026-05-18
+    quote: But you may need to report your hours online, by phone, or in person.
+  - source_id: ar-dhs-townhall-slides-2026-10-09
+    quote: or sending in documents through regular mail or email
+  confidence: high
+  notes: ''
+- id: AR.reporting.access_arkansas
+  topic: reporting
+  statement: 'Update contact information and sign up for text/email alerts via Access Arkansas: access.arkansas.gov, hotline 1-855-372-1084, or a local DHS county office.'
+  value: 1-855-372-1084
+  unit: text
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-07-09
+  citations:
+  - source_id: ar-dhs-ce-page-2026-10-06
+    quote: Call the Access Arkansas hotline at 1-855-372-1084
+  - source_id: ar-dhs-ce-page-2026-10-06
+    quote: Go online at access.arkansas.gov or ar.gov/accessanywhere
+  confidence: high
+  notes: ''
+- id: AR.contact.dms
+  topic: contact
+  statement: 'DHS Division of Medical Services: P.O. Box 1437, Slot S401, Little Rock, AR 72203-1437; phone 501-682-8292; fax 501-682-1197.'
+  value: 501-682-8292
+  unit: text
+  effective_from: 2026-10-06
+  effective_to: null
+  known_from: 2026-10-06
+  citations:
+  - source_id: ar-dhs-ce-page-2026-10-06
+    quote: P.O. Box 1437, Slot S401 Little Rock, AR 72203-1437
+  - source_id: ar-dhs-ce-page-2026-10-06
+    quote: 501-682-8292
+  confidence: high
+  notes: ''
+- id: AR.exemption.list
+  topic: exemption
+  statement: 'Exempt: pregnant/postpartum; under 19 or over 64; former foster child under 26; tribal member or Alaska Native; veteran with rated disabilities; medically frail; SUD/alcohol treatment program; meets TANF/SNAP work requirement; parent or caregiver of a dependent child 13 or younger or of someone with a disability; entitled to Medicare Part A or enrolled in Part B.'
+  value:
+  - pregnant/postpartum
+  - under 19 or over 64
+  - former foster child <26
+  - tribal member/Alaska Native
+  - veteran with rated disability
+  - medically frail
+  - SUD treatment
+  - TANF/SNAP work rules
+  - caregiver child<=13 or disabled person
+  - Medicare A/B
+  unit: text
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-05-18
+  citations:
+  - source_id: ar-dhs-arhome-faq-2026-05-18
+    quote: You are a parent or caregiver of a dependent child aged 13 or younger, or someone with a disability
+  - source_id: ar-dhs-arhome-faq-2026-05-18
+    quote: You are entitled to or enrolled in Medicare Part A or enrolled in Medicare Part B
+  confidence: high
+  notes: ''
+- id: AR.exemption.how_to_confirm
+  topic: exemption
+  statement: To confirm an exemption, contact the local DHS county office.
+  value: null
+  unit: null
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-05-18
+  citations:
+  - source_id: ar-dhs-arhome-faq-2026-05-18
+    quote: To confirm your exemption, please reach out to your local DHS office.
+  confidence: high
+  notes: ''
+- id: AR.cure.30_days_to_show_compliance
+  topic: cure
+  statement: Starting Jan. 1, 2027, beneficiaries who do not meet the requirement have 30 days to show compliance before Medicaid benefits are suspended.
+  value: 30
+  unit: days
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-02-23
+  citations:
+  - source_id: ar-dhs-news-soft-launch-2026-02-23
+    quote: Starting on Jan. 1, 2027, beneficiaries who do not meet the community engagement requirement will have 30 days to show compliance before their Medicaid benefits are suspended.
+  - source_id: ar-dhs-townhall-slides-2026-10-09
+    quote: Beneficiary notified of noncompliance, after which the beneficiary has 30 days to show compliance.
+  confidence: high
+  notes: ''
+- id: AR.notice.flow
+  topic: notice
+  statement: 'Go-live flow: beneficiary receives a compliance notice; if non-compliant, a notice of noncompliance starts the 30-day window; DHS then determines whether to suspend benefits.'
+  value: null
+  unit: null
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ar-dhs-townhall-slides-2026-10-09
+    quote: DHS makes determination to suspend Medicaid benefits.
+  confidence: high
+  notes: ''
+- id: AR.consequence.suspension_or_denial
+  topic: good_cause
+  statement: From Jan. 1, 2027 non-exempt people who do not comply could lose coverage or be denied at application.
+  value: null
+  unit: null
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-02-23
+  citations:
+  - source_id: ar-dhs-news-soft-launch-2026-02-23
+    quote: Arkansans who are not exempt and who do not comply could lose their coverage or be denied at application beginning then.
+  confidence: high
+  notes: ''
+- id: AR.notice.soft_launch_status
+  topic: notice
+  statement: At soft-launch start, DHS notified all ARHOME recipients of their status (meeting, not meeting, exempt) from automated checks; no penalties in 2026.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: 2026-12-31
+  known_from: 2026-10-09
+  citations:
+  - source_id: ar-dhs-soft-launch-emails-2026-10-09
+    quote: The Arkansas Department of Human Services notified all ARHOME recipients of their status at the start of the soft launch of the Community Engagement and Work Requirement based on automated checks of data available at that time.
+  confidence: high
+  notes: ''
+- id: AR.process.waiver_context
+  topic: process
+  statement: DHS said its earlier Pathway to Prosperity waiver proposal was pending when the federal law passed; the new approach preserves its goal.
+  value: null
+  unit: null
+  effective_from: 2026-02-23
+  effective_to: null
+  known_from: 2026-02-23
+  citations:
+  - source_id: ar-dhs-news-soft-launch-2026-02-23
+    quote: That waiver was pending with CMS when the new requirements from the federal budget bill were signed into law.
+  confidence: high
+  notes: ''
+- id: AR.process.could_change
+  topic: process
+  statement: DHS says implementation details may change pending CMS guidance and soft-launch feedback.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: ar-dhs-townhall-slides-2026-10-09
+    quote: We are awaiting additional guidance from the Centers for Medicare and Medicaid Services, the federal agency that oversees Medicaid across all states.
+  confidence: high
+  notes: ''
+open_questions:
+- Arkansas live DHS site returned HTTP 403 to automated fetches; the newest FAQ (Spanish FAQ reportedly says one month every six months for current enrollees) could not be captured.
+- No documentation list, form, or notice sample for Arkansas verification was found beyond the sample emails.
+- Medically frail process/definition for Arkansas not published in captured sources.
+- Whether the six-month verification cadence applies in Arkansas from January 2027 (slides say states must check every six months) is stated only generally.

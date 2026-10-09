@@ -239,8 +239,28 @@ def replay(url: str, summarise: bool = False) -> list[DriftEvent]:
 
 # ---------- what to re-check ----------
 
+_VERSION = re.compile(r"\.v\d+$|\.v_[a-z0-9_]+$")
+
+
+def family(fid: str) -> str:
+    """Fact id without its version suffix: NE.exemption.parent_caretaker.v2 -> NE.exemption.parent_caretaker"""
+    return _VERSION.sub("", fid)
+
+
+def fresh_facts(ev: "DriftEvent") -> list:
+    """Facts that cite the new snapshot but not the old one: rule text that first appeared in this change."""
+    out = []
+    for f in rules.all_facts():
+        ids = {c.source_id for c in f.citations}
+        first_seen_here = f.known_from is not None and f.known_from.isoformat() == ev.new_as_of
+        if ev.new_id in ids and first_seen_here and (ev.old_id is None or ev.old_id not in ids):
+            out.append(f)
+    return out
+
+
 def affected_cases(ev: DriftEvent) -> list[dict]:
-    """Cases whose worksheet used a stale fact, or whose outcome differs under the old vs new rules."""
+    """Cases whose worksheet used a stale fact, whose outcome differs under old vs new rules,
+    or that depend on a topic where new rule text was published."""
     from .. import store
     from ..engine.compute import worksheet
 
@@ -257,12 +277,15 @@ def affected_cases(ev: DriftEvent) -> list[dict]:
         hit = sorted(used & stale)
         if hit:
             reasons.append(f"uses rules that changed: {', '.join(hit)}")
+        fams = {family(u) for u in used}
+        frail_case = any(k.key == "medically_frail" for k in ws_new.exemptions)
+        fresh = [f for f in fresh_facts(ev) if family(f.id) in fams or (frail_case and "frail" in f.id)]
+        if fresh:
+            reasons.append("new rule text on a topic this case depends on: " + "; ".join(f.statement[:90] for f in fresh[:2]))
         if old_on:
             ws_old = worksheet(rec.case, old_on)
-            before = [r.status for r in ws_old.results]
-            after = [r.status for r in ws_new.results]
-            if before != after:
-                reasons.append(f"outcome changed: {', '.join(before)} → {', '.join(after)}")
+            if ws_old.overall != ws_new.overall:
+                reasons.append(f"outcome changed: {ws_old.overall.replace('_', ' ')} → {ws_new.overall.replace('_', ' ')}")
         if reasons:
             out.append({"case_id": rec.case.id, "client_name": rec.client_name, "reasons": reasons})
     return out

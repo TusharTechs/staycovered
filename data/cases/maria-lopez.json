@@ -204,8 +204,11 @@
       }
     ],
     "event": "noncompliance_notice",
-    "event_date": "2026-09-01",
+    "event_date": "2026-09-20",
     "notice_date": "2026-09-20",
+    "months_in_question": [
+      "2026-08"
+    ],
     "notes": ""
   },
   "client_name": "Maria Lopez",
@@ -362,5 +365,5 @@
   },
   "flags": [],
   "synthetic": true,
-  "updated": "2026-10-09"
+  "updated": "2026-10-10"
 }

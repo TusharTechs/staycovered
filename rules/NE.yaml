@@ -1,0 +1,1809 @@
+# Nebraska Medicaid work requirements fact pack. Generated from captured sources; see sources/manifest.json.
+jurisdiction: NE
+name: Nebraska
+facts:
+- id: NE.start_date.new_applicants
+  topic: timeline
+  statement: Nebraska work requirements start May 1, 2026 for new applicants in the Medicaid expansion group (applications on or after that date).
+  value: '2026-05-01'
+  unit: date
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2025-12-17
+    quote: Work requirements take effect on May 1, 2026.
+  - source_id: ne-pr-take-effect-2026-04-30
+    quote: Requirements go into effect immediately for new Medicaid applicants eligible in the expansion category.
+  confidence: high
+  notes: ''
+- id: NE.start_date.existing_enrollees.initial_statement
+  topic: timeline
+  statement: 'Initial DHHS web statement: work requirements take effect May 1, 2026 for people already covered under expansion on that date as well as new applicants (no renewal-based phase-in stated).'
+  value: '2026-05-01'
+  unit: date
+  effective_from: 2025-12-17
+  effective_to: 2026-04-13
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2025-12-17
+    quote: This includes people with Medicaid coverage under Medicaid expansion on this date or people who apply on or after this date.
+  confidence: medium
+  notes: Superseded in the page text captured 2026-04-14 by the renewal-based schedule. effective_to is the day before the first capture showing the new wording; the true change date lies between 2026-03-03 and 2026-04-14.
+- id: NE.start_date.existing_enrollees.renewal_based
+  topic: timeline
+  statement: Existing expansion members are checked at their regular annual renewal; DHHS first checks members whose coverage/eligibility periods end on or after July 31, 2026, each in their own renewal month over the next year.
+  value: '2026-07-31'
+  unit: date
+  effective_from: 2026-07-31
+  effective_to: null
+  known_from: 2026-04-14
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-04-14
+    quote: DHHS will begin checking work requirements for members whose annual eligibility periods end on or after July 31, 2026.
+  - source_id: ne-dhhs-wr-page-2026-05-13
+    quote: DHHS will first start checking work requirements for members whose coverage periods end on or after July 31, 2026. Each member will be checked in their own renewal month over the next year.
+  confidence: high
+  notes: ''
+- id: NE.timeline.may_june_2026_renewals_deferred
+  topic: timeline
+  statement: Members whose renewal dates fall in May or June 2026 are not required to show they met work requirements until their renewal in 2027.
+  value: '2027'
+  unit: text
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-04-29
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-05-13
+    quote: Members with renewal dates in May or June 2026 will not have to show they've met work requirements until their renewal in 2027. Members can check their renewal date by logging into iServe.
+  - source_id: ne-pr-take-effect-2026-04-30
+    quote: Members with renewal dates in May or June 2026 will not be subject to the requirements.
+  confidence: high
+  notes: ''
+- id: NE.timeline.phase_in_through_june_2027
+  topic: timeline
+  statement: DHHS phase-in of renewal-based checks continues through June 2027.
+  value: 2027-06
+  unit: date
+  effective_from: 2026-07-31
+  effective_to: 2027-06-30
+  known_from: 2026-05-11
+  citations:
+  - source_id: ne-pr-take-effect-2026-04-30
+    quote: The first group impacted will be those with eligibility periods ending July 31, 2026, with phased implementation continuing through June 2027.
+  confidence: high
+  notes: ''
+- id: NE.timeline.federal_deadline_context
+  topic: timeline
+  statement: Federal law requires states to implement by January 1, 2027; Nebraska started early on May 1, 2026 (first state).
+  value: '2027-01-01'
+  unit: date
+  effective_from: null
+  effective_to: null
+  known_from: 2026-04-13
+  citations:
+  - source_id: ne-pr-community-partners-2026-04-13
+    quote: States are required to adopt the requirements by January 1, 2027. Nebraska will implement the requirements starting May 1, 2026.
+  confidence: high
+  notes: ''
+- id: NE.timeline.no_immediate_loss_on_may1
+  topic: timeline
+  statement: Requirements were not applied to all expansion members on May 1, 2026; reviews occur at each member's regularly scheduled renewal.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-11
+  citations:
+  - source_id: ne-pr-take-effect-2026-04-30
+    quote: Although the requirements take effect May 1, they will not be applied to all expansion members immediately. Reviews will occur during each member's regularly scheduled Medicaid renewal period.
+  confidence: high
+  notes: ''
+- id: NE.applicability.expansion_population
+  topic: applicability
+  statement: 'Work requirements apply to adults in the Medicaid expansion group (Heritage Health Adult): ages 19-64, not pregnant, no disability, not on Medicare, income up to 138% FPL, U.S. citizen or meeting immigration rules.'
+  value:
+  - age 19-64
+  - not pregnant
+  - no disability
+  - not enrolled in Medicare
+  - income <=138% FPL
+  - citizen or immigration-eligible
+  unit: text
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-04-14
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: Are between age 19 and 64
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: Meet income limits (earn up to 138% of the federal poverty level or about $22,025 per year for one person or $45,540 for a family of four)
+  confidence: high
+  notes: ''
+- id: NE.applicability.expansion_only
+  topic: applicability
+  statement: Work requirements apply only to people who are applying for or already have Medicaid through expansion.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-04-14
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: Work requirements only apply to you if you are applying for or already have Medicaid coverage through Medicaid expansion.
+  confidence: high
+  notes: ''
+- id: NE.applicability.income_limit.dec2025
+  topic: applicability
+  statement: 'Dec 2025 - Mar 2026 page: 138% FPL is about $21,610/year for one person or $44,380 for a family of four.'
+  value:
+  - 21610
+  - 44380
+  unit: usd
+  effective_from: 2025-12-17
+  effective_to: 2026-04-13
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2025-12-17
+    quote: about $21,610 per year for a single person, or $44,380 for a family of four
+  confidence: high
+  notes: Superseded by 2026 figures from the 2026-04-14 capture.
+- id: NE.applicability.income_limit.2026
+  topic: applicability
+  statement: 'Expansion income limit 138% FPL: about $22,025/year for one person or $45,540 for a family of four.'
+  value:
+  - 22025
+  - 45540
+  unit: usd
+  effective_from: 2026-04-14
+  effective_to: null
+  known_from: 2026-04-14
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-04-14
+    quote: about $22,025 per year for one person or $45,540 for a family of four
+  confidence: high
+  notes: ''
+- id: NE.applicability.household_effect
+  topic: applicability
+  statement: Work requirements only affect the person who must meet them; a child's Medicaid is not affected if a parent loses expansion coverage.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-04-29
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: Work requirements only affect the person who must meet them.
+  confidence: high
+  notes: ''
+- id: NE.applicability.age19_transition
+  topic: applicability
+  statement: Someone who turned 19 right before applying (aged 18 in the qualifying month) is exempt until the first renewal.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-04-14
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: you would be exempt from work requirements until your first renewal
+  confidence: high
+  notes: ''
+- id: NE.requirement.activities
+  topic: requirement
+  statement: 'Qualifying activities: working, attending school or an apprenticeship, participating in a work program, volunteering.'
+  value:
+  - working
+  - school or apprenticeship
+  - work program
+  - volunteering
+  unit: text
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2025-12-17
+    quote: 'Work requirement activities include: Working Attending school or an apprenticeship Participating in a work program Volunteering'
+  confidence: high
+  notes: ''
+- id: NE.requirement.hours_80
+  topic: requirement
+  statement: Must spend at least 80 hours in at least one calendar (qualifying) month on one qualifying activity, or attend school or an apprenticeship at least half time.
+  value: 80
+  unit: hours
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: You must spend at least 80 hours in at least one calendar month doing one of these activities or attending school or an apprenticeship at least half time.
+  - source_id: ne-dhhs-wr-page-2025-12-17
+    quote: must spend at least 80 hours in at least one qualifying month doing one of these activities or attending school or an apprenticeship at least half time
+  confidence: high
+  notes: ''
+- id: NE.requirement.combine_hours
+  topic: requirement
+  statement: Hours from different qualifying activities can be combined to reach 80 hours in a calendar month.
+  value: 80
+  unit: hours
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: Or, you can combine any of these activities to get to 80 hours in a calendar month.
+  confidence: high
+  notes: ''
+- id: NE.requirement.school_half_time
+  topic: requirement
+  statement: Attending school or an apprenticeship at least half time satisfies the requirement on its own; less than half-time can be combined with other activities to reach 80 hours.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-onepager-2026-05-12
+    quote: If you are attending school or an apprenticeship at least half-time, you will meet work requirements. If you are attending school less than half-time, you can combine it with other work requirement activities to reach 80 hours.
+  confidence: high
+  notes: ''
+- id: NE.requirement.half_time_definition.v1
+  topic: requirement
+  statement: 'April 14 FAQ: Nebraska Medicaid was still working with the federal government to confirm the number of hours needed for half-time enrollment.'
+  value: null
+  unit: null
+  effective_from: 2026-04-14
+  effective_to: 2026-04-28
+  known_from: 2026-04-15
+  citations:
+  - source_id: ne-faq-2026-04-15
+    quote: Nebraska Medicaid is working with the federal government to confirm the number of hours needed for “halftime” enrollment.
+  confidence: high
+  notes: Removed in the April 29, 2026 FAQ revision.
+- id: NE.requirement.half_time_definition.v2
+  topic: requirement
+  statement: Half-time means enrollment in at least half of the program's full-time status.
+  value: null
+  unit: null
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: Half-time means enrollment in at least half of the program’s full-time status.
+  confidence: high
+  notes: ''
+- id: NE.requirement.school_types
+  topic: requirement
+  statement: 'Counts as school: accredited higher-education or technical school at least half-time; registered apprenticeship at least half-time; high school or GED program at least half-time.'
+  value:
+  - accredited college/technical school
+  - registered apprenticeship
+  - high school/GED
+  unit: text
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: Enrolled in an accredited institution of higher education or technical school at least half-time Participating in a registered apprenticeship at least half-time Enrolled in high school or a General Educational Development (GED) program at least half-time
+  confidence: high
+  notes: ''
+- id: NE.requirement.school_verification
+  topic: requirement
+  statement: DHHS verifies the school's accreditation to verify enrollment status.
+  value: null
+  unit: null
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: DHHS will verify your school’s accreditation information to verify enrollment status.
+  confidence: high
+  notes: ''
+- id: NE.requirement.work_program_definition
+  topic: requirement
+  statement: 'A work program is an organized program (usually run by a government agency or nonprofit) that helps people prepare for, find, or keep a job: job training, skills classes, work experience, or employment support.'
+  value: null
+  unit: null
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: A work program is an organized program that helps people prepare for, find, or keep a job.
+  - source_id: ne-faq-2026-05-12
+    quote: may include job training, skills classes, work experience, or employment support services
+  confidence: high
+  notes: ''
+- id: NE.requirement.job_search_not_counted
+  topic: requirement
+  statement: Job searching on your own, outside an approved work program, does not count.
+  value: false
+  unit: bool
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-30
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: No. Job searching outside of an approved program does not count.
+  - source_id: ne-faq-2025-12-30
+    quote: Job seeking on your own, outside of a work program, does not count.
+  confidence: high
+  notes: ''
+- id: NE.requirement.volunteering_definition
+  topic: requirement
+  statement: Community service/volunteering is unpaid work to benefit the community, usually through a nonprofit, public agency, or community-based organization.
+  value: null
+  unit: null
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: Community service (or volunteering) means unpaid work done to benefit the community, usually through a nonprofit, public agency, or community-based organization.
+  confidence: high
+  notes: ''
+- id: NE.requirement.self_employed
+  topic: requirement
+  statement: Self-employed people can meet the requirement with $580 in a qualifying month or 80 hours of self-employment, even if the business operates at a loss.
+  value: null
+  unit: null
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: Or, you can work 80 hours in a qualifying month as self-employed even if your business operates at a loss during a qualifying calendar month.
+  confidence: high
+  notes: ''
+- id: NE.requirement.aa_not_counted
+  topic: requirement
+  statement: Attending Alcoholics Anonymous or similar support groups does not count as a drug/alcohol treatment program for the exemption.
+  value: false
+  unit: bool
+  effective_from: 2026-04-14
+  effective_to: null
+  known_from: 2026-04-15
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: No, attending Alcoholics Anonymous (AA) or similar drug and alcohol support groups does not count as participating in a drug addiction or alcoholic treatment program to meet work requirements.
+  confidence: high
+  notes: ''
+- id: NE.requirement.retired_not_exempt
+  topic: requirement
+  statement: Retirees in the expansion group with no other exemption must still complete work requirement activities.
+  value: null
+  unit: null
+  effective_from: 2026-04-14
+  effective_to: null
+  known_from: 2026-04-15
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: If you are in the Medicaid expansion group and do not qualify for another exemption, you must complete work requirement activities to keep coverage.
+  confidence: high
+  notes: ''
+- id: NE.income_alternative.monthly_580
+  topic: income_alternative
+  statement: Earning $580 in a calendar month from work satisfies the requirement regardless of hours (80 hours at the federal minimum wage).
+  value: 580
+  unit: usd
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: You can also meet work requirements if you are working and earn $580 in a calendar month. This is equal to 80 hours worked at the current federal minimum wage.
+  - source_id: ne-dhhs-wr-page-2025-12-17
+    quote: As of December 2025, this is about $580 per month.
+  confidence: high
+  notes: ''
+- id: NE.income_alternative.seasonal_six_month_average
+  topic: income_alternative
+  statement: Seasonal workers meet the requirement if their average monthly income from working over the last six months from seasonal work is at least $580, regardless of hours.
+  value: 580
+  unit: usd
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-30
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: You can also meet work requirements if your average monthly income from working over the last six months from seasonal work is at least $580, regardless of the number of hours worked.
+  - source_id: ne-faq-2025-12-30
+    quote: or if your average monthly income from working over the last six months from seasonal work met this threshold, regardless of the number of hours worked
+  confidence: high
+  notes: ''
+- id: NE.income_alternative.what_income_counts.v1
+  topic: income_alternative
+  statement: 'Dec 2025 - Apr 28 2026 FAQs: what kind of income counts toward the threshold was not yet answered; DHHS was awaiting federal guidance.'
+  value: null
+  unit: null
+  effective_from: 2026-04-14
+  effective_to: 2026-04-28
+  known_from: 2026-04-15
+  citations:
+  - source_id: ne-faq-2026-04-15
+    quote: Nebraska Medicaid is working with the federal government to confirm guidance on income. This question will be updated once guidance is received.
+  confidence: high
+  notes: Applies to FAQ versions published through April 14, 2026.
+- id: NE.income_alternative.what_income_counts.v2
+  topic: income_alternative
+  statement: Income earned from a job counts, as well as income from other sources such as other benefits; income of others in the household may also count in some cases (see 477 NAC 16).
+  value: null
+  unit: null
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: Income you earn from a job counts, as well as income you may receive from other sources such as other benefits. Medicaid will count your income and may also count the income from others in your household in some cases. For more information, see state regulations in 477 NAC 16.
+  confidence: high
+  notes: ''
+- id: NE.income_alternative.dependent_income.v1
+  topic: income_alternative
+  statement: 'April 14 FAQ: income from dependents does not count; requirement determined individually based on Medicaid income rules.'
+  value: false
+  unit: bool
+  effective_from: 2026-04-14
+  effective_to: 2026-04-28
+  known_from: 2026-04-15
+  citations:
+  - source_id: ne-faq-2026-04-15
+    quote: No. Meeting Medicaid work requirements will be determined on an individual basis for each applicant or current member based on Medicaid income rules.
+  confidence: high
+  notes: ''
+- id: NE.income_alternative.dependent_income.v2
+  topic: income_alternative
+  statement: 'April 29 FAQ: income from dependents may count in some cases (see 477 NAC 16).'
+  value: null
+  unit: null
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: It may count in some cases. For more information, see state regulations in 477 NAC 16.
+  confidence: high
+  notes: ''
+- id: NE.lookback.new_applicants.activities_and_income
+  topic: lookback
+  statement: For new applicants, activities/income review month is the calendar month before the month of application.
+  value: 1
+  unit: months
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-13
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-05-13
+    quote: If you are working, going to school, participating in a work program, volunteering, or earning at least $580, the work requirement review period is the calendar month before you apply.
+  confidence: high
+  notes: ''
+- id: NE.lookback.new_applicants.exemption
+  topic: lookback
+  statement: For new applicants, an exemption can be held in either the month of application or the month before.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-13
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-05-13
+    quote: If you qualify for an exemption the work requirement review period is the calendar month you apply or the calendar month before you apply.
+  confidence: high
+  notes: ''
+- id: NE.lookback.new_applicants.temporary_hardship
+  topic: lookback
+  statement: For new applicants, a temporary hardship must have occurred in the calendar month before applying.
+  value: 1
+  unit: months
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-13
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-05-13
+    quote: If you qualify for a temporary hardship the work requirement review period is the calendar month before you apply.
+  confidence: high
+  notes: ''
+- id: NE.lookback.new_applicants.v1_page
+  topic: lookback
+  statement: 'April 14 page: individuals applying on or after May 1, 2026 must meet work requirements in the month before they apply.'
+  value: 1
+  unit: months
+  effective_from: 2026-04-14
+  effective_to: 2026-04-28
+  known_from: 2026-04-14
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-04-14
+    quote: Individuals applying for Medicaid on or after May 1, 2026, must meet work requirements in the month before they apply.
+  confidence: high
+  notes: Replaced on 2026-04-29 with the activity/exemption/hardship-specific review periods.
+- id: NE.lookback.existing_members.twelve_months
+  topic: lookback
+  statement: 'For existing members the review period is 12 months: at least one calendar month since the last renewal with qualifying activity, an exemption, or a temporary hardship.'
+  value: 12
+  unit: months
+  effective_from: 2026-07-31
+  effective_to: null
+  known_from: 2026-05-13
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-05-13
+    quote: If you're already on Medicaid, the work requirement review period is 12 months. This means you must complete work requirement activities, qualify for an exemption, or have a temporary hardship during at least one calendar month since your last renewal.
+  confidence: high
+  notes: ''
+- id: NE.lookback.one_month_covers_full_period
+  topic: lookback
+  statement: If Medicaid can confirm one qualifying month, the member is compliant for the full eligibility period.
+  value: 1
+  unit: months
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: If Medicaid can confirm you met the requirement for at least one qualifying month, you will be considered compliant for the full eligibility period.
+  confidence: high
+  notes: ''
+- id: NE.verification.data_first
+  topic: verification
+  statement: DHHS first uses information it already has; if it can verify compliance it sends an approval notice and no action is needed.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: The Department of Health and Human Services (DHHS) will use information we already have to check if you already meet work requirements. If we can verify that you already meet work requirements, we'll send you an approval notice.
+  confidence: high
+  notes: ''
+- id: NE.verification.no_documents_unless_asked
+  topic: verification
+  statement: Do not send documents unless DHHS asks; if DHHS sends no request, nothing more is needed (but changes must still be reported).
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: No. Do not send new documents unless Medicaid asks you to. You must still report changes that could affect your eligibility.
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: If DHHS does not send you a request, then you do not have to send additional information about work requirements.
+  confidence: high
+  notes: ''
+- id: NE.verification.request_notice
+  topic: verification
+  statement: If information is missing DHHS mails a notice describing what is needed plus a declaration form to complete and return.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-13
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: If DHHS does not have enough information to verify you meet work requirements, we will contact you to ask for more information. We'll send you a notice describing the information we need and a declaration form you must complete and return to DHHS.
+  confidence: high
+  notes: ''
+- id: NE.verification.documents_that_may_be_requested
+  topic: verification
+  statement: DHHS may request paystubs, school transcripts, or information about volunteer or work program hours.
+  value:
+  - paystubs
+  - school transcripts
+  - volunteer hours info
+  - work program hours info
+  unit: text
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-18
+  citations:
+  - source_id: ne-outreach-notice-2025-12-18
+    quote: DHHS may request copies of your paystubs, school transcripts, or information about volunteer or work program hours.
+  confidence: high
+  notes: ''
+- id: NE.verification.work_documents
+  topic: verification
+  statement: For work, DHHS may ask for documents showing number of hours worked or income; these can be provided online, by phone, by mail, or in person at a local office.
+  value: null
+  unit: null
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: If DHHS cannot verify this information, we may ask for documents that show your number of hours worked or income. You can provide this information online, by phone, by mail or in person at a local office.
+  confidence: high
+  notes: ''
+- id: NE.verification.idf_required_for_activities
+  topic: verification
+  statement: Reporting school/apprenticeship hours, work-program/job-training hours, or volunteer hours requires the individual declaration form (IDF).
+  value:
+  - school/apprenticeship
+  - work program
+  - volunteering
+  unit: text
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: To report school or an apprenticeship, you must complete the individual declaration form (IDF) to report education hours.
+  - source_id: ne-faq-2026-05-12
+    quote: To report job-skills or training programs hours, you must complete the individual declaration form (IDF).
+  - source_id: ne-faq-2026-05-12
+    quote: To report volunteer hours, you must complete the individual declaration form (IDF).
+  confidence: high
+  notes: ''
+- id: NE.verification.idf_scope
+  topic: verification
+  statement: The declaration form should only be used to declare volunteering, education or work programs, caring for a person with a disability, previous incarceration, medical exemptions, and VA disability ratings.
+  value:
+  - volunteering
+  - education or work programs
+  - caring for a person with a disability
+  - previous incarceration
+  - medical exemptions
+  - VA disability ratings
+  unit: text
+  effective_from: 2026-05-13
+  effective_to: null
+  known_from: 2026-05-13
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: 'This form should only be used for declaring: volunteering, education or work programs, caring for a person with a disability, previous incarceration, medical exemptions, and VA disability ratings.'
+  confidence: high
+  notes: ''
+- id: NE.verification.optional_screener
+  topic: verification
+  statement: Applicants can complete optional screening questions (on iServe or by mail) to give information that may help Nebraska Medicaid check whether work requirements were met.
+  value: null
+  unit: null
+  effective_from: 2026-05-13
+  effective_to: null
+  known_from: 2026-05-13
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: People applying for Medicaid can complete these optional screening questions to provide information they think may help Nebraska Medicaid check if they've met work requirements. These questions may be available when applying on iServe or by mail from Nebraska Medicaid.
+  confidence: high
+  notes: ''
+- id: NE.notice.outreach_notice
+  topic: notice
+  statement: DHHS mailed an outreach notice (December 2025) to everyone enrolled in Medicaid expansion as of Jan 1, 2026, plus email/text to those who opted in; it continues for newly enrolled members.
+  value: null
+  unit: null
+  effective_from: 2025-12-17
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: DHHS sent a notice by mail to everyone enrolled in Nebraska Medicaid through Medicaid expansion as of January 1, 2026.
+  - source_id: ne-outreach-notice-2025-12-18
+    quote: You do not need to take any action today.
+  confidence: high
+  notes: ''
+- id: NE.notice.vocn_purpose
+  topic: notice
+  statement: The Verification of Compliance Notice (VOCN) says DHHS has not been able to confirm whether the person completed work requirements or has an exemption, and more information is due by the stated date.
+  value: null
+  unit: null
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-04-29
+  citations:
+  - source_id: ne-vocn-sample-eng-2026-04-29
+    quote: You are receiving this notice because you must complete Medicaid work requirements in order to qualify for coverage. The Department of Health and Human Services (DHHS) has not been able to confirm whether you have completed work requirements or have an exemption.
+  confidence: high
+  notes: ''
+- id: NE.notice.vocn_due_date
+  topic: notice
+  statement: 'The VOCN states a specific due date (in the sample: notice dated 05-20-2026, due 06-24-2026).'
+  value: '2026-06-24'
+  unit: date
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-04-29
+  citations:
+  - source_id: ne-vocn-sample-eng-2026-04-29
+    quote: you must return the following verification items by 06-24-2026
+  confidence: medium
+  notes: Sample dates are illustrative; the sample interval (35 days) differs from the 30 days stated elsewhere. Actual due dates are printed on each notice.
+- id: NE.notice.vocn_no_originals
+  topic: notice
+  statement: Do not send original documents; DHHS cannot return them. DHHS must assist in obtaining requested verifications.
+  value: null
+  unit: null
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-04-29
+  citations:
+  - source_id: ne-vocn-sample-eng-2026-04-29
+    quote: Do not send original documents as the Department will not be able to return your documents.
+  - source_id: ne-vocn-sample-eng-2026-04-29
+    quote: DHHS is required to assist you in obtaining requested verifications.
+  confidence: high
+  notes: ''
+- id: NE.notice.vocn_ways_to_respond
+  topic: notice
+  statement: 'VOCN: return the form or other information online, by mail, or in person at a local DHHS office; scan the QR code to upload documents or complete the declaration form on iServe; call the customer service center for help.'
+  value: null
+  unit: null
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-04-29
+  citations:
+  - source_id: ne-vocn-sample-eng-2026-04-29
+    quote: You can return this form or provide other information to us online, by mail, or drop them off at a local DHHS office. You can also call our customer service center for help.
+  - source_id: ne-vocn-sample-eng-2026-04-29
+    quote: please scan this QR Code or go online to iServe.Nebraska.gov to upload documents
+  confidence: high
+  notes: ''
+- id: NE.notice.vocn_consequence_text
+  topic: notice
+  statement: VOCN warns that failure to provide verifications by the due date could result in denial, termination or decrease in benefits.
+  value: null
+  unit: null
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-04-29
+  citations:
+  - source_id: ne-vocn-sample-eng-2026-04-29
+    quote: Failure to provide verifications by 06-24-2026 could result in the denial, termination or decrease in your benefits.
+  confidence: high
+  notes: ''
+- id: NE.notice.second_notice_before_closure
+  topic: notice
+  statement: Medicaid sends a notice giving 30 days to respond, and another notice before denying or closing coverage.
+  value: null
+  unit: null
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: Medicaid will send a notice giving you 30 days to respond if we cannot confirm that you meet Medicaid work requirements.
+  - source_id: ne-faq-2026-05-12
+    quote: Medicaid will send another notice prior to denying or closing your coverage.
+  confidence: high
+  notes: ''
+- id: NE.cure.response_deadline_30_days
+  topic: cure
+  statement: Members/applicants must submit requested information within 30 days of getting the notice or may be denied or lose coverage.
+  value: 30
+  unit: days
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: you must submit the information within 30 days of getting the notice, or you may be denied or lose coverage
+  - source_id: ne-dhhs-wr-page-2025-12-17
+    quote: they must submit the requested information within 30 days of receipt, or they may lose their Medicaid coverage
+  confidence: high
+  notes: ''
+- id: NE.cure.after_closure_must_reapply
+  topic: cure
+  statement: If coverage is denied or closed for not meeting work requirements, the person must meet work requirements and apply for Medicaid again.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-18
+  citations:
+  - source_id: ne-vocn-sample-eng-2026-04-29
+    quote: To qualify for coverage, you will need to meet work requirements and apply for Medicaid again
+  - source_id: ne-outreach-notice-2025-12-18
+    quote: If you do not complete the work requirements or qualify for an exemption, you will lose your Medicaid coverage, and you will need to reapply for Medicaid.
+  confidence: high
+  notes: ''
+- id: NE.cure.county_hardship_reprocess
+  topic: cure
+  statement: If you lost coverage for not meeting work requirements but lived in a hardship county during a qualifying month while the hardship was in effect, DHHS will reprocess your application or renewal with no action needed.
+  value: null
+  unit: null
+  effective_from: 2026-09-12
+  effective_to: null
+  known_from: 2026-09-12
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-09-15
+    quote: DHHS will reprocess your application or renewal. You do not need to take any action.
+  confidence: high
+  notes: Wording appears in the 2026-09-12 capture as well; effective_from is first capture date, true date earlier or equal.
+- id: NE.consequence.denial_or_closure
+  topic: good_cause
+  statement: If work requirements are not met, there is no exemption, or the notice is not answered by the due date, coverage is denied or closed.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-04-29
+  citations:
+  - source_id: ne-vocn-sample-eng-2026-04-29
+    quote: If you fail to qualify for Medicaid coverage because you do not meet Medicaid work requirements, do not have an exemption, or you do not respond to this notice by its due date, your coverage will be denied or closed.
+  confidence: high
+  notes: ''
+- id: NE.consequence.marketplace.v1
+  topic: good_cause
+  statement: 'Dec 2025 FAQ: after being found non-compliant the person must reapply as a new applicant and is not eligible for advance premium tax credits on the federal marketplace during that time.'
+  value: null
+  unit: null
+  effective_from: 2025-12-30
+  effective_to: 2026-04-13
+  known_from: 2025-12-30
+  citations:
+  - source_id: ne-faq-2025-12-30
+    quote: During this time, this individual will not be eligible for advanced premium tax credits on the federal marketplace.
+  confidence: high
+  notes: ''
+- id: NE.consequence.marketplace.v2
+  topic: good_cause
+  statement: 'April 14 FAQ: people not meeting Medicaid work requirements will not qualify for advance premium tax credits.'
+  value: null
+  unit: null
+  effective_from: 2026-04-14
+  effective_to: 2026-04-28
+  known_from: 2026-04-15
+  citations:
+  - source_id: ne-faq-2026-04-15
+    quote: If you are not meeting Medicaid work requirements, you will not qualify for advanced premium tax credits.
+  confidence: high
+  notes: ''
+- id: NE.consequence.marketplace.v3
+  topic: good_cause
+  statement: 'April 29 FAQ: people not meeting work requirements may still qualify for marketplace coverage but might not qualify for financial assistance.'
+  value: null
+  unit: null
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: If you are not meeting Medicaid work requirements you may still qualify for coverage through the marketplace, but you might not qualify for financial assistance.
+  confidence: high
+  notes: ''
+- id: NE.process.checked_only_at_application_and_renewal
+  topic: process
+  statement: New applicants are checked at application; after enrollment DHHS checks only at each regularly scheduled renewal (annual eligibility periods).
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-04-14
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: After you’re enrolled, DHHS will only check that you’re meeting work requirements or have an exemption at each regularly scheduled renewal.
+  - source_id: ne-dhhs-wr-page-2026-04-14
+    quote: annual eligibility periods
+  confidence: high
+  notes: ''
+- id: NE.process.report_changes
+  topic: reporting
+  statement: Members must report changes affecting eligibility (income, address, work status, household size) in person, online, by phone, or by mail.
+  value: null
+  unit: null
+  effective_from: 2025-12-17
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: If you're a Nebraska Medicaid member, you must report changes that impact your eligibility. This can include changes in income, home address, work status, and household size
+  confidence: high
+  notes: ''
+- id: NE.reporting.online_iserve
+  topic: reporting
+  statement: Submit requested information or report changes online through iServe.
+  value: https://iserve.nebraska.gov/
+  unit: text
+  effective_from: 2025-12-17
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: 'Online: at https://iserve.nebraska.gov/'
+  confidence: high
+  notes: ''
+- id: NE.reporting.mail
+  topic: reporting
+  statement: Mail to P.O. Box 2992, Omaha, NE 68103-2992.
+  value: P.O. Box 2992, Omaha, NE 68103-2992
+  unit: text
+  effective_from: 2025-12-17
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: 'By mail: P.O. Box 2992 Omaha, NE 68103-2992'
+  confidence: high
+  notes: ''
+- id: NE.contact.phone_toll_free
+  topic: contact
+  statement: Phone (855) 632-7633, press option 3.
+  value: (855) 632-7633 option 3
+  unit: text
+  effective_from: 2025-12-17
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: 'Phone Number: (855) 632-7633 (press option 3)'
+  confidence: high
+  notes: ''
+- id: NE.contact.phone_lincoln
+  topic: contact
+  statement: Lincoln phone (402) 473-7000, press option 3.
+  value: (402) 473-7000 option 3
+  unit: text
+  effective_from: 2025-12-17
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: 'Lincoln Phone Number: (402) 473-7000 (press option 3)'
+  confidence: high
+  notes: ''
+- id: NE.contact.phone_omaha
+  topic: contact
+  statement: Omaha phone (402) 595-1178, press option 3.
+  value: (402) 595-1178 option 3
+  unit: text
+  effective_from: 2025-12-17
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: 'Omaha Phone Number: (402) 595-1178 (press option 3)'
+  confidence: high
+  notes: ''
+- id: NE.contact.tty
+  topic: contact
+  statement: TTY (402) 471-7256.
+  value: (402) 471-7256
+  unit: text
+  effective_from: 2025-12-17
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: 'TTY Number: (402) 471-7256'
+  confidence: high
+  notes: ''
+- id: NE.contact.fax
+  topic: contact
+  statement: Fax (402) 742-2351.
+  value: (402) 742-2351
+  unit: text
+  effective_from: 2025-12-17
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: 'Fax: (402) 742-2351'
+  confidence: high
+  notes: ''
+- id: NE.contact.vocn_fax_header
+  topic: contact
+  statement: The sample VOCN header lists a different fax number, (402)595-1901.
+  value: (402)595-1901
+  unit: text
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-04-29
+  citations:
+  - source_id: ne-vocn-sample-eng-2026-04-29
+    quote: (402)595-1901
+  confidence: medium
+  notes: Conflicts with fax (402) 742-2351 on the web page and the VOCN body. Sample notice only; confirm which fax applies.
+- id: NE.contact.in_person
+  topic: contact
+  statement: In person at a local DHHS office (office list at dhhs.ne.gov/Pages/Public-Assistance-Offices.aspx).
+  value: https://dhhs.ne.gov/Pages/Public-Assistance-Offices.aspx
+  unit: text
+  effective_from: 2025-12-17
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-vocn-sample-eng-2026-04-29
+    quote: 'In person: at a local DHHS office https://dhhs.ne.gov/Pages/Public-Assistance-Offices.aspx'
+  confidence: high
+  notes: ''
+- id: NE.reporting.qr_code
+  topic: reporting
+  statement: Scan the QR code on the notice to respond (upload documents or complete the declaration form).
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-13
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: Scanning the QR code in your notice
+  confidence: high
+  notes: ''
+- id: NE.reporting.idf_electronic
+  topic: reporting
+  statement: The declaration form can be completed electronically via the QR code or iServe.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-29
+  citations:
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: If you would like to fill out this form electronically, scan this QR code or go online to iServe.Nebraska.gov for more information
+  confidence: high
+  notes: ''
+- id: NE.contact.vocn_customer_service
+  topic: contact
+  statement: 'Medicaid customer service toll-free number on the sample notice footer: (855)632-7633.'
+  value: (855)632-7633
+  unit: text
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-04-29
+  citations:
+  - source_id: ne-vocn-sample-eng-2026-04-29
+    quote: 'Toll Free: (855)632-7633'
+  confidence: high
+  notes: ''
+- id: NE.reporting.idf_form_id
+  topic: reporting
+  statement: The declaration form is "Medicaid Work Requirements - Individual Declaration Form", form MLTC-118 (5/2026).
+  value: MLTC-118 5/2026
+  unit: text
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-29
+  citations:
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Medicaid Work Requirements - Individual Declaration Form
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: MLTC-118 5/2026
+  confidence: high
+  notes: ''
+- id: NE.reporting.idf_assessment_period
+  topic: reporting
+  statement: Declaration questions for new applicants/added household members are assessed on the month before the application month; for existing members, the time between now and the initial determination or last renewal.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-29
+  citations:
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: will be assessed based on the month before the month in which the individual applied (last month)
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: based on the time between now and your initial determination or last Medicaid renewal
+  confidence: high
+  notes: ''
+- id: NE.reporting.idf_required_fields
+  topic: reporting
+  statement: 'Questions marked with an asterisk are required; an incomplete form can delay processing or lead to denial, termination or decrease of benefits. Non-applicable questions: answer "No" or "N/A".'
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-29
+  citations:
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Questions marked with an asterisk (*) are required. Submitting an incomplete form may result in delays in processing your benefits or may result in the denial, termination or decrease in your benefits.
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: answer “No” or enter “N/A.”
+  confidence: high
+  notes: ''
+- id: NE.reporting.idf_section_volunteer
+  topic: reporting
+  statement: IDF volunteer section asks hours per month, organization name(s), address(es), and organization contact name(s) and phone(s).
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-29
+  citations:
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Did this individual volunteer in their community in a qualifying month?
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Number of volunteer hours per month
+  confidence: high
+  notes: ''
+- id: NE.reporting.idf_section_work_program
+  topic: reporting
+  statement: IDF work-program section (includes job training or employment services) asks hours per month, program name, address, and contact name/phone.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-29
+  citations:
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Did this individual participate in a work program in a qualifying month (including job training or employment services)?
+  confidence: high
+  notes: ''
+- id: NE.reporting.idf_section_school
+  topic: reporting
+  statement: IDF school section asks school/program name, credit hours enrolled, enrollment begin date, and anticipated graduation date.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-29
+  citations:
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Was this individual enrolled in school or a career and technical education program in a qualifying month?
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Number of credit hours enrolled
+  confidence: high
+  notes: ''
+- id: NE.reporting.idf_section_caregiver_child
+  topic: reporting
+  statement: IDF caregiver (child 13 or younger) section asks whether the child lives in the household, whether the child is a relative, and if not, the relationship and hours of caregiving.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-29
+  citations:
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Was this individual a parent, guardian, caretaker relative, or family caregiver of a child 13 years old or younger in a qualifying month?
+  confidence: high
+  notes: ''
+- id: NE.reporting.idf_section_caregiver_disabled
+  topic: reporting
+  statement: IDF caregiver (disabled individual) section asks for the condition, whether the person lives in the household and is a relative, and hours of caregiving.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-29
+  citations:
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Was this individual a parent, guardian, caretaker relative, or family caregiver of a disabled individual in a qualifying month?
+  confidence: high
+  notes: ''
+- id: NE.reporting.idf_section_incarceration
+  topic: reporting
+  statement: IDF incarceration section asks about incarceration in the last 12 months, most recent release date, and facility name/address.
+  value: '12'
+  unit: months
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-29
+  citations:
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Has the individual been incarcerated in the last 12 months?
+  confidence: high
+  notes: The form window (12 months) is longer than the exemption window of 90 days before a qualifying month; the form collects the date so DHHS can apply the 90-day test.
+- id: NE.reporting.idf_section_medically_frail
+  topic: reporting
+  statement: IDF medically-frail section asks for a description of conditions, provider name/address/phone, and whether services were provided while enrolled in Nebraska Medicaid.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-29
+  citations:
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Was this individual considered medically frail or did they otherwise have special medical needs in a qualifying month?
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: What doctor(s) or healthcare provider(s) does the individual see for these health conditions?
+  confidence: high
+  notes: ''
+- id: NE.reporting.idf_section_sud
+  topic: reporting
+  statement: IDF SUD-treatment section asks facility name/address, contact name/phone, dates of service, and whether services were provided while enrolled in Nebraska Medicaid.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-29
+  citations:
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Was this individual participating in a drug addiction or alcohol treatment and rehabilitation program in a qualifying month?
+  confidence: high
+  notes: ''
+- id: NE.reporting.idf_section_va
+  topic: reporting
+  statement: IDF veteran section asks whether the individual has a VA disability rating of 100% (total) and the effective date.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-29
+  citations:
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Is this individual a veteran with a VA disability rating of 100% (total)?
+  confidence: high
+  notes: ''
+- id: NE.reporting.idf_section_inpatient
+  topic: reporting
+  statement: 'IDF hospital/institution section asks about inpatient hospital, nursing facility, ICF/DD, inpatient psychiatric or similar services: dates of service and facility name.'
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-29
+  citations:
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Did this individual receive inpatient hospital services, nursing facility services
+  confidence: high
+  notes: ''
+- id: NE.reporting.idf_section_medical_travel
+  topic: reporting
+  statement: 'IDF medical-travel section asks about travel outside the community for medical care: dates, facility name/address, who received care, condition, and reason for travel.'
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-29
+  citations:
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Did this individual (or their dependent) travel outside of their community for an extended period of time to receive medical care for a serious medical condition during a qualifying month?
+  confidence: high
+  notes: ''
+- id: NE.reporting.idf_signature_helper
+  topic: reporting
+  statement: The IDF has a signature line for the person who helped complete it (name and relationship) and a third-party information-release authorization.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-29
+  citations:
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Signature and Relationship of Person Who Helped
+  confidence: high
+  notes: ''
+- id: NE.exemption.foster_care
+  topic: exemption
+  statement: 'Exempt: under age 26 and aged out of foster care (had Medicaid when aging out; in Nebraska or another state). Claim: tell the Medicaid program.'
+  value: 26
+  unit: text
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: If you aged out of the foster care system, had Medicaid at the time you aged out, and are currently under age 26, you will not need to complete work requirement activities. Let the Medicaid program know if you aged out of the foster care system, either in Nebraska or in another state.
+  - source_id: ne-dhhs-wr-page-2025-12-17
+    quote: People under age 26 who aged out of foster care
+  confidence: high
+  notes: ''
+- id: NE.exemption.tribal.v1
+  topic: exemption
+  statement: 'Dec 2025 - Apr 13 2026 page: exempt if a member of a recognized Native American tribe.'
+  value: null
+  unit: null
+  effective_from: 2025-12-17
+  effective_to: 2026-04-13
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2025-12-17
+    quote: People who are members of recognized Native American tribes
+  confidence: high
+  notes: Broader wording from 2026-04-14.
+- id: NE.exemption.tribal.v2
+  topic: exemption
+  statement: 'Exempt: member of a federally recognized tribe, Urban Indian, California Indian, or receives Indian Health Service (IHS) services. Claim: tell the Medicaid program.'
+  value: null
+  unit: null
+  effective_from: 2026-04-14
+  effective_to: null
+  known_from: 2026-04-14
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-04-14
+    quote: A member of a federally recognized Native American tribe, an Urban Indian, a California Indian, or if you receive services through the Indian Health Service (IHS)
+  - source_id: ne-faq-2026-05-12
+    quote: Let the Medicaid program know if you have a tribal affiliation.
+  confidence: high
+  notes: ''
+- id: NE.exemption.parent_caretaker.v1
+  topic: exemption
+  statement: 'Dec 2025 - Apr 13 2026 page: parents, caretakers or guardians of children up to age 13 or of an individual with disabilities are exempt.'
+  value: 13
+  unit: text
+  effective_from: 2025-12-17
+  effective_to: 2026-04-13
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2025-12-17
+    quote: Parents, caretakers or guardians of children up to age 13 or of an individual with disabilities
+  confidence: high
+  notes: ''
+- id: NE.exemption.parent_caretaker.v2
+  topic: exemption
+  statement: 'Exempt: parent or caretaker of a child age 13 or younger; or caring for a person with a disability (any age). Claim: tell the Medicaid program; may need to complete the IDF.'
+  value: 13
+  unit: text
+  effective_from: 2026-04-14
+  effective_to: null
+  known_from: 2026-04-14
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-04-14
+    quote: A parent or caretaker of a child age 13 or younger
+  - source_id: ne-faq-2026-05-12
+    quote: Parents, caretakers, or guardians who care for a child up to and including age 13, or care for an individual who has a disability (regardless of age) would not need to complete work requirement activities. Let the Medicaid program know if these situations apply to you. You may need to complete the individual declaration form (IDF).
+  confidence: high
+  notes: ''
+- id: NE.exemption.veteran_total_disability
+  topic: exemption
+  statement: 'Exempt: veteran with a total (100%) disability rating. Claim: IDF veteran section.'
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2025-12-17
+    quote: Veterans with a total disability rating
+  - source_id: ne-declaration-mltc118-2026-05-29
+    quote: Is this individual a veteran with a VA disability rating of 100% (total)?
+  confidence: high
+  notes: ''
+- id: NE.exemption.medically_frail.definition.v1
+  topic: exemption
+  statement: 'Dec 2025 - Apr 13 2026 page: medically frail or special medical needs, including blindness or disability, substance use disorder, disabling mental disorder, or other significant physical, intellectual or developmental disabilities.'
+  value: null
+  unit: null
+  effective_from: 2025-12-17
+  effective_to: 2026-04-13
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2025-12-17
+    quote: 'People who are medically frail or have special medical needs, including:'
+  - source_id: ne-dhhs-wr-page-2025-12-17
+    quote: Disabling mental disorder
+  confidence: high
+  notes: ''
+- id: NE.exemption.medically_frail.definition.v2
+  topic: exemption
+  statement: 'Medically frail can mean: blind or has a disability; substance use disorder; disabling mental health condition; serious or complex medical condition; serious physical, intellectual, or developmental disability.'
+  value:
+  - blindness or disability
+  - substance use disorder
+  - disabling mental health condition
+  - serious or complex medical condition
+  - serious physical, intellectual, or developmental disability
+  unit: text
+  effective_from: 2026-04-14
+  effective_to: null
+  known_from: 2026-04-14
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: 'You have a medical condition that prevents you from working. This can mean:'
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: You have a serious or complex medical condition
+  confidence: high
+  notes: The 2026-04-14 page said "serious and complex"; corrected to "serious or complex" by 2026-04-15.
+- id: NE.exemption.ssdi_medically_frail
+  topic: exemption
+  statement: People receiving SSDI who are in the expansion group meet the medically frail exemption; DHHS uses existing information first and may request a declaration form.
+  value: null
+  unit: null
+  effective_from: 2026-04-14
+  effective_to: null
+  known_from: 2026-04-15
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: If you are receiving disability benefits under SSDI and enrolled in the expansion group, you would meet the medically frail exemption.
+  confidence: high
+  notes: ''
+- id: NE.exemption.snap_tanf
+  topic: exemption
+  statement: 'Exempt: member of a household that receives SNAP or TANF and is compliant under certain conditions with those programs'' work requirements.'
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: You are in a household that gets supplemental nutrition assistance program (SNAP) or Temporary Assistance for Needy Families (TANF) benefits and are compliant under certain conditions with work requirements
+  confidence: high
+  notes: ''
+- id: NE.exemption.sud_treatment_program
+  topic: exemption
+  statement: 'Exempt: in a qualified drug or alcohol treatment program (AA-type support groups do not count).'
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: You are in a qualified drug or alcohol treatment program
+  confidence: high
+  notes: ''
+- id: NE.exemption.incarceration
+  topic: exemption
+  statement: 'Exempt: in jail or recently released (within 90 days of a qualifying month).'
+  value: 90
+  unit: days
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: You are in jail or recently released (within 90 days of a qualifying month)
+  confidence: high
+  notes: ''
+- id: NE.exemption.pregnancy_postpartum
+  topic: exemption
+  statement: 'Exempt: pregnant, or up to 12 months postpartum if the person had Medicaid while pregnant. Claim: tell Medicaid including expected due date.'
+  value: 12
+  unit: months
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: You are pregnant or are up to 12 months postpartum (and you had Medicaid when you were pregnant)
+  - source_id: ne-faq-2026-05-12
+    quote: Let the Medicaid program know if you are pregnant, including the expected due date.
+  confidence: high
+  notes: ''
+- id: NE.exemption.other_mandatory
+  topic: exemption
+  statement: Other mandatory exceptions may apply beyond the listed exemptions.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: Other mandatory exceptions may apply.
+  confidence: high
+  notes: ''
+- id: NE.exemption.no_advance_exemption
+  topic: exemption
+  statement: Exemptions/hardships cannot be obtained in advance for a future medical procedure; the person may qualify for a temporary hardship at the next renewal.
+  value: null
+  unit: null
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: No. You cannot qualify in advance. You may qualify for a temporary hardship at your next renewal if needed.
+  confidence: high
+  notes: ''
+- id: NE.exemption.dhhs_uses_existing_info.v1
+  topic: exemption
+  statement: 'Dec 2025 - Apr 13 2026 page: DHHS tries to use information it already has to see whether members/applicants qualify for exemptions, else contacts the individual.'
+  value: null
+  unit: null
+  effective_from: 2025-12-17
+  effective_to: 2026-04-13
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2025-12-17
+    quote: DHHS will try to use information it already has available to see if members and applicants qualify for one of the exemptions listed above.
+  confidence: high
+  notes: ''
+- id: NE.exemption.frailty_verification.existing_enrollees
+  topic: exemption
+  statement: 'Medically frail/SUD exemption for existing enrollees (process effective May 1, 2026): DHHS reviews medical claims data about 90 days before the end of the eligibility period; if diagnosis/procedure codes show qualifying conditions or treatment, the person is treated as exempt with no action.'
+  value: 90
+  unit: days
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-frail-sud-process-2026-05-12
+    quote: Nebraska Medicaid will review available medical claims data approximately 90 days before the end of a member’s eligibility period. If qualifying medical conditions or treatment indicators are identified based on diagnosis and procedure codes, the individual will be treated as exempt without needing to take additional action.
+  confidence: high
+  notes: Process document headed May 1, 2026. The WR page shows this process as "Updated September 14, 2026" from 2026-09-15 but the updated text was not captured; see NE.exemption.frailty_process.updated_2026_09_14.
+- id: NE.exemption.frailty_verification.existing_no_claims
+  topic: exemption
+  statement: If there are no claims showing a qualifying condition, an existing enrollee must submit a self-declaration with basic information about the medically frail condition or SUD treatment provider.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-frail-sud-process-2026-05-12
+    quote: If Nebraska Medicaid does not have medical claims for existing enrollees with qualifying medical conditions, the individual will need to submit a self-declaration and provide basic information about their medically frail condition or SUD treatment provider.
+  confidence: high
+  notes: ''
+- id: NE.exemption.frailty_verification.new_applicants
+  topic: exemption
+  statement: New applicants may self-declare as medically frail or in SUD treatment, providing basic information; no additional documentation required at that time.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-frail-sud-process-2026-05-12
+    quote: Individuals may self-declare that they are medically frail or enrolled in an SUD treatment program. Individuals will be asked to provide basic information about their medically frail condition or SUD treatment provider. No additional documentation is required at this time.
+  confidence: high
+  notes: ''
+- id: NE.exemption.frailty_verification.idf_required_info_frail
+  topic: exemption
+  statement: 'To claim medically frail on the IDF: description of the health condition; name, address and telephone number of the doctor or provider; whether services were provided while enrolled in Medicaid.'
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-frail-sud-process-2026-05-12
+    quote: Description of health condition
+  - source_id: ne-frail-sud-process-2026-05-12
+    quote: Name, address, and telephone number of the doctor or healthcare provider
+  confidence: high
+  notes: ''
+- id: NE.exemption.frailty_verification.idf_required_info_sud
+  topic: exemption
+  statement: 'To claim SUD treatment on the IDF: treatment facility name; contact name and phone at the facility; dates services were provided; whether services were provided while enrolled in Medicaid.'
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-frail-sud-process-2026-05-12
+    quote: Name of treatment facility
+  - source_id: ne-frail-sud-process-2026-05-12
+    quote: Contact name and phone number at the treatment facility
+  confidence: high
+  notes: ''
+- id: NE.exemption.frailty_verification.no_extra_documents
+  topic: exemption
+  statement: No additional documentation is required with the IDF for medically frail or SUD claims; submit via iServe, mail, or phone.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-frail-sud-process-2026-05-12
+    quote: No additional documentation is required to be submitted with the individual declaration form.
+  confidence: high
+  notes: ''
+- id: NE.exemption.frailty_verification.penalty_of_perjury
+  topic: exemption
+  statement: All frailty/SUD declarations are made under penalty of perjury.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-frail-sud-process-2026-05-12
+    quote: All declarations are made under penalty of perjury.
+  confidence: high
+  notes: ''
+- id: NE.exemption.frailty_verification.code_based
+  topic: exemption
+  statement: Nebraska identifies medically frail/SUD conditions from DHHS-reviewed diagnosis and procedure codes (ICD-10, CPT, HCPCS), published in the Conditions Index and updated over time.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-frail-sud-process-2026-05-12
+    quote: DHHS staff have reviewed thousands of medical diagnosis and procedure codes, including ICD-10, CPT, and HCPCS codes
+  confidence: high
+  notes: ''
+- id: NE.exemption.sud_program_criteria
+  topic: exemption
+  statement: 'Qualified drug/alcohol treatment programs are identified using the same criteria as Nebraska''s 1115(a) demonstration waiver for SUD treatment: inpatient and outpatient options across the continuum of care.'
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-frail-sud-process-2026-05-12
+    quote: Nebraska will identify qualified drug or alcohol treatment programs using the same criteria used in the Nebraska 1115(a) demonstration waiver for substance use treatment programs.
+  confidence: high
+  notes: ''
+- id: NE.exemption.frailty_verification.future_automation
+  topic: exemption
+  statement: DHHS states it will move over time from self-declaration to more automated verification consistent with federal guidance.
+  value: null
+  unit: null
+  effective_from: 2026-05-01
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-frail-sud-process-2026-05-12
+    quote: Over time, the State will move from self-declaration to more automated verification methods consistent with federal guidance.
+  confidence: high
+  notes: ''
+- id: NE.exemption.frailty_process.updated_2026_09_14
+  topic: exemption
+  statement: The DHHS Work Requirements page labels the Medically Frail and SUD Treatment Program Exemptions Process as "Updated September 14, 2026". The content of the update was not captured.
+  value: '2026-09-14'
+  unit: date
+  effective_from: 2026-09-14
+  effective_to: null
+  known_from: 2026-09-15
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-09-15
+    quote: Medically Frail and SUD Treatment Program Exemptions Process (Updated September 14, 2026)
+  confidence: medium
+  notes: The 2026-09-12 capture shows the unlabelled link; the updated PDF is not in the Wayback Machine and dhhs.ne.gov was unreachable live. Treat the May 1, 2026 process facts as superseded-in-part for dates on/after 2026-09-14 until the new PDF is read.
+- id: NE.exemption.frailty_verification.v_faq2_documentation
+  topic: exemption
+  statement: 'April 14 FAQ: for medically frail, "Medicaid may ask for documentation."'
+  value: null
+  unit: null
+  effective_from: 2026-04-14
+  effective_to: 2026-04-28
+  known_from: 2026-04-15
+  citations:
+  - source_id: ne-faq-2026-04-15
+    quote: Medicaid may ask for documentation.
+  confidence: high
+  notes: Not present in the April 29 FAQ revision, which says first-time applicants use the declaration form and need not send medical records.
+- id: NE.exemption.frailty_verification.faq3_applicants
+  topic: exemption
+  statement: 'April 29 FAQ: first-time applicants can use the declaration form to describe their health condition and do not need to send medical records; existing enrollees are checked using existing information first.'
+  value: null
+  unit: null
+  effective_from: 2026-04-29
+  effective_to: null
+  known_from: 2026-05-12
+  citations:
+  - source_id: ne-faq-2026-05-12
+    quote: If you’re applying for the first time, you can use the declaration form to tell DHHS about your health condition. You will not need to send in medical records.
+  confidence: high
+  notes: ''
+- id: NE.exemption.temporary_hardship.v1_request
+  topic: good_cause
+  statement: 'Dec 2025 - Apr 13 2026 page: temporary hardships (hospitalization/nursing home, medical travel, county emergency or high unemployment since last coverage renewal) may require a request to DHHS in person, online, by phone, or by mail.'
+  value: null
+  unit: null
+  effective_from: 2025-12-17
+  effective_to: 2026-04-13
+  known_from: 2025-12-17
+  citations:
+  - source_id: ne-dhhs-wr-page-2025-12-17
+    quote: People who were hospitalized or lived in a nursing home since their last coverage renewal.
+  - source_id: ne-dhhs-wr-page-2025-12-17
+    quote: Members and applicants who have one of these temporary hardship reasons may need to make a request to DHHS in person, online, by phone, or through the mail.
+  confidence: high
+  notes: ''
+- id: NE.exemption.temporary_hardship.medical_declaration
+  topic: good_cause
+  statement: Medical hardships (hospitalization or nursing home stay; travel outside the community for serious care for self or dependent) require a declaration to DHHS online, by phone, by mail, or in person.
+  value: null
+  unit: null
+  effective_from: 2026-04-14
+  effective_to: null
+  known_from: 2026-04-14
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: 'Medical Hardships – You must submit a declaration to DHHS (online, by phone, by mail, or in person) if: You have been hospitalized or lived in a nursing home. You or a dependent have had to travel outside your community to get care for a serious health condition.'
+  - source_id: ne-dhhs-wr-page-2026-04-14
+    quote: Members and applicants will be required to complete and send a declaration form to DHHS for hardships related to hospitalization, nursing facility stays, and traveling to receive medical care.
+  confidence: high
+  notes: ''
+- id: NE.exemption.temporary_hardship.county_automatic
+  topic: good_cause
+  statement: County-based hardships (emergency declaration; high unemployment of 8% or 1.5 times the national rate) are applied automatically by DHHS; no declaration form can be completed for them.
+  value: 8
+  unit: text
+  effective_from: 2026-04-14
+  effective_to: null
+  known_from: 2026-04-14
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-04-14
+    quote: Members cannot complete a declaration form for living in a county under a federal emergency or with high unemployment.
+  - source_id: ne-dhhs-wr-page-2026-10-05
+    quote: 'County-Based Hardships – DHHS will automatically excuse you if you resided in a county during the time one of the following hardships was in effect:'
+  confidence: high
+  notes: ''
+- id: NE.exemption.temporary_hardship.dawson_banner
+  topic: good_cause
+  statement: From the July 22, 2026 capture the page announces that anyone who lived in Dawson County in any qualifying month since February 2026 is automatically and temporarily exempt (high unemployment) until the county rate falls.
+  value: null
+  unit: null
+  effective_from: 2026-02-01
+  effective_to: null
+  known_from: 2026-07-22
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-07-22
+    quote: If you lived in Dawson County during any qualifying month since February 2026, DHHS will automatically and temporarily exempt you from completing work requirement activities. This will last until Dawson County no longer has a high unemployment rate.
+  confidence: high
+  notes: Banner first appears between 2026-07-17 (absent) and 2026-07-22 (present); the hardship itself started 2026-02-01 per the later table.
+- id: NE.exemption.temporary_hardship.dawson_table
+  topic: good_cause
+  statement: 'Dawson County high-unemployment hardship started Feb 1, 2026 and lasts until the county rate is no longer over 8% or 1.5 times the national rate. New applicants (since April 2026): lived in Dawson in the calendar month before applying. Existing members: lived in Dawson in any month since Feb 2026.'
+  value: '2026-02-01'
+  unit: date
+  effective_from: 2026-02-01
+  effective_to: null
+  known_from: 2026-09-12
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-09-15
+    quote: 'Started: February 1, 2026'
+  - source_id: ne-dhhs-wr-page-2026-09-15
+    quote: Existing Members – You qualify for this exemption if you are in the Medicaid expansion group and you have lived in Dawson County during any month since February 2026.
+  confidence: high
+  notes: ''
+- id: NE.exemption.temporary_hardship.wildfire_counties
+  topic: good_cause
+  statement: 'Emergency declaration (wildfires) for Arthur, Grant, Garden, Lincoln, Morrill counties: March 1 - April 30, 2026. Applicants: lived there in April 2026 and applied May 2026. Existing members: lived there in March 2026 with a renewal July 2026-Feb 2027, or April 2026 with a renewal July 2026-Mar 2027.'
+  value:
+  - Arthur
+  - Grant
+  - Garden
+  - Lincoln
+  - Morrill
+  unit: text
+  effective_from: 2026-03-01
+  effective_to: 2026-04-30
+  known_from: 2026-09-12
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-09-15
+    quote: 'Lasts Until: April 30, 2026'
+  - source_id: ne-dhhs-wr-page-2026-09-15
+    quote: Existing Members – You qualify for this exemption if you lived in one these counties during March 2026 and have a Medicaid renewal in any month between July 2026 and February 2027.
+  confidence: high
+  notes: ''
+- id: NE.exemption.temporary_hardship.severe_weather_counties
+  topic: good_cause
+  statement: 'Emergency declaration (severe weather) for Buffalo, Fillmore, Gage, Howard, Jefferson, Nemaha, Thayer, Thurston counties: May 1 - May 31, 2026. Applicants: lived there in May 2026 and applied June 2026. Existing members: lived there in May 2026 with a renewal through July 2026 and April 2027.'
+  value:
+  - Buffalo
+  - Fillmore
+  - Gage
+  - Howard
+  - Jefferson
+  - Nemaha
+  - Thayer
+  - Thurston
+  unit: text
+  effective_from: 2026-05-01
+  effective_to: 2026-05-31
+  known_from: 2026-09-12
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-09-15
+    quote: Existing Members – This exemption applies to you if you lived in one of these counties during May 2026 and you have a Medicaid renewal through July 2026 and April 2027.
+  - source_id: ne-dhhs-wr-page-2026-09-15
+    quote: New Applicants – You qualify for this exemption if you lived in one of these counties during May 2026 and you applied for Medicaid in June 2026.
+  confidence: high
+  notes: ''
+- id: NE.exemption.temporary_hardship.fourteen_counties_banner
+  topic: good_cause
+  statement: 'From Sept 12, 2026 the page lists 14 counties with temporary hardship exemptions in effect: Arthur, Buffalo, Dawson, Fillmore, Gage, Garden, Grant, Howard, Jefferson, Lincoln, Morrill, Nemaha, Thayer, Thurston.'
+  value: 14
+  unit: text
+  effective_from: 2026-09-12
+  effective_to: null
+  known_from: 2026-09-12
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-09-15
+    quote: 'Attention: Temporary Hardship Exemptions in Effect for 14 Counties'
+  - source_id: ne-dhhs-wr-page-2026-09-15
+    quote: Arthur, Buffalo, Dawson, Fillmore, Gage, Garden, Grant, Howard, Jefferson, Lincoln, Morrill, Nemaha, Thayer, Thurston.
+  confidence: high
+  notes: Banner first captured 2026-09-12 (absent 2026-09-10 captures).
+- id: NE.exemption.temporary_hardship.dawson_only_period
+  topic: good_cause
+  statement: Between roughly 2026-07-17 and 2026-09-11 the page announced only the Dawson County high-unemployment hardship (county table with wildfire/severe weather counties came later).
+  value: null
+  unit: null
+  effective_from: 2026-07-22
+  effective_to: 2026-09-11
+  known_from: 2026-07-22
+  citations:
+  - source_id: ne-dhhs-wr-page-2026-09-08
+    quote: 'Attention Dawson County Residents Eligible Under Medicaid Expansion:'
+  confidence: medium
+  notes: Wildfire/severe-weather hardships were not described on the page before the 2026-09-12 capture.
+open_questions:
+- 'Content of the "Updated September 14, 2026" Medically Frail and SUD Treatment Program Exemptions process: the updated PDF is not in the Wayback Machine and dhhs.ne.gov did not respond to automated requests on 2026-10-09. The May 1, 2026 text is the latest captured.'
+- DHHS Provider Bulletin 26-12 (reported by search snippets as dated July 31, 2026; reportedly says no further documentation of medical frailty is required until January 1, 2028 under the federal interim final rule) could not be fetched or archived, so it is not cited.
+- Nebraska state plan amendment and Title 477 NAC 16 / 482 NAC text were not found in a capturable form; the FAQ only cites "477 NAC 16" for what income counts.
+- 'Which fax number applies: the web page and notice body list (402) 742-2351; the sample VOCN header lists (402)595-1901.'
+- 'Whether the 30-day response window is counted from the notice date or receipt date: the web page says "within 30 days of getting the notice"; the sample VOCN gives a fixed due date 35 days after the notice date.'
+- Nebraska does not publish a term called "good cause"; temporary hardships and "other mandatory exceptions" are the closest analogues. Whether other hardship types will be added is unknown.
+- Exact start dates of county hardships are policy dates from the page table; Dawson County hardship banner dates are capture-bounded (2026-07-17 to 2026-07-22).
+- Optional Screening Questions sample form (Medicaid Work Requirements Screener Questions (Sample).pdf) was not retrievable from the Wayback Machine (404); its content is uncaptured.
+- No waiting period or lockout after loss of coverage is stated in captured sources; the documents say the person must meet requirements and reapply.
+- The FAQ version 2.0 (published March 17, 2026) was not separately captured; the 2026-03-11 capture equals version 1.0 and the 2026-04-15 capture is the version published April 14, 2026.

@@ -57,6 +57,7 @@
     "event": "renewal",
     "event_date": "2026-10-12",
     "notice_date": null,
+    "months_in_question": [],
     "notes": ""
   },
   "client_name": "Tom Becker",
@@ -87,5 +88,5 @@
   "notice": null,
   "flags": [],
   "synthetic": true,
-  "updated": "2026-10-09"
+  "updated": "2026-10-10"
 }

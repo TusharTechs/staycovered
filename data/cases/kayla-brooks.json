@@ -23,8 +23,11 @@
     "client_id": "kayla",
     "ledger": [],
     "event": "noncompliance_notice",
-    "event_date": "2026-10-01",
+    "event_date": "2026-09-28",
     "notice_date": "2026-09-28",
+    "months_in_question": [
+      "2026-08"
+    ],
     "notes": ""
   },
   "client_name": "Kayla Brooks",
@@ -57,5 +60,5 @@
   "notice": null,
   "flags": [],
   "synthetic": true,
-  "updated": "2026-10-09"
+  "updated": "2026-10-10"
 }

@@ -127,7 +127,8 @@ def build() -> list[store.CaseRecord]:
     ])
     case = Case(id="maria-lopez", jurisdiction="NE", client_id="maria",
                 household=[Member(id="maria", name="Maria Lopez", age=34)],
-                ledger=ea + eb, event="noncompliance_notice", event_date=D("2026-09-01"), notice_date=D("2026-09-20"))
+                ledger=ea + eb, event="noncompliance_notice", event_date=D("2026-09-20"), notice_date=D("2026-09-20"),
+                months_in_question=["2026-08"])
     recs.append(store.CaseRecord(case=case, client_name="Maria Lopez", language="es", documents=[n, a, b],
                                  notice={"notice_type": "noncompliance", "notice_date": "2026-09-20", "respond_by": None,
                                          "months_in_question": ["2026-08"],
@@ -158,7 +159,7 @@ def build() -> list[store.CaseRecord]:
     recs.append(store.CaseRecord(
         case=Case(id="aisha-mohammed", jurisdiction="NE", client_id="aisha",
                   household=[Member(id="aisha", name="Aisha Mohammed", age=29)],
-                  ledger=ep + ev, event="noncompliance_notice", event_date=D("2026-10-01"), notice_date=D("2026-10-02")),
+                  ledger=ep + ev, event="noncompliance_notice", event_date=D("2026-10-02"), notice_date=D("2026-10-02"), months_in_question=["2026-09"]),
         client_name="Aisha Mohammed", documents=[p, v]))
 
     # 4. Tom Becker — no own income; spouse's earnings count as household MAGI income.
@@ -177,14 +178,14 @@ def build() -> list[store.CaseRecord]:
     recs.append(store.CaseRecord(
         case=Case(id="kayla-brooks", jurisdiction="NE", client_id="kayla",
                   household=[Member(id="kayla", name="Kayla Brooks", age=24, caretaker_of_young_child=True)],
-                  ledger=[], event="noncompliance_notice", event_date=D("2026-10-01"), notice_date=D("2026-09-28")),
+                  ledger=[], event="noncompliance_notice", event_date=D("2026-09-28"), notice_date=D("2026-09-28"), months_in_question=["2026-08"]),
         client_name="Kayla Brooks", documents=[k1, k2]))
 
     # 6. Robert — no documents yet; possible medical frailty.
     recs.append(store.CaseRecord(
         case=Case(id="robert-nguyen", jurisdiction="NE", client_id="robert",
                   household=[Member(id="robert", name="Robert Nguyen", age=47, medically_frail_indicators=["type 2 diabetes with neuropathy", "recent hospitalization"])],
-                  ledger=[], event="noncompliance_notice", event_date=D("2026-10-01"), notice_date=D("2026-10-06")),
+                  ledger=[], event="noncompliance_notice", event_date=D("2026-10-06"), notice_date=D("2026-10-06"), months_in_question=["2026-09"]),
         client_name="Robert Nguyen", documents=[]))
     return recs
 

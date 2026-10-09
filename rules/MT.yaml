@@ -1,0 +1,724 @@
+# Montana Medicaid community engagement fact pack
+jurisdiction: MT
+name: Montana
+facts:
+- id: MT.start_date.new_applicants
+  topic: timeline
+  statement: Montana community engagement requirement applies to all new Medicaid Expansion applications on and after July 1, 2026.
+  value: '2026-07-01'
+  unit: date
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-06-30
+  citations:
+  - source_id: mt-dphhs-faq-2026-10-09
+    quote: 'For new applicants: All new applications for Medicaid Expansion on and after July 1, 2026, will be required to meet the community engagement requirement through qualified activities, unless they have a verified exclusion.'
+  - source_id: mt-dphhs-news-2026-06-30
+    quote: new Medicaid Expansion community engagement requirements will take effect July 1, 2026
+  confidence: high
+  notes: ''
+- id: MT.start_date.existing_clients
+  topic: timeline
+  statement: Existing clients must show compliance at their next scheduled redetermination; cases with a redetermination date of August 31, 2026 are first.
+  value: '2026-08-31'
+  unit: date
+  effective_from: 2026-08-31
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-faq-2026-10-09
+    quote: compliance will be required at your next scheduled redetermination. Cases with a redetermination date of August 31, 2026 will be the first to be required to meet the community engagement requirement.
+  confidence: high
+  notes: ''
+- id: MT.timeline.grace_period
+  topic: timeline
+  statement: From July through September 2026 DPHHS reviews community engagement at applications and redeterminations but does not deny or disenroll anyone for not meeting it.
+  value: '2026-07-01'
+  unit: date
+  effective_from: 2026-07-01
+  effective_to: 2026-09-30
+  known_from: 2026-06-30
+  citations:
+  - source_id: mt-dphhs-faq-2026-06-30
+    quote: From July through September 2026, DPHHS will review community engagement for applications and redeterminations, but people will not be denied coverage or disenrolled for not meeting the requirement during this time.
+  confidence: high
+  notes: ''
+- id: MT.timeline.enforcement_start
+  topic: timeline
+  statement: Starting October 2026 people who do not meet the requirement may be denied coverage or disenrolled.
+  value: '2026-10-01'
+  unit: date
+  effective_from: 2026-10-01
+  effective_to: null
+  known_from: 2026-06-30
+  citations:
+  - source_id: mt-dphhs-faq-2026-06-30
+    quote: Starting in October 2026, DPHHS will continue to review community engagement for applications and redeterminations, and people who do not meet the requirement may be denied coverage or disenrolled.
+  confidence: high
+  notes: ''
+- id: MT.timeline.legal_basis_spa
+  topic: process
+  statement: Montana implements through a State Plan Amendment after CMS advised it could do so under H.R. 1; its 1115 waiver is still pending approval.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-faq-2026-10-09
+    quote: In 2026, CMS advised Montana that it could implement the community engagement requirement under H.R. 1 (the One Big Beautiful Bill Act) through a State Plan Amendment
+  confidence: high
+  notes: ''
+- id: MT.applicability.population
+  topic: applicability
+  statement: Applies to non-excluded adults aged 19-64 covered under Medicaid Expansion.
+  value:
+  - age 19-64
+  - Medicaid Expansion
+  - not excluded
+  unit: text
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-06-30
+  citations:
+  - source_id: mt-dphhs-faq-2026-10-09
+    quote: The community engagement requirement requires non-excluded adults on Medicaid Expansion, aged 19-64, to participate in community engagement activities to keep their health coverage.
+  confidence: high
+  notes: ''
+- id: MT.requirement.hours_80
+  topic: requirement
+  statement: Must complete 80 hours each month of approved activities (age 19-64) unless excluded.
+  value: 80
+  unit: hours
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-06-30
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: If you are aged 19 to 64, you must complete 80 hours each month of approved activities, unless you qualify for an exclusion.
+  confidence: high
+  notes: ''
+- id: MT.requirement.activities
+  topic: requirement
+  statement: 'Qualifying activities: work (paid or in-kind), community service/volunteering with a not-for-profit, approved state or federal workforce training/job readiness program, internship or apprenticeship, school at least half time; activities can be combined.'
+  value:
+  - work
+  - volunteering
+  - workforce training
+  - internship or apprenticeship
+  - school half time
+  unit: text
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Community service or volunteering with a not-for-profit organization
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Participating in an approved state or federal workforce training or job readiness program
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Doing an internship or apprenticeship
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Going to school at least half time
+  confidence: high
+  notes: ''
+- id: MT.requirement.activities.launch_list
+  topic: requirement
+  statement: At launch (July 1 snapshot) qualifying activities were listed as working at a job, community service or volunteering, workforce training or job readiness programs through the State of Montana, and going to school (no internship/apprenticeship item, no $580 test).
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: 2026-09-30
+  known_from: 2026-07-01
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-07-01
+    quote: Workforce training or job readiness programs through the State of Montana
+  - source_id: mt-dphhs-medicaidchanges-2026-07-01
+    quote: Going to school
+  confidence: high
+  notes: Superseded no later than the page version current as of Sept 30, 2026 (exact change date unknown; effective_to is the latest possible; Wayback has no capture between 2026-07-08 and 2026-10-08 retrieved).
+- id: MT.income_alternative.580
+  topic: income_alternative
+  statement: Working is demonstrated by income of at least $580 per month, or documentation of 80 hours of work if income cannot be verified.
+  value: 580
+  unit: usd
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Working at a job (paid or in-kind), demonstrated by income of at least $580 per month or docmentation of 80 hours of work if income cannot be verified
+  confidence: high
+  notes: Not present in the 2026-06-30/07-01 captures; added to the live page by 2026-10-09.
+- id: MT.income_alternative.household_income
+  topic: income_alternative
+  statement: 'Montana counts household income toward the $580 threshold: a spouse''s or other household member''s earnings count only if the household meets $580; otherwise each person is evaluated individually. Hours cannot be transferred between people.'
+  value: 580
+  unit: usd
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-faq-2026-10-09
+    quote: Household income of at least $580 per month. Income may be earned by any member of the individual's household and may include wages or self-employment income.
+  - source_id: mt-dphhs-faq-2026-10-09
+    quote: An individual cannot count someone else's work hours (or education hours, volunteering hours, etc.) toward their own 80-hour requirement
+  confidence: high
+  notes: ''
+- id: MT.income_alternative.partial_credit
+  topic: income_alternative
+  statement: If household income is under $580, income divided by the federal minimum wage gives credit hours that count toward the 80 hours; the person supplements with other activities.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-faq-2026-10-09
+    quote: credit hours are calculated by dividing the individual’s income by the federal minimum wage
+  confidence: high
+  notes: ''
+- id: MT.income_alternative.seasonal
+  topic: income_alternative
+  statement: Seasonal workers can show average monthly income over the past 6 months of at least $7.25 per hour for 80 hours; otherwise combine activities.
+  value: 7.25
+  unit: usd
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-06-30
+  citations:
+  - source_id: mt-dphhs-faq-2026-10-09
+    quote: Members can show they met this requirement by checking if their average monthly income over the past 6 months is at least $7.25 per hour for 80 hours.
+  confidence: high
+  notes: ''
+- id: MT.requirement.school_half_time
+  topic: requirement
+  statement: School counts if enrolled and attending at least half time (at least 6 credit hours) in higher education, career and technical education, high school, or a state-approved GED; fewer than 6 credits convert at 13 hours per credit per month.
+  value: 6
+  unit: text
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-06-30
+  citations:
+  - source_id: mt-dphhs-faq-2026-10-09
+    quote: half-time enrollment and attendance means that the individual is enrolled in at least 6 credit hours
+  confidence: high
+  notes: ''
+- id: MT.requirement.school_credit_hours_conversion
+  topic: requirement
+  statement: For less than half-time enrollment, each credit hour counts as 13 hours of monthly activity.
+  value: 13
+  unit: hours
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-06-30
+  citations:
+  - source_id: mt-dphhs-faq-2026-10-09
+    quote: 13 hours per month will count for each 1 credit completed
+  confidence: high
+  notes: ''
+- id: MT.lookback.application
+  topic: lookback
+  statement: At application, the person must show the requirement was met (or an exclusion held) for the month before the new application.
+  value: 1
+  unit: months
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-06-30
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: 'At application: The month before your new application'
+  - source_id: mt-dphhs-faq-2026-06-30
+    quote: At application, you must show that you met CE requirements for the month prior to your application (a one-month lookback).
+  confidence: high
+  notes: ''
+- id: MT.lookback.redetermination
+  topic: lookback
+  statement: At redetermination, the person must show compliance for at least 3 months since the last redetermination (months need not be consecutive).
+  value: 3
+  unit: months
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-06-30
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: 'At redetermination: At least 3 months since your last redetermination (the months do not need to be consecutive)'
+  - source_id: mt-dphhs-faq-2026-06-30
+    quote: At redetermination, you must show that you met CE requirements for three months of your redetermination review period
+  confidence: high
+  notes: ''
+- id: MT.lookback.exceptions_hardships
+  topic: lookback
+  statement: 'Exceptions and short-term hardships count only for the months they apply: at application for the month before; at redetermination for at least 3 months, with any remainder met by reporting activity hours.'
+  value: 3
+  unit: months
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: If you have an exception for only one or two months, you must complete the remainder of the community engagement requirement by reporting qualifying activity hours.
+  confidence: high
+  notes: ''
+- id: MT.verification.data_first
+  topic: verification
+  statement: DPHHS first checks existing data sources (ex parte at renewal); if verification fails, the client must complete the Appendix A/B forms and supply supporting documentation.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Similarly, at redetermination, DPHHS will first attempt to ex parte (or, autorenew) you using existing data sources. If verification cannot be completed, you must complete the community engagement requirement forms (Appendix A and B) and provide supporting documentation to maintain your coverage.
+  confidence: high
+  notes: ''
+- id: MT.verification.application_forms_optional
+  topic: verification
+  statement: At application the Appendix A/B forms and supporting documentation are optional; DPHHS verifies from existing data first and may request more afterward.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: At the time of application, the community engagement requirement forms (Appendix A and B) and supporting documentation are optional.
+  confidence: high
+  notes: ''
+- id: MT.verification.document_examples
+  topic: verification
+  statement: 'Examples of documentation if requested: pay stubs, official school letters, signed volunteer logs showing hours.'
+  value:
+  - pay stubs
+  - school letters
+  - signed volunteer logs
+  unit: text
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-07-01
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Pay stubs from your job
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Official letters from your school
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Signed volunteer logs showing your hours
+  confidence: high
+  notes: ''
+- id: MT.verification.employment_data_check
+  topic: verification
+  statement: Employment is checked against Department of Labor wage data at ex parte; otherwise pay stubs, tax returns (self-employed/seasonal) or in-kind work hours documentation with the Appendix A log. Community service, workforce training and education are not data-checked.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-verification-matrix-2026-10-09
+    quote: Y - Department of Labor wage data
+  - source_id: mt-dphhs-verification-matrix-2026-10-09
+    quote: Community Service / Apprenticeship / Internship / GED Verification Form (Appendix A)
+  confidence: high
+  notes: ''
+- id: MT.verification.self_employed
+  topic: verification
+  statement: Self-employed people are deemed compliant if documented income is at least $580 in a month (tax records may be required); otherwise they report hours.
+  value: 580
+  unit: usd
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-faq-2026-10-09
+    quote: If that shows income of at least $580 in a month (through self-employment or other forms of employment), the household is deemed compliant with the community engagement requirement.
+  confidence: high
+  notes: ''
+- id: MT.verification.originals
+  topic: verification
+  statement: Submit copies of documents, not originals.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-appendix-b-exclusion-form-2026-10-09
+    quote: Submit this form along with copies of any documents (do not send originals)
+  confidence: high
+  notes: ''
+- id: MT.reporting.apply_online
+  topic: reporting
+  statement: Apply and submit verification online at apply.mt.gov (Self-Service Portal).
+  value: https://apply.mt.gov
+  unit: text
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-07-01
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Apply online at apply.mt.gov
+  confidence: high
+  notes: ''
+- id: MT.reporting.mail
+  topic: reporting
+  statement: Mail to Human and Community Services Division, PO Box 202925, Helena, MT 59602-2925.
+  value: PO Box 202925, Helena, MT 59602-2925
+  unit: text
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-07-01
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Human and Community Services Division PO Box 202925 Helena, MT 59602-2925
+  confidence: high
+  notes: ''
+- id: MT.contact.pahl_phone
+  topic: contact
+  statement: Public Assistance Helpline (PAHL) 1-888-706-1535.
+  value: 1-888-706-1535
+  unit: text
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-07-01
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Call the Public Assistance Helpline (PAHL) at 1-888-706-1535
+  confidence: high
+  notes: ''
+- id: MT.reporting.fax
+  topic: reporting
+  statement: Fax community engagement forms to 1-877-418-4533.
+  value: 1-877-418-4533
+  unit: text
+  effective_from: 2026-10-09
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-appendix-a-reporting-form-2026-10-09
+    quote: 'Fax: 1-877-418-4533'
+  confidence: high
+  notes: ''
+- id: MT.reporting.in_person
+  topic: reporting
+  statement: In person at a local eligibility office (Office of Public Assistance, OPA).
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-07-01
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: In person at a local eligibility office, also known as an Office of Public Assistance or OPA
+  confidence: high
+  notes: ''
+- id: MT.reporting.report_changes
+  topic: reporting
+  statement: Members must report changes in citizenship/immigration status, household composition, income, and employment or education status online, by phone (PAHL), by mail, or in person.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Employment or education status
+  confidence: high
+  notes: ''
+- id: MT.exemption.specified_exclusions
+  topic: exemption
+  statement: 'Specified exclusions (requirement does not apply at all): American Indian/Alaska Native; former foster youth under 26 (on Medicaid and in foster care at 18); inmate of a public institution; medically frail; parent/guardian/caretaker relative/family caregiver of a dependent child under 14 or a disabled individual; drug or alcohol treatment; TANF work requirements or SNAP subject to work rules; pregnant or postpartum up to 12 months; veterans with 100% disability rating.'
+  value:
+  - AI/AN
+  - former foster youth <26
+  - inmate
+  - medically frail
+  - caregiver of child <14 or disabled person
+  - drug/alcohol treatment
+  - TANF/SNAP work rules
+  - pregnant/postpartum 12 mo
+  - 100% disabled veteran
+  unit: text
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Parent, guardian, caretaker relative, or family caregiver of a dependent child under age 14 or a disabled individual
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Veterans with a total (100%) disability rating
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Women who are pregnant or postpartum (up to 12 months)
+  confidence: high
+  notes: ''
+- id: MT.exemption.exceptions_hardships
+  topic: exemption
+  statement: 'Exceptions/short-term hardships (count only for months they apply): Medicare Part A/B; eligible for another Medicaid group; incarcerated in last three months; specified-excluded for part of lookback; inpatient services; county emergency disaster declaration (applied automatically); medical travel outside the community for serious or complex condition.'
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Receiving inpatient services
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Person or dependent who must travel outside of their community for medical services for a serious or complex medical condition
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: People incarcerated in the last three months
+  confidence: high
+  notes: ''
+- id: MT.exemption.high_unemployment_not_implemented
+  topic: exemption
+  statement: Montana is not implementing the high-unemployment county exception at this time; it will apply it automatically if enacted.
+  value: false
+  unit: bool
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Montana will not be implementing the high unemployment exception at this time
+  confidence: high
+  notes: ''
+- id: MT.exemption.disaster_county_automatic
+  topic: exemption
+  statement: If a county disaster is declared, Montana applies the hardship automatically.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Montana will automatically apply this for clients if a disaster is declared
+  confidence: high
+  notes: ''
+- id: MT.exemption.ssi_ssdi_not_subject
+  topic: exemption
+  statement: People receiving SSI or SSDI disability payments do not have to follow the requirement.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-faq-2026-10-09
+    quote: No. If you receive SSI or SSDI disability payments, you do not have to follow the community engagement requirement.
+  confidence: high
+  notes: ''
+- id: MT.exemption.parent_of_disabled_any_age
+  topic: exemption
+  statement: Parent of a person with a disability who requires care is excluded regardless of the child's age.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-faq-2026-10-09
+    quote: If you are the parent of a person with a disability who requires your care, you do not have to follow the new community engagement requirement. This is true no matter how old your child is.
+  confidence: high
+  notes: ''
+- id: MT.exemption.frailty.launch_pending
+  topic: exemption
+  statement: 'At launch (June 30 FAQ) Montana had not yet detailed its medically frail approach: "DPHHS will share additional details on Montana''s approach to Medically Frail on this website as they are confirmed."'
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: 2026-09-30
+  known_from: 2026-06-30
+  citations:
+  - source_id: mt-dphhs-faq-2026-06-30
+    quote: DPHHS will share additional details on Montana’s approach to Medically Frail on this website as they are confirmed.
+  confidence: high
+  notes: Superseded by the claims-based process described from Sept 2026 pages.
+- id: MT.exemption.frailty.claims_check
+  topic: exemption
+  statement: 'Starting October 1, 2026 DPHHS uses Medicaid claims data: CHIMES checks the last 12 months of claims for diagnosis codes on the Medically Frail Condition List (two tiers); a match grants the exclusion automatically with no notice or documentation.'
+  value: 12
+  unit: months
+  effective_from: 2026-10-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medically-frail-2026-10-09
+    quote: Starting October 1, 2026, DPHHS will begin using Medicaid claims data to automatically identify individuals who qualify for this exclusion. The Department’s CHIMES eligibility system will check an individual’s claims history over the last twelve months for diagnosis codes that match the Medically Frail Condition List.
+  confidence: high
+  notes: ''
+- id: MT.exemption.frailty.no_claims_existing_clients
+  topic: exemption
+  statement: If the claims check fails, existing clients may submit a provider attestation (Provider Attestation Form, Appendix B with the redetermination packet).
+  value: null
+  unit: null
+  effective_from: 2026-10-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medically-frail-2026-10-09
+    quote: Existing Clients may submit a provider attestation of their medically frail status.
+  confidence: high
+  notes: ''
+- id: MT.exemption.frailty.no_claims_new_applicants
+  topic: exemption
+  statement: New applicants may submit a self-declaration (Appendix B Self-Declaration form, mailed with the notice of non-compliance).
+  value: null
+  unit: null
+  effective_from: 2026-10-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medically-frail-2026-10-09
+    quote: New Applicants may submit a self-declaration of their medically frail status using the Self-Declaration form in Appendix B, mailed with their notice of non-compliance.
+  confidence: high
+  notes: ''
+- id: MT.exemption.frailty.request_form
+  topic: exemption
+  statement: People whose condition is not on the list can use the Medically Frail Condition Request Form with a provider; reviewed only if medically frail is their only specified exclusion.
+  value: null
+  unit: null
+  effective_from: 2026-10-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medically-frail-2026-10-09
+    quote: The Department has created a Medically Frail Condition Request Form to allow individuals to request approval of medically frail status based on a condition that is not currently included on the Department’s Medically Frail Condition List.
+  confidence: high
+  notes: ''
+- id: MT.exemption.sud_treatment_asam
+  topic: exemption
+  statement: Treatment-program exclusion requires a program with at least one service at ASAM Level 2.1 or above at application/redetermination; SUD history in stable recovery (5+ years) does not qualify as medically frail.
+  value: 2.1
+  unit: text
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-faq-2026-10-09
+    quote: in a treatment program that includes one or more services at or above ASAM Level 2.1 at the time of their application or redetermination
+  - source_id: mt-dphhs-faq-2026-10-09
+    quote: This does not include individuals in stable recovery (5 or more years).
+  confidence: high
+  notes: ''
+- id: MT.exemption.tribal_documentation
+  topic: exemption
+  statement: 'AI/AN exclusion: checked via CHIMES data; otherwise self-declaration (Appendix B), enrollment number or IHS documentation.'
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-verification-matrix-2026-10-09
+    quote: Self-Declaration Form (Appendix B), Enrollment number, IHS documentation
+  confidence: high
+  notes: ''
+- id: MT.exemption.veteran_documentation
+  topic: exemption
+  statement: 100% disabled veteran exclusion requires a VA statement showing the 100% rating.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-verification-matrix-2026-10-09
+    quote: Statement from the Department of Veterans Affairs (VA) showing disability rating of 100%
+  confidence: high
+  notes: ''
+- id: MT.exemption.sud_documentation
+  topic: exemption
+  statement: Drug/alcohol treatment exclusion requires provider documentation confirming treatment at ASAM level 2.1 or above.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-verification-matrix-2026-10-09
+    quote: Provider documentation confirming treatment at American Society of Addiction Medicine (ASAM) level 2.1 or above
+  confidence: high
+  notes: ''
+- id: MT.renewal.six_month
+  topic: process
+  statement: Beginning January 1, 2027 Medicaid Expansion clients are redetermined every six months (American Indians/Alaska Natives stay on 12 months); some cases are pulled forward starting Feb 2027.
+  value: '2027-01-01'
+  unit: date
+  effective_from: 2027-01-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Due to new requirements in H.R. 1, clients on Medicaid Expansion will now be redetermined, or re-checked for eligibility, every six months instead of annually. This does not apply to individuals who are American Indian/Alaska Native. This change will be effective as of January 1, 2027.
+  confidence: high
+  notes: ''
+- id: MT.renewal.six_month.launch_wording
+  topic: process
+  statement: The July 1, 2026 page said eligibility and compliance are verified at application and during the renewal process, every six months (without stating the January 2027 effective date).
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: 2026-09-30
+  known_from: 2026-07-01
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-07-01
+    quote: Eligibility and compliance are verified during the initial application and during the renewal process, every six months.
+  confidence: high
+  notes: Later page clarifies six-month redeterminations start January 1, 2027.
+- id: MT.notice.adverse_action_and_appeal
+  topic: notice
+  statement: Enrollees get a Notice of Adverse Action with appeal instructions; Fair Hearing rights apply; notices cover eligibility decisions and noncompliance with the requirement.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: The formal notice you will receive is a Notice of Adverse Action and includes instructions for appealing.
+  confidence: high
+  notes: ''
+- id: MT.notice.keep_contact_updated
+  topic: notice
+  statement: Members should read all mail and keep contact information current, including in the Self-Service Portal.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-07-01
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Medicaid members should carefully read all mail and keep their contact information up to date.
+  confidence: high
+  notes: ''
+- id: MT.process.ffm_applications
+  topic: process
+  statement: From October 1, 2026, Expansion applicants applying through the federal Marketplace (FFM) are subject to the requirement; DPHHS checks all FFM determinations.
+  value: '2026-10-01'
+  unit: date
+  effective_from: 2026-10-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-medicaidchanges-2026-10-09
+    quote: Beginning October 1, 2026, clients who apply for Montana Medicaid coverage under the Medicaid Expansion population through the Federally Facilitated Marketplace (FFM) will be subject to the community engagement requirement.
+  confidence: high
+  notes: ''
+- id: MT.process.presumptive_eligibility
+  topic: process
+  statement: Since July 1, 2026 Qualified Entities assess PE applicants for the requirement using self-declaration only; DPHHS verifies at full application.
+  value: null
+  unit: null
+  effective_from: 2026-07-01
+  effective_to: null
+  known_from: 2026-10-09
+  citations:
+  - source_id: mt-dphhs-faq-2026-10-09
+    quote: PE determinations for the community engagement requirement are based on self-declaration
+  confidence: high
+  notes: ''
+open_questions:
+- Number of days a client has to respond to a Montana non-compliance notice before termination (press reports say 30 days) is not stated on the captured DPHHS pages or forms.
+- Montana notice sample (Notice of Adverse Action / non-compliance) was not captured.
+- Exact date the $580 test and the Sept 2026 expanded exclusion/frailty text appeared on the DPHHS page; Wayback captures between 2026-07-08 and 2026-10-08 were not retrieved.
+- CMS action on Montana State Plan Amendment (submitted June 30, 2026 per press) not verified from primary documents.
