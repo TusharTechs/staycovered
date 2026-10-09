@@ -69,6 +69,7 @@ export const api = {
   addDoc: (id: string, body: { name: string; kind: string; member_id?: string; text: string }) =>
     fetch(`/api/cases/${id}/documents`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }).then(j<{ worksheet: Worksheet }>),
   replay: (jurisdiction = 'NE') => fetch('/api/drift/replay' + q({ jurisdiction })).then(j<DriftEvent[]>),
+  explain: (id: string, lang: 'en' | 'es') => fetch(`/api/cases/${id}/explain` + q({ lang }), { method: 'POST' }).then(j<{ summary: string; what_to_do: string[]; deadline_sentence: string; keep_in_mind: string[]; spans: string[] }>),
   calls: () => fetch('/api/log/calls').then(j<Record<string, unknown>[]>),
   tavily: () => fetch('/api/log/tavily').then(j<Record<string, unknown>[]>),
   bench: () => fetch('/api/bench/results').then(j<Record<string, unknown>>),

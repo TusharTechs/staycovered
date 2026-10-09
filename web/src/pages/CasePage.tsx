@@ -54,7 +54,7 @@ export default function CasePage() {
 
       <div className="grid gap-5 lg:grid-cols-3">
         <div className="lg:col-span-2 space-y-5">
-          {rec.notice && <NoticeCard notice={rec.notice} />}
+          {rec.notice && <NoticeCard notice={rec.notice} caseId={rec.case.id} />}
 
           <Card title="Attestation worksheet" actions={<span className="text-xs text-muted">rules in force {fmtDate(ws.as_of)}</span>}>
             <p className="text-xs text-muted mb-3">Arithmetic is done by code, never by the AI. Click a month to see every number's source.</p>
@@ -161,11 +161,35 @@ function MonthRow({ r, open, onToggle, docs }: { r: MonthResult; open: boolean; 
   )
 }
 
-function NoticeCard({ notice }: { notice: Record<string, unknown> }) {
+function NoticeCard({ notice, caseId }: { notice: Record<string, unknown>; caseId: string }) {
   const items = (notice.requested_items as string[]) ?? []
   const how = (notice.how_to_respond as string[]) ?? []
+  const [view, setView] = useState<'nav' | 'en' | 'es'>('nav')
+  const [ex, setEx] = useState<Record<string, Awaited<ReturnType<typeof api.explain>>>>({})
+  const [busy, setBusy] = useState(false)
+  const pick = async (v: 'nav' | 'en' | 'es') => {
+    setView(v)
+    if (v !== 'nav' && !ex[v]) { setBusy(true); try { const r = await api.explain(caseId, v); setEx(e => ({ ...e, [v]: r })) } finally { setBusy(false) } }
+  }
+  const tabs = [['nav', 'Navigator'], ['en', 'For the client'], ['es', 'Para el cliente (español)']] as const
+  const cur = view !== 'nav' ? ex[view] : null
   return (
-    <Card title="What the notice says">
+    <Card title="What the notice says" actions={
+      <div role="tablist" className="flex gap-1">{tabs.map(([k, l]) => (
+        <button key={k} role="tab" aria-selected={view === k} onClick={() => pick(k)}
+          className={`rounded-md px-2 py-1 text-xs ${view === k ? 'bg-brand text-white' : 'text-muted hover:bg-paper'}`}>{l}</button>
+      ))}</div>}>
+      {view !== 'nav' && (busy && !cur ? <Spinner label="Rewriting in plain language" /> : cur && (
+        <div className="space-y-2 text-[15px] leading-relaxed" lang={view}>
+          <p>{cur.summary}</p>
+          {cur.deadline_sentence && <p className="font-semibold text-bad">{cur.deadline_sentence}</p>}
+          <ol className="list-decimal pl-5 space-y-1">{cur.what_to_do.map((x, i) => <li key={i}>{x}</li>)}</ol>
+          <ul className="text-sm text-muted list-disc pl-5">{cur.keep_in_mind.map((x, i) => <li key={i}>{x}</li>)}</ul>
+          <details className="text-xs text-muted"><summary className="cursor-pointer">Based on these exact words in the letter</summary>
+            <ul className="mt-1 space-y-1">{cur.spans.map((x, i) => <li key={i}><mark className="cite">{x}</mark></li>)}</ul></details>
+        </div>
+      ))}
+      {view === 'nav' && <>
       <div className="grid sm:grid-cols-3 gap-3 text-sm">
         <div><div className="text-xs text-muted">Type</div><div className="font-medium">{String(notice.notice_type ?? '').replace(/_/g, ' ')}</div></div>
         <div><div className="text-xs text-muted">Dated</div><div className="font-medium">{fmtDate(notice.notice_date as string)}</div></div>
@@ -173,6 +197,7 @@ function NoticeCard({ notice }: { notice: Record<string, unknown> }) {
       </div>
       {items.length > 0 && <><div className="mt-3 text-xs text-muted">They are asking for</div><ul className="list-disc pl-5 text-sm">{items.map((x, i) => <li key={i}>{x}</li>)}</ul></>}
       {how.length > 0 && <><div className="mt-3 text-xs text-muted">How to respond</div><ul className="list-disc pl-5 text-sm">{how.map((x, i) => <li key={i}>{x}</li>)}</ul></>}
+      </>}
     </Card>
   )
 }

@@ -95,6 +95,21 @@ def add_document(case_id: str, doc: DocIn) -> dict:
     return {"document": json.loads(d.model_dump_json()), "worksheet": _ws(rec, date.today())}
 
 
+@app.post("/api/cases/{case_id}/explain")
+def explain(case_id: str, lang: str = "en") -> dict:
+    rec = store.load(case_id)
+    notice_doc = next((d for d in rec.documents if d.kind == "notice"), None)
+    if not notice_doc:
+        raise HTTPException(404, "no notice on this case")
+    cache = (notice_doc.extracted or {}).get("explanations", {})
+    if lang not in cache:
+        ex, missing = extract.explain_notice(notice_doc.text, lang)
+        cache[lang] = json.loads(ex.model_dump_json()) | {"unverified_spans": len(missing)}
+        notice_doc.extracted = (notice_doc.extracted or {}) | {"explanations": cache}
+        store.save(rec)
+    return cache[lang]
+
+
 # ---------- grounded answers ----------
 
 class AskIn(BaseModel):
