@@ -19,7 +19,9 @@ import yaml
 from pydantic import BaseModel
 
 from staycovered import answer as ans
-from staycovered import config, llm
+from staycovered import config
+
+config.DAILY_USD_CAP = float("inf")  # offline evaluation is not subject to the public demo cap, llm
 
 QDIR = Path(__file__).parent / "questions"
 RDIR = Path(__file__).parent / "results"

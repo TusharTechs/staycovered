@@ -48,7 +48,12 @@ export interface Grounded {
 }
 
 async function j<T>(r: Response): Promise<T> {
-  if (!r.ok) throw new Error(`${r.status} ${await r.text()}`)
+  if (!r.ok) {
+    const t = await r.text()
+    let msg = t
+    try { msg = JSON.parse(t).detail ?? t } catch { /* not JSON */ }
+    throw new Error(typeof msg === 'string' ? msg : JSON.stringify(msg))
+  }
   return r.json() as Promise<T>
 }
 

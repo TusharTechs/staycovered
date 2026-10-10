@@ -330,7 +330,7 @@ def flag_cases(ev: DriftEvent) -> list[dict]:
 REPLAY_CACHE = config.ROOT / "data" / "cache" / "replay_cache.json"  # committed: judges never trigger model calls on page load
 
 
-def replay_all(jurisdiction: str, summarise: bool = True) -> list[dict]:
+def replay_all(jurisdiction: str, summarise: bool = True, allow_llm: bool = True) -> list[dict]:
     """All historical change events for allow-listed pages of a jurisdiction, with summaries (cached)."""
     cache = json.loads(REPLAY_CACHE.read_text()) if REPLAY_CACHE.exists() else {}
     out = []
@@ -339,7 +339,7 @@ def replay_all(jurisdiction: str, summarise: bool = True) -> list[dict]:
             continue
         for ev in replay(p["url"], summarise=False):
             key = f"{ev.old_id}->{ev.new_id}"
-            if summarise and key not in cache:
+            if summarise and allow_llm and key not in cache:
                 d = Diff(ev.url, ev.old_id, ev.new_id, ev.old_as_of, ev.new_as_of, ev.added, ev.removed)
                 try:
                     cache[key] = summarize(d, ev.title).model_dump()

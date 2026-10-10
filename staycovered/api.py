@@ -7,7 +7,11 @@ import uuid
 from dataclasses import asdict
 from datetime import date
 
-from fastapi import FastAPI, HTTPException
+import hashlib
+import time
+from collections import defaultdict, deque
+
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 from pydantic import BaseModel
@@ -21,6 +25,56 @@ app = FastAPI(title="StayCovered API")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 
+# ---------- public-demo protection: answer cache + per-visitor rate limit ----------
+ANSWER_CACHE = config.ROOT / "data" / "cache" / "answers.json"      # committed, pre-warmed
+RUNTIME_ANSWERS = config.RUNTIME_DIR / "answers.json"              # grows at runtime
+_hits: dict[str, deque] = defaultdict(deque)
+RATE = int(__import__("os").getenv("SC_RATE_PER_HOUR", "20"))
+
+
+def _visitor(req: Request) -> str:
+    fwd = req.headers.get("x-forwarded-for", "")
+    return (fwd.split(",")[0].strip() if fwd else (req.client.host if req.client else "?"))
+
+
+def _rate_limit(req: Request) -> None:
+    now, q = time.time(), _hits[_visitor(req)]
+    while q and now - q[0] > 3600:
+        q.popleft()
+    if len(q) >= RATE:
+        raise HTTPException(429, "You've asked a lot of new questions in the last hour; please try again later. Cached answers still work.")
+    q.append(now)
+
+
+def _cache_key(*parts: object) -> str:
+    return hashlib.sha256(json.dumps([str(p).strip().lower() for p in parts]).encode()).hexdigest()[:24]
+
+
+def _cache_get(key: str) -> dict | None:
+    for p in (ANSWER_CACHE, RUNTIME_ANSWERS):
+        if p.exists():
+            v = json.loads(p.read_text()).get(key)
+            if v:
+                return v
+    return None
+
+
+def _cache_put(key: str, value: dict) -> None:
+    d = json.loads(RUNTIME_ANSWERS.read_text()) if RUNTIME_ANSWERS.exists() else {}
+    d[key] = value
+    RUNTIME_ANSWERS.write_text(json.dumps(d))
+
+
+def _llm_guard(fn):
+    """Turn budget exhaustion into a friendly 503 instead of a crash."""
+    from .llm import BudgetExceeded
+
+    try:
+        return fn()
+    except BudgetExceeded as e:
+        raise HTTPException(503, str(e))
+
+
 def _d(s: str | None) -> date:
     return date.fromisoformat(s) if s else date.today()
 
@@ -31,8 +85,10 @@ def _ws(rec: store.CaseRecord, on: date) -> dict:
 
 @app.get("/api/health")
 def health() -> dict:
+    from .llm import spent_today
     return {"ok": True, "nebius": bool(config.NEBIUS_API_KEY), "tavily": bool(config.TAVILY_API_KEY),
-            "sources": len(sources.all_sources()), "facts": len(rules.all_facts())}
+            "sources": len(sources.all_sources()), "facts": len(rules.all_facts()),
+            "budget_left_today": round(max(0.0, config.DAILY_USD_CAP - spent_today()), 3)}
 
 
 # ---------- cases ----------
@@ -73,7 +129,14 @@ class DocIn(BaseModel):
 
 
 @app.post("/api/cases/{case_id}/documents")
-def add_document(case_id: str, doc: DocIn) -> dict:
+def add_document(case_id: str, doc: DocIn, req: Request) -> dict:
+    _rate_limit(req)
+    if len(doc.text) > 20000:
+        raise HTTPException(413, "Document too long for the demo (20,000 characters max).")
+    return _llm_guard(lambda: _add_document(case_id, doc))
+
+
+def _add_document(case_id: str, doc: DocIn) -> dict:
     rec = store.load(case_id)
     did = f"doc-{uuid.uuid4().hex[:6]}"
     d = store.Document(id=did, name=doc.name, kind=doc.kind, member_id=doc.member_id, text=doc.text)
@@ -96,6 +159,10 @@ def add_document(case_id: str, doc: DocIn) -> dict:
 
 @app.post("/api/cases/{case_id}/explain")
 def explain(case_id: str, lang: str = "en") -> dict:
+    return _llm_guard(lambda: _explain(case_id, lang))
+
+
+def _explain(case_id: str, lang: str = "en") -> dict:
     rec = store.load(case_id)
     notice_doc = next((d for d in rec.documents if d.kind == "notice"), None)
     if not notice_doc:
@@ -119,13 +186,31 @@ class AskIn(BaseModel):
 
 
 @app.post("/api/ask")
-def ask(q: AskIn) -> dict:
+def ask(q: AskIn, req: Request) -> dict:
     on = _d(q.as_of)
-    res = answer_mod.answer(q.question, q.jurisdiction, on)
-    out = {"grounded": json.loads(res.model_dump_json())}
-    if q.compare_closed_book:
-        out["closed_book"] = answer_mod.closed_book(q.question, q.jurisdiction)
-    return out
+    if len(q.question) > 600:
+        raise HTTPException(413, "Question too long (600 characters max).")
+    key = _cache_key("ask", q.question, q.jurisdiction, on.isoformat(), q.compare_closed_book)
+    hit = _cache_get(key)
+    if hit:
+        return hit | {"cached": True}
+    _rate_limit(req)
+
+    def run() -> dict:
+        res = answer_mod.answer(q.question, q.jurisdiction, on)
+        out = {"grounded": json.loads(res.model_dump_json())}
+        if q.compare_closed_book:
+            # the frozen answer does not depend on the date: share it across dates
+            fk = _cache_key("frozen", q.question, q.jurisdiction)
+            frozen = _cache_get(fk)
+            if not frozen:
+                frozen = {"text": answer_mod.closed_book(q.question, q.jurisdiction)}
+                _cache_put(fk, frozen)
+            out["closed_book"] = frozen["text"]
+        _cache_put(key, out)
+        return out
+
+    return _llm_guard(run)
 
 
 # ---------- rules, sources, time machine ----------
@@ -185,7 +270,9 @@ def drift_events() -> list[dict]:
 
 
 @app.post("/api/drift/check")
-def drift_check() -> list[dict]:
+def drift_check(req: Request) -> list[dict]:
+    if not config.ADMIN_TOKEN or req.headers.get("x-admin-token") != config.ADMIN_TOKEN:
+        raise HTTPException(403, "Live checks are run by the maintainer (they use Tavily credits).")
     if not config.TAVILY_API_KEY:
         raise HTTPException(400, "TAVILY_API_KEY not set")
     out = []
@@ -195,8 +282,9 @@ def drift_check() -> list[dict]:
 
 
 @app.get("/api/drift/replay")
-def drift_replay(jurisdiction: str = "NE", summarise: bool = True) -> list[dict]:
-    return watch.replay_all(jurisdiction, summarise=summarise)
+def drift_replay(jurisdiction: str = "NE") -> list[dict]:
+    # summaries come from the committed cache; visitors never trigger new summary calls
+    return watch.replay_all(jurisdiction, summarise=True, allow_llm=False)
 
 
 # ---------- under the hood ----------

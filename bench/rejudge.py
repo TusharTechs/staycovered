@@ -12,6 +12,8 @@ from concurrent.futures import ThreadPoolExecutor
 
 from staycovered import config
 
+config.DAILY_USD_CAP = float("inf")  # offline evaluation is not subject to the public demo cap
+
 from .run import RDIR, bootstrap, judge, load_questions
 
 

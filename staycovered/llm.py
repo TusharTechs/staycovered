@@ -27,6 +27,35 @@ class LLMError(RuntimeError):
     pass
 
 
+class BudgetExceeded(LLMError):
+    pass
+
+
+_spend_cache: dict = {"day": None, "usd": 0.0, "pos": 0}
+
+
+def spent_today() -> float:
+    """Sum of logged model cost since 00:00 UTC (incremental read of the call log)."""
+    import datetime as _dt
+
+    day = _dt.datetime.now(_dt.timezone.utc).date().isoformat()
+    if _spend_cache["day"] != day:
+        _spend_cache.update(day=day, usd=0.0, pos=0)
+    if CALL_LOG.exists():
+        midnight = _dt.datetime.fromisoformat(day).replace(tzinfo=_dt.timezone.utc).timestamp()
+        with CALL_LOG.open() as f:
+            f.seek(_spend_cache["pos"])
+            for line in f:
+                try:
+                    e = json.loads(line)
+                except ValueError:
+                    continue
+                if e.get("ts", 0) >= midnight:
+                    _spend_cache["usd"] += e.get("usd", 0) or 0
+            _spend_cache["pos"] = f.tell()
+    return _spend_cache["usd"]
+
+
 def client() -> OpenAI:
     global _client
     if _client is None:
@@ -62,6 +91,8 @@ def chat(
 ) -> str:
     """One chat completion. Retries rate limits / transient errors with exponential backoff."""
     model_id = model or config.ROUTES[job]
+    if spent_today() >= config.DAILY_USD_CAP:
+        raise BudgetExceeded(f"Today's demo budget (${config.DAILY_USD_CAP:.2f}) has been used. Cached answers still work.")
     kwargs: dict[str, Any] = dict(model=model_id, messages=messages, temperature=temperature, max_tokens=max_tokens)
     if response_format:
         kwargs["response_format"] = response_format

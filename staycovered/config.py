@@ -46,3 +46,7 @@ ROUTES = {
     "drift_summary": os.getenv("SC_MODEL_DRIFT", SUPER.id),
     "judge": os.getenv("SC_MODEL_JUDGE", ULTRA.id),
 }
+
+# Public-demo protection: model spend per UTC day across all visitors (USD). Benchmarks set SC_DAILY_USD_CAP higher.
+DAILY_USD_CAP = float(os.getenv("SC_DAILY_USD_CAP", "0.75"))
+ADMIN_TOKEN = os.getenv("SC_ADMIN_TOKEN", "")
