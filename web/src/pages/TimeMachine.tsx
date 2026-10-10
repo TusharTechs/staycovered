@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { api, fmtDate, today, type CaseSummary, type DriftEvent, type Fact } from '../api'
-import { Card, Cite, Spinner, StatusPill } from '../components/ui'
+import { Card, Cite, LastChecked, Spinner, StatusPill } from '../components/ui'
 import AskBox from '../components/AskBox'
 
 type Milestone = { date: string; label: string; detail: string }
@@ -81,7 +81,7 @@ export default function TimeMachine() {
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="font-serif text-3xl tracking-tight">Rule Time Machine</h1>
+        <div className="flex flex-wrap items-center gap-3"><h1 className="font-serif text-3xl tracking-tight">Rule Time Machine</h1><LastChecked /></div>
         <p className="text-muted text-sm mt-1 max-w-3xl">AI models are frozen at their training date. Medicaid rules aren't. Move through the real policy timeline and watch the official sources, the answers and the caseload change with it.</p>
       </div>
 

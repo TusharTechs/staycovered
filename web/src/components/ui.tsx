@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { api, fmtDate } from '../api'
 
 export function Card({ title, children, actions, className = '', tour }: { title?: ReactNode; children: ReactNode; actions?: ReactNode; className?: string; tour?: string }) {
@@ -79,4 +79,20 @@ export function Empty({ children }: { children: ReactNode }) {
 
 export function Spinner({ label = 'Working' }: { label?: string }) {
   return <span role="status" className="inline-flex items-center gap-2 text-sm text-muted"><span className="h-3 w-3 animate-spin rounded-full border-2 border-brand border-t-transparent" />{label}…</span>
+}
+
+export function LastChecked() {
+  const [st, setSt] = useState<Awaited<ReturnType<typeof api.driftStatus>> | null>(null)
+  useEffect(() => { api.driftStatus().then(setSt).catch(() => {}) }, [])
+  if (!st?.last_checked) return null
+  const when = new Date(st.last_checked)
+  const pages = st.pages ?? []
+  const changed = pages.filter(p => p.status === 'changed').length
+  return (
+    <span className="inline-flex flex-wrap items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-xs text-muted" title={pages.map(p => `${p.jurisdiction} · ${p.title}: ${p.status}`).join('\n')}>
+      <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ok opacity-60" /><span className="relative inline-flex h-2 w-2 rounded-full bg-ok" /></span>
+      drift-watch checked {pages.length} official pages · {when.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} {when.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}
+      <span className={changed ? 'text-warn font-medium' : ''}>· {changed ? `${changed} changed` : 'no changes'}</span>
+    </span>
+  )
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api } from '../api'
 import { useTour } from '../components/Tour'
+import { LastChecked } from '../components/ui'
 
 type Sys = { system: string; score: number; drift_sensitive_score?: number | null; model: string }
 
@@ -15,7 +16,7 @@ export default function Home() {
   return (
     <div className="space-y-10">
       <section className="pt-6 md:pt-10">
-        <p className="text-sm font-medium text-brand">Medicaid work requirements · Nebraska first</p>
+        <div className="flex flex-wrap items-center gap-3"><p className="text-sm font-medium text-brand">Medicaid work requirements · Nebraska first</p><LastChecked /></div>
         <h1 className="mt-2 font-serif text-4xl md:text-6xl tracking-tight leading-[1.05] max-w-4xl">
           AI models are frozen at their training date.<br /><span className="text-brand">Medicaid rules aren't.</span>
         </h1>
