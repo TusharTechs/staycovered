@@ -98,7 +98,8 @@ def _verify(cites: list, allowed: set[str], on: date) -> tuple[list[dict], int]:
 def answer(question: str, jurisdiction: str = "NE", on: date | None = None, *, model: str | None = None) -> VerifiedAnswer:
     on = on or date.today()
     ctx, fact_ids, src_ids = _context(question, jurisdiction, on)
-    allowed = {s.id for s in sources.sources_as_of(on, {"US", jurisdiction})}
+    # any snapshot published by `on` may be cited (retrieval itself uses only the latest snapshot per page)
+    allowed = {s.id for s in sources.all_sources() if s.as_of <= on and s.jurisdiction in ("US", jurisdiction)}
     out = llm.structured(
         "answer",
         SYSTEM.format(as_of=on.isoformat()),

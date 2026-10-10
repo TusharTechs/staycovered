@@ -173,6 +173,11 @@ def save_snapshot(url: str, text: str, jurisdiction: str, title: str, as_of: dat
     return sid
 
 
+def _notes(source_id: str) -> str:
+    man = json.loads((config.SOURCES_DIR / "manifest.json").read_text())
+    return next((e.get("notes", "") for e in man if e["id"] == source_id), "")
+
+
 def snapshots_for(url: str) -> list[sources.Source]:
     return sorted([s for s in sources.all_sources() if s.url == url], key=lambda s: s.as_of)
 
@@ -197,20 +202,36 @@ def _emit(ev: DriftEvent) -> None:
         f.write(json.dumps(asdict(ev)) + "\n")
 
 
+_MDLINK = re.compile(r"!?\[([^\]]*)\]\([^)]*\)")
+
+
+def clean_markdown(text: str) -> str:
+    """Tavily returns markdown; keep the words, drop link targets, images and markup."""
+    text = _MDLINK.sub(r"\1", text)
+    text = re.sub(r"^[#>*\-\s]+", "", text, flags=re.M)
+    return re.sub(r"[*_`]{1,3}", "", text)
+
+
 def check_live(summarise: bool = True) -> list[DriftEvent]:
-    """Fetch every allow-listed page now via Tavily, store a snapshot if it changed, emit events."""
+    """Fetch every allow-listed page now via Tavily and compare with the previous Tavily capture of that page
+    (same extraction method, so formatting differences are not mistaken for rule changes). The first capture of a
+    page is stored as a baseline without an event."""
     pages = allowlist()
     fetched = tavily_extract([p["url"] for p in pages])
     events = []
     today = date.today()
     for p in pages:
-        new_text = fetched.get(p["url"])
-        if not new_text:
+        raw = fetched.get(p["url"])
+        if not raw:
             continue
-        prev = snapshots_for(p["url"])
+        new_text = clean_markdown(raw)
+        prev = [s for s in snapshots_for(p["url"]) if "tavily" in _notes(s.id)]
         old = prev[-1] if prev else None
-        added, removed = diff_texts(old.text if old else "", new_text)
-        if old and not (added or removed):
+        if old is None:
+            save_snapshot(p["url"], new_text, p["jurisdiction"], p["title"], today, "tavily-extract (baseline)")
+            continue
+        added, removed = diff_texts(old.text, new_text)
+        if not (added or removed):
             continue
         sid = save_snapshot(p["url"], new_text, p["jurisdiction"], p["title"], today, "tavily-extract")
         d = Diff(p["url"], old.id if old else None, sid, old.as_of.isoformat() if old else None, today.isoformat(), added, removed)
@@ -223,8 +244,9 @@ def check_live(summarise: bool = True) -> list[DriftEvent]:
 
 
 def replay(url: str, summarise: bool = False) -> list[DriftEvent]:
-    """Walk stored historical snapshots of one URL and produce the change events between consecutive ones."""
-    snaps = snapshots_for(url)
+    """Walk stored historical snapshots of one URL and produce the change events between consecutive ones.
+    Only snapshots captured the same way are compared (archived HTML vs Tavily text would differ in formatting)."""
+    snaps = [s for s in snapshots_for(url) if "tavily" not in _notes(s.id)]
     out = []
     for a, b in zip(snaps, snaps[1:]):
         added, removed = diff_texts(a.text, b.text)
