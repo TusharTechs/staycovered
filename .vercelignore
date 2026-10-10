@@ -13,3 +13,4 @@ PLAN.md
 .venv/
 .claude/
 **/__pycache__/
+.env.local

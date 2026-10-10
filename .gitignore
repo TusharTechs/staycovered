@@ -13,3 +13,4 @@ PLAN.md
 bench/results/judge_sample.csv
 submission/
 .vercel
+.env*
