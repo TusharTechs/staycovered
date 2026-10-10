@@ -10,6 +10,8 @@ export default function Caseload() {
   const [err, setErr] = useState('')
   const { state } = useJuris()
   const [outlook, setOutlook] = useState<CaseloadForecast | null>(null)
+  const [demoDay, setDemoDay] = useState<string | undefined>()
+  useEffect(() => { api.health().then(h => setDemoDay(h.demo_as_of)).catch(() => {}) }, [])
   useEffect(() => {
     setCases(null); setOutlook(null)
     api.cases(undefined, state).then(setCases).catch(e => setErr(String(e)))
@@ -24,7 +26,8 @@ export default function Caseload() {
       <div className="flex flex-wrap items-end gap-4">
         <div>
           <h1 className="font-serif text-3xl tracking-tight">Caseload</h1>
-          <p className="text-muted text-sm mt-1">{STATES[state].name} Medicaid work requirements · sorted by days left to respond</p>
+          <p className="text-muted text-sm mt-1">{STATES[state].name} Medicaid work requirements · sorted by days left to respond
+            {demoDay && <> · synthetic caseload shown as of <b className="text-ink">{fmtDate(demoDay)}</b></>}</p>
         </div>
         <div className="ml-auto flex gap-3">
           <Stat n={cases?.length} label="clients" />

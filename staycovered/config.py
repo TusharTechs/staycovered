@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+from datetime import date
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -20,6 +21,10 @@ RUNTIME_DIR = Path("/tmp/staycovered-runtime") if ON_VERCEL else ROOT / "data" /
 RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
 
 NEBIUS_API_KEY = os.getenv("NEBIUS_API_KEY", "")
+# The synthetic demo caseload's notices and deadlines were written for this date, so it is shown as of it
+# (judges visiting weeks later still see live deadlines). Set SC_DEMO_AS_OF=today to follow the calendar.
+_demo = os.getenv("SC_DEMO_AS_OF", "2026-10-12")
+DEMO_AS_OF = date.today() if _demo == "today" else date.fromisoformat(_demo)
 NEBIUS_BASE_URL = os.getenv("NEBIUS_BASE_URL") or "https://api.tokenfactory.nebius.com/v1/"
 TAVILY_API_KEY = os.getenv("TAVILY_API_KEY", "")
 

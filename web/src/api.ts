@@ -61,7 +61,7 @@ const q = (o: Record<string, string | undefined>) =>
   '?' + Object.entries(o).filter(([, v]) => v).map(([k, v]) => `${k}=${encodeURIComponent(v!)}`).join('&')
 
 export const api = {
-  health: () => fetch('/api/health').then(j<{ ok: boolean; nebius: boolean; tavily: boolean; sources: number; facts: number }>),
+  health: () => fetch('/api/health').then(j<{ ok: boolean; nebius: boolean; tavily: boolean; sources: number; facts: number; demo_as_of?: string }>),
   cases: (as_of?: string, jurisdiction?: string) => fetch('/api/cases' + q({ as_of, jurisdiction })).then(j<CaseSummary[]>),
   case: (id: string, as_of?: string) => fetch(`/api/cases/${id}` + q({ as_of })).then(j<{ record: CaseRecord; worksheet: Worksheet }>),
   facts: (as_of: string, jurisdiction = 'NE') => fetch('/api/facts' + q({ as_of, jurisdiction })).then(j<Fact[]>),

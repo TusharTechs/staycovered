@@ -10,6 +10,7 @@ from datetime import date
 import hashlib
 import time
 from collections import defaultdict, deque
+from functools import lru_cache
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -79,6 +80,26 @@ def _d(s: str | None) -> date:
     return date.fromisoformat(s) if s else date.today()
 
 
+def _case_day(s: str | None) -> date:
+    """The synthetic caseload is shown as of a fixed demo date (its notices and deadlines were written for it);
+    an explicit as_of still wins. Real people's self-checks use the real date."""
+    return date.fromisoformat(s) if s else config.DEMO_AS_OF
+
+
+def _knowledge(jurisdiction: str, on: date) -> str:
+    """Fingerprint of what an answer can depend on at `on`: which rule facts are published and whether each is in
+    force, and which source snapshots exist. Two dates with the same fingerprint get the same answer."""
+    return _knowledge_cached(jurisdiction, on, len(sources.all_sources()))  # new snapshots invalidate
+
+
+@lru_cache(maxsize=2048)
+def _knowledge_cached(jurisdiction: str, on: date, _n_sources: int) -> str:
+    juris = {"US", jurisdiction}
+    facts = sorted(f"{f.id}:{int(f.in_force(on))}" for f in rules.facts_known(on, juris))
+    srcs = sorted(x.id for x in sources.sources_as_of(on, juris))
+    return hashlib.sha256(json.dumps([facts, srcs]).encode()).hexdigest()[:20]
+
+
 def _ws(rec: store.CaseRecord, on: date) -> dict:
     return asdict(worksheet(rec.case, on))
 
@@ -88,14 +109,15 @@ def health() -> dict:
     from .llm import spent_today
     return {"ok": True, "nebius": bool(config.NEBIUS_API_KEY), "tavily": bool(config.TAVILY_API_KEY),
             "sources": len(sources.all_sources()), "facts": len(rules.all_facts()),
-            "budget_left_today": round(max(0.0, config.DAILY_USD_CAP - spent_today()), 3)}
+            "budget_left_today": round(max(0.0, config.DAILY_USD_CAP - spent_today()), 3),
+            "demo_as_of": config.DEMO_AS_OF.isoformat()}
 
 
 # ---------- cases ----------
 
 @app.get("/api/cases")
 def list_cases(as_of: str | None = None, jurisdiction: str | None = None) -> list[dict]:
-    on = _d(as_of)
+    on = _case_day(as_of)
     out = []
     for rec in store.all_cases():
         if jurisdiction and rec.case.jurisdiction != jurisdiction:
@@ -120,7 +142,7 @@ def get_case(case_id: str, as_of: str | None = None) -> dict:
         rec = store.load(case_id)
     except FileNotFoundError:
         raise HTTPException(404, "case not found")
-    return {"record": json.loads(rec.model_dump_json()), "worksheet": _ws(rec, _d(as_of))}
+    return {"record": json.loads(rec.model_dump_json()), "worksheet": _ws(rec, _case_day(as_of))}
 
 
 class DocIn(BaseModel):
@@ -156,7 +178,7 @@ def _add_document(case_id: str, doc: DocIn) -> dict:
         rec.case.ledger = [e for e in rec.case.ledger if not (e.source and e.source.doc_id == did)] + entries
     rec.documents.append(d)
     store.save(rec)
-    return {"document": json.loads(d.model_dump_json()), "worksheet": _ws(rec, date.today())}
+    return {"document": json.loads(d.model_dump_json()), "worksheet": _ws(rec, config.DEMO_AS_OF)}
 
 
 @app.post("/api/cases/{case_id}/explain")
@@ -193,9 +215,12 @@ def ask(q: AskIn, req: Request) -> dict:
     if len(q.question) > 600:
         raise HTTPException(413, "Question too long (600 characters max).")
     key = _cache_key("ask", q.question, q.jurisdiction, on.isoformat(), q.compare_closed_book)
-    hit = _cache_get(key)
+    kkey = _cache_key("ask-k", q.question, q.jurisdiction, _knowledge(q.jurisdiction, on), q.compare_closed_book)
+    hit = _cache_get(key) or _cache_get(kkey)
     if hit:
-        return hit | {"cached": True}
+        g = hit["grounded"]
+        same = {} if g["as_of"] == on.isoformat() else {"same_rules_as": g["as_of"]}  # identical rules and sources then
+        return hit | {"grounded": g | {"as_of": on.isoformat()}, "cached": True} | same
     _rate_limit(req)
 
     def run() -> dict:
@@ -210,6 +235,7 @@ def ask(q: AskIn, req: Request) -> dict:
                 _cache_put(fk, frozen)
             out["closed_book"] = frozen["text"]
         _cache_put(key, out)
+        _cache_put(kkey, out)
         return out
 
     return _llm_guard(run)
@@ -337,14 +363,14 @@ def mltc118_plan(case_id: str, as_of: str | None = None) -> dict:
 
     from .forms import FORM_ID, plan
     rec = store.load(case_id)
-    return {"form": FORM_ID, "fields": [_a(f) for f in plan(rec, worksheet(rec.case, _d(as_of)))]}
+    return {"form": FORM_ID, "fields": [_a(f) for f in plan(rec, worksheet(rec.case, _case_day(as_of)))]}
 
 
 @app.get("/api/cases/{case_id}/mltc118.pdf")
 def mltc118_pdf(case_id: str, as_of: str | None = None) -> Response:
     from .forms import fill
     rec = store.load(case_id)
-    pdf, _ = fill(rec, worksheet(rec.case, _d(as_of)))
+    pdf, _ = fill(rec, worksheet(rec.case, _case_day(as_of)))
     return Response(pdf, media_type="application/pdf",
                     headers={"Content-Disposition": f'attachment; filename="MLTC-118-draft-{case_id}.pdf"'})
 
@@ -354,7 +380,7 @@ def packet(case_id: str, as_of: str | None = None) -> Response:
     from .packet import build_packet
 
     rec = store.load(case_id)
-    pdf = build_packet(rec, worksheet(rec.case, _d(as_of)))
+    pdf = build_packet(rec, worksheet(rec.case, _case_day(as_of)))
     return Response(pdf, media_type="application/pdf",
                     headers={"Content-Disposition": f'attachment; filename="staycovered-{case_id}.pdf"'})
 
@@ -367,7 +393,7 @@ def case_plan(case_id: str, as_of: str | None = None) -> dict:
     from .engine.paths import month_paths
 
     rec = store.load(case_id)
-    on = _d(as_of)
+    on = _case_day(as_of)
     ws = worksheet(rec.case, on)
     return {"paths": [{"month": r.month, "status": r.status, "paths": [asdict(x) for x in month_paths(rec.case, r, on)]}
                       for r in ws.results if r.status != "meets"],
@@ -413,14 +439,14 @@ def policy_sandbox(jurisdiction: str = "NE", income_to_hours: bool | None = None
         raise HTTPException(400, "required_months must be 1, 2 or 3")
     lv = {k: v for k, v in {"income_to_hours": income_to_hours, "household_income": household_income,
                             "required_months": required_months, "ex_parte": ex_parte}.items() if v is not None}
-    return sandbox.run(jurisdiction, lv, _d(as_of))
+    return sandbox.run(jurisdiction, lv, _case_day(as_of))
 
 
 @app.get("/api/forecast")
 def caseload_forecast(jurisdiction: str = "NE", as_of: str | None = None) -> dict:
     from .engine.forecast import forecast
 
-    on = _d(as_of)
+    on = _case_day(as_of)
     rows, changes = [], {}
     for rec in store.all_cases():
         if rec.case.jurisdiction != jurisdiction:
@@ -470,7 +496,7 @@ def reminders(case_id: str, as_of: str | None = None) -> Response:
     from .engine.forecast import forecast
 
     rec = store.load(case_id)
-    on = _d(as_of)
+    on = _case_day(as_of)
     ws = worksheet(rec.case, on)
     f = forecast(rec.case, on)
     first = rec.client_name.split()[0]

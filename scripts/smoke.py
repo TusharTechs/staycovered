@@ -32,6 +32,10 @@ r = c.post("/api/ask", json={"question": "Does my client's spouse's income count
 print(r.status_code, "/api/ask (cached)")
 if r.status_code != 200:
     failed.append("/api/ask cached")
+r = c.post("/api/ask", json={"question": "Does my client's spouse's income count toward the $580?", "as_of": "2026-12-07", "jurisdiction": "NE"})
+print(r.status_code, "/api/ask (cached by knowledge state, judging-week date)", r.json().get("same_rules_as"))
+if r.status_code != 200:
+    failed.append("/api/ask knowledge-state cache")
 r = c.post("/api/ask", json={"question": "An uncached question with no key configured?", "as_of": "2026-10-10", "jurisdiction": "NE"})
 print(r.status_code, "/api/ask (uncached, no key) ->", r.json().get("detail", "")[:60])
 if r.status_code != 503:

@@ -282,7 +282,6 @@ CI runs the first three on **Ubuntu, Windows and macOS**, builds the web app, an
 | `uv` or `npx` not found | Open a new terminal after installing, or restart your computer on Windows. |
 | Port 8000 already in use | Use another port, e.g. `--port 8010` (in dev mode, also change the proxy in `web/vite.config.ts`). |
 | PowerShell blocks the uv installer | The command above already uses `-ExecutionPolicy ByPass` for that one script. |
-| Corporate network or proxy breaks `npx` / `uv` downloads | Set `HTTPS_PROXY`, or install Node and uv from the offline installers. |
 | Demo cases look changed after experimenting | `git checkout data/cases` restores them. (`uv run python -m demo.seed` rebuilds them from scratch but drops cached explanations.) |
 | A new question says "can't confirm" or 503 | No `NEBIUS_API_KEY`, or the daily spend cap was reached; cached questions still work. |
 
