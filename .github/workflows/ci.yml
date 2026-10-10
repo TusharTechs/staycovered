@@ -1,25 +1,34 @@
-name: ci (engine tests, citation check, web build)
+name: ci (tests on Linux, Windows and macOS; citations; web build; Docker)
 
 on:
   push:
     branches: [main]
   pull_request: {}
+  workflow_dispatch: {}
 
 permissions:
   contents: read
 
 jobs:
   python:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
+    name: tests (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
       - uses: astral-sh/setup-uv@v7
       - run: uv sync --frozen
-      - name: Engine, planner and forecast tests
+      - name: Engine, planner, forecast, self-check and sandbox tests
         run: uv run pytest -q
       - name: Every rule and benchmark citation is still verbatim in its captured official source
         run: uv run python scripts/verify_citations.py --bench
+      - name: API smoke test with no API keys (cached answers and deterministic features)
+        run: uv run python scripts/smoke.py
+
   web:
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -30,3 +39,17 @@ jobs:
           node-version: 22
       - name: Type-check and build the web app
         run: npx --yes pnpm@12.10.1 --dir web install --frozen-lockfile && npx --yes pnpm@12.10.1 --dir web build
+
+  docker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - name: Build the single-container image
+        run: docker build -t staycovered .
+      - name: Start it and check the API and the web app respond
+        run: |
+          docker run -d --name sc -p 7860:7860 staycovered
+          for i in $(seq 1 30); do curl -fs localhost:7860/api/health && break; sleep 2; done
+          curl -fs localhost:7860/api/cases > /dev/null
+          curl -fs localhost:7860/ | grep -q "StayCovered"

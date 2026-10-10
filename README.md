@@ -185,10 +185,10 @@ staycovered/
 ├── bench/                       WorkReqBench: questions, runner, judge, results, extraction benchmark
 ├── demo/seed.py                 synthetic demo caseload with gold extraction labels
 ├── data/                        demo cases, pre-computed caches, the official MLTC-118 PDF
-├── scripts/                     citation verifier, cache pre-warming, usage summary
+├── scripts/                     citation verifier, no-key smoke test, cache pre-warming, usage summary
 ├── tests/                       engine, paths, forecast, self-check and sandbox tests
 ├── docs/                        evidence, logo, social card
-├── .github/workflows/           ci.yml (tests, citations, web build) and drift-watch.yml (daily)
+├── .github/workflows/           ci.yml (tests on 3 OSes, citations, web build, Docker) and drift-watch.yml (daily)
 ├── Dockerfile                   single container: API + built web app
 ├── index.py, vercel.json        Vercel deployment entry point
 └── pyproject.toml, uv.lock      Python dependencies (uv)
@@ -268,11 +268,12 @@ Open http://localhost:7860.
 ```bash
 uv run pytest -q                                      # engine, paths, forecast, self-check, sandbox
 uv run python scripts/verify_citations.py --bench     # every rule and rubric quote is verbatim in its source
+uv run python scripts/smoke.py                        # every API endpoint with no API keys
 uv run python -m staycovered.drift                    # one drift-watch run (needs both keys)
 uv run python -m bench.run --split dev                # WorkReqBench on the dev split (needs NEBIUS_API_KEY; costs credits)
 ```
 
-CI runs the first two plus a full web build on every push.
+CI runs the first three on **Ubuntu, Windows and macOS**, builds the web app, and builds and starts the Docker image, on every push.
 
 ### Troubleshooting
 
