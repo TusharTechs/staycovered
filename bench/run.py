@@ -122,15 +122,36 @@ JUDGE_SYS = """You grade answers to questions about Medicaid work requirements a
 Judge only this criterion. Do not reward extra detail. Do not penalise for other errors."""
 
 
+def _claude_verdict(model: str, prompt: str) -> Verdict:
+    """Cross-family judge (Claude) via the official SDK's structured-output parsing; spend is logged and capped."""
+    import anthropic
+
+    if frontier_spent() >= FRONTIER_CAP_USD:
+        raise RuntimeError(f"Anthropic spend cap ${FRONTIER_CAP_USD} reached")
+    resp = anthropic.Anthropic().messages.parse(
+        model=model, max_tokens=4000, system=JUDGE_SYS,
+        messages=[{"role": "user", "content": prompt}], output_format=Verdict,
+    )
+    pin, pout = FRONTIER_PRICE.get(model, (4.0, 20.0))
+    usd = (resp.usage.input_tokens * pin + resp.usage.output_tokens * pout) / 1e6
+    with FRONTIER_LOG.open("a") as f:
+        f.write(json.dumps({"ts": time.time(), "model": model, "role": "judge", "in": resp.usage.input_tokens,
+                            "out": resp.usage.output_tokens, "usd": round(usd, 6), "stop": resp.stop_reason}) + "\n")
+    if resp.parsed_output is None:
+        raise RuntimeError(f"judge returned no parsed output (stop={resp.stop_reason})")
+    return resp.parsed_output
+
+
 def judge(q: dict, answer_text: str) -> list[dict]:
+    model = config.ROUTES["judge"]
     out = []
     for c in q["rubric"]:
-        v = llm.structured(
-            "judge", JUDGE_SYS,
-            f"Question (asked as of {q['as_of']}):\n{q['question']}\n\nReference answer:\n{q.get('reference_answer', '')}\n\n"
-            f"Criterion ({c.get('kind', 'must_include')}):\n{c['text']}\n\nAnswer to grade:\n{answer_text}",
-            Verdict, tag="bench_judge", max_tokens=600,
-        )
+        prompt = (f"Question (asked as of {q['as_of']}):\n{q['question']}\n\nReference answer:\n{q.get('reference_answer', '')}\n\n"
+                  f"Criterion ({c.get('kind', 'must_include')}):\n{c['text']}\n\nAnswer to grade:\n{answer_text}")
+        if model.startswith("claude"):
+            v = _claude_verdict(model, prompt)
+        else:
+            v = llm.structured("judge", JUDGE_SYS, prompt, Verdict, tag="bench_judge", max_tokens=600)
         out.append({"id": c["id"], "passed": v.passed, "reason": v.reason})
     return out
 

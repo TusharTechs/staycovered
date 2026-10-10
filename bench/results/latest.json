@@ -119,7 +119,10 @@
   },
   "judge": {
     "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
-    "human_agreement": null
+    "human_agreement": 0.675,
+    "human_kappa": 0.091,
+    "human_n": 40,
+    "human_note": "One non-expert human graded 40 random criteria blind. Agreement 67.5% (kappa 0.09); in all 13 disagreements the AI grader was stricter. An AI-assisted review of the 13 sided with the AI grader in 11 and with the human in 2. No expert has graded yet."
   },
   "notes": [
     "Questions and rubrics were drafted with AI assistance from captured official sources, reviewed, and committed before tuning.",
@@ -128,5 +131,25 @@
     "rag-latest is an ablation: the same pipeline with today's sources, ignoring the question date."
   ],
   "nemotron_usd": 0.1997,
-  "frontier_usd_total": 2.1554
+  "frontier_usd_total": 2.1554,
+  "judge_robustness": {
+    "nvidia/nemotron-3-super-120b-a12b": {
+      "frozen-super": 0.392,
+      "rag-latest": 0.624,
+      "staycovered": 0.771,
+      "frozen-frontier": 0.518
+    },
+    "claude-haiku-5-5": {
+      "frozen-super": 0.394,
+      "rag-latest": 0.643,
+      "staycovered": 0.741,
+      "frozen-frontier": 0.502
+    },
+    "nvidia/Nemotron-3-Ultra-550b-a55b": {
+      "frozen-super": 0.471,
+      "rag-latest": 0.671,
+      "staycovered": 0.786,
+      "frozen-frontier": 0.651
+    }
+  }
 }

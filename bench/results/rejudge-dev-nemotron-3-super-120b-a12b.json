@@ -1,0 +1,39 @@
+{
+  "source": "20261010T091821-dev.json",
+  "judge": "nvidia/nemotron-3-super-120b-a12b",
+  "original_judge": "nvidia/Nemotron-3-Ultra-550b-a55b",
+  "systems": {
+    "frozen-super": {
+      "original": 0.47058823529411764,
+      "rejudged": 0.3921568627450981,
+      "ci_low": 0.31176470588235294,
+      "ci_high": 0.4725490196078431,
+      "n": 85,
+      "agreement_per_question": 0.7764705882352941
+    },
+    "rag-latest": {
+      "original": 0.6705882352941176,
+      "rejudged": 0.6235294117647059,
+      "ci_low": 0.5411764705882353,
+      "ci_high": 0.7058823529411765,
+      "n": 85,
+      "agreement_per_question": 0.8823529411764706
+    },
+    "staycovered": {
+      "original": 0.7862745098039216,
+      "rejudged": 0.7705882352941177,
+      "ci_low": 0.7,
+      "ci_high": 0.8352941176470589,
+      "n": 85,
+      "agreement_per_question": 0.9411764705882353
+    },
+    "frozen-frontier": {
+      "original": 0.6509803921568628,
+      "rejudged": 0.5176470588235295,
+      "ci_low": 0.4274509803921569,
+      "ci_high": 0.6078431372549019,
+      "n": 85,
+      "agreement_per_question": 0.6588235294117647
+    }
+  }
+}

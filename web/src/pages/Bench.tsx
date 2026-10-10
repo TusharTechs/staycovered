@@ -10,7 +10,7 @@ const NAMES: Record<string, [string, string]> = {
   'rag-latest': ['Nemotron + today\'s sources', 'same pipeline, ignores the question date'],
   'frozen-super': ['Nemotron Super, no sources', 'answers from memory, told the date'],
 }
-type Results = { version?: string; split?: string; date?: string; n_questions?: number; systems?: SystemRow[]; by_category?: Record<string, Record<string, number>>; judge?: { model: string; human_agreement?: number | null }; notes?: string[] }
+type Results = { judge_robustness?: Record<string, Record<string, number>>; version?: string; split?: string; date?: string; n_questions?: number; systems?: SystemRow[]; by_category?: Record<string, Record<string, number>>; judge?: { model: string; human_agreement?: number | null; human_kappa?: number; human_n?: number; human_note?: string }; notes?: string[] }
 
 export default function Bench() {
   const [r, setR] = useState<Results | null>(null)
@@ -74,6 +74,21 @@ export default function Bench() {
                 ))}</tbody>
               </table>
               <p className="mt-2 text-xs text-muted">The model labels what each number is and copies it exactly; code parses numbers and applies counting rules. Synthetic documents with known answers.</p>
+            </Card>
+          )}
+          {r.judge_robustness && (
+            <Card title="Does the grader decide the result? Same answers, three different graders">
+              <table className="w-full text-sm">
+                <thead><tr className="text-left text-xs text-muted"><th className="py-1 font-medium">System</th>{Object.keys(r.judge_robustness).map(j => <th key={j} className="font-medium">graded by {j.replace('nvidia/', '').replace(/-a\d+b$/, '')}</th>)}</tr></thead>
+                <tbody>{r.systems!.map(s => (
+                  <tr key={s.system} className={`border-t border-line ${s.system === 'staycovered' ? 'font-medium text-brand' : ''}`}>
+                    <td className="py-1.5">{(NAMES[s.system] ?? [s.system])[0]}</td>
+                    {Object.values(r.judge_robustness!).map((v, i) => <td key={i} className="tabular-nums">{v[s.system] !== undefined ? `${(v[s.system] * 100).toFixed(1)}%` : '—'}</td>)}
+                  </tr>
+                ))}</tbody>
+              </table>
+              <p className="mt-2 text-xs text-muted">The ranking is the same under all three graders, including one from a different model family (Claude), which if anything would favour the Claude answers.</p>
+              {r.judge?.human_note && <p className="mt-2 text-xs text-muted"><b>Human check:</b> {r.judge.human_note}</p>}
             </Card>
           )}
           <Card title="How it was built">
