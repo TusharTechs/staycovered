@@ -146,5 +146,33 @@
     "who_is_affected": "Adults enrolled in or applying for Nebraska Medicaid expansion (Heritage Health Adult) who are subject to work requirements.",
     "navigator_action": "Inform current members that work requirement verification will occur at their individual renewal date, not uniformly starting May 2026, and advise them to monitor mail, email, and texts for requests for information.",
     "substantive": true
+  },
+  "mt-dphhs-medicaidchanges-2026-07-01->mt-dphhs-medicaidchanges-2026-10-09": {
+    "headline": "Montana updated its Medicaid expansion rules to require six-month redeterminations starting Jan 2027, added clarification on community engagement verification and exceptions, and noted upcoming federal funding limits for certain noncitizens effective Oct 2026.",
+    "details": [
+      "Six-month redeterminations replace annual checks for Medicaid Expansion clients beginning January 1, 2027, with case 'pull forward' allowed for those six months into their certification period.",
+      "Clarified that at application and redetermination, DPHHS will first use existing data sources for verification before requesting additional documentation or forms.",
+      "Added detail that community engagement can be met through paid or in-kind work earning at least $580/month or 80 hours of work if income unverified, and expanded qualifying activities to include internships, apprenticeships, and half-time school enrollment.",
+      "Updated exclusion criteria to specify that American Indian/Alaska Native individuals are exempt from six-month redeterminations and clarified processes for Medically Frail, short-term hardship, and exception-based exclusions.",
+      "Noted that starting October 1, 2026, federal funding for Medicaid will be limited to U.S. citizens, nationals, legal permanent residents, Cuban/Haitian entrants, and COFA migrants, affecting eligibility for other qualified noncitizens like asylees and refugees."
+    ],
+    "who_is_affected": "Adults enrolled in Montana Medicaid Expansion who are not excluded from community engagement requirements, particularly those needing redetermination after January 2027 and noncitizens affected by federal funding changes effective October 2026.",
+    "navigator_action": "Navigators should inform clients about the upcoming shift to six-month redeterminations starting in 2027, advise them to keep contact information updated in the Self-Service Portal, and clarify that certain noncitizens may lose eligibility for federal Medicaid funding after October 1, 2026.",
+    "substantive": true
+  },
+  "mt-dphhs-faq-2026-06-30->mt-dphhs-faq-2026-10-09": {
+    "headline": "Montana replaced 'will introduce' language with confirmation that community engagement requirements were implemented effective July 1, 2026, added detailed guidance on verifying work hours via income ($580/month threshold) and education credit hours, clarified distinction between specified exclusions and exceptions/short-term hardships, and included historical context about implementation via State Plan Amendment after waiver delay.",
+    "details": [
+      "Changed future tense ('will introduce') to past tense ('introduced') and updated implementation timeline to reflect that requirements went live on July 1, 2026.",
+      "Added background explaining that Montana initially pursued an 1115 waiver but switched to a State Plan Amendment under H.R. 1 after CMS guidance in 2026.",
+      "Revised work verification rules: introduced $580/month household income threshold as proof of 80 hours (based on federal minimum wage), allowed proportional credit for lower income, and clarified acceptable documentation including in-kind and self-employment work.",
+      "Added specific guidance for education: half-time enrollment (6+ credit hours) satisfies requirement, with a conversion table for partial credit (e.g., 1 credit hour = 13 monthly hours).",
+      "Clarified two exclusion types: 'specified excluded individuals' (exempt entirely) vs. 'exceptions/short-term hardships' (only exempt for months they apply; must make up deficit via activities if not met for 3+ months since last redetermination).",
+      "Updated short-term hardship notes: Montana will auto-apply disaster declaration exemption; high unemployment exemption noted as not currently implemented but may be applied in future if enacted.",
+      "Added FAQ on substance use: clarified that individuals in stable recovery (5+ years) do not qualify for medically frail exclusion, while those with current SUD diagnosis on state\u2019s approved list may."
+    ],
+    "who_is_affected": "Adults aged 19\u201364 enrolled in Montana\u2019s Medicaid Expansion program who do not qualify for a specified exclusion or exception/short-term hardship.",
+    "navigator_action": "For existing clients, verify compliance at next redetermination; for new applicants on or after July 1, 2026, assess requirement upfront. Help clients document work via income ($580/month proxy) or hour logs, education via credit hours, and qualifying exclusions or hardships. Refer clients to updated Medically Frail guidance for SUD-related questions.",
+    "substantive": true
   }
 }

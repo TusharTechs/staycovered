@@ -111,19 +111,21 @@ def prorate(e: LedgerEntry, key: str) -> tuple[float, float]:
     return e.amount * share, share
 
 
-def _review(case: Case, p: Params) -> tuple[list[str], bool, str]:
-    """Months to check, whether one qualifying month is enough, and a description."""
+def _review(case: Case, p: Params) -> tuple[list[str], int | None, str]:
+    """Months to check, how many must qualify (None = every month), and a description."""
     if case.months_in_question:
-        return sorted(case.months_in_question), False, "Months named in the agency's notice"
+        return sorted(case.months_in_question), None, "Months named in the agency's notice"
     if case.event == "application":
         n = int(p["application_months"])
-        return prev_months(case.event_date, n), False, f"The {n} calendar month(s) before the application"
+        return prev_months(case.event_date, n), None, f"The {n} calendar month(s) before the application"
     n = int(p["renewal_window_months"])
-    any_month = bool(p["renewal_any_month"])
+    k = int(p["renewal_required_months"])
     months = prev_months(case.event_date, n)
-    desc = (f"Any one month in the {n} months before renewal" if any_month and n > 1
-            else f"The {n} month(s) before renewal")
-    return months, any_month, desc
+    if n <= 1:
+        return months, None, "The month before renewal"
+    desc = (f"Any one month in the {n} months before renewal" if k == 1
+            else f"At least {k} qualifying months in the {n} months since the last renewal")
+    return months, k, desc
 
 
 def _member_month(case: Case, member: Member, key: str, p: Params) -> MonthResult:
@@ -136,7 +138,24 @@ def _member_month(case: Case, member: Member, key: str, p: Params) -> MonthResul
     facts_used = [p.get(k).fact_id for k in ("monthly_hours", "income_threshold", "income_basis") if p.get(k).fact_id]
 
     activity_hours = own_net = own_gross = other_net = other_gross = 0.0
+    half_time_school = False
     for e in case.ledger:
+        if e.kind == Kind.EDUCATION_CREDIT_HOURS:
+            # credits apply to every month of the term (not prorated); state rule converts them to hours
+            ms, me = month_bounds(key)
+            if e.member_id != member.id or e.period_end < ms or e.period_start > me:
+                continue
+            credits = e.amount
+            if credits >= float(p["half_time_credits"]):
+                half_time_school = True
+                hrs = float(p["monthly_hours"])
+            else:
+                hrs = credits * float(p["credit_hour_hours"])
+            activity_hours += hrs
+            contributions.append(Contribution(e.id, e.member_id, e.kind.value, round(hrs, 2), 1.0,
+                                              e.source.doc_id if e.source else None, e.source.span if e.source else ""))
+            facts_used.extend(f for f in (p.get("half_time_credits").fact_id, p.get("credit_hour_hours").fact_id) if f)
+            continue
         amt, share = prorate(e, key)
         if share == 0:
             continue
@@ -162,9 +181,15 @@ def _member_month(case: Case, member: Member, key: str, p: Params) -> MonthResul
                 contributions.append(c)
 
     def income_hours(income: float) -> float:
-        return income / min_wage if p["income_to_hours"] and min_wage > 0 else 0.0
+        if not p["income_to_hours"] or min_wage <= 0:
+            return 0.0
+        if basis == "household" and p["partial_credit_own_income"] and income < threshold:
+            income = own_net  # household misses $580: each person is evaluated on their own income
+        return income / min_wage
 
     def passes(income: float) -> str | None:
+        if half_time_school:
+            return "school_half_time"
         if activity_hours >= hours_req:
             return "hours"
         if income >= threshold:
@@ -240,21 +265,21 @@ def _member_month(case: Case, member: Member, key: str, p: Params) -> MonthResul
 
 EXEMPTION_SCREENS: list[tuple[str, str, str, list[str]]] = [
     ("pregnant_or_postpartum", "pregnant_postpartum", "Pregnant or postpartum",
-     ["{J}.exemption.pregnancy_postpartum", "US.exemption.pregnant_postpartum"]),
+     ["{J}.exemption.pregnancy_postpartum", "{J}.exemption.specified_exclusions", "US.exemption.pregnant_postpartum"]),
     ("caretaker_of_young_child", "caretaker_child", "Parent or caretaker of a child 13 or younger",
-     ["{J}.exemption.parent_caretaker.v2", "{J}.exemption.parent_caretaker.v1", "US.exemption.parent_caregiver_dependent_child"]),
+     ["{J}.exemption.parent_caretaker.v2", "{J}.exemption.parent_caretaker.v1", "{J}.exemption.specified_exclusions", "US.exemption.parent_caregiver_dependent_child"]),
     ("caretaker_of_disabled_person", "caretaker_disabled", "Caretaker of a person with a disability",
-     ["{J}.exemption.parent_caretaker.v2", "US.exemption.parent_caregiver_dependent_child"]),
+     ["{J}.exemption.parent_caretaker.v2", "{J}.exemption.parent_of_disabled_any_age", "US.exemption.parent_caregiver_dependent_child"]),
     ("veteran_total_disability", "veteran_disability", "Veteran with a total disability rating",
-     ["{J}.exemption.veteran_total_disability", "US.exemption.veteran_total_disability"]),
+     ["{J}.exemption.veteran_total_disability", "{J}.exemption.veteran_documentation", "US.exemption.veteran_total_disability"]),
     ("american_indian_alaska_native", "ai_an", "American Indian / Alaska Native",
-     ["{J}.exemption.tribal.v2", "{J}.exemption.tribal.v1", "US.exemption.american_indian_alaska_native"]),
+     ["{J}.exemption.tribal.v2", "{J}.exemption.tribal.v1", "{J}.exemption.tribal_documentation", "US.exemption.american_indian_alaska_native"]),
     ("in_sud_treatment", "sud_treatment", "In substance use disorder treatment",
-     ["{J}.exemption.sud_treatment_program", "US.exemption.substance_use_treatment"]),
+     ["{J}.exemption.sud_treatment_program", "{J}.exemption.sud_treatment_asam", "US.exemption.substance_use_treatment"]),
     ("meets_snap_or_tanf_work_rules", "snap_tanf", "Meets SNAP or TANF work requirements",
-     ["{J}.exemption.snap_tanf", "US.exemption.snap_work_requirements"]),
+     ["{J}.exemption.snap_tanf", "{J}.exemption.specified_exclusions", "US.exemption.snap_work_requirements"]),
     ("recently_incarcerated", "incarceration", "Incarcerated or recently released",
-     ["{J}.exemption.incarceration", "US.exemption.recent_inmate"]),
+     ["{J}.exemption.incarceration", "{J}.exemption.exceptions_hardships", "US.exemption.recent_inmate"]),
 ]
 
 
@@ -280,7 +305,8 @@ def screen_exemptions(case: Case, on: date) -> list[ExemptionFlag]:
         if m.medically_frail_indicators:
             out.append(ExemptionFlag(
                 m.id, "medically_frail", "Possible medical frailty: " + ", ".join(m.medically_frail_indicators),
-                _first_fact(["{J}.exemption.medically_frail.definition.v2", "US.exemption.medically_frail_definition"], case.jurisdiction, on),
+                _first_fact(["{J}.exemption.medically_frail.definition.v2", "{J}.exemption.frailty.claims_check", "{J}.exemption.specified_exclusions",
+                             "US.exemption.medically_frail_definition"], case.jurisdiction, on),
                 "Ask the agency how frailty is being verified now, and the client's clinician for a statement if needed. The agency decides."))
     return out
 
@@ -288,30 +314,33 @@ def screen_exemptions(case: Case, on: date) -> list[ExemptionFlag]:
 ORDER: dict[str, int] = {"meets": 0, "conditional": 1, "does_not_meet": 2, "insufficient_evidence": 3}
 
 
-def _overall(results: list[MonthResult], any_month: bool) -> Status:
+def _overall(results: list[MonthResult], required: int | None) -> Status:
     sts = [r.status for r in results]
     if not sts:
         return "insufficient_evidence"
-    if any_month:
-        best = min(sts, key=lambda s: ORDER[s])
-        if best == "insufficient_evidence" and "does_not_meet" in sts:
-            return "does_not_meet"
-        return best  # type: ignore[return-value]
-    worst = max(sts, key=lambda s: ORDER[s])
-    return worst  # type: ignore[return-value]
+    if required is None:  # every month must qualify
+        return max(sts, key=lambda s: ORDER[s])  # type: ignore[return-value]
+    meets = sts.count("meets")
+    if meets >= required:
+        return "meets"
+    if meets + sts.count("conditional") >= required:
+        return "conditional"
+    if any(s in ("meets", "conditional", "does_not_meet") for s in sts):
+        return "does_not_meet"
+    return "insufficient_evidence"
 
 
 def worksheet(case: Case, on: date | None = None) -> Worksheet:
     on = on or case.event_date
     p = resolve(case.jurisdiction, on)
-    months, any_month, desc = _review(case, p)
+    months, required, desc = _review(case, p)
     client = next(m for m in case.household if m.id == case.client_id)
     results = [_member_month(case, client, k, p) for k in months]
-    if any_month and len(results) > 3:  # show months with evidence (plus the latest), not 12 empty rows
-        keep = [r for r in results if r.contributions] or results[-1:]
-        results = keep
+    overall = _overall(results, required)
+    if required is not None and len(results) > 3:  # show months with evidence (plus the latest), not 12 empty rows
+        results = [r for r in results if r.contributions] or results[-1:]
     warnings = [f"'{v.label}' has no published rule text for this date; using a conservative default ({v.value})."
-                for k, v in p.values.items() if not v.verified and k not in ("receipt_days",)]
+                for k, v in p.values.items() if not v.verified and k not in ("receipt_days", "credit_hour_hours", "half_time_credits", "partial_credit_own_income")]
     cure, note = None, ""
     if case.notice_date:
         base = int(p["cure_days"])
@@ -322,7 +351,7 @@ def worksheet(case: Case, on: date | None = None) -> Worksheet:
             note += ". Nebraska says '30 days of getting the notice', and its sample notice shows a due date 35 days after the notice date — use the date printed on the client's notice if it is later."
     return Worksheet(
         case_id=case.id, jurisdiction=case.jurisdiction, as_of=on, review=desc, months=[r.month for r in results],
-        results=results, overall=_overall(results, any_month), exemptions=screen_exemptions(case, on),
+        results=results, overall=overall, exemptions=screen_exemptions(case, on),
         cure_deadline=cure, cure_note=note,
         params={k: {"value": v.value, "fact_id": v.fact_id, "verified": v.verified, "label": v.label} for k, v in p.values.items()},
         warnings=warnings,

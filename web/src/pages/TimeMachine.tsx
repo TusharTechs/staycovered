@@ -2,12 +2,32 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { api, fmtDate, today, type CaseSummary, type DriftEvent, type Fact } from '../api'
 import { Card, Cite, LastChecked, Spinner, StatusPill } from '../components/ui'
+import { STATES, useJuris, type Juris } from '../components/State'
 import AskBox from '../components/AskBox'
 
 type Milestone = { date: string; label: string; detail: string }
 
 // Hand-curated labels for the real policy timeline; every date also comes from cited rule facts or snapshots.
-const LABELS: Record<string, string> = {
+const FEDERAL: Record<string, string> = {
+  '2025-07-04': 'H.R.1 signed',
+  '2026-06-03': 'Federal rule published',
+  '2026-06-29': 'Federal rule corrected',
+  '2026-07-31': 'Federal rule effective',
+  '2026-09-08': 'CMS frailty guidance',
+  '2027-01-01': 'Nationwide start',
+  '2028-01-01': 'Documentation required',
+}
+
+const MT_LABELS: Record<string, string> = {
+  ...FEDERAL,
+  '2026-06-30': 'Montana FAQ published',
+  '2026-07-01': 'Montana starts (grace period)',
+  '2026-08-31': 'Montana: existing clients at redetermination',
+  '2026-10-01': 'Montana enforcement + claims-based frailty check',
+  '2027-01-01': 'Nationwide start; Montana 6-month renewals',
+}
+
+const NE_LABELS: Record<string, string> = {
   '2025-07-04': 'H.R.1 signed',
   '2025-12-17': 'Nebraska announces work requirements',
   '2026-04-14': 'Nebraska page rewritten',
@@ -25,9 +45,17 @@ const LABELS: Record<string, string> = {
   '2028-01-01': 'Documentation required',
 }
 
+const LABELS_BY: Record<Juris, Record<string, string>> = { NE: NE_LABELS, MT: MT_LABELS }
+const SUGGEST: Record<Juris, string[]> = {
+  NE: ['When do Nebraska Medicaid work requirements start for people already enrolled?', 'How is medical frailty verified?', 'Does a spouse\'s income count toward the $580 income test?'],
+  MT: ['When does Montana start denying coverage for not meeting the requirement?', 'How does Montana verify medical frailty?', 'Does a spouse\'s income count toward the $580 income test in Montana?'],
+}
+
 const TOPIC_ORDER = ['timeline', 'applicability', 'requirement', 'income_alternative', 'lookback', 'verification', 'exemption', 'good_cause', 'notice', 'cure', 'reporting', 'process', 'contact']
 
 export default function TimeMachine() {
+  const { state } = useJuris()
+  const LABELS = LABELS_BY[state]
   const [dates, setDates] = useState<string[]>([])
   const [idx, setIdx] = useState(0)
   const [facts, setFacts] = useState<Fact[] | null>(null)
@@ -40,9 +68,9 @@ export default function TimeMachine() {
   const [params] = useSearchParams()
   const wanted = params.get('date')
 
-  useEffect(() => { api.replay().then(setEvents).catch(() => setEvents([])) }, [])
+  useEffect(() => { api.replay(state).then(setEvents).catch(() => setEvents([])) }, [state])
   useEffect(() => {
-    api.timeline().then(t => {
+    api.timeline(state).then(t => {
       const ds = new Set<string>(Object.keys(LABELS))
       t.dates.forEach(d => { if (d.date >= '2025-07-01' && d.date <= '2028-06-30') ds.add(d.date) })
       ds.add(today())
@@ -50,7 +78,7 @@ export default function TimeMachine() {
       setDates(sorted)
       setIdx(sorted.indexOf(wanted && sorted.includes(wanted) ? wanted : today()))
     })
-  }, [])
+  }, [state])
 
   useEffect(() => { if (wanted && dates.includes(wanted)) { setPlaying(false); setIdx(dates.indexOf(wanted)) } }, [wanted, dates])
 
@@ -59,9 +87,9 @@ export default function TimeMachine() {
     if (!asOf) return
     const before = new Set((facts ?? []).map(f => f.id + (f.effective_from ?? '')))
     const beforeCases = Object.fromEntries((cases ?? []).map(c => [c.id, c.status]))
-    api.facts(asOf).then(fs => { setPrevIds(before); setFacts(fs) })
-    api.cases(asOf).then(cs => { setPrevCases(beforeCases); setCases(cs) })
-  }, [asOf])
+    api.facts(asOf, state).then(fs => { setPrevIds(before); setFacts(fs) })
+    api.cases(asOf, state).then(cs => { setPrevCases(beforeCases); setCases(cs) })
+  }, [asOf, state])
 
   useEffect(() => {
     if (!playing) { if (timer.current) window.clearInterval(timer.current); return }
@@ -82,7 +110,7 @@ export default function TimeMachine() {
     <div className="space-y-5">
       <div>
         <div className="flex flex-wrap items-center gap-3"><h1 className="font-serif text-3xl tracking-tight">Rule Time Machine</h1><LastChecked /></div>
-        <p className="text-muted text-sm mt-1 max-w-3xl">AI models are frozen at their training date. Medicaid rules aren't. Move through the real policy timeline and watch the official sources, the answers and the caseload change with it.</p>
+        <p className="text-muted text-sm mt-1 max-w-3xl">{STATES[state].name} + federal rules. AI models are frozen at their training date. Medicaid rules aren't. Move through the real policy timeline and watch the official sources, the answers and the caseload change with it.</p>
       </div>
 
       <Card tour="timeline">
@@ -140,11 +168,7 @@ export default function TimeMachine() {
 
         <div className="lg:col-span-2 space-y-5">
           <Card tour="ask" title="Ask — frozen model vs. rules as of this date">
-            <AskBox key={asOf} asOf={asOf} compare suggestions={[
-              'When do Nebraska Medicaid work requirements start for people already enrolled?',
-              'How is medical frailty verified?',
-              'Does a spouse\'s income count toward the $580 income test?',
-            ]} />
+            <AskBox key={asOf + state} asOf={asOf} compare jurisdiction={state} suggestions={SUGGEST[state]} />
           </Card>
           <Card title="Caseload on this date">
             {!cases && <Spinner />}

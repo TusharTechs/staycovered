@@ -15,6 +15,7 @@ class Kind(str, Enum):
     COMMUNITY_SERVICE_HOURS = "community_service_hours"
     WORK_PROGRAM_HOURS = "work_program_hours"
     EDUCATION_HOURS = "education_hours"
+    EDUCATION_CREDIT_HOURS = "education_credit_hours"  # credits enrolled in a term; converted to hours by state rule
     # income-type (counts toward household MAGI)
     EARNED_INCOME = "earned_income"
     SELF_EMPLOYMENT_GROSS = "self_employment_gross"  # e.g. gig platform payouts before expenses

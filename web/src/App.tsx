@@ -9,6 +9,7 @@ import UnderHood from './pages/UnderHood'
 import Grade from './pages/Grade'
 import Home from './pages/Home'
 import { useTour } from './components/Tour'
+import { StateSwitch } from './components/State'
 
 function Logo() {
   return (
@@ -47,7 +48,8 @@ export default function App() {
               </NavLink>
             ))}
           </nav>
-          <button onClick={tour.start} className="ml-auto rounded-full bg-amber-400 px-3 py-1 text-xs font-semibold text-ink hover:bg-amber-300">▶ Tour</button>
+          <div className="ml-auto"><StateSwitch /></div>
+          <button onClick={tour.start} className=" rounded-full bg-amber-400 px-3 py-1 text-xs font-semibold text-ink hover:bg-amber-300">▶ Tour</button>
           <div className="hidden md:flex items-center gap-3 text-xs text-muted">
             {health && <span>{health.sources} official sources · {health.facts} rule facts</span>}
             <span className="inline-flex items-center gap-1 rounded-full bg-paper px-2 py-0.5 border border-line">

@@ -94,15 +94,17 @@ def health() -> dict:
 # ---------- cases ----------
 
 @app.get("/api/cases")
-def list_cases(as_of: str | None = None) -> list[dict]:
+def list_cases(as_of: str | None = None, jurisdiction: str | None = None) -> list[dict]:
     on = _d(as_of)
     out = []
     for rec in store.all_cases():
+        if jurisdiction and rec.case.jurisdiction != jurisdiction:
+            continue
         ws = worksheet(rec.case, on)
         status = {"meets": "meets", "conditional": "conditional", "does_not_meet": "at_risk",
                   "insufficient_evidence": "insufficient_evidence"}[ws.overall]
         out.append({
-            "id": rec.case.id, "client_name": rec.client_name, "event": rec.case.event,
+            "id": rec.case.id, "client_name": rec.client_name, "event": rec.case.event, "jurisdiction": rec.case.jurisdiction,
             "event_date": rec.case.event_date.isoformat(),
             "cure_deadline": ws.cure_deadline.isoformat() if ws.cure_deadline else None,
             "days_left": (ws.cure_deadline - on).days if ws.cure_deadline else None,

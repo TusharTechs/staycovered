@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api, fmtDate, type CaseSummary } from '../api'
 import { Card, Empty, Spinner, StatusPill } from '../components/ui'
+import { STATES, useJuris } from '../components/State'
 
 export default function Caseload() {
   const [cases, setCases] = useState<CaseSummary[] | null>(null)
   const [err, setErr] = useState('')
-  useEffect(() => { api.cases().then(setCases).catch(e => setErr(String(e))) }, [])
+  const { state } = useJuris()
+  useEffect(() => { setCases(null); api.cases(undefined, state).then(setCases).catch(e => setErr(String(e))) }, [state])
 
   const urgent = cases?.filter(c => c.status !== 'meets' && c.days_left !== null && c.days_left <= 14).length ?? 0
   const flagged = cases?.filter(c => c.flags.length).length ?? 0
@@ -16,7 +18,7 @@ export default function Caseload() {
       <div className="flex flex-wrap items-end gap-4">
         <div>
           <h1 className="font-serif text-3xl tracking-tight">Caseload</h1>
-          <p className="text-muted text-sm mt-1">Nebraska Medicaid work requirements · sorted by days left to respond</p>
+          <p className="text-muted text-sm mt-1">{STATES[state].name} Medicaid work requirements · sorted by days left to respond</p>
         </div>
         <div className="ml-auto flex gap-3">
           <Stat n={cases?.length} label="clients" />

@@ -1,0 +1,111 @@
+{
+  "case": {
+    "id": "hannah-pierce",
+    "jurisdiction": "MT",
+    "household": [
+      {
+        "id": "hannah",
+        "name": "Hannah Pierce",
+        "age": 22,
+        "applicable_adult": true,
+        "seasonal_worker": false,
+        "pregnant_or_postpartum": null,
+        "caretaker_of_young_child": null,
+        "caretaker_of_disabled_person": null,
+        "veteran_total_disability": null,
+        "american_indian_alaska_native": null,
+        "medically_frail_indicators": [],
+        "in_sud_treatment": null,
+        "meets_snap_or_tanf_work_rules": null,
+        "recently_incarcerated": null
+      }
+    ],
+    "client_id": "hannah",
+    "ledger": [
+      {
+        "id": "hannah-school-r1",
+        "member_id": "hannah",
+        "kind": "education_credit_hours",
+        "period_start": "2026-08-24",
+        "period_end": "2026-12-12",
+        "amount": 4.0,
+        "payer": "Gallatin Valley Community College",
+        "source": {
+          "doc_id": "hannah-school",
+          "span": "enrolled in 4 credit hours",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "hannah-vol-r1",
+        "member_id": "hannah",
+        "kind": "community_service_hours",
+        "period_start": "2026-09-01",
+        "period_end": "2026-09-30",
+        "amount": 30.0,
+        "payer": "Bozeman Community Food Bank",
+        "source": {
+          "doc_id": "hannah-vol",
+          "span": "for a total of 30 hours",
+          "page": null
+        },
+        "note": ""
+      }
+    ],
+    "event": "application",
+    "event_date": "2026-10-02",
+    "notice_date": null,
+    "months_in_question": [],
+    "notes": ""
+  },
+  "client_name": "Hannah Pierce",
+  "navigator": "Demo navigator",
+  "language": "en",
+  "documents": [
+    {
+      "id": "hannah-school",
+      "name": "Community college enrollment",
+      "kind": "income",
+      "member_id": "hannah",
+      "text": "Gallatin Valley Community College - Enrollment Verification (SYNTHETIC)\nStudent: Hannah Pierce\nFall 2026 term (Aug 24, 2026 - Dec 12, 2026): enrolled in 4 credit hours (less than half-time).\n",
+      "extracted": {
+        "gold": [
+          {
+            "kind": "education_credit_hours",
+            "period_start": "2026-08-24",
+            "period_end": "2026-12-12",
+            "amount": 4.0,
+            "payer": "Gallatin Valley Community College",
+            "span": "enrolled in 4 credit hours"
+          }
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "hannah-vol",
+      "name": "Food bank volunteer letter",
+      "kind": "income",
+      "member_id": "hannah",
+      "text": "Bozeman Community Food Bank (SYNTHETIC)\nHannah Pierce volunteered with our food bank in September 2026 for a total of 30 hours.\nSigned, Volunteer Coordinator\n",
+      "extracted": {
+        "gold": [
+          {
+            "kind": "community_service_hours",
+            "period_start": "2026-09-01",
+            "period_end": "2026-09-30",
+            "amount": 30.0,
+            "payer": "Bozeman Community Food Bank",
+            "span": "for a total of 30 hours"
+          }
+        ]
+      },
+      "problems": []
+    }
+  ],
+  "notice": null,
+  "flags": [],
+  "synthetic": true,
+  "updated": "2026-10-10"
+}

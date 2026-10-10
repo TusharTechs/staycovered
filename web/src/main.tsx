@@ -4,13 +4,16 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import { TourProvider } from './components/Tour'
+import { StateProvider } from './components/State'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <TourProvider>
-        <App />
-      </TourProvider>
+      <StateProvider>
+        <TourProvider>
+          <App />
+        </TourProvider>
+      </StateProvider>
     </BrowserRouter>
   </StrictMode>,
 )

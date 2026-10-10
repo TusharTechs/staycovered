@@ -74,7 +74,11 @@ export default function CasePage() {
           </Card>
 
           <Card title="Ask about this case's rules">
-            <AskBox asOf={ws.as_of} suggestions={[
+            <AskBox asOf={ws.as_of} jurisdiction={rec.case.jurisdiction} suggestions={rec.case.jurisdiction === 'MT' ? [
+              'Does my client\'s spouse\'s income count toward the $580 in Montana?',
+              'How many qualifying months does my client need at redetermination?',
+              'How do part-time college credit hours count?',
+            ] : [
               'Does my client\'s spouse\'s income count toward the $580?',
               'How long does my client have to respond to a noncompliance notice?',
               'What documents can prove gig work hours in Nebraska?',
@@ -92,7 +96,7 @@ export default function CasePage() {
             </ul>
           </Card>
 
-          <FormCard caseId={rec.case.id} />
+          {rec.case.jurisdiction === 'NE' && <FormCard caseId={rec.case.id} />}
 
           {ws.exemptions.length > 0 && (
             <Card title="Possible exemptions">

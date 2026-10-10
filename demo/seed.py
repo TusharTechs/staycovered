@@ -104,6 +104,31 @@ Kayla lives with her daughter, age 3, and is her only caregiver.
 """
 
 
+SAM_STUBS = """BIG SKY TRAIL OUTFITTERS - SEASONAL EARNINGS (SYNTHETIC)
+Employee: Sam Whitaker
+Pay period: 06/01/2026 - 06/30/2026   Hours: 164.0   Gross pay: $2,460.00
+Pay period: 07/01/2026 - 07/31/2026   Hours: 171.5   Gross pay: $2,572.50
+Pay period: 08/01/2026 - 08/31/2026   Hours: 158.0   Gross pay: $2,370.00
+Season ended August 31, 2026.
+"""
+
+HANNAH_SCHOOL = """Gallatin Valley Community College - Enrollment Verification (SYNTHETIC)
+Student: Hannah Pierce
+Fall 2026 term (Aug 24, 2026 - Dec 12, 2026): enrolled in 4 credit hours (less than half-time).
+"""
+
+HANNAH_VOL = """Bozeman Community Food Bank (SYNTHETIC)
+Hannah Pierce volunteered with our food bank in September 2026 for a total of 30 hours.
+Signed, Volunteer Coordinator
+"""
+
+LEE_STUB = """Yellowstone Regional Clinic - Pay Statement (SYNTHETIC)
+Employee: Joanne Lee
+Pay period: September 1, 2026 to September 30, 2026
+Gross earnings: $900.00
+"""
+
+
 def build() -> list[store.CaseRecord]:
     recs = []
 
@@ -180,6 +205,42 @@ def build() -> list[store.CaseRecord]:
                   household=[Member(id="kayla", name="Kayla Brooks", age=24, caretaker_of_young_child=True)],
                   ledger=[], event="noncompliance_notice", event_date=D("2026-09-28"), notice_date=D("2026-09-28"), months_in_question=["2026-08"]),
         client_name="Kayla Brooks", documents=[k1, k2]))
+
+    # ---- Montana (synthetic) ----
+    # 7. Sam — seasonal outfitter work June-August: three qualifying months since last renewal (Montana needs 3).
+    st, est = doc("sam-stubs", "Big Sky Trail Outfitters earnings", "income", "sam", SAM_STUBS, [
+        (Kind.EARNED_INCOME, "2026-06-01", "2026-06-30", 2460.00, "Big Sky Trail Outfitters", "Pay period: 06/01/2026 - 06/30/2026   Hours: 164.0   Gross pay: $2,460.00"),
+        (Kind.EARNED_INCOME, "2026-07-01", "2026-07-31", 2572.50, "Big Sky Trail Outfitters", "Pay period: 07/01/2026 - 07/31/2026   Hours: 171.5   Gross pay: $2,572.50"),
+        (Kind.EARNED_INCOME, "2026-08-01", "2026-08-31", 2370.00, "Big Sky Trail Outfitters", "Pay period: 08/01/2026 - 08/31/2026   Hours: 158.0   Gross pay: $2,370.00"),
+    ])
+    recs.append(store.CaseRecord(
+        case=Case(id="sam-whitaker", jurisdiction="MT", client_id="sam",
+                  household=[Member(id="sam", name="Sam Whitaker", age=38, seasonal_worker=True)],
+                  ledger=est, event="renewal", event_date=D("2026-10-20")),
+        client_name="Sam Whitaker", documents=[st]))
+
+    # 8. Hannah — 4 credit hours (13 hrs each in Montana) + 30 volunteer hours.
+    h1, eh1 = doc("hannah-school", "Community college enrollment", "income", "hannah", HANNAH_SCHOOL, [
+        (Kind.EDUCATION_CREDIT_HOURS, "2026-08-24", "2026-12-12", 4.0, "Gallatin Valley Community College", "enrolled in 4 credit hours"),
+    ])
+    h2, eh2 = doc("hannah-vol", "Food bank volunteer letter", "income", "hannah", HANNAH_VOL, [
+        (Kind.COMMUNITY_SERVICE_HOURS, "2026-09-01", "2026-09-30", 30.0, "Bozeman Community Food Bank", "for a total of 30 hours"),
+    ])
+    recs.append(store.CaseRecord(
+        case=Case(id="hannah-pierce", jurisdiction="MT", client_id="hannah",
+                  household=[Member(id="hannah", name="Hannah Pierce", age=22)],
+                  ledger=eh1 + eh2, event="application", event_date=D("2026-10-02")),
+        client_name="Hannah Pierce", documents=[h1, h2]))
+
+    # 9. Marcus — no own income; spouse earns $900. Montana counts household income (contrast: Tom Becker in Nebraska).
+    l1, el1 = doc("lee-stub", "Joanne's pay statement", "income", "joanne", LEE_STUB, [
+        (Kind.EARNED_INCOME, "2026-09-01", "2026-09-30", 900.00, "Yellowstone Regional Clinic", "Gross earnings: $900.00"),
+    ])
+    recs.append(store.CaseRecord(
+        case=Case(id="marcus-lee", jurisdiction="MT", client_id="marcus",
+                  household=[Member(id="marcus", name="Marcus Lee", age=45), Member(id="joanne", name="Joanne Lee", age=44, applicable_adult=False)],
+                  ledger=el1, event="application", event_date=D("2026-10-05")),
+        client_name="Marcus Lee", documents=[l1]))
 
     # 6. Robert — no documents yet; possible medical frailty.
     recs.append(store.CaseRecord(

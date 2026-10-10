@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { api, fmtDate, type Grounded } from '../api'
 import { Cite, Spinner } from './ui'
 
-export default function AskBox({ asOf, suggestions = [], compare = false }: { asOf: string; suggestions?: string[]; compare?: boolean }) {
+export default function AskBox({ asOf, suggestions = [], compare = false, jurisdiction = 'NE' }: { asOf: string; suggestions?: string[]; compare?: boolean; jurisdiction?: string }) {
   const [q, setQ] = useState('')
   const [busy, setBusy] = useState(false)
   const [res, setRes] = useState<{ grounded: Grounded; closed_book?: string } | null>(null)
@@ -11,7 +11,7 @@ export default function AskBox({ asOf, suggestions = [], compare = false }: { as
 
   const ask = async (question: string) => {
     setQ(question); setBusy(true); setErr(''); setRes(null)
-    try { setRes(await api.ask(question, asOf, compare)) } catch (e) { setErr(String(e)) } finally { setBusy(false) }
+    try { setRes(await api.ask(question, asOf, compare, jurisdiction)) } catch (e) { setErr(String(e)) } finally { setBusy(false) }
   }
 
   return (
@@ -48,7 +48,7 @@ export default function AskBox({ asOf, suggestions = [], compare = false }: { as
               <div className="mt-2 text-xs text-muted">Sources:{res.grounded.citations.map((c, i) => <Cite key={i} sourceId={c.source_id} quote={c.quote} label={`${c.title.slice(0, 40)} (${c.as_of})`} />)}</div>
             )}
             {res.grounded.dropped_citations > 0 && <p className="mt-1 text-[11px] text-muted">{res.grounded.dropped_citations} citation(s) removed because the quote was not found verbatim in the source.</p>}
-            {res.grounded.confirm_with_agency && <p className="mt-2 text-[11px] text-muted">Confirm with Nebraska DHHS before acting.</p>}
+            {res.grounded.confirm_with_agency && <p className="mt-2 text-[11px] text-muted">Confirm with {jurisdiction === 'MT' ? 'Montana DPHHS' : 'Nebraska DHHS'} before acting.</p>}
           </div>
         </div>
       )}

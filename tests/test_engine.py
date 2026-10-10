@@ -109,3 +109,50 @@ def test_nebraska_exemption_flag_cites_state_fact():
     hh = [Member(id="c", name="Client", age=29, caretaker_of_young_child=True)]
     ws = worksheet(case([], household=hh, j="NE"), date(2026, 10, 15))
     assert ws.exemptions[0].fact_ids == ["NE.exemption.parent_caretaker.v2"]
+
+
+# ---- Montana (published rules, 2026) ----
+
+def test_montana_counts_spouse_income_toward_580():
+    ws = worksheet(case([entry("p", "s", Kind.EARNED_INCOME, "2026-09-01", "2026-09-30", 900)], household=SPOUSE, j="MT",
+                        event="application", event_date=date(2026, 10, 5)), date(2026, 10, 5))
+    assert ws.params["income_basis"]["value"] == "household"
+    assert ws.overall == "meets" and ws.results[0].path == "income"
+
+
+def test_montana_partial_credit_uses_own_income_when_household_misses():
+    # own $290 -> 40 hrs credit at $7.25, + 45 volunteer hours = 85 >= 80
+    ws = worksheet(case([
+        entry("w", "c", Kind.EARNED_INCOME, "2026-09-01", "2026-09-30", 290),
+        entry("v", "c", Kind.COMMUNITY_SERVICE_HOURS, "2026-09-01", "2026-09-30", 45),
+    ], j="MT", event="application", event_date=date(2026, 10, 5)), date(2026, 10, 5))
+    r = ws.results[0]
+    assert r.status == "meets" and r.path == "combined" and r.income_hours_equivalent == 40.0
+
+
+def test_montana_renewal_needs_three_qualifying_months():
+    two = [entry(f"w{m}", "c", Kind.WORK_HOURS, f"2026-{m:02d}-01", f"2026-{m:02d}-28", 85) for m in (3, 5)]
+    three = two + [entry("w8", "c", Kind.WORK_HOURS, "2026-08-01", "2026-08-31", 90)]
+    on = date(2026, 10, 20)
+    ws2 = worksheet(case(two, j="MT", event_date=on), on)
+    ws3 = worksheet(case(three, j="MT", event_date=on), on)
+    assert "At least 3 qualifying months" in ws3.review
+    assert ws2.overall == "does_not_meet" and ws3.overall == "meets"
+
+
+def test_montana_less_than_half_time_credits_convert_to_hours():
+    # 4 credits x 13 = 52 hours, + 30 volunteer hours = 82
+    ws = worksheet(case([
+        entry("s", "c", Kind.EDUCATION_CREDIT_HOURS, "2026-08-24", "2026-12-12", 4),
+        entry("v", "c", Kind.COMMUNITY_SERVICE_HOURS, "2026-09-01", "2026-09-30", 30),
+    ], j="MT", event="application", event_date=date(2026, 10, 2)), date(2026, 10, 2))
+    r = ws.results[0]
+    assert r.activity_hours == 82.0 and r.status == "meets"
+
+
+def test_same_household_differs_by_state_in_2026():
+    hh_ledger = [entry("p", "s", Kind.EARNED_INCOME, "2026-09-01", "2026-09-30", 900)]
+    on = date(2026, 10, 5)
+    ne = worksheet(case(hh_ledger, household=SPOUSE, j="NE", event="application", event_date=on), on)
+    mt = worksheet(case(hh_ledger, household=SPOUSE, j="MT", event="application", event_date=on), on)
+    assert ne.overall == "conditional" and mt.overall == "meets"

@@ -62,7 +62,7 @@ const q = (o: Record<string, string | undefined>) =>
 
 export const api = {
   health: () => fetch('/api/health').then(j<{ ok: boolean; nebius: boolean; tavily: boolean; sources: number; facts: number }>),
-  cases: (as_of?: string) => fetch('/api/cases' + q({ as_of })).then(j<CaseSummary[]>),
+  cases: (as_of?: string, jurisdiction?: string) => fetch('/api/cases' + q({ as_of, jurisdiction })).then(j<CaseSummary[]>),
   case: (id: string, as_of?: string) => fetch(`/api/cases/${id}` + q({ as_of })).then(j<{ record: CaseRecord; worksheet: Worksheet }>),
   facts: (as_of: string, jurisdiction = 'NE') => fetch('/api/facts' + q({ as_of, jurisdiction })).then(j<Fact[]>),
   timeline: (jurisdiction = 'NE') => fetch('/api/timeline' + q({ jurisdiction })).then(j<{ dates: { date: string; facts: { id: string; kind: string; statement: string }[] }[]; snapshot_changes: Record<string, unknown>[] }>),
@@ -72,7 +72,7 @@ export const api = {
   locate: (source_id: string, quote: string) => fetch(`/api/sources/${source_id}/locate` + q({ quote })).then(j<{ context: string; title: string; url: string; as_of: string }>),
   addDoc: (id: string, body: { name: string; kind: string; member_id?: string; text: string }) =>
     fetch(`/api/cases/${id}/documents`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }).then(j<{ worksheet: Worksheet }>),
-  replay: (jurisdiction = 'NE') => fetch('/api/drift/replay' + q({ jurisdiction })).then(j<DriftEvent[]>),
+  replay: (jurisdiction: string = 'NE') => fetch('/api/drift/replay' + q({ jurisdiction })).then(j<DriftEvent[]>),
   explain: (id: string, lang: 'en' | 'es') => fetch(`/api/cases/${id}/explain` + q({ lang }), { method: 'POST' }).then(j<{ summary: string; what_to_do: string[]; deadline_sentence: string; keep_in_mind: string[]; spans: string[] }>),
   extraction: () => fetch('/api/extraction/results').then(j<Record<string, { model: string; docs: number; row_precision: number; row_recall: number; row_f1: number; doc_exact: number; injected_docs: number; injected_exact: number; usd: number }>>),
   mltc118: (id: string) => fetch(`/api/cases/${id}/mltc118`).then(j<{ form: string; fields: { field: string; label: string; value: string; reason: string }[] }>),

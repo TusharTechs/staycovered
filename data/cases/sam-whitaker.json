@@ -1,0 +1,122 @@
+{
+  "case": {
+    "id": "sam-whitaker",
+    "jurisdiction": "MT",
+    "household": [
+      {
+        "id": "sam",
+        "name": "Sam Whitaker",
+        "age": 38,
+        "applicable_adult": true,
+        "seasonal_worker": true,
+        "pregnant_or_postpartum": null,
+        "caretaker_of_young_child": null,
+        "caretaker_of_disabled_person": null,
+        "veteran_total_disability": null,
+        "american_indian_alaska_native": null,
+        "medically_frail_indicators": [],
+        "in_sud_treatment": null,
+        "meets_snap_or_tanf_work_rules": null,
+        "recently_incarcerated": null
+      }
+    ],
+    "client_id": "sam",
+    "ledger": [
+      {
+        "id": "sam-stubs-r1",
+        "member_id": "sam",
+        "kind": "earned_income",
+        "period_start": "2026-06-01",
+        "period_end": "2026-06-30",
+        "amount": 2460.0,
+        "payer": "Big Sky Trail Outfitters",
+        "source": {
+          "doc_id": "sam-stubs",
+          "span": "Pay period: 06/01/2026 - 06/30/2026   Hours: 164.0   Gross pay: $2,460.00",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "sam-stubs-r2",
+        "member_id": "sam",
+        "kind": "earned_income",
+        "period_start": "2026-07-01",
+        "period_end": "2026-07-31",
+        "amount": 2572.5,
+        "payer": "Big Sky Trail Outfitters",
+        "source": {
+          "doc_id": "sam-stubs",
+          "span": "Pay period: 07/01/2026 - 07/31/2026   Hours: 171.5   Gross pay: $2,572.50",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "sam-stubs-r3",
+        "member_id": "sam",
+        "kind": "earned_income",
+        "period_start": "2026-08-01",
+        "period_end": "2026-08-31",
+        "amount": 2370.0,
+        "payer": "Big Sky Trail Outfitters",
+        "source": {
+          "doc_id": "sam-stubs",
+          "span": "Pay period: 08/01/2026 - 08/31/2026   Hours: 158.0   Gross pay: $2,370.00",
+          "page": null
+        },
+        "note": ""
+      }
+    ],
+    "event": "renewal",
+    "event_date": "2026-10-20",
+    "notice_date": null,
+    "months_in_question": [],
+    "notes": ""
+  },
+  "client_name": "Sam Whitaker",
+  "navigator": "Demo navigator",
+  "language": "en",
+  "documents": [
+    {
+      "id": "sam-stubs",
+      "name": "Big Sky Trail Outfitters earnings",
+      "kind": "income",
+      "member_id": "sam",
+      "text": "BIG SKY TRAIL OUTFITTERS - SEASONAL EARNINGS (SYNTHETIC)\nEmployee: Sam Whitaker\nPay period: 06/01/2026 - 06/30/2026   Hours: 164.0   Gross pay: $2,460.00\nPay period: 07/01/2026 - 07/31/2026   Hours: 171.5   Gross pay: $2,572.50\nPay period: 08/01/2026 - 08/31/2026   Hours: 158.0   Gross pay: $2,370.00\nSeason ended August 31, 2026.\n",
+      "extracted": {
+        "gold": [
+          {
+            "kind": "earned_income",
+            "period_start": "2026-06-01",
+            "period_end": "2026-06-30",
+            "amount": 2460.0,
+            "payer": "Big Sky Trail Outfitters",
+            "span": "Pay period: 06/01/2026 - 06/30/2026   Hours: 164.0   Gross pay: $2,460.00"
+          },
+          {
+            "kind": "earned_income",
+            "period_start": "2026-07-01",
+            "period_end": "2026-07-31",
+            "amount": 2572.5,
+            "payer": "Big Sky Trail Outfitters",
+            "span": "Pay period: 07/01/2026 - 07/31/2026   Hours: 171.5   Gross pay: $2,572.50"
+          },
+          {
+            "kind": "earned_income",
+            "period_start": "2026-08-01",
+            "period_end": "2026-08-31",
+            "amount": 2370.0,
+            "payer": "Big Sky Trail Outfitters",
+            "span": "Pay period: 08/01/2026 - 08/31/2026   Hours: 158.0   Gross pay: $2,370.00"
+          }
+        ]
+      },
+      "problems": []
+    }
+  ],
+  "notice": null,
+  "flags": [],
+  "synthetic": true,
+  "updated": "2026-10-10"
+}

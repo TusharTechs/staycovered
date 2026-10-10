@@ -1,0 +1,92 @@
+{
+  "case": {
+    "id": "marcus-lee",
+    "jurisdiction": "MT",
+    "household": [
+      {
+        "id": "marcus",
+        "name": "Marcus Lee",
+        "age": 45,
+        "applicable_adult": true,
+        "seasonal_worker": false,
+        "pregnant_or_postpartum": null,
+        "caretaker_of_young_child": null,
+        "caretaker_of_disabled_person": null,
+        "veteran_total_disability": null,
+        "american_indian_alaska_native": null,
+        "medically_frail_indicators": [],
+        "in_sud_treatment": null,
+        "meets_snap_or_tanf_work_rules": null,
+        "recently_incarcerated": null
+      },
+      {
+        "id": "joanne",
+        "name": "Joanne Lee",
+        "age": 44,
+        "applicable_adult": false,
+        "seasonal_worker": false,
+        "pregnant_or_postpartum": null,
+        "caretaker_of_young_child": null,
+        "caretaker_of_disabled_person": null,
+        "veteran_total_disability": null,
+        "american_indian_alaska_native": null,
+        "medically_frail_indicators": [],
+        "in_sud_treatment": null,
+        "meets_snap_or_tanf_work_rules": null,
+        "recently_incarcerated": null
+      }
+    ],
+    "client_id": "marcus",
+    "ledger": [
+      {
+        "id": "lee-stub-r1",
+        "member_id": "joanne",
+        "kind": "earned_income",
+        "period_start": "2026-09-01",
+        "period_end": "2026-09-30",
+        "amount": 900.0,
+        "payer": "Yellowstone Regional Clinic",
+        "source": {
+          "doc_id": "lee-stub",
+          "span": "Gross earnings: $900.00",
+          "page": null
+        },
+        "note": ""
+      }
+    ],
+    "event": "application",
+    "event_date": "2026-10-05",
+    "notice_date": null,
+    "months_in_question": [],
+    "notes": ""
+  },
+  "client_name": "Marcus Lee",
+  "navigator": "Demo navigator",
+  "language": "en",
+  "documents": [
+    {
+      "id": "lee-stub",
+      "name": "Joanne's pay statement",
+      "kind": "income",
+      "member_id": "joanne",
+      "text": "Yellowstone Regional Clinic - Pay Statement (SYNTHETIC)\nEmployee: Joanne Lee\nPay period: September 1, 2026 to September 30, 2026\nGross earnings: $900.00\n",
+      "extracted": {
+        "gold": [
+          {
+            "kind": "earned_income",
+            "period_start": "2026-09-01",
+            "period_end": "2026-09-30",
+            "amount": 900.0,
+            "payer": "Yellowstone Regional Clinic",
+            "span": "Gross earnings: $900.00"
+          }
+        ]
+      },
+      "problems": []
+    }
+  ],
+  "notice": null,
+  "flags": [],
+  "synthetic": true,
+  "updated": "2026-10-10"
+}

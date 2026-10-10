@@ -40,6 +40,7 @@ Measure = Literal[
     "volunteer_hours",
     "work_program_hours",
     "school_hours",
+    "credit_hours_enrolled",     # credit hours a student is enrolled in for a term
     "other",
 ]
 
@@ -70,6 +71,7 @@ For EVERY amount or hour figure tied to a period, return one row saying what tha
 the number exactly as printed (value_text) and the full line it appears on (line, copied exactly).
 - Use the period the document states (weekly, biweekly, monthly, or a month named in a letter: first to last day).
 - Pay stubs: gross pay and hours worked are separate rows; net pay and year-to-date figures are their own measures.
+- School letters: the number of credit hours enrolled for the term is credit_hours_enrolled (period = term dates).
 - Gig/platform statements: the total for each period is payout_before_expenses; if base pay and tips are listed AND a total
   is stated, the parts are payout_component. Online/active/on-order time is hours_worked.
 - Do not convert units or do arithmetic. Copy numbers exactly as printed.
@@ -98,7 +100,8 @@ def parse_amount(text: str, hours: bool) -> float | None:
 
 
 HOURS_MEASURES = {"hours_worked": Kind.WORK_HOURS, "volunteer_hours": Kind.COMMUNITY_SERVICE_HOURS,
-                  "work_program_hours": Kind.WORK_PROGRAM_HOURS, "school_hours": Kind.EDUCATION_HOURS}
+                  "work_program_hours": Kind.WORK_PROGRAM_HOURS, "school_hours": Kind.EDUCATION_HOURS,
+                  "credit_hours_enrolled": Kind.EDUCATION_CREDIT_HOURS}
 IGNORED = {"net_pay", "ytd_total", "payout_component", "other"}
 
 
@@ -173,7 +176,7 @@ def income_doc(text: str, doc_id: str, member_id: str) -> tuple[IncomeDoc, list[
         if span is None:
             problems.append(f"Row {i + 1} ({r.measure} {r.value_text}) is not found in the document; excluded.")
             continue
-        amount = parse_amount(r.value_text, kind.value.endswith("_hours"))
+        amount = parse_amount(r.value_text, kind.value.endswith("_hours") and kind != Kind.EDUCATION_CREDIT_HOURS)
         if amount is None:
             problems.append(f"Row {i + 1}: could not read a number from '{r.value_text}'; excluded.")
             continue

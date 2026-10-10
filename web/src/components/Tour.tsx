@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useState, type ReactNode } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useJuris } from './State'
 
 export type Step = { path: string; target: string; title: string; body: string }
 
@@ -25,8 +26,9 @@ export function TourProvider({ children }: { children: ReactNode }) {
   const [active, setActive] = useState(false)
   const [index, setIndex] = useState(0)
   const nav = useNavigate()
+  const { setState } = useJuris()
   const go = useCallback((i: number) => { setIndex(i); nav(STEPS[i].path) }, [nav])
-  const start = useCallback(() => { setActive(true); go(0) }, [go])
+  const start = useCallback(() => { setState('NE'); setActive(true); go(0) }, [go, setState])
   const stop = useCallback(() => { setActive(false); try { localStorage.setItem(SEEN, '1') } catch { /* private mode */ } }, [])
   const next = useCallback(() => (index + 1 < STEPS.length ? go(index + 1) : stop()), [index, go, stop])
   const back = useCallback(() => index > 0 && go(index - 1), [index, go])
