@@ -73,7 +73,7 @@
     "raw_path": "sources/raw/US/cms-ifc-fact-sheet-2026-06-01.html",
     "text_path": "sources/text/US/cms-ifc-fact-sheet-2026-06-01.txt",
     "sha256": "83eb6c05f11d2f2bc56e2c5310bbac1c7fc4bbfa4cadad1bc5922823f2c6cd71",
-    "notes": "Posted 06/01/2026 per medicaid.gov landing page; fetched 2026-10-09."
+    "notes": "Posted 06/01/2026 per medicaid.gov landing page; fetched 2026-10-09. | A third-party map API token embedded in the original page HTML was redacted before publishing; sha256 is of the original capture."
   },
   {
     "id": "cms-ifc-overview-deck-2026-07-27",
