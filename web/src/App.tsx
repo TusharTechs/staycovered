@@ -8,6 +8,7 @@ import Bench from './pages/Bench'
 import UnderHood from './pages/UnderHood'
 import Grade from './pages/Grade'
 import Home from './pages/Home'
+import Check from './pages/Check'
 import { useTour } from './components/Tour'
 import { StateSwitch } from './components/State'
 
@@ -23,6 +24,7 @@ function Logo() {
 
 const nav = [
   { to: '/caseload', label: 'Caseload' },
+  { to: '/check', label: 'Self-check' },
   { to: '/time-machine', label: 'Rule Time Machine' },
   { to: '/bench', label: 'WorkReqBench' },
   { to: '/under-the-hood', label: 'Under the hood' },
@@ -65,6 +67,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/caseload" element={<Caseload />} />
+          <Route path="/check" element={<Check />} />
           <Route path="/cases/:id" element={<CasePage />} />
           <Route path="/time-machine" element={<TimeMachine />} />
           <Route path="/bench" element={<Bench />} />

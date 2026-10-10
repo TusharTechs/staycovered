@@ -23,6 +23,7 @@ export default function Home() {
         <p className="mt-5 max-w-2xl text-lg text-muted leading-relaxed">
           StayCovered helps the navigators who keep people covered: it reads clients' messy documents, applies the official rules
           <em> as of the date that matters</em>, cites every number and rule, and re-checks cases when the rules change.
+          People without a navigator can check themselves, in English or Spanish, with nothing saved.
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <button onClick={tour.start} className="rounded-xl bg-brand px-5 py-3 text-base font-semibold text-white shadow-sm hover:opacity-90">
@@ -30,6 +31,7 @@ export default function Home() {
           </button>
           <Link to="/caseload" className="rounded-xl border border-line bg-white px-5 py-3 text-base font-medium hover:border-brand">Open the caseload</Link>
           <Link to="/time-machine" className="rounded-xl border border-line bg-white px-5 py-3 text-base font-medium hover:border-brand">Rule Time Machine</Link>
+          <Link to="/check" className="rounded-xl border border-line bg-white px-5 py-3 text-base font-medium hover:border-brand">Check your own coverage <span lang="es" className="text-muted">· en español</span></Link>
         </div>
       </section>
 

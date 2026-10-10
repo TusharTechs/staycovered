@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { api, monthLabel, type CaseloadForecast, type Forecast, type Nearby, type PathOpt, type Plan, type Status } from '../api'
 import { Card, Spinner, StatusPill } from './ui'
 
-const CELL: Record<string, string> = {
+export const CELL: Record<string, string> = {
   meets: 'bg-ok', conditional: 'bg-warn', does_not_meet: 'bg-bad', insufficient_evidence: 'bg-line',
 }
 const WORD: Record<string, string> = {
@@ -11,7 +11,7 @@ const WORD: Record<string, string> = {
 }
 const EFFORT: Record<number, string> = { 1: 'One question', 2: 'One document', 3: 'New activity' }
 
-function Strip({ months, size = 'lg', changes }: { months: { month: string; status: Status }[]; size?: 'lg' | 'sm'; changes?: Set<string> }) {
+export function Strip({ months, size = 'lg', changes, words = WORD, locale = 'en-US' }: { months: { month: string; status: Status }[]; size?: 'lg' | 'sm'; changes?: Set<string>; words?: Record<string, string>; locale?: string }) {
   return (
     <ol className="flex gap-1" aria-label="Month-by-month outlook">
       {months.map((m, i) => {
@@ -20,12 +20,12 @@ function Strip({ months, size = 'lg', changes }: { months: { month: string; stat
           <li key={m.month} className={`flex-1 min-w-0 ${yearStart ? 'ml-1.5' : ''}`}>
             {size === 'lg' && <div className={`h-3 text-center text-[11px] leading-3 ${changes?.has(m.month) ? 'text-brand' : 'text-transparent'}`} aria-hidden="true">◆</div>}
             <div className={`${CELL[m.status]} ${size === 'lg' ? 'h-8 rounded-md' : 'h-5 rounded'} ${m.status === 'insufficient_evidence' ? 'bg-[repeating-linear-gradient(45deg,#dfe5ea,#dfe5ea_3px,#f7f8f6_3px,#f7f8f6_6px)]' : ''}`}
-              title={`${monthLabel(m.month)}: ${WORD[m.status]}`}>
-              <span className="sr-only">{monthLabel(m.month, 'long')}: {WORD[m.status]}{changes?.has(m.month) ? ' (rules change)' : ''}</span>
+              title={`${monthLabel(m.month)}: ${words[m.status]}`}>
+              <span className="sr-only">{new Date(m.month + '-01T00:00:00').toLocaleDateString(locale, { month: 'long', year: 'numeric' })}: {words[m.status]}{changes?.has(m.month) ? ` (${words.change ?? 'rules change'})` : ''}</span>
             </div>
             {size === 'lg' && (
               <div className="mt-1 text-center text-[10px] text-muted" aria-hidden="true">
-                {new Date(m.month + '-01T00:00:00').toLocaleDateString('en-US', { month: 'narrow' })}
+                {new Date(m.month + '-01T00:00:00').toLocaleDateString(locale, { month: 'narrow' })}
                 {(i === 0 || yearStart) && <span className="block text-[9px]">{m.month.slice(0, 4)}</span>}
               </div>
             )}

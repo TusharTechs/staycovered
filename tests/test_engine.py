@@ -198,3 +198,24 @@ def test_forecast_isolates_the_rule_change():
 def test_forecast_without_evidence_says_so():
     f = forecast(case([]), date(2026, 10, 10))
     assert f.pattern_month is None and f.months == []
+
+
+# ---------- client self-check (anonymous, nothing stored) ----------
+
+from staycovered.selfcheck import SelfCheckIn, run  # noqa: E402
+
+
+def test_selfcheck_same_month_differs_by_state():
+    """34 paid hours ($510) + 18 volunteer hours: short in Nebraska (no income-to-hours), meets in Montana (partial credit)."""
+    ne = run(SelfCheckIn(jurisdiction="NE", work_hours=34, wages=510, volunteer_hours=18), date(2026, 10, 10))
+    mt = run(SelfCheckIn(jurisdiction="MT", work_hours=34, wages=510, volunteer_hours=18), date(2026, 10, 10))
+    assert ne["status"] == "does_not_meet" and mt["status"] == "meets" and mt["path"] == "combined"
+    inc = next(p for p in ne["plan"] if p["kind"] == "income")
+    assert inc["amount"] == 70 and inc["paid_hours"] == 5 and inc["wage"] == 15
+    assert ne["stored"] is False and "632-7633" in ne["agency"]
+
+
+def test_selfcheck_gig_wage_not_mixed_with_job_hours():
+    d = run(SelfCheckIn(jurisdiction="NE", work_hours=20, wages=300, gig_hours=30, gig_payouts=200), date(2026, 10, 10))
+    inc = next((p for p in d["plan"] if p["kind"] == "income"), None)
+    assert inc is None or inc["wage"] in (None, 15)

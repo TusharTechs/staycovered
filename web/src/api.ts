@@ -83,12 +83,30 @@ export const api = {
   plan: (id: string, as_of?: string) => fetch(`/api/cases/${id}/plan` + q({ as_of })).then(j<Plan>),
   forecast: (jurisdiction: string, as_of?: string) => fetch('/api/forecast' + q({ jurisdiction, as_of })).then(j<CaseloadForecast>),
   nearby: (id: string, kind: 'volunteer' | 'work_program') => fetch(`/api/cases/${id}/nearby` + q({ kind })).then(j<Nearby>),
+  nearbyCity: (location: string, kind: 'volunteer' | 'work_program') => fetch('/api/nearby' + q({ location, kind })).then(j<Nearby>),
+  selfcheck: (body: SelfCheckIn) =>
+    fetch('/api/selfcheck', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }).then(j<SelfCheckOut>),
+}
+
+export interface SelfCheckIn {
+  jurisdiction: string; work_hours: number; wages: number; gig_hours: number; gig_payouts: number; volunteer_hours: number
+  training_hours: number; school_hours: number; credits: number; other_income: number; partner_income: number; seasonal: boolean
+  exemptions: Record<string, boolean | null>; serious_medical_condition: boolean | null
+}
+export interface SelfCheckOut {
+  month: string; status: Status; path: string | null; conditions: string[]
+  numbers: { activity_hours: number; own_income: number; gig_payouts: number; household_other_income: number; threshold: number; hours_required: number; expense_headroom: number | null }
+  plan: PathOpt[]; forecast: { month: string; status: Status; changes: RuleChange[] }[]
+  exemptions: { key: string; label: string; fact_ids: string[] }[]
+  rules: Record<string, { value: unknown; fact_id: string | null; verified: boolean; label: string }>
+  agency: string
 }
 
 export interface PathOpt {
   kind: 'ask_exemption' | 'hours' | 'income' | 'expenses' | 'household'
   title: string; detail: string; effort: number; month: string; proven: boolean; result_status: string
   fact_ids: string[]; questions: string[]
+  amount: number | null; per_week: number | null; paid_hours: number | null; wage: number | null
 }
 export interface RuleChange { param: string; label: string; before: string; after: string; fact_id: string | null }
 export interface ForecastMonth { month: string; status: Status; path: string | null; conditions: string[]; changes: RuleChange[]; paths: PathOpt[] }

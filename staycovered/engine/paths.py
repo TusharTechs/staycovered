@@ -28,6 +28,10 @@ class Path:
     result_status: str   # status after the change (or "exempt — agency decides")
     fact_ids: list[str] = field(default_factory=list)
     questions: list[str] = field(default_factory=list)
+    amount: float | None = None      # the number in the title (hours, dollars, allowed expenses), for other languages
+    per_week: float | None = None
+    paid_hours: int | None = None
+    wage: float | None = None
 
 
 def _with(case: Case, extra: list[LedgerEntry] | None = None, replace: dict[str, LedgerEntry] | None = None) -> Case:
@@ -97,7 +101,7 @@ def month_paths(case: Case, r: MonthResult, today: date, wage: float | None = No
         out.append(Path("expenses", f"Show {label} business expenses of ${r.expense_headroom:,.2f} or less",
                         "A mileage log or receipts (fuel, phone, platform fees). Gig payouts are before costs; "
                         "if costs are under this amount, what's left still counts.",
-                        2, r.month, after.status == "meets", after.status, rule_facts))
+                        2, r.month, after.status == "meets", after.status, rule_facts, amount=r.expense_headroom))
 
     # 2. Household income counted (Nebraska 2026: 'may count in some cases').
     if any("household" in c for c in r.conditions):
@@ -117,18 +121,20 @@ def month_paths(case: Case, r: MonthResult, today: date, wage: float | None = No
         detail = ("Hours already done but not on these documents count: another job, volunteering, classes or job training. "
                   "A signed letter from the place is enough." if past else
                   "Any mix of work, volunteering, school or a job-training program counts.")
-        out.append(Path("hours", title, detail, 2 if past else 3, r.month, True, "meets", rule_facts))
+        out.append(Path("hours", title, detail, 2 if past else 3, r.month, True, "meets", rule_facts,
+                        amount=need_h, per_week=round(need_h / weeks, 1)))
 
     # 4. More countable income.
     need_i = _min_amount(case, member, r.month, p, Kind.EARNED_INCOME, float(p["income_threshold"]))
     if need_i:
         title = f"Proof of ${need_i:,.2f} more income in {label}" if past else f"${need_i:,.2f} more income in {label}"
-        wage = _hourly_wage(r) or wage
+        wage = wage or _hourly_wage(r)  # the caller knows the real documents; projected months do not
+        paid = math.ceil(need_i / wage) if wage else None
         if wage:
-            title += f" (about {math.ceil(need_i / wage)} more paid hours at ${wage:,.2f}/hr)"
+            title += f" (about {paid} more paid hours at ${wage:,.2f}/hr)"
         conv = " Income also converts to hours at the minimum wage here, so a mix works." if p["income_to_hours"] else ""
         out.append(Path("income", title, "Wages or other countable income not yet on file." + conv,
-                        2 if past else 3, r.month, True, "meets", rule_facts))
+                        2 if past else 3, r.month, True, "meets", rule_facts, amount=need_i, paid_hours=paid, wage=wage))
 
     # 5. Unanswered exemption questions: one 'yes' could settle the whole review (agency decides).
     unknown = [(attr, lab, fids) for attr, _k, lab, fids in EXEMPTION_SCREENS if getattr(member, attr) is None]

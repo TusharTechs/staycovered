@@ -374,6 +374,33 @@ def case_plan(case_id: str, as_of: str | None = None) -> dict:
             "forecast": asdict(forecast(rec.case, on)), "location": rec.case.location}
 
 
+from .selfcheck import SelfCheckIn  # noqa: E402
+
+
+@app.post("/api/selfcheck")
+def selfcheck(x: SelfCheckIn) -> dict:
+    """Anonymous, deterministic, nothing stored: the person's usual month against the published rules."""
+    from . import selfcheck as sc
+    return sc.run(x)
+
+
+@app.get("/api/nearby")
+def nearby_city(location: str, kind: str, req: Request) -> dict:
+    from . import nearby
+
+    if kind not in nearby.QUERIES:
+        raise HTTPException(400, "kind must be volunteer or work_program")
+    try:
+        if (hit := nearby.cached(location, kind)) is not None:
+            return hit
+        _rate_limit(req)
+        if not config.TAVILY_API_KEY:
+            raise HTTPException(503, "Search is not configured on this deployment.")
+        return _llm_guard(lambda: nearby.find(location, kind))  # type: ignore[arg-type]
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+
+
 @app.get("/api/forecast")
 def caseload_forecast(jurisdiction: str = "NE", as_of: str | None = None) -> dict:
     from .engine.forecast import forecast
