@@ -20,7 +20,7 @@ RUNTIME_DIR = Path("/tmp/staycovered-runtime") if ON_VERCEL else ROOT / "data" /
 RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
 
 NEBIUS_API_KEY = os.getenv("NEBIUS_API_KEY", "")
-NEBIUS_BASE_URL = os.getenv("NEBIUS_BASE_URL", "https://api.tokenfactory.nebius.com/v1/")
+NEBIUS_BASE_URL = os.getenv("NEBIUS_BASE_URL") or "https://api.tokenfactory.nebius.com/v1/"
 TAVILY_API_KEY = os.getenv("TAVILY_API_KEY", "")
 
 

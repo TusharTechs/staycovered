@@ -67,11 +67,11 @@ def _cache_put(key: str, value: dict) -> None:
 
 def _llm_guard(fn):
     """Turn budget exhaustion into a friendly 503 instead of a crash."""
-    from .llm import BudgetExceeded
+    from .llm import BudgetExceeded, NotConfigured
 
     try:
         return fn()
-    except BudgetExceeded as e:
+    except (BudgetExceeded, NotConfigured) as e:
         raise HTTPException(503, str(e))
 
 

@@ -31,6 +31,10 @@ class BudgetExceeded(LLMError):
     pass
 
 
+class NotConfigured(LLMError):
+    """No API key: deterministic features and cached answers still work."""
+
+
 _spend_cache: dict = {"day": None, "usd": 0.0, "pos": 0}
 
 
@@ -60,7 +64,7 @@ def client() -> OpenAI:
     global _client
     if _client is None:
         if not config.NEBIUS_API_KEY:
-            raise LLMError("NEBIUS_API_KEY is not set (see .env.example)")
+            raise NotConfigured("This needs a Nebius Token Factory key (NEBIUS_API_KEY in .env). Everything else, and every cached answer, works without one.")
         _client = OpenAI(base_url=config.NEBIUS_BASE_URL, api_key=config.NEBIUS_API_KEY, timeout=180)
     return _client
 
