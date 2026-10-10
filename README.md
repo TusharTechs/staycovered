@@ -6,7 +6,7 @@ StayCovered is an open-source copilot for Medicaid navigators. It helps them kee
 
 Built for the Nebius × NVIDIA Global AI Hackathon 2026 (Best Apps and Agents). Inference uses NVIDIA Nemotron on Nebius Token Factory; official-source monitoring and local-program search use Tavily.
 
-**Live demo:** https://staycovered.vercel.app. Start with "Take the 90-second tour". Evidence for the problem is in [docs/EVIDENCE.md](docs/EVIDENCE.md).
+**Live demo:** https://staycovered.vercel.app. Start with "Take the guided tour", or try the self-check at /check. Evidence for the problem is in [docs/EVIDENCE.md](docs/EVIDENCE.md).
 
 ## Results (WorkReqBench, held-out)
 

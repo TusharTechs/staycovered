@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { api } from '../api'
+import { api, type CaseloadForecast } from '../api'
+import { Strip } from '../components/Plan'
 import { useTour } from '../components/Tour'
 import { LastChecked } from '../components/ui'
 
@@ -10,6 +11,10 @@ export default function Home() {
   const tour = useTour()
   const [bench, setBench] = useState<{ split?: string; n_questions?: number; systems?: Sys[] } | null>(null)
   useEffect(() => { api.bench().then(b => setBench(b as typeof bench)).catch(() => {}) }, [])
+  const [outlook, setOutlook] = useState<CaseloadForecast | null>(null)
+  useEffect(() => { api.forecast('NE').then(setOutlook).catch(() => {}) }, [])
+  const row = (id: string) => outlook?.rows.find(r => r.id === id)
+  const changesFor = (id: string) => new Set(outlook?.changes.filter(c => c.clients.includes(row(id)?.client_name ?? '')).map(c => c.month) ?? [])
   const sc = bench?.systems?.find(s => s.system === 'staycovered')
   const fr = bench?.systems?.find(s => s.system === 'frozen-frontier')
 
@@ -27,7 +32,7 @@ export default function Home() {
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <button onClick={tour.start} className="rounded-xl bg-brand px-5 py-3 text-base font-semibold text-white shadow-sm hover:opacity-90">
-            ▶ Take the 90-second tour
+            ▶ Take the guided tour
           </button>
           <Link to="/caseload" className="rounded-xl border border-line bg-white px-5 py-3 text-base font-medium hover:border-brand">Open the caseload</Link>
           <Link to="/time-machine" className="rounded-xl border border-line bg-white px-5 py-3 text-base font-medium hover:border-brand">Rule Time Machine</Link>
@@ -59,12 +64,14 @@ export default function Home() {
         <Link to="/cases/dani-ortiz" className="group rounded-2xl border border-line bg-white p-6 hover:border-brand">
           <div className="text-xs font-medium uppercase tracking-wide text-brand">Paths to stay covered</div>
           <div className="mt-2 font-serif text-2xl leading-snug">Dani is $70 a month from keeping her health insurance.</div>
+          {row('dani-ortiz') && <div className="mt-4" aria-hidden="true"><Strip months={row('dani-ortiz')!.months} changes={changesFor('dani-ortiz')} /></div>}
           <p className="mt-2 text-sm text-muted">The engine searches for the smallest fixes and re-runs the rules to prove each one: five more paid hours,
             or 28 volunteer hours at real places nearby, found with Tavily. <span className="text-brand group-hover:underline">Open Dani's case →</span></p>
         </Link>
         <Link to="/cases/tom-becker" className="group rounded-2xl border border-line bg-white p-6 hover:border-brand">
           <div className="text-xs font-medium uppercase tracking-wide text-brand">Coverage forecast</div>
           <div className="mt-2 font-serif text-2xl leading-snug">Same life, changing rules.</div>
+          {row('tom-becker') && <div className="mt-4" aria-hidden="true"><Strip months={row('tom-becker')!.months} changes={changesFor('tom-becker')} /></div>}
           <p className="mt-2 text-sm text-muted">Tom's household stays exactly the same for twelve months; only the published rules move. In January 2027 he
             becomes clearly covered, and the forecast names the rule that did it. <span className="text-brand group-hover:underline">Open Tom's case →</span></p>
         </Link>
