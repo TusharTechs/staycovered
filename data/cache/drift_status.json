@@ -1,0 +1,64 @@
+{
+ "last_checked": "2026-10-10T12:15+00:00",
+ "pages": [
+  {
+   "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
+   "title": "Nebraska DHHS \u2014 Medicaid Work Requirements",
+   "jurisdiction": "NE",
+   "status": "unchanged",
+   "since": "2026-10-10"
+  },
+  {
+   "url": "https://dhhs.ne.gov/Documents/MLTC-WR-Requirements-FAQ.pdf",
+   "title": "Nebraska DHHS \u2014 Work Requirements FAQ",
+   "jurisdiction": "NE",
+   "status": "unchanged",
+   "since": "2026-10-10"
+  },
+  {
+   "url": "https://dphhs.mt.gov/medicaidchanges",
+   "title": "Montana DPHHS \u2014 Medicaid changes",
+   "jurisdiction": "MT",
+   "status": "unchanged",
+   "since": "2026-10-10"
+  },
+  {
+   "url": "https://dphhs.mt.gov/medicaidchanges/faqs",
+   "title": "Montana DPHHS \u2014 Medicaid changes FAQ",
+   "jurisdiction": "MT",
+   "status": "unchanged",
+   "since": "2026-10-10"
+  },
+  {
+   "url": "https://humanservices.arkansas.gov/divisions-shared-services/medical-services/healthcare-programs/arhome/arhome-community-engagement-requirement/",
+   "title": "Arkansas DHS \u2014 ARHOME community engagement requirement",
+   "jurisdiction": "AR",
+   "status": "unchanged",
+   "since": "2026-10-10"
+  },
+  {
+   "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
+   "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
+   "jurisdiction": "IA",
+   "status": "unchanged",
+   "since": "2026-10-10"
+  },
+  {
+   "url": "https://pathways.georgia.gov/about-pathways/faqs",
+   "title": "Georgia Pathways \u2014 FAQs",
+   "jurisdiction": "GA",
+   "status": "unchanged",
+   "since": "2026-10-10"
+  },
+  {
+   "url": "https://www.medicaid.gov/resources-for-states/working-families-tax-cut-legislation/community-engagement",
+   "title": "Medicaid.gov \u2014 Community engagement",
+   "jurisdiction": "US",
+   "status": "unchanged",
+   "since": "2026-10-10"
+  }
+ ],
+ "changes_today": 0,
+ "total_live_changes": 0,
+ "method": "Tavily Extract (advanced)"
+}

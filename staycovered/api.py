@@ -285,8 +285,16 @@ def drift_check(req: Request) -> list[dict]:
 
 @app.get("/api/drift/replay")
 def drift_replay(jurisdiction: str = "NE") -> list[dict]:
-    # summaries come from the committed cache; visitors never trigger new summary calls
-    return watch.replay_all(jurisdiction, summarise=True, allow_llm=False)
+    # historical changes (archived snapshots) + changes found by the scheduled live check; all summaries are committed,
+    # so visitors never trigger model calls here
+    hist = watch.replay_all(jurisdiction, summarise=True, allow_llm=False)
+    live = [e | {"live": True} for e in watch.live_events() if e["jurisdiction"] in (jurisdiction, "US")]
+    return sorted(hist + live, key=lambda e: e["new_as_of"])
+
+
+@app.get("/api/drift/status")
+def drift_status() -> dict:
+    return watch.live_status()
 
 
 # ---------- under the hood ----------

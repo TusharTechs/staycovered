@@ -1,0 +1,36 @@
+name: drift-watch (daily official-rules check)
+
+on:
+  schedule:
+    - cron: "17 13 * * *"   # daily, 13:17 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: drift-watch
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Install
+        run: uv sync --frozen --no-dev
+      - name: Check allow-listed official pages with Tavily; summarise any change with Nemotron
+        env:
+          NEBIUS_API_KEY: ${{ secrets.NEBIUS_API_KEY }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+        run: uv run python -m staycovered.drift
+      - name: Commit the new status and any new snapshots
+        run: |
+          git config user.name "Tushar Agarwal"
+          git config user.email "tusharaggarwal274@gmail.com"
+          git add data/cache/drift_status.json data/cache/live_events.json sources/manifest.json sources/text sources/raw
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Daily official-rules check"
+          git push

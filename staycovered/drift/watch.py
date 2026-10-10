@@ -104,17 +104,29 @@ class Diff:
         return bool(self.added or self.removed)
 
 
+_NORM = re.compile(r"[^a-z0-9$%]+")
+
+
+def _key(sentence: str) -> str:
+    """Comparison key: words only (case, punctuation, list markers and spacing ignored)."""
+    return " ".join(_NORM.sub(" ", sentence.lower()).split())
+
+
+def _menu_like(sentence: str) -> bool:
+    """Site navigation and link lists: very long run-on fragments with no sentence verbs."""
+    words = sentence.split()
+    return len(words) > 60 and sentence.count(".") <= 1 and not re.search(r"\b(must|will|may|are|is|you)\b", sentence.lower())
+
+
 def diff_texts(old: str, new: str) -> tuple[list[str], list[str]]:
-    a, b = sentences(old), sentences(new)
-    added, removed = [], []
-    for op, i1, i2, j1, j2 in difflib.SequenceMatcher(a=a, b=b, autojunk=False).get_opcodes():
-        if op in ("replace", "delete"):
-            removed += a[i1:i2]
-        if op in ("replace", "insert"):
-            added += b[j1:j2]
-    # ignore pure boilerplate churn (dates in footers etc.)
+    """Sentences added/removed, compared on their words (formatting-only differences are ignored)."""
+    a = [x for x in sentences(old) if len(x.split()) >= 4 and not _menu_like(x)]
+    b = [x for x in sentences(new) if len(x.split()) >= 4 and not _menu_like(x)]
+    ka, kb = {_key(x) for x in a}, {_key(x) for x in b}
     noise = re.compile(r"^(last updated|page last|copyright|©|skip to|share this)", re.I)
-    return [s for s in added if not noise.match(s)], [s for s in removed if not noise.match(s)]
+    added = [x for x in b if _key(x) not in ka and not noise.match(x)]
+    removed = [x for x in a if _key(x) not in kb and not noise.match(x)]
+    return list(dict.fromkeys(added)), list(dict.fromkeys(removed))
 
 
 class ChangeSummary(BaseModel):
@@ -212,35 +224,67 @@ def clean_markdown(text: str) -> str:
     return re.sub(r"[*_`]{1,3}", "", text)
 
 
+LIVE_EVENTS = config.ROOT / "data" / "cache" / "live_events.json"   # committed by the scheduled job
+STATUS = config.ROOT / "data" / "cache" / "drift_status.json"        # committed by the scheduled job
+
+
 def check_live(summarise: bool = True) -> list[DriftEvent]:
     """Fetch every allow-listed page now via Tavily and compare with the previous Tavily capture of that page
     (same extraction method, so formatting differences are not mistaken for rule changes). The first capture of a
-    page is stored as a baseline without an event."""
+    page is stored as a baseline without an event. Writes a status record and appends events to the committed log."""
     pages = allowlist()
     fetched = tavily_extract([p["url"] for p in pages])
-    events = []
+    events: list[DriftEvent] = []
+    statuses = []
     today = date.today()
     for p in pages:
         raw = fetched.get(p["url"])
+        st = {"url": p["url"], "title": p["title"], "jurisdiction": p["jurisdiction"]}
         if not raw:
+            statuses.append(st | {"status": "unreachable"})
             continue
         new_text = clean_markdown(raw)
         prev = [s for s in snapshots_for(p["url"]) if "tavily" in _notes(s.id)]
         old = prev[-1] if prev else None
         if old is None:
-            save_snapshot(p["url"], new_text, p["jurisdiction"], p["title"], today, "tavily-extract (baseline)")
+            sid = save_snapshot(p["url"], new_text, p["jurisdiction"], p["title"], today, "tavily-extract (baseline)")
+            statuses.append(st | {"status": "baseline", "snapshot": sid})
             continue
         added, removed = diff_texts(old.text, new_text)
         if not (added or removed):
+            statuses.append(st | {"status": "unchanged", "since": old.as_of.isoformat()})
             continue
         sid = save_snapshot(p["url"], new_text, p["jurisdiction"], p["title"], today, "tavily-extract")
-        d = Diff(p["url"], old.id if old else None, sid, old.as_of.isoformat() if old else None, today.isoformat(), added, removed)
-        summ = summarize(d, p["title"]).model_dump() if (summarise and old) else None
+        d = Diff(p["url"], old.id, sid, old.as_of.isoformat(), today.isoformat(), added, removed)
+        summ = summarize(d, p["title"]).model_dump() if summarise else None
         ev = DriftEvent(p["url"], p["title"], p["jurisdiction"], d.old_id, sid, d.old_as_of, d.new_as_of, added, removed,
-                        stale_facts(old.id, new_text) if old else [], summ)
+                        stale_facts(old.id, new_text), summ)
         _emit(ev)
-        events.append(ev)
+        cosmetic = summ is not None and not summ.get("substantive", True)
+        if not cosmetic:
+            events.append(ev)
+        statuses.append(st | {"status": "cosmetic change" if cosmetic else "changed", "snapshot": sid,
+                              "headline": (summ or {}).get("headline", "")})
+    log = json.loads(LIVE_EVENTS.read_text()) if LIVE_EVENTS.exists() else []
+    for ev in events:
+        row = asdict(ev)
+        row["added"], row["removed"] = ev.added[:25], ev.removed[:25]
+        row["affected_cases"] = affected_cases(ev)
+        log.append(row)
+    LIVE_EVENTS.write_text(json.dumps(log, indent=1))
+    STATUS.write_text(json.dumps({
+        "last_checked": datetime.now(timezone.utc).isoformat(timespec="minutes"),
+        "pages": statuses, "changes_today": len(events), "total_live_changes": len(log), "method": "Tavily Extract (advanced)",
+    }, indent=1))
     return events
+
+
+def live_status() -> dict:
+    return json.loads(STATUS.read_text()) if STATUS.exists() else {}
+
+
+def live_events() -> list[dict]:
+    return json.loads(LIVE_EVENTS.read_text()) if LIVE_EVENTS.exists() else []
 
 
 def replay(url: str, summarise: bool = False) -> list[DriftEvent]:

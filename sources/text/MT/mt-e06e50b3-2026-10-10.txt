@@ -1,17 +1,10 @@
-Skip to main content
-![Image 1: State of Montana Home Page](https://mt.gov/)
-Services
-Agencies
-![Image 2](https://dphhs.mt.gov/medicaidchanges/faqs)
-Image 3Select Language![Image 4​Image 5▼](https://dphhs.mt.gov/medicaidchanges/faqs#)
-![Image 6: DPHHS Home Page](https://dphhs.mt.gov/index)
+![DPHHS Home Page](../index)
 ABOUT
 NEWS AND EVENTS
 CONTACT
 OFFICE LOCATIONS
-![Image 7](https://dphhs.mt.gov/medicaidchanges/faqs)
-I am looking for 
-Wellness and Prevention Services
+I am looking for
++ - Wellness and Prevention Services
 Diseases and Conditions
 Emergency Preparedness and Response
 Environmental Health
@@ -44,7 +37,7 @@ Nutrition
 Options Counseling
 Senior and Long Term Care Division
 SHIP - State Health Insurance Assistance Program
-Health Coverage and Other Assistance
++ - Health Coverage and Other Assistance
 Montana Medicaid
 Federal Marketplace
 Assistance Programs
@@ -78,7 +71,7 @@ Long Term Care Ombudsman
 Qualified Sign Language Interpreters
 Vocational Rehabilitation
 Youth Transitions
-Family Services
++ - Family Services
 Adolescent Health
 Child and Adult Care Food Program
 Child Care Providers
@@ -103,22 +96,22 @@ Veterans' Homes
 Eastern Montana Veteran’s Home - Glendive
 Montana Veteran’s Home - Columbia Falls
 Southwest Montana Veteran's Home - Butte
-I am a 
-DPHHS Provider
-MT Medicaid
-Childcare
-Healthcare
-DPHHS Partner
-Tribal
-Tribal Websites
-Building Healthy Systems
-A Healthier Montana
-Local
-Local Health Departments
-Building Healthy Systems
-A Healthier Montana
-Person Interested In
-Child Support Services
+I am a
++ DPHHS Provider
++ MT Medicaid
++ Childcare
++ Healthcare
++ DPHHS Partner
++ Tribal
++ Tribal Websites
++ Building Healthy Systems
++ A Healthier Montana
++ Local
++ Local Health Departments
++ Building Healthy Systems
++ A Healthier Montana
++ Person Interested In
++ - Child Support Services
 Diseases and Conditions
 Emergency Preparedness and Response
 Environmental Health
@@ -129,39 +122,36 @@ Injury Prevention
 Laboratory
 A-Z Index
 DPHHS is offering one-time incentive payments to recruit employees at Montana’s state-run health care facilities. For more information go to Work4DPHHS.com
-1.   Medicaid Changes
-2.   FAQs
 Frequently Asked Questions
 On July 1, 2026, under the House Reconciliation bill (H.R. 1), also known as “H.R. 1” or the “One Big Beautiful Bill Act,” Montana introduced a new community engagement requirement for certain Montana Medicaid members.
-This FAQ reflects information known as of the publish date and can change as updates from CMS become available.
-The FAQ below covers the following topics:
-Implementation timeline and key dates 
-Overview of community engagement requirements 
+This FAQ reflects information known as of the publish date and can change as updates from CMS become available. 
+The FAQ below covers the following topics: 
+Implementation timeline and key dates
+Overview of community engagement requirements
 Who is affected by the community engagement requirements
 Who is excluded
-Compliance and verification 
-Interaction with other programs 
-Six-month redetermination 
-Appeals and coverage protections 
-Eligibility worker operations and state systems 
-Stakeholder engagement and updates 
-Broader policy and impact 
-Overview of New Community Engagement Requirements 
+Compliance and verification
+Interaction with other programs
+Six-month redetermination
+Appeals and coverage protections
+Eligibility worker operations and state systems
+Stakeholder engagement and updates
+Broader policy and impact
 Background
 Montana state leadership, including the Governor and State Legislature, has long demonstrated its commitment to implementing the community engagement requirement.
 In 2025, the Department communicated initial plans for Montana’s 1115 waiver-driven implementation of work requirements. However, this waiver is still pending approval from CMS. In 2026, CMS advised Montana that it could implement the community engagement requirement under H.R. 1 (the One Big Beautiful Bill Act) through a State Plan Amendment, following CMS definitions for specified excluded individuals and mandatory exclusions.
 This history is a key reason Montana is among the first states in the country to implement the community engagement requirement.
 What is the new community engagement requirement?
-The community engagement requirement requires non-excluded adults on Medicaid Expansion, aged 19-64, to participate in community engagement activities to keep their health coverage.
+The community engagement requirement requires non-excluded adults on Medicaid Expansion, aged 19-64, to participate in community engagement activities to keep their health coverage.
 The community engagement requirement includes:
-80 hours a month: You must spend at least 80 hours each month doing certain activities.
+80 hours a month: You must spend at least 80 hours each month doing certain activities.
 You can meet these hours through:
-Working at a job (paid or in kind), demonstrated by income of at least $580 per month or documentation of 80 hours of work if income cannot be verified
-Community service or volunteering with a not-for-profit organization
-Participating in an approved state or federal workforce training or job readiness program
-Doing an internship or apprenticeship
-Going to school (at least half-time)
-Combining activities (for example, you could work 60 hours and complete 20 hours of community service)
++ Working at a job (paid or in kind), demonstrated by income of at least $580 per month or documentation of 80 hours of work if income cannot be verified
++ Community service or volunteering with a not-for-profit organization
++ Participating in an approved state or federal workforce training or job readiness program
++ Doing an internship or apprenticeship
++ Going to school (at least half-time)
++ Combining activities (for example, you could work 60 hours and complete 20 hours of community service)
 The community engagement requirement applies to you if:
 You are between the ages of 19-64.
 You are covered under the Medicaid Expansion (low-income adults).
@@ -177,22 +167,22 @@ If an individual does not have household income of $580, their hours will still 
 How can I identify the number of hours I have met through education?
 A client is considered to have met the community engagement requirement by attending school if they are enrolled and attending at least half-time in an institution of higher learning, career & technical education, high school, or State-Approved HS Equivalency (GED). In alignment with Montana’s public institutions, half-time enrollment and attendance means that the individual is enrolled in at least 6 credit hours.
 Clients can use the following table below to evaluate credit hours to determine reported on a school schedule to determine how many hours they have completed through school if they are taking less than 6 credits:
-Credit Hour(s)Monthly Hours of Activity for Community Engagement
-1 Credit Hour 13 hours
-2 Credit Hours 26 hours
-3 Credit Hours 39 hours
-4 Credit Hours 52 hours
-5 Credit Hours 65 hours
-Who is Affected? 
+|  |  |
+| --- | --- |
+| Credit Hour(s) | Monthly Hours of Activity for Community Engagement |
+| 1 Credit Hour | 13 hours |
+| 2 Credit Hours | 26 hours |
+| 3 Credit Hours | 39 hours |
+| 4 Credit Hours | 52 hours |
+| 5 Credit Hours | 65 hours |
 Who has to meet the new community engagement requirement?
 Adults aged 19-64 who are part of Montana’s Medicaid Expansion program must meet the community engagement requirement. These individuals must either meet the 80-hour requirement through community engagement activities or qualify for an exclusion.
 Who is in the “Medicaid Expansion population”?
-This refers to adults who are eligible for Medicaid under the Affordable Care Act expansion (income up to approximately 138% of the federal poverty level).
+This refers to adults who are eligible for Medicaid under the Affordable Care Act expansion (income up to approximately 138% of the federal poverty level). 
 What are the impacts to Presumptive Eligibility (PE)?
 Beginning July 1, 2026, Qualified Entities must assess PE applicants who are eligible for coverage under Medicaid Expansion for the community engagement requirement. PE determinations for the community engagement requirement are based on self-declaration (i.e., QEs do not verify documentation or work hours – Montana Department of Public Health and Human Services will verify later at full application). DPHHS will review existing data sources and verify eligibility information, if needed, during the full Medicaid application process. Additional information and resources can be found on the Presumptive Eligibility webpage.
-Who is Excluded? 
 How do I know if I am excluded?
-Some individuals are excluded from the community engagement requirement. Individuals who meet an approved exclusion are not required to meet the community engagement requirement for one or more months.
+Some individuals are excluded from the community engagement requirement. Individuals who meet an approved exclusion are not required to meet the community engagement requirement for one or more months.
 There are two different ways you may be excluded from the community engagement requirement, and they work differently:
 If you are a specified excluded individual, the requirement does not apply to you at all.
 If you have an exception or a short-term hardship, you are treated as meeting the requirement only for the months that the exception or hardship applies to you. At redetermination, if you cannot show that you had an exception or short-term hardship for three of the months since your last redetermination, you will need to meet the community engagement requirement through approved activities to keep your Medicaid coverage.
@@ -211,46 +201,45 @@ Exceptions and short-term hardships may fulfill part or all of the community eng
 People entitled to or enrolled in Medicare Part A or Part B
 People incarcerated in the last three months
 People who are specified excluded in individuals during part of their lookback period
-People experiencing the following short-term hardships: 
-Receiving inpatient services
-Residing in a county with an emergency disaster declaration (Note: Montana will automatically apply this for clients if a disaster is declared)
-Residing in a county with high unemployment (Note: Montana will not be implementing the high unemployment exception at this time, and will automatically apply this for clients if enacted in the future)
-Person or dependent who must travel outside of their community for medical services for a serious or complex medical condition
-At application,you must show that an exception or short-term hardship applied for the month before your new application.
-At redetermination,you must show that an exception or short-term hardship applied for at least 3 months since your last redetermination. The months do not need to be consecutive. If you have an exception or short-term hardship for one or two months, you must complete the remainder of the community engagement requirement by reporting qualifying activity hours.
+People experiencing the following short-term hardships:
++ Receiving inpatient services
++ Residing in a county with an emergency disaster declaration (Note: Montana will automatically apply this for clients if a disaster is declared)
++ Residing in a county with high unemployment (Note: Montana will not be implementing the high unemployment exception at this time, and will automatically apply this for clients if enacted in the future)
++ Person or dependent who must travel outside of their community for medical services for a serious or complex medical condition
+At application,you must show that an exception or short-term hardship applied for the month before your new application.
+At redetermination,you must show that an exception or short-term hardship applied for at least 3 months since your last redetermination. The months do not need to be consecutive. If you have an exception or short-term hardship for one or two months, you must complete the remainder of the community engagement requirement by reporting qualifying activity hours.
 If I am a parent of someone with a disability, do I have to follow the community engagement requirement?
-If you are the parent of a person with a disability who requires your care, you do not have to follow the new community engagement requirement. This is true no matter how old your child is.
+If you are the parent of a person with a disability who requires your care, you do not have to follow the new community engagement requirement. This is true no matter how old your child is.   
 I am in the Montana Medicaid for Workers with Disabilities program. Does the community engagement requirement apply to me?
-No. If you are already in this program, you do not need to worry about these new requirements. You just need to keep following the same rules you already use for your job and your income. Nothing has changed for you.
+No. If you are already in this program, you do not need to worry about these new requirements. You just need to keep following the same rules you already use for your job and your income. Nothing has changed for you.   
 Are older adults subject to the community engagement requirement?
-No, only Medicaid Expansion adults aged 19-64.
+No, only Medicaid Expansion adults aged 19-64.   
 Are people receiving Supplemental Security Income (SSI) or Social Security Disability Insurance (SSDI) subject to the new rules?
-No. If you receive SSI or SSDI disability payments, you do not have to follow the community engagement requirement. People with disabilities do not have to meet the new requirement.
+No. If you receive SSI or SSDI disability payments, you do not have to follow the community engagement requirement. People with disabilities do not have to meet the new requirement.   
 If I have a history of substance abuse, do I qualify for the medically frail exclusion or the participating in an alcohol or drug addiction treatment program​?
-Individuals with a history of substance use may be excluded from the community engagement requirement under one of the following two categories:​
+Individuals with a history of substance use may be excluded from the community engagement requirement under one of the following two categories:​ 
 Medically Frail
-An individual qualifies for a medically frail exclusion if they have a SUD diagnosis that is included in Montana’s approved list of conditions at time of application/redetermination​. For more information, see the Medically Frail Guidance.
-This does not include individuals in stable recovery (5 or more years).
++ An individual qualifies for a medically frail exclusion if they have a SUD diagnosis that is included in Montana’s approved list of conditions at time of application/redetermination​. For more information, see the Medically Frail Guidance.
++ This does not include individuals in stable recovery (5 or more years).
 Participating in an alcohol or drug addiction treatment program​
-An individual qualifies for an exclusion based on participation in a drug or alcohol treatment program if they are in a treatment program that includes one or more services at or above ASAM Level 2.1 at the time of their application or redetermination. This includes intensive outpatient services and clinically or medically managed inpatient services. Speak with your provider if you have questions about what types of services qualify for this exclusion.
-Any Medicaid-enrolled provider at a private non-profit organization or institution or any publicly-operated community mental health center that provides clinical services at ASAM Level 2.1 or above.
-An individual may qualify for both of these exclusions. This does not impact eligibility. DPHHS has a verification matrix that shows what proof is needed for these exclusions.
-Please reference the verification matrix for additional information.
-Compliance and Verification 
++ An individual qualifies for an exclusion based on participation in a drug or alcohol treatment program if they are in a treatment program that includes one or more services at or above ASAM Level 2.1 at the time of their application or redetermination. This includes intensive outpatient services and clinically or medically managed inpatient services. Speak with your provider if you have questions about what types of services qualify for this exclusion.
++ Any Medicaid-enrolled provider at a private non-profit organization or institution or any publicly-operated community mental health center that provides clinical services at ASAM Level 2.1 or above.
+An individual may qualify for both of these exclusions. This does not impact eligibility. DPHHS has a verification matrix that shows what proof is needed for these exclusions.
+Please reference the verification matrix for additional information.
 How do I show I meet the community engagement requirement or have an exclusion?
 DPHHS has a verification matrix that shows what proof is needed for each qualifying activity and exclusion. You will need to provide documents or other proof needed to verify the specific activities and exclusions that apply to you. Please reference the verification matrix for additional information.
-How often do I need to show verification of community engagement activities or exclusion from those activities?
+How often do I need to show verification of community engagement activities or exclusion from those activities?
 Most people will need to show verification at application and at each redetermination.
 At time of application, the community engagement requirement forms (Appendix A and B) and supporting documentation are optional. DPHHS will first attempt to verify that you meet this requirement or qualify for an exclusion using existing data sources. If verification cannot be completed, you may be asked to provide additional documentation. You must show that you met the community engagement requirement or had an exclusion for the month prior to your application.
 Similarly, at redetermination, DPHHS will first attempt to ex parte you using existing data sources. If verification cannot be completed, you must complete the community engagement requirement forms (Appendix A and B) and provide supporting documentation to maintain your coverage. You must show that you met the community engagement requirement or had an exclusion for three months of your redetermination review period (does not need to be three months in a row).
-How doessomeone with seasonal income verify they met the community engagement requirement?
+How does someone with seasonal income verify they met the community engagement requirement?
 Members with seasonal income can meet the community engagement requirement by completing 80 hours in a month. Members can show they met this requirement by checking if their average monthly income over the past 6 months is at least $7.25 per hour for 80 hours. If they do not complete 80 hours of seasonal work, they can combine activities such as volunteering and school to reach the monthly total.
 How does someone who is self-employed verify they met the community engagement requirement?
 Self-employed individuals have historically been required to report income for purposes of financial eligibility. This income is reported on the application or redetermination form. Individuals may be required to provide documentation, such as tax records, to verify this information. If that shows income of at least $580 in a month (through self-employment or other forms of employment), the household is deemed compliant with the community engagement requirement. If a household does not have income (including self-employment) that meets the $580 threshold, the individuals in the household can provide documentation of hours worked. Many gig-work platforms provide records of both earnings and time logged on the platform.
 Can you explain the difference between general financial eligibility for Medicaid, vs. financial eligibility for demonstrating work as a qualifying activity for the community engagement requirement?
 With the addition of the community engagement requirement, Medicaid eligibility involves two separate determinations:
-1.   Whether the individual meets the applicable Community Engagement requirement; and
-2.   Whether the individual meets financial and other Medicaid eligibility requirements.
+1. Whether the individual meets the applicable Community Engagement requirement; and
+2. Whether the individual meets financial and other Medicaid eligibility requirements.
 Financial eligibility for Medicaid is determined using the income-counting rules applicable to the individual’s Medicaid coverage group. In many cases, household composition is based primarily on tax filing relationships. Although eligibility is ultimately determined for each applicant, the income of other household members may be included in the financial eligibility determination.
 For the community engagement requirement, household income is shared, while qualifying activity hours are not. Household income is evaluated against the $580 threshold. That means a spouse's or another household member's earnings can count toward the $580 requirement only if the household meets this amount. If the household does not meet the $580 requirement, the income and hours are looked at individually. An individual cannot count someone else's work hours (or education hours, volunteering hours, etc.) toward their own 80-hour requirement, even if they share a household and share income.
 The following examples illustrate the distinction between Medicaid financial eligibility and community engagement:
@@ -260,47 +249,18 @@ Scenario 3: Two adults and one child reside in the household. One adult has earn
 Scenario 4: Two adults reside in the household and share a MAGI-based (Medicaid Expansion) household. One adult works and earns enough that household income exceeds $580 per month; the other adult does not work. The working adult does not meet applicable citizenship or immigration-status requirements and is therefore ineligible for Medicaid coverage. The non-working adult may still meet financial eligibility requirements. Because community engagement income is assessed using the same MAGI-based household income figure used for financial eligibility, the non-working adult's household income would also be counted as exceeding $580, satisfying the work qualifying activity for community engagement.
 How does a student verify they met the community engagement requirement?
 Members enrolled in a college, career and technical education program, or high school/GED program and attending at least half-time can meet the requirement by providing a transcript or school schedule showing half-time or full-time attendance. If the transcript does not specify attendance level, 13 hours per month will count for each 1 credit completed. If needed, students can also combine school with other activities, such as work or volunteering, to meet the monthly requirement.
-Six-Month Redetermination 
 Once I’m determined eligible for Medicaid, how often am I required to redetermine my coverage?
 Beginning January 2027, most people must redetermine coverage every six months. At that time, to keep your health coverage, you must show that you still qualify and meet the community engagement requirement. This does not apply to American Indian/Alaskan Natives, as they must redetermine coverage every 12 months.
-Appeals and Coverage Protection 
 What happens if I can’t verify that I’ve met the community engagement requirement?
 From July through September 2026, DPHHS will review community engagement for applications and redeterminations, but people will not be denied coverage or disenrolled for not meeting the requirement during this time.
 Starting in October 2026, DPHHS will continue to review community engagement for applications and redeterminations, and people who do not meet the requirement may be denied coverage or disenrolled.
 Can individuals appeal eligibility decisions related to the community engagement requirement?
-Yes. Members can appeal decisions by following the instructions on their Notice of Adverse Action. Montana’s appeals process will be outlined in official notices and on the DPHHS website.
+Yes. Members can appeal decisions by following the instructions on their Notice of Adverse Action. Montana’s appeals process will be outlined in official notices and on the DPHHS website. 
 How will notice and communication work?
-DPHHS will send updated notices indicating whether members need to meet the community engagement requirement, how they can comply, and how to verify they have completed them. Members are encouraged to create an account on the Self Service Portal and opt-in to email communications.
-Provider Information 
+DPHHS will send updated notices indicating whether members need to meet the community engagement requirement, how they can comply, and how to verify they have completed them. Members are encouraged to create an account on the Self Service Portal and opt-in to email communications.
 Is there a way for providers to see whether a client is eligible/enrolled in Medicaid Expansion vs. Traditional Medicaid?
 Today, there is not a way for a provider to determine whether an individual is eligible for Medicaid Expansion vs. Traditional Medicaid. Providers can still support members by reminding them that if they are eligible through Medicaid Expansion and do not have another exclusion, the community engagement requirement may apply to them. Providers can encourage members to keep their contact information with Montana Medicaid up to date and look out for mailed notices. Lastly, providers can always refer members to the Montana Medicaid Eligibility Changes website for more details.
 How can providers help support clients with maintaining their coverage?
 Providers can encourage members to keep their contact information with Montana Medicaid up to date and look out for mailed notices with information about their next redetermination date. A client’s redetermination date is not visible to providers.
 Can a client submit the required verifications for the community engagement requirement before their redetermination?
 DPHHS recommends that clients submit information with their redetermination to expedite processing and ensure information is up to date. However, clients can provide information to the department at any time, and information provided will be uploaded to their case record.
-LANGUAGE ASSISTANCE
-NOTICE OF USE OF PROTECTED HEALTH INFORMATION
-LEGISLATURE
-CAREERS
-NONDISCRIMINATION NOTICE / POLICY
-CONTACT WEBMASTER
-ACCESSIBILITY, DISCLAIMER AND WEB STANDARDS
-![Image 8: Facebook](https://www.facebook.com/MTDPHHS)![Image 9: X](https://twitter.com/DPHHSMT)![Image 10: YouTube](https://www.youtube.com/user/MontanaDPHHS)
-PRIVACY & SECURITY
-ACCESSIBILITY
-![Image 11: Montana Official State Website](https://mt.gov/)
-Image 12
-Original text
-Rate this translation
-Your feedback will be used to help improve Google Translate
-The state of Montana uses Google Analytics
-We use cookies to improve your browsing experience and analyze our traffic with the use of Google Analytics. Please accept these before using the site. Read more
-Accept Reject All
-Cookie preferences
-Cookie usage
-We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want.
-Google Analytics Cookies- [x] Google Analytics Cookies 
-These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you.
-More information
-For any queries in relation to our policy on cookies and your choices, please read more.
-Accept all Reject all Save settings
