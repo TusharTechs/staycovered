@@ -188,7 +188,34 @@ def income_doc(text: str, doc_id: str, member_id: str) -> tuple[IncomeDoc, list[
             id=f"{doc_id}-r{i + 1}", member_id=member_id, kind=kind, period_start=r.period_start,
             period_end=r.period_end, amount=amount, payer=r.payer, source=SourceRef(doc_id=doc_id, span=span),
         ))
-    return doc, entries, problems
+    return doc, _totals_over_parts(entries), problems
+
+
+_TOTAL_WORDS = ("total", "gross")
+
+
+def _totals_over_parts(entries: list[LedgerEntry]) -> list[LedgerEntry]:
+    """Within one document, several rows of the same kind for the same period are either a total plus its parts
+    (keep the row whose line says total/gross) or parts with no stated total (sum them, citing every line)."""
+    groups: dict[tuple, list[LedgerEntry]] = {}
+    for e in entries:
+        groups.setdefault((e.kind, e.period_start, e.period_end), []).append(e)
+    out = []
+    for es in groups.values():
+        if len(es) == 1:
+            out.append(es[0])
+            continue
+        labelled = [e for e in es if e.source and any(w in e.source.span.lower() for w in _TOTAL_WORDS)]
+        if labelled:
+            out.append(max(labelled, key=lambda e: e.amount))
+        else:
+            first = es[0]
+            out.append(first.model_copy(update={
+                "amount": round(sum(e.amount for e in es), 2),
+                "source": SourceRef(doc_id=first.source.doc_id, span=" | ".join(e.source.span for e in es)) if first.source else None,
+                "note": f"sum of {len(es)} lines",
+            }))
+    return out
 
 
 class Explanation(BaseModel):
