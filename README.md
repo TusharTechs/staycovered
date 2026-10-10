@@ -6,6 +6,29 @@ StayCovered is an open-source copilot for Medicaid navigators. It helps them kee
 
 Built for the Nebius × NVIDIA Global AI Hackathon 2026 (Best Apps and Agents). Inference uses NVIDIA Nemotron on Nebius Token Factory; official-source monitoring uses Tavily.
 
+**Live demo:** https://staycovered.vercel.app. Start with "Take the 90-second tour". Evidence for the problem is in [docs/EVIDENCE.md](docs/EVIDENCE.md).
+
+## Results (WorkReqBench, held-out)
+
+86 dated questions that were never inspected while building or tuning:
+
+| System | Score (95% CI) | Questions whose answer changed over time |
+|---|---|---|
+| **StayCovered**: Nemotron Super + official rules as of the date | **72.9%** (65.7–79.5) | **66.7%** |
+| Nemotron Super + today's sources (date-blind) | 65.5% | 48.5% |
+| Claude Opus 5.5 answering from memory | 63.0% (55.6–70.2) | 44.6% |
+| Nemotron Super answering from memory | 35.3% | 27.0% |
+
+Paired comparison on the same questions:
+
+| StayCovered compared with | Overall gap (95% CI) | Date-sensitive gap (95% CI) |
+|---|---|---|
+| Claude Opus 5.5 | **+9.9 points** (+1.0 to +18.4) | **+22.1 points** (+8.3 to +36.3) |
+
+How to read this:
+- On federal questions the two systems are roughly tied (71% vs 70%). The advantage comes from Nebraska rules (75% vs 54%) and rules that changed over time.
+- The ranking is the same under three graders: Nemotron Ultra, Nemotron Super and Claude Haiku. Details are in `bench/` and on the WorkReqBench page.
+
 > StayCovered organises evidence against published rules. It does **not** decide eligibility or exemptions; the state agency does. All demo cases are synthetic.
 
 ## Why
@@ -28,6 +51,10 @@ Built for the Nebius × NVIDIA Global AI Hackathon 2026 (Best Apps and Agents). 
 | **Rule Time Machine** | Move through the real policy timeline and watch the rules, the answers and the caseload change. A frozen model's answer sits side by side for comparison. |
 | **drift-watch** | Tavily Extract/Map monitors an allow-list of official pages. When text changes, Nemotron summarises the diff. Rule facts whose quoted text disappeared are marked stale, and cases that relied on them are flagged for re-check. Only allow-listed public URLs are ever sent to Tavily; the request log proves it. |
 | **Packet** | A PDF with the worksheet, evidence index, items to confirm with the agency, possible exemptions to raise, and the exact rules used. |
+| **Nebraska's real MLTC-118 form** | The state's actual Individual Declaration Form, pre-filled only where evidence exists. Each field shows its reason. SSN, date of birth and signatures are never filled. |
+| **Snap a photo** | Photos are read by OCR in the browser, so the image never leaves the device. PDFs use their text layer. The navigator reviews the text before Nemotron extracts it. |
+| **Always-on drift-watch** | A daily GitHub Actions job checks the official pages with Tavily and summarises real changes with Nemotron. It commits the status, and the site redeploys showing "last checked". |
+| **Guided tour** | A 9-step, 90-second walkthrough for first-time visitors. |
 | **WorkReqBench** | An open benchmark of dated questions with rubrics cited to official text. See [`bench/README.md`](bench/README.md). |
 
 ## Models (Nebius Token Factory)
