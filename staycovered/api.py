@@ -233,3 +233,27 @@ def packet(case_id: str, as_of: str | None = None) -> Response:
     pdf = build_packet(rec, worksheet(rec.case, _d(as_of)))
     return Response(pdf, media_type="application/pdf",
                     headers={"Content-Disposition": f'attachment; filename="staycovered-{case_id}.pdf"'})
+
+
+@app.get("/api/extraction/results")
+def extraction_results() -> dict:
+    out = {}
+    for name in ("results.json", "results_heldout.json"):
+        p = config.BENCH_DIR / "extraction" / name
+        if p.exists():
+            out[name.replace(".json", "")] = {k: v for k, v in json.loads(p.read_text()).items() if k != "rows"}
+    return out
+
+
+# ---------- serve the built web app (single-service deploy) ----------
+_DIST = config.ROOT / "web" / "dist"
+if _DIST.exists():
+    from fastapi.responses import FileResponse
+    from fastapi.staticfiles import StaticFiles
+
+    app.mount("/assets", StaticFiles(directory=_DIST / "assets"), name="assets")
+
+    @app.get("/{path:path}", include_in_schema=False)
+    def spa(path: str) -> FileResponse:
+        f = _DIST / path
+        return FileResponse(f if path and f.is_file() else _DIST / "index.html")

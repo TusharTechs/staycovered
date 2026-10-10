@@ -1,0 +1,150 @@
+{
+  "ne-dhhs-wr-page-2025-12-17->ne-dhhs-wr-page-2026-03-03": {
+    "headline": "Removed duplicate content and reformatted contact information section on Nebraska Medicaid Work Requirements page.",
+    "details": [
+      "The repeated block containing contact details, outreach notice description, FAQ reference, and job seeking assistance was removed from its original location and reinserted as a single consolidated paragraph without proper line breaks or formatting.",
+      "The phrase 'Spanish translation coming soon' was removed from both the Outreach Notice and FAQ entries, suggesting the Spanish versions may now be available or the notice was updated prematurely."
+    ],
+    "who_is_affected": "Medicaid expansion members in Nebraska who rely on the DHHS website for work requirement information, particularly those seeking contact methods, Spanish-language resources, or job assistance.",
+    "navigator_action": "Verify current contact information and resource availability directly with DHHS offices or updated materials, as the web page now presents contact details in a condensed, hard-to-read format and may no longer accurately reflect pending Spanish translations.",
+    "substantive": true
+  },
+  "ne-dhhs-wr-page-2026-03-03->ne-dhhs-wr-page-2026-04-14": {
+    "headline": "Nebraska updated its Medicaid work requirements page with revised timelines, clarified reporting procedures, added submission methods for hardship declarations, and updated income thresholds.",
+    "details": [
+      "Added clarification that the One Big Beautiful Bill Act includes work requirements among its changes to Medicaid.",
+      "Updated enforcement start date phrasing from 'May 1, 2026' to 'May 1, 2026,' with a comma for consistency.",
+      "Replaced general section list with specific sections: 'Educational Videos' and 'Who must meet Work Requirements?'.",
+      "Rewrote eligibility description for Medicaid expansion to be more structured and explicit about criteria (ages 19-64, not pregnant, no disability, not on Medicare, income limits, citizenship/immigration).",
+      "Updated annual income limit from '$21,610 per year for a single person' to '$22,025 per year' and family of four from '$44,380' to '$45,540'.",
+      "Retained the monthly equivalent of '$580 per month' as a current figure.",
+      "Added detail that for existing members, DHHS will check work requirements as part of Medicaid renewal starting with eligibility periods ending on or after July 31, 2026.",
+      "Specified that existing members must have met work requirements for at least one month since last renewal.",
+      "Clarified that new applicants must meet work requirements in the month before applying (on or after May 1, 2026).",
+      "Revised exemption list formatting: removed verbose descriptions, kept core categories, and added specificity (e.g., 'federally recognized Native American tribe', 'Urban Indian', 'California Indian', 'IHS').",
+      "Expanded 'Medically frail' to include examples: blindness/disability, substance use disorder, disabling mental health condition, serious/complex medical condition, serious physical/intellectual/developmental disability.",
+      "Added new exemption criteria: household receiving SNAP/TANF and compliant with work requirements under certain conditions, participation in qualified drug/alcohol treatment, incarceration/release within 90 days of qualifying month, postpartum up to 12 months.",
+      "Updated temporary hardship section: simplified hospitalization/nursing home stay wording, changed 'travel outside community' to 'traveled to receive serious medical care not available locally', specified federal emergency declaration and defined high unemployment as '8 percent or 1.5 times national rate'.",
+      "Added requirement to complete and submit a declaration form for hardships related to hospitalization, nursing facility, and medical travel \u2014 with multiple submission options (online, phone, mail, in person).",
+      "Clarified that DHHS will verify federal emergency/high unemployment hardships automatically; members cannot self-declare via form for these.",
+      "Changed DHHS communication method: now sends a 'notice' plus a 'declaration form' (previously just a 'form describing information needed').",
+      "Expanded reporting instruction: individuals should now check 'mail, email, and text' (previously just 'mail or email') for DHHS requests.",
+      "Kept 30-day deadline for submitting requested information, but updated consequence language: 'may be denied Medicaid coverage or lose their Medicaid coverage' (previously only 'may lose').",
+      "Added new section: 'How Can You Meet Work Requirements?' One-Pager.",
+      "Added new subsection under Resources: 'Community Presentations (videos)' with specific meeting dates (March 6, 9, 12, 2026) and label 'Workforce Partner Meeting' and 'Community Partner Meeting'.",
+      "Retained 'Reporting Changes to DHHS' and 'Job Seeking Assistance' sections unchanged."
+    ],
+    "who_is_affected": "Nebraska Medicaid members enrolled through Medicaid expansion (Heritage Health), including new applicants on or after May 1, 2026, and existing members whose renewal occurs on or after July 31, 2026.",
+    "navigator_action": "Navigators should inform clients that work requirements are enforced starting May 1, 2026; existing members will be assessed at renewal (starting July 2026); new applicants must meet requirements in the prior month; clients must watch for DHHS notices via mail, email, or text and respond within 30 days; hardship exemptions require submitting a declaration form for hospitalization, nursing facility, or medical travel \u2014 but not for emergency declarations or high unemployment, which DHHS verifies automatically; navigators should direct clients to updated resources including the 'How Can You Meet Work Requirements?' one-pager and community presentation videos.",
+    "substantive": true
+  },
+  "ne-dhhs-wr-page-2026-04-14->ne-dhhs-wr-page-2026-04-29": {
+    "headline": "Nebraska removed detailed explanations of work requirements mechanics and added clarification on timing for existing members' reviews and application processes.",
+    "details": [
+      "Removed specific details about work requirement activities counting toward 80 hours, including combinations and half-time schooling.",
+      "Deleted explanation that individuals can meet requirements by earning the federal minimum threshold equivalent to ~$580/month.",
+      "Removed language about DHHS using existing information to verify compliance and requesting additional information via notice and declaration form.",
+      "Added clarification that members with renewal dates in May or June 2026 will not need to show work requirement compliance until their 2027 renewal.",
+      "Added guidance that members can check their renewal date via the iServe portal.",
+      "Revised the work requirement review period logic for applicants, specifying that compliance can be shown in either the application month or the prior month depending on circumstances."
+    ],
+    "who_is_affected": "Nebraska Medicaid expansion members (ages 19-64, not pregnant, no disability, not on Medicare, meeting income limits) and applicants for Medicaid expansion.",
+    "navigator_action": "Navigators should inform existing members that work requirement reviews will begin based on their individual renewal dates starting July 31, 2026, and advise applicants that they may meet requirements in either the month before or the month of application, depending on their situation.",
+    "substantive": true
+  },
+  "ne-dhhs-wr-page-2026-04-29->ne-dhhs-wr-page-2026-05-13": {
+    "headline": "Updated exemption details and added new video resources while removing some contact formatting and adding community service guidance.",
+    "details": [
+      "Added three new video resources explaining work requirement exemptions, temporary hardship exemptions, and qualifying activities.",
+      "Reordered the medical condition exemption to appear after the veteran exemption and before the new video links.",
+      "Removed the direct link reference to 'See the \"How Can You Meet Work Requirements?\" One-Pager' and replaced it with a general statement to read the one-pager for more information.",
+      "Added a new section on community service as a way to meet work requirements, including a link to explore volunteer opportunities.",
+      "Added a new provider meeting date: 'Provider Meeting April 29, 2026'.",
+      "Corrected spelling: 'opportunties' instead of 'opportunities' in the volunteer opportunities link text."
+    ],
+    "who_is_affected": "Medicaid members and applicants in Nebraska who are subject to work requirements or seeking exemptions.",
+    "navigator_action": "Review the updated exemption criteria and new video resources when assisting clients with work requirement compliance or exemption claims; ensure clients are aware of community service as a qualifying activity.",
+    "substantive": true
+  },
+  "ne-dhhs-wr-page-2026-07-17->ne-dhhs-wr-page-2026-07-22": {
+    "headline": "Added temporary exemption for Dawson County residents due to high unemployment.",
+    "details": [
+      "Dawson County residents eligible under Medicaid expansion who lived there during any qualifying month since February 2026 are now automatically and temporarily exempt from work requirement activities.",
+      "The exemption remains in effect until Dawson County no longer experiences a high unemployment rate."
+    ],
+    "who_is_affected": "Medicaid-eligible individuals residing in Dawson County who were present there during any qualifying month since February 2026.",
+    "navigator_action": "Review open cases for Dawson County residents to confirm automatic exemption applies; no action needed unless eligibility or residence status changes.",
+    "substantive": true
+  },
+  "ne-dhhs-wr-page-2026-08-01->ne-dhhs-wr-page-2026-09-08": {
+    "headline": "Added multiple duplicate links to a Spanish video on the Nebraska DHHS Work Requirements page.",
+    "details": [
+      "Four identical entries were added, each reading 'Click here for the Spanish video.'"
+    ],
+    "who_is_affected": "Spanish-speaking individuals seeking information about Nebraska Medicaid work requirements.",
+    "navigator_action": "Verify whether these links are functional and lead to the same or distinct resources; report any duplication or broken links to the appropriate web administrator.",
+    "substantive": false
+  },
+  "ne-dhhs-wr-page-2026-09-08->ne-dhhs-wr-page-2026-09-12": {
+    "headline": "Nebraska updated its temporary hardship exemption list and details for Medicaid work requirements, replacing generic language with specific county-based exemptions tied to unemployment and emergency declarations.",
+    "details": [
+      "Removed general references to temporary high unemployment hardship for Dawson County residents and replaced with a detailed list of 14 counties currently under temporary hardship exemptions.",
+      "Added specific eligibility criteria for new applicants and existing members based on residency in designated counties during qualifying months, including time-bound exemptions for wildfire and severe weather emergencies.",
+      "Clarified that DHHS will automatically exempt individuals for county-based hardships (emergency declarations or high unemployment) without requiring a declaration form, while medical hardships still require submission of a declaration.",
+      "Included a table specifying exact dates and qualification rules for each hardship type (high unemployment, wildfire emergency, severe weather emergency) and corresponding counties.",
+      "Added guidance that individuals who lost Medicaid due to work requirements while residing in an exempt county during a qualifying month will have their applications or renewals reprocessed by DHHS with no action needed."
+    ],
+    "who_is_affected": "Medicaid expansion members and new applicants who resided in any of the 14 listed Nebraska counties (Arthur, Buffalo, Dawson, Fillmore, Gage, Garden, Grant, Howard, Jefferson, Lincoln, Morrill, Nemaha, Thayer, Thurston) during a qualifying month when a temporary hardship was in effect.",
+    "navigator_action": "Navigators should review current cases to determine if individuals resided in any of the listed counties during the specified time periods and ensure that exemptions are applied correctly, including reprocessing of denied or terminated cases where appropriate.",
+    "substantive": true
+  },
+  "ne-dhhs-wr-page-2026-09-12->ne-dhhs-wr-page-2026-09-15": {
+    "headline": "The medically frail and SUD treatment program exemptions process was updated on September 14, 2026.",
+    "details": [
+      "The section title now includes '(Updated September 14, 2026)' indicating a recent revision."
+    ],
+    "who_is_affected": "Individuals seeking or currently receiving medically frail or substance use disorder (SUD) treatment program exemptions from Medicaid work requirements in Nebraska.",
+    "navigator_action": "Review the updated exemptions process document dated September 14, 2026, to ensure accurate guidance for clients applying for or maintaining these exemptions.",
+    "substantive": true
+  },
+  "ne-dhhs-wr-page-2026-09-15->ne-dhhs-wr-page-2026-10-05": {
+    "headline": "A community partner meeting date was updated from March 12, 2026 to September 15, 2026 on the Nebraska DHHS Work Requirements web page.",
+    "details": [
+      "The 'Community Partner Meeting March 12, 2026' entry was removed and replaced with 'Community Partner Meeting September 15, 2026'.",
+      "All other content in the section remained unchanged, including the header, exemption details, and other meeting dates."
+    ],
+    "who_is_affected": "Navigators assisting individuals applying for or maintaining Medicaid coverage who rely on the work requirements exemption information and related training materials.",
+    "navigator_action": "Verify that clients are directed to the most current exemption process information and note that the September 15, 2026 community partner meeting is now the referenced session for workforce partner updates.",
+    "substantive": true
+  },
+  "ne-faq-2025-12-30->ne-faq-2026-04-15": {
+    "headline": "Updated language clarifies work requirement timing, adds specific deadlines for reporting information, and revises income thresholds and examples.",
+    "details": [
+      "Changed \"must complete\" to \"must meet\" work requirements and specified enrollment through Medicaid expansion (Heritage Health).",
+      "Updated income limits from $21,610/$44,380 to $22,025/$45,540 annually for 138% FPL.",
+      "Added specific timing: current members must have completed 80 hours in at least one month since last renewal (for renewals starting May 2026); new applicants must complete requirements in the month before applying.",
+      "Defined \"qualifying month\" explicitly for current members (any month since last renewal) and new applicants (month before applying).",
+      "Added requirement to submit requested information within 30 days or risk losing coverage.",
+      "Revised \"What counts as working?\" to clarify that earning at least $580/month meets the requirement even with fewer than 80 hours.",
+      "Added note that Nebraska Medicaid is confirming federal guidance on what income counts and halftime enrollment hours.",
+      "Expanded list of qualifying school/apprenticeship programs to include high school and GED, and clarified need to provide official documents if asked.",
+      "Removed detailed lists of exemptions and temporary hardship criteria (e.g., foster care, tribal membership, hospitalization, emergency declarations).",
+      "Removed mention of mailing notices by January 1, 2026, and email/text opt-in for notices."
+    ],
+    "who_is_affected": "Adults aged 19-64 enrolled in or applying for Nebraska Medicaid through Medicaid expansion (Heritage Health), who are not pregnant, disabled, or enrolled in Medicare, and meet income and citizenship/immigration rules.",
+    "navigator_action": "Review current cases to verify if work requirements were met in the required timeframe (since last renewal for current members, or month before application for new applicants); advise clients to prepare to submit requested information within 30 days if contacted; update income threshold references to $580/month; note that guidance on income and halftime enrollment is pending federal confirmation.",
+    "substantive": true
+  },
+  "ne-faq-2026-04-15->ne-faq-2026-05-12": {
+    "headline": "Nebraska Medicaid work requirements clarified for existing members' renewal timing and added response options for verification requests.",
+    "details": [
+      "For existing Medicaid expansion members, work requirement checks now align with individual renewal dates, with May/June 2026 renewals deferred until 2027 and checks starting for those with coverage ending July 31, 2026 or later.",
+      "Added specific methods for responding to verification requests: scanning QR codes in notices, visiting iServe online, mail, phone, or in-person at local DHHS offices.",
+      "Clarified that applicants can meet work requirements using either the application month or the prior month, and temporary hardship exemptions apply to the month before application.",
+      "Updated the CMS guidance date from April 14, 2026 to April 29, 2026 throughout the document."
+    ],
+    "who_is_affected": "Adults enrolled in or applying for Nebraska Medicaid expansion (Heritage Health Adult) who are subject to work requirements.",
+    "navigator_action": "Inform current members that work requirement verification will occur at their individual renewal date, not uniformly starting May 2026, and advise them to monitor mail, email, and texts for requests for information.",
+    "substantive": true
+  }
+}

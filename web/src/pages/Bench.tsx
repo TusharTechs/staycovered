@@ -8,7 +8,8 @@ type Results = { version?: string; split?: string; date?: string; n_questions?: 
 export default function Bench() {
   const [r, setR] = useState<Results | null>(null)
   const [loading, setLoading] = useState(true)
-  useEffect(() => { api.bench().then(x => setR(x as Results)).finally(() => setLoading(false)) }, [])
+  const [ex, setEx] = useState<Awaited<ReturnType<typeof api.extraction>> | null>(null)
+  useEffect(() => { api.bench().then(x => setR(x as Results)).finally(() => setLoading(false)); api.extraction().then(setEx).catch(() => {}) }, [])
 
   return (
     <div className="space-y-5">
@@ -50,6 +51,18 @@ export default function Bench() {
                   <tr key={cat} className="border-t border-line"><td className="py-1.5">{cat.replace(/_/g, ' ')}</td>{r.systems!.map(s => <td key={s.system} className="tabular-nums">{row[s.system] !== undefined ? `${(row[s.system] * 100).toFixed(0)}%` : '—'}</td>)}</tr>
                 ))}</tbody>
               </table>
+            </Card>
+          )}
+          {ex && Object.keys(ex).length > 0 && (
+            <Card title="Document extraction (Nemotron Nano reads pay stubs, gig statements, letters)">
+              <table className="w-full text-sm">
+                <thead><tr className="text-left text-xs text-muted"><th className="py-1 font-medium">Test set</th><th className="font-medium">Docs</th><th className="font-medium">Row F1</th><th className="font-medium">Documents exactly right</th><th className="font-medium">Prompt-injected docs exactly right</th></tr></thead>
+                <tbody>{Object.entries(ex).map(([k, v]) => (
+                  <tr key={k} className="border-t border-line"><td className="py-1.5">{k === 'results' ? 'Development formats' : 'Held-out formats (unseen templates)'}</td><td className="tabular-nums">{v.docs}</td>
+                    <td className="tabular-nums">{(v.row_f1 * 100).toFixed(1)}%</td><td className="tabular-nums">{(v.doc_exact * 100).toFixed(0)}%</td><td className="tabular-nums">{(v.injected_exact * 100).toFixed(0)}% of {v.injected_docs}</td></tr>
+                ))}</tbody>
+              </table>
+              <p className="mt-2 text-xs text-muted">The model labels what each number is and copies it exactly; code parses numbers and applies counting rules. Synthetic documents with known answers.</p>
             </Card>
           )}
           <Card title="How it was built">

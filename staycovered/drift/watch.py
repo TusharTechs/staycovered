@@ -305,7 +305,7 @@ def flag_cases(ev: DriftEvent) -> list[dict]:
     return hits
 
 
-REPLAY_CACHE = config.RUNTIME_DIR / "replay_cache.json"
+REPLAY_CACHE = config.ROOT / "data" / "cache" / "replay_cache.json"  # committed: judges never trigger model calls on page load
 
 
 def replay_all(jurisdiction: str, summarise: bool = True) -> list[dict]:
