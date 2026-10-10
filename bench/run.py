@@ -50,27 +50,45 @@ def sys_frozen(q: dict, model: str) -> dict:
     return {"answer": llm._THINK.sub("", out).strip()}
 
 
-def sys_frontier(q: dict) -> dict:
-    import httpx
+FRONTIER_MODEL = os.getenv("SC_FRONTIER_MODEL", "claude-opus-5-5")
+FRONTIER_PRICE = {"claude-opus-5-5": (4.0, 20.0), "claude-sonnet-5-5": (2.0, 10.0), "claude-haiku-5-5": (0.10, 0.50)}
+FRONTIER_CAP_USD = float(os.getenv("SC_FRONTIER_CAP_USD", "6"))
+FRONTIER_LOG = config.RUNTIME_DIR / "frontier_calls.jsonl"
 
-    key = os.getenv("ANTHROPIC_API_KEY", "")
-    if not key:
-        raise RuntimeError("ANTHROPIC_API_KEY not set")
-    model = os.getenv("SC_FRONTIER_MODEL", "claude-sonnet-5-5")
-    r = httpx.post(
-        "https://api.anthropic.com/v1/messages",
-        headers={"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"},
-        json={"model": model, "max_tokens": 900,
-              "system": f"You help Medicaid navigators. Today's date is {q['as_of']}. Answer accurately and concisely.",
-              "messages": [{"role": "user", "content": f"State: {q['jurisdiction']}. {q['question']}"}]},
-        timeout=120,
+
+def frontier_spent() -> float:
+    if not FRONTIER_LOG.exists():
+        return 0.0
+    return sum(json.loads(l).get("usd", 0) for l in FRONTIER_LOG.read_text().splitlines() if l.strip())
+
+
+def sys_frontier(q: dict) -> dict:
+    """Frontier model with no sources (frozen at its training date), told the question's date."""
+    import anthropic
+
+    if frontier_spent() >= FRONTIER_CAP_USD:
+        raise RuntimeError(f"frontier spend cap ${FRONTIER_CAP_USD} reached")
+    client = anthropic.Anthropic()
+    resp = client.beta.messages.create(
+        model=FRONTIER_MODEL,
+        max_tokens=16000,
+        output_config={"effort": "medium"},
+        betas=["server-side-fallback-2026-07-01"],
+        fallbacks="default",
+        system=f"You help Medicaid navigators. Today's date is {q['as_of']}. Answer accurately and concisely.",
+        messages=[{"role": "user", "content": f"State: {q['jurisdiction']}. {q['question']}"}],
     )
-    r.raise_for_status()
-    d = r.json()
-    u = d.get("usage", {})
-    with (config.RUNTIME_DIR / "frontier_calls.jsonl").open("a") as f:
-        f.write(json.dumps({"ts": time.time(), "model": model, "in": u.get("input_tokens"), "out": u.get("output_tokens")}) + "\n")
-    return {"answer": "".join(b.get("text", "") for b in d.get("content", [])), "model": model, "usage": u}
+    pin, pout = FRONTIER_PRICE.get(FRONTIER_MODEL, (4.0, 20.0))
+    u = resp.usage
+    usd = (u.input_tokens * pin + u.output_tokens * pout) / 1e6
+    served_by = resp.model
+    with FRONTIER_LOG.open("a") as f:
+        f.write(json.dumps({"ts": time.time(), "model": FRONTIER_MODEL, "served_by": served_by, "in": u.input_tokens,
+                            "out": u.output_tokens, "usd": round(usd, 6), "stop": resp.stop_reason}) + "\n")
+    if resp.stop_reason == "refusal":
+        return {"answer": "(model declined to answer)", "model": served_by}
+    text = "".join(b.text for b in resp.content if b.type == "text")
+    return {"answer": text, "model": served_by, "fallback": served_by != FRONTIER_MODEL}
 
 
 def sys_staycovered(q: dict, *, date_aware: bool = True) -> dict:
@@ -88,7 +106,7 @@ SYSTEMS = {
 }
 
 MODEL_OF = {"frozen-super": config.SUPER.id, "frozen-nano": config.NANO.id, "rag-latest": config.SUPER.id,
-            "staycovered": config.SUPER.id, "frozen-frontier": os.getenv("SC_FRONTIER_MODEL", "claude-sonnet-5-5")}
+            "staycovered": config.SUPER.id, "frozen-frontier": FRONTIER_MODEL}
 
 
 # ---------------- judge ----------------
@@ -197,6 +215,7 @@ def run(split: str, systems: list[str], limit: int | None, max_usd: float, worke
         ],
         "records": records,
         "nemotron_usd": round(spent(t0), 4),
+        "frontier_usd_total": round(frontier_spent(), 4),
     }
     stamp = datetime.now().strftime("%Y%m%dT%H%M%S")
     (RDIR / f"{stamp}-{split}.json").write_text(json.dumps(result, indent=2, default=str))
