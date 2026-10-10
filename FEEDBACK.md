@@ -1,14 +1,14 @@
 # Feedback on Nebius Token Factory, NVIDIA Nemotron and Tavily
 
-These notes come from building StayCovered between 2026-10-09 and 2026-10-30. The numbers are from our own call logs (`data/runtime/calls.jsonl`). As of 2026-10-10 the logs held 1,171 Token Factory calls, about 2.3M tokens, at a total cost of **$1.05**.
+These notes come from building StayCovered in October 2026. The numbers are from our own call logs (summarised in `data/cache/usage_summary.json`). Across the whole build, including every benchmark run, the logs hold **6,523 Token Factory calls, about 10.4M tokens, for a total of $5.16**.
 
 ## What worked well
 
 | Area | Observation |
 |---|---|
 | **OpenAI compatibility** | We used the standard `openai` Python SDK with `base_url=https://api.tokenfactory.nebius.com/v1/` and changed nothing else. `models.list()` returned all four Nemotron models. |
-| **Structured output** | `response_format={"type": "json_schema", ...}` worked on Nemotron 3 Nano, 3.5 Lightning and 3 Super, even though the catalog does not tag these models with "JSON mode". In about 1,100 structured calls we never had to fall back to prompt-only JSON. |
-| **Price and performance** | Nano: 355 calls, p50 1.4 s, $0.036 in total. Super, with reasoning on: 273 calls, p50 5.0 s, $0.71. Ultra (as the benchmark judge): 540 calls, p50 0.7 s, $0.30. A complete 47-question benchmark run across three systems, including judging, cost about $0.50. |
+| **Structured output** | `response_format={"type": "json_schema", ...}` worked on Nemotron 3 Nano, 3.5 Lightning and 3 Super, even though the catalog does not tag these models with "JSON mode". In thousands of structured calls we never had to fall back to prompt-only JSON. |
+| **Price and performance** | Nano (extraction): 936 calls, p50 0.5 s, $0.05 in total. Super, with reasoning on (grounded answers): 1,120 calls, p50 5.3 s, $2.97. Ultra (benchmark judge): 2,704 calls, p50 0.8 s, $1.76. A complete 47-question benchmark run across three systems, including judging, cost about $0.50. |
 | **Reliability** | No retries were needed. We saw no 429s or 5xx errors at our volume, with up to 6 parallel workers. |
 | **Model ladder** | Nano for extraction, Super for grounded reasoning and Ultra for judging gave a natural cost and quality split on one API. |
 | **Tavily Extract** | It fetched `dhhs.ne.gov` pages in about 2 s, while our own direct `curl` requests to the same site timed out repeatedly. One call covered 8 official pages across 5 states. |
