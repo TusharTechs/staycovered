@@ -82,6 +82,18 @@ Pay period: 09/01/2026 - 09/30/2026
 Regular hours: 52.00   Rate: $13.50   Gross: $702.00
 """
 
+DANI_STUB = """Rise & Shine Bakery — Pay Stub (SYNTHETIC)
+Employee: Dani Ortiz
+Pay period: 09/01/2026 - 09/30/2026
+Regular hours: 34.00   Rate: $15.00   Gross: $510.00
+Net pay: $468.95
+"""
+
+DANI_VOL = """Heartland Animal Rescue (SYNTHETIC)
+Dani Ortiz volunteered at our shelter in September 2026: 18 hours walking dogs and cleaning kennels.
+— Volunteer Program Lead
+"""
+
 AISHA_VOL = """Lincoln Community Food Pantry (SYNTHETIC)
 To whom it may concern,
 Aisha Mohammed volunteered with our pantry in September 2026 for a total of 20 hours (sorting and distribution).
@@ -150,7 +162,7 @@ def build() -> list[store.CaseRecord]:
         (Kind.SELF_EMPLOYMENT_GROSS, "2026-08-01", "2026-08-31", 137.40, "CartHop", "Total earnings: $137.40"),
         (Kind.WORK_HOURS, "2026-08-01", "2026-08-31", 10.5, "CartHop", "Hours on batches: 10.5"),
     ])
-    case = Case(id="maria-lopez", jurisdiction="NE", client_id="maria",
+    case = Case(id="maria-lopez", location="Omaha, NE", jurisdiction="NE", client_id="maria",
                 household=[Member(id="maria", name="Maria Lopez", age=34)],
                 ledger=ea + eb, event="noncompliance_notice", event_date=D("2026-09-20"), notice_date=D("2026-09-20"),
                 months_in_question=["2026-08"])
@@ -168,7 +180,7 @@ def build() -> list[store.CaseRecord]:
         (Kind.EARNED_INCOME, "2026-08-01", "2026-08-15", 1701.00, "Prairie Roof & Siding", "Pay period: 08/01/2026 - 08/15/2026   Hours: 81.0    Gross pay: $1,701.00"),
     ])
     recs.append(store.CaseRecord(
-        case=Case(id="james-carter", jurisdiction="NE", client_id="james",
+        case=Case(id="james-carter", location="Kearney, NE", jurisdiction="NE", client_id="james",
                   household=[Member(id="james", name="James Carter", age=41, seasonal_worker=True)],
                   ledger=es, event="renewal", event_date=D("2026-10-05")),
         client_name="James Carter", documents=[s]))
@@ -182,7 +194,7 @@ def build() -> list[store.CaseRecord]:
         (Kind.COMMUNITY_SERVICE_HOURS, "2026-09-01", "2026-09-30", 20.0, "Lincoln Community Food Pantry", "for a total of 20 hours"),
     ])
     recs.append(store.CaseRecord(
-        case=Case(id="aisha-mohammed", jurisdiction="NE", client_id="aisha",
+        case=Case(id="aisha-mohammed", location="Lincoln, NE", jurisdiction="NE", client_id="aisha",
                   household=[Member(id="aisha", name="Aisha Mohammed", age=29)],
                   ledger=ep + ev, event="noncompliance_notice", event_date=D("2026-10-02"), notice_date=D("2026-10-02"), months_in_question=["2026-09"]),
         client_name="Aisha Mohammed", documents=[p, v]))
@@ -192,7 +204,7 @@ def build() -> list[store.CaseRecord]:
         (Kind.EARNED_INCOME, "2026-09-01", "2026-09-30", 2104.00, "Heartland Medical Billing", "Gross earnings: $2,104.00"),
     ])
     recs.append(store.CaseRecord(
-        case=Case(id="tom-becker", jurisdiction="NE", client_id="tom",
+        case=Case(id="tom-becker", location="Grand Island, NE", jurisdiction="NE", client_id="tom",
                   household=[Member(id="tom", name="Tom Becker", age=58), Member(id="linda", name="Linda Becker", age=55, applicable_adult=False)],
                   ledger=eb2, event="renewal", event_date=D("2026-10-12")),
         client_name="Tom Becker", documents=[bs]))
@@ -201,7 +213,7 @@ def build() -> list[store.CaseRecord]:
     k1, _ = doc("kayla-school", "College enrollment verification", "activity", "kayla", KAYLA_SCHOOL, [])
     k2, _ = doc("kayla-note", "Navigator intake note", "other", "kayla", KAYLA_NOTE, [])
     recs.append(store.CaseRecord(
-        case=Case(id="kayla-brooks", jurisdiction="NE", client_id="kayla",
+        case=Case(id="kayla-brooks", location="Lincoln, NE", jurisdiction="NE", client_id="kayla",
                   household=[Member(id="kayla", name="Kayla Brooks", age=24, caretaker_of_young_child=True)],
                   ledger=[], event="noncompliance_notice", event_date=D("2026-09-28"), notice_date=D("2026-09-28"), months_in_question=["2026-08"]),
         client_name="Kayla Brooks", documents=[k1, k2]))
@@ -214,7 +226,7 @@ def build() -> list[store.CaseRecord]:
         (Kind.EARNED_INCOME, "2026-08-01", "2026-08-31", 2370.00, "Big Sky Trail Outfitters", "Pay period: 08/01/2026 - 08/31/2026   Hours: 158.0   Gross pay: $2,370.00"),
     ])
     recs.append(store.CaseRecord(
-        case=Case(id="sam-whitaker", jurisdiction="MT", client_id="sam",
+        case=Case(id="sam-whitaker", location="Bozeman, MT", jurisdiction="MT", client_id="sam",
                   household=[Member(id="sam", name="Sam Whitaker", age=38, seasonal_worker=True)],
                   ledger=est, event="renewal", event_date=D("2026-10-20")),
         client_name="Sam Whitaker", documents=[st]))
@@ -227,7 +239,7 @@ def build() -> list[store.CaseRecord]:
         (Kind.COMMUNITY_SERVICE_HOURS, "2026-09-01", "2026-09-30", 30.0, "Bozeman Community Food Bank", "for a total of 30 hours"),
     ])
     recs.append(store.CaseRecord(
-        case=Case(id="hannah-pierce", jurisdiction="MT", client_id="hannah",
+        case=Case(id="hannah-pierce", location="Missoula, MT", jurisdiction="MT", client_id="hannah",
                   household=[Member(id="hannah", name="Hannah Pierce", age=22)],
                   ledger=eh1 + eh2, event="application", event_date=D("2026-10-02")),
         client_name="Hannah Pierce", documents=[h1, h2]))
@@ -237,17 +249,31 @@ def build() -> list[store.CaseRecord]:
         (Kind.EARNED_INCOME, "2026-09-01", "2026-09-30", 900.00, "Yellowstone Regional Clinic", "Gross earnings: $900.00"),
     ])
     recs.append(store.CaseRecord(
-        case=Case(id="marcus-lee", jurisdiction="MT", client_id="marcus",
+        case=Case(id="marcus-lee", location="Billings, MT", jurisdiction="MT", client_id="marcus",
                   household=[Member(id="marcus", name="Marcus Lee", age=45), Member(id="joanne", name="Joanne Lee", age=44, applicable_adult=False)],
                   ledger=el1, event="application", event_date=D("2026-10-05")),
         client_name="Marcus Lee", documents=[l1]))
 
     # 6. Robert — no documents yet; possible medical frailty.
     recs.append(store.CaseRecord(
-        case=Case(id="robert-nguyen", jurisdiction="NE", client_id="robert",
+        case=Case(id="robert-nguyen", location="Omaha, NE", jurisdiction="NE", client_id="robert",
                   household=[Member(id="robert", name="Robert Nguyen", age=47, medically_frail_indicators=["type 2 diabetes with neuropathy", "recent hospitalization"])],
                   ledger=[], event="noncompliance_notice", event_date=D("2026-10-06"), notice_date=D("2026-10-06"), months_in_question=["2026-09"]),
         client_name="Robert Nguyen", documents=[]))
+    # 10. Dani — part-time bakery job plus shelter volunteering: 52 hours and $510. Nebraska does not combine income
+    #     with hours, so Dani is $70 (or 28 hours) short each month. The planner's showcase.
+    d1, ed1 = doc("dani-stub", "Rise & Shine Bakery pay stub", "income", "dani", DANI_STUB, [
+        (Kind.EARNED_INCOME, "2026-09-01", "2026-09-30", 510.00, "Rise & Shine Bakery", "Regular hours: 34.00   Rate: $15.00   Gross: $510.00"),
+        (Kind.WORK_HOURS, "2026-09-01", "2026-09-30", 34.0, "Rise & Shine Bakery", "Regular hours: 34.00   Rate: $15.00   Gross: $510.00"),
+    ])
+    d2, ed2 = doc("dani-shelter", "Animal shelter volunteer letter", "income", "dani", DANI_VOL, [
+        (Kind.COMMUNITY_SERVICE_HOURS, "2026-09-01", "2026-09-30", 18.0, "Heartland Animal Rescue", "volunteered at our shelter in September 2026: 18 hours"),
+    ])
+    recs.append(store.CaseRecord(
+        case=Case(id="dani-ortiz", location="Omaha, NE", jurisdiction="NE", client_id="dani",
+                  household=[Member(id="dani", name="Dani Ortiz", age=27)],
+                  ledger=ed1 + ed2, event="renewal", event_date=D("2026-11-02")),
+        client_name="Dani Ortiz", documents=[d1, d2]))
     return recs
 
 

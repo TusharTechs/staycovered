@@ -80,7 +80,35 @@ export const api = {
   calls: () => fetch('/api/log/calls').then(j<Record<string, unknown>[]>),
   tavily: () => fetch('/api/log/tavily').then(j<Record<string, unknown>[]>),
   bench: () => fetch('/api/bench/results').then(j<Record<string, unknown>>),
+  plan: (id: string, as_of?: string) => fetch(`/api/cases/${id}/plan` + q({ as_of })).then(j<Plan>),
+  forecast: (jurisdiction: string, as_of?: string) => fetch('/api/forecast' + q({ jurisdiction, as_of })).then(j<CaseloadForecast>),
+  nearby: (id: string, kind: 'volunteer' | 'work_program') => fetch(`/api/cases/${id}/nearby` + q({ kind })).then(j<Nearby>),
 }
+
+export interface PathOpt {
+  kind: 'ask_exemption' | 'hours' | 'income' | 'expenses' | 'household'
+  title: string; detail: string; effort: number; month: string; proven: boolean; result_status: string
+  fact_ids: string[]; questions: string[]
+}
+export interface RuleChange { param: string; label: string; before: string; after: string; fact_id: string | null }
+export interface ForecastMonth { month: string; status: Status; path: string | null; conditions: string[]; changes: RuleChange[]; paths: PathOpt[] }
+export interface Forecast {
+  case_id: string; jurisdiction: string; from_month: string; pattern_month: string | null
+  pattern: { member_id: string; kind: string; amount: number }[]; assumptions: string[]
+  months: ForecastMonth[]; headline: string; first_risk: string | null
+}
+export interface Plan { paths: { month: string; status: Status; paths: PathOpt[] }[]; forecast: Forecast; location: string }
+export interface CaseloadForecast {
+  months: string[]
+  rows: { id: string; client_name: string; headline: string; first_risk: string | null; months: { month: string; status: Status }[] }[]
+  changes: { month: string; label: string; before: string; after: string; fact_id: string | null; clients: string[] }[]
+}
+export interface Nearby {
+  location: string; kind: string; query: string; rule: string; as_of: string; sent_to_search: string; dropped_unverified: number
+  options: { name: string; what: string; url: string; quote: string; title: string }[]
+}
+export const monthLabel = (m: string, style: 'short' | 'long' = 'short') =>
+  new Date(m + '-01T00:00:00').toLocaleDateString('en-US', { month: style, year: 'numeric' })
 
 export const fmtDate = (s: string | null | undefined) =>
   s ? new Date(s + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—'

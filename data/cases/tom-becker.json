@@ -58,7 +58,8 @@
     "event_date": "2026-10-12",
     "notice_date": null,
     "months_in_question": [],
-    "notes": ""
+    "notes": "",
+    "location": "Grand Island, NE"
   },
   "client_name": "Tom Becker",
   "navigator": "Demo navigator",

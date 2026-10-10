@@ -1,0 +1,436 @@
+{
+ "Omaha, NE|volunteer": {
+  "location": "Omaha, NE",
+  "kind": "volunteer",
+  "query": "volunteer opportunities nonprofit Omaha Nebraska sign up",
+  "rule": "Community service (volunteering) counts toward the 80 hours.",
+  "as_of": "2026-10-10",
+  "options": [
+   {
+    "name": "Keep Omaha Beautiful, Inc.",
+    "what": "Litter cleanup volunteers for outdoor projects in Omaha, flexible dates and locations",
+    "url": "https://www.keepomahabeautiful.org/get-involved/volunteer.html",
+    "quote": "Keep Omaha Beautiful offers outdoor volunteer opportunities in Omaha, Nebraska for all ages and skill levels",
+    "title": "Volunteer | Keep Omaha Beautiful, Inc. | Omaha, NE"
+   },
+   {
+    "name": "United Way of the Midlands",
+    "what": "Assembling hygiene kits for students during annual Shine Bright event",
+    "url": "https://unitedwaymidlands.org/volunteer",
+    "quote": "During this event, volunteers help assemble over 5,000 hygiene kits that are distributed by social workers, school counselors and school nurses to local Kindergarten, sixth and ninth-grade students.",
+    "title": "Volunteer - United Way of the Midlands"
+   },
+   {
+    "name": "SHARE Omaha",
+    "what": "Explore 428 volunteer opportunities with local nonprofits in Omaha metro",
+    "url": "https://shareomaha.org",
+    "quote": "Explore the 428 opportunities for you, your family, friends and",
+    "title": "SHARE Omaha: Support Local Nonprofits in Omaha Metro"
+   }
+  ],
+  "dropped_unverified": 1,
+  "sent_to_search": "Omaha, Nebraska (no client details)"
+ },
+ "Omaha, NE|work_program": {
+  "location": "Omaha, NE",
+  "kind": "work_program",
+  "query": "free job training or workforce program Omaha Nebraska (American Job Center, WIOA, community college)",
+  "rule": "Participating in a work program (job training) counts toward the 80 hours.",
+  "as_of": "2026-10-10",
+  "options": [
+   {
+    "name": "Heartland Workforce Solutions",
+    "what": "Offers workforce development services including training, career fairs, and skill improvement at American Job Center locations in Greater Omaha.",
+    "url": "https://hws-ne.org",
+    "quote": "We help people in the Greater Omaha area find jobs and improve their skills. We run the American Job Center and programs for adults, dislocated workers, and you",
+    "title": "Home - Heartland Workforce Solutions"
+   },
+   {
+    "name": "Metropolitan Community College",
+    "what": "Provides WIOA-eligible training programs such as CDL, CompTIA Tech+, pharmacy technician, and phlebotomy technician in Omaha.",
+    "url": "https://capstoneworkforce.com/resources/wioa-nebraska",
+    "quote": "On July 8, 2026, Governor Pillen approved Nebraska's first four Workforce Pell programs, all at Metropolitan Community College in Omaha: CDL, CompTIA Tech+ with Google IT Support, pharmacy technician, and phlebotomy technician.",
+    "title": "WIOA Program Nebraska: Eligibility, Funding & How to Apply (2026)"
+   },
+   {
+    "name": "Ponca Tribe of Nebraska WIOA Program",
+    "what": "Assists individuals with education and training, job search activities, and employment-related supportive services through WIOA funding.",
+    "url": "https://www.facebook.com/PoncaTribeOfNebraska/posts/be-ready-for-the-next-stepthe-ponca-workforce-innovation-opportunity-act-wioa-pr/988768426628122",
+    "quote": "The Ponca Workforce Innovation Opportunity Act (WIOA) Program is funded by a Department of Labor Grant. The Program assists individuals with education and training, job search activities, and employment-related supportive services.",
+    "title": "Be ready for the next step. The... - Ponca Tribe of Nebraska"
+   }
+  ],
+  "dropped_unverified": 0,
+  "sent_to_search": "Omaha, Nebraska (no client details)"
+ },
+ "Lincoln, NE|volunteer": {
+  "location": "Lincoln, NE",
+  "kind": "volunteer",
+  "query": "volunteer opportunities nonprofit Lincoln Nebraska sign up",
+  "rule": "Community service (volunteering) counts toward the 80 hours.",
+  "as_of": "2026-10-10",
+  "options": [
+   {
+    "name": "Food Bank of Lincoln",
+    "what": "Individuals can check out the volunteer hub to view and sign up for volunteer activities.",
+    "url": "https://www.lincolnfoodbank.org/give-help/volunteer",
+    "quote": "Check out our volunteer hub to view and sign-up for volunteer activities.",
+    "title": "Volunteer - Food Bank of Lincoln"
+   },
+   {
+    "name": "United Way Lincoln via VolunteerLNK.org",
+    "what": "Explore opportunities, sign up for projects, and be part of the collective effort to create positive change in the community.",
+    "url": "https://www.unitedwaylincoln.org/newsroom/introducing-volunteerlnk-org",
+    "quote": "Interested individuals may visit volunteerLNK.org to explore opportunities, sign up for projects, and be part of the collective effort to create positive change our community.",
+    "title": "United Way Lincoln"
+   },
+   {
+    "name": "Engage Lincoln",
+    "what": "Volunteers will have the opportunity to organize a donations and distribute items to individuals.",
+    "url": "https://involved.unl.edu/engage-lincoln",
+    "quote": "Volunteers will have the opportunity to organize a donations and distribute items to individuals.",
+    "title": "Engage Lincoln | Student Leadership, Involvement, & Community Engagement | Nebraska"
+   },
+   {
+    "name": "Center for People",
+    "what": "Join us once a week or once in a while to help distribute food and diapers to our Center for People families.",
+    "url": "https://centerforpeople.org/get-involved/volunteer",
+    "quote": "We can always use volunteers to help distribute food and diapers to our Center for People families.",
+    "title": "Volunteer - Center for People"
+   }
+  ],
+  "dropped_unverified": 0,
+  "sent_to_search": "Lincoln, Nebraska (no client details)"
+ },
+ "Lincoln, NE|work_program": {
+  "location": "Lincoln, NE",
+  "kind": "work_program",
+  "query": "free job training or workforce program Lincoln Nebraska (American Job Center, WIOA, community college)",
+  "rule": "Participating in a work program (job training) counts toward the 80 hours.",
+  "as_of": "2026-10-10",
+  "options": [
+   {
+    "name": "American Job Center - Lincoln",
+    "what": "Offers employment services including computer access for job search and WIOA program enrollment.",
+    "url": "https://search.ne211.org/search?query=ND-6500.9600&query_label=WIOA+Programs&query_type=taxonomy",
+    "quote": "Offers employment services, including access to computers/internet for employment purposes.",
+    "title": "ND-6500.9600 | Home | Nebraska 211"
+   },
+   {
+    "name": "City of Lincoln Bridges to Careers Program",
+    "what": "Provides no-cost services to help residents get back to work, find better jobs, or change careers.",
+    "url": "https://www.facebook.com/lincolnnebraska/posts/american-job-center-of-lancaster-and-saunders-counties-bridges-to-careers-progra/1426901892804417",
+    "quote": "Whether you are looking to get back to work, find a better job, or change career paths, their many services are available at no cost.",
+    "title": "City of Lincoln Government"
+   }
+  ],
+  "dropped_unverified": 0,
+  "sent_to_search": "Lincoln, Nebraska (no client details)"
+ },
+ "Kearney, NE|volunteer": {
+  "location": "Kearney, NE",
+  "kind": "volunteer",
+  "query": "volunteer opportunities nonprofit Kearney Nebraska sign up",
+  "rule": "Community service (volunteering) counts toward the 80 hours.",
+  "as_of": "2026-10-10",
+  "options": [
+   {
+    "name": "City of Kearney Parks Department - The Gardens at Yanney",
+    "what": "Seasonal gardening and event volunteering including planting, clean-up, and horticultural activities.",
+    "url": "https://www.cityofkearney.org/2194/Volunteering",
+    "quote": "Seasonal volunteers can sign up for specific events and other volunteer opportunities like weekly horticultural activities and educational programs.",
+    "title": "Volunteering | City of Kearney, NE - Official Website"
+   },
+   {
+    "name": "Friends Program of Kearney",
+    "what": "One-on-one mentoring as a Big Friend to a child in the community.",
+    "url": "https://friendsprogram.net",
+    "quote": "We are currently enrolling Big and Little Friends. Make an impact today through volunteering your time through a one-on-one mentoring relationship.",
+    "title": "Home : The Friends Program of Kearney"
+   },
+   {
+    "name": "United Way of the Kearney Area",
+    "what": "Participate in recurring community projects like Free Little Pantries, Stamp Out Hunger, and Coats for Kids.",
+    "url": "https://www.uwka.org/volunteer",
+    "quote": "Free Little Pantries (weekly throughout the year)",
+    "title": "Volunteer | United Way of the Kearney Area"
+   }
+  ],
+  "dropped_unverified": 1,
+  "sent_to_search": "Kearney, Nebraska (no client details)"
+ },
+ "Kearney, NE|work_program": {
+  "location": "Kearney, NE",
+  "kind": "work_program",
+  "query": "free job training or workforce program Kearney Nebraska (American Job Center, WIOA, community college)",
+  "rule": "Participating in a work program (job training) counts toward the 80 hours.",
+  "as_of": "2026-10-10",
+  "options": [
+   {
+    "name": "Lincoln American Job Center",
+    "what": "Free in-person support for job searching, resume development, NEworks account help, and access to workshops and training resources.",
+    "url": "https://www.careeronestop.org/localhelp/americanjobcenters/find-american-job-centers-details.aspx?location=Nebraska&radius=25&centerID=4032&ct=0&y=0&w=0&e=0&locationSelected=0&sortcolumns=Distance&sortdirections=ASC&curPage=1&pagesize=10",
+    "quote": "The Lincoln American Job Center provides free, in-person support for anyone seeking employment, training, or workforce services.",
+    "title": "American Job Center Finder | CareerOneStop"
+   },
+   {
+    "name": "Heartland Workforce Solutions",
+    "what": "Runs American Job Center services in Greater Omaha area including job search assistance, skills training, and career counseling for adults and dislocated workers.",
+    "url": "https://hws-ne.org",
+    "quote": "We help people in the Greater Omaha area find jobs and improve their skills. We run the American Job Center and programs for adults, dislocated workers, and youth.",
+    "title": "Home - Heartland Workforce Solutions"
+   }
+  ],
+  "dropped_unverified": 0,
+  "sent_to_search": "Kearney, Nebraska (no client details)"
+ },
+ "Grand Island, NE|volunteer": {
+  "location": "Grand Island, NE",
+  "kind": "volunteer",
+  "query": "volunteer opportunities nonprofit Grand Island Nebraska sign up",
+  "rule": "Community service (volunteering) counts toward the 80 hours.",
+  "as_of": "2026-10-10",
+  "options": [
+   {
+    "name": "Central Nebraska Humane Society",
+    "what": "Help with animal care and enrichment through individual or group volunteering.",
+    "url": "https://cnhs-gi.com/Get-Involved/Volunteer",
+    "quote": "Volunteer Opportunities at CNHS",
+    "title": "Volunteer | Central Nebraska Humane Society | Grand Island, NE"
+   },
+   {
+    "name": "Stuhr Museum",
+    "what": "Assist with various projects preserving Nebraska\u2019s heritage, no experience needed.",
+    "url": "https://stuhrmuseum.org/join/volunteer",
+    "quote": "Lend a helping hand to history!",
+    "title": "Volunteer - Stuhr Museum : Stuhr Museum"
+   },
+   {
+    "name": "Grand Island Public Library",
+    "what": "Volunteer to connect people with information, ideas, and experiences at the library.",
+    "url": "https://www.gilibrary.org/page/volunteer-at-the-library",
+    "quote": "Volunteer at the Library?",
+    "title": "Volunteer at the Library? | Grand Island Public Library"
+   },
+   {
+    "name": "Heartland United Way Volunteer Hub",
+    "what": "Find local volunteer opportunities through the Heartland United Way Go2Volunteer platform.",
+    "url": "https://www.go2volunteer.org",
+    "quote": "Get Involved, Make a Difference.",
+    "title": "Heartland United Way"
+   }
+  ],
+  "dropped_unverified": 0,
+  "sent_to_search": "Grand Island, Nebraska (no client details)"
+ },
+ "Grand Island, NE|work_program": {
+  "location": "Grand Island, NE",
+  "kind": "work_program",
+  "query": "free job training or workforce program Grand Island Nebraska (American Job Center, WIOA, community college)",
+  "rule": "Participating in a work program (job training) counts toward the 80 hours.",
+  "as_of": "2026-10-10",
+  "options": [
+   {
+    "name": "American Job Center - Grand Island",
+    "what": "Provides WIOA-funded occupation-specific job training, career counseling, job search/placement, and comprehensive job assistance.",
+    "url": "https://www.careeronestop.org/LocalHelp/AmericanJobCenters/find-american-job-centers.aspx?location=NE",
+    "quote": "Location, 203 E. Stolley Park Road Suite A Grand Island, NE 68801.",
+    "title": "American Job Center in NE"
+   }
+  ],
+  "dropped_unverified": 0,
+  "sent_to_search": "Grand Island, Nebraska (no client details)"
+ },
+ "Bozeman, MT|volunteer": {
+  "location": "Bozeman, MT",
+  "kind": "volunteer",
+  "query": "volunteer opportunities nonprofit Bozeman Montana sign up",
+  "rule": "Community service (volunteering) counts toward the 80 hours.",
+  "as_of": "2026-10-10",
+  "options": [
+   {
+    "name": "Gallatin Valley Land Trust",
+    "what": "Participate in trail maintenance, weed pulling, fence building, event organizing, or educational outreach.",
+    "url": "https://outsidebozeman.com/culture/top-five-volunteer-jobs",
+    "quote": "Volunteer jobs are diverse, from organizing events, participating in National Trails Day in June, pulling weeds, building fences, and making educational presentations to the community.",
+    "title": "Top Five Volunteer Jobs | Outside Bozeman"
+   },
+   {
+    "name": "Heart of the Valley Humane Society",
+    "what": "Spend time with animals, assist with care, and support adoption efforts at a no-kill shelter.",
+    "url": "https://outsidebozeman.com/culture/top-five-volunteer-jobs",
+    "quote": "what better way to give back than to spend a few hours a week enjoying these blissful Montana summers with a furry friend.",
+    "title": "Top Five Volunteer Jobs | Outside Bozeman"
+   },
+   {
+    "name": "Befrienders",
+    "what": "Provide weekly companionship to seniors through visits, walks, games, or community outings.",
+    "url": "https://www.gallatinmt.gov/875/Volunteer-Services",
+    "quote": "Befrienders matches volunteers with seniors for companionship.",
+    "title": "Volunteer Services | Gallatin County, MT"
+   },
+   {
+    "name": "HRDC",
+    "what": "Support food banks, emergency shelters, grocery rescue, or meal packing for vulnerable neighbors.",
+    "url": "https://thehrdc.org/volunteer",
+    "quote": "From sorting donations at our food banks, to driving grocery rescue routes, to helping guests feel welcome at our emergency shelters, your time and energy make a meaningful difference.",
+    "title": "Volunteer \u2014 HRDC"
+   }
+  ],
+  "dropped_unverified": 0,
+  "sent_to_search": "Bozeman, Montana (no client details)"
+ },
+ "Bozeman, MT|work_program": {
+  "location": "Bozeman, MT",
+  "kind": "work_program",
+  "query": "free job training or workforce program Bozeman Montana (American Job Center, WIOA, community college)",
+  "rule": "Participating in a work program (job training) counts toward the 80 hours.",
+  "as_of": "2026-10-10",
+  "options": [
+   {
+    "name": "Montana Department of Labor & Industry - WIOA Services",
+    "what": "Access occupational skills training, on-the-job training, and apprenticeships via WIOA Adult Program at local Job Service Montana offices.",
+    "url": "https://wsd.dli.mt.gov/wioa",
+    "quote": "In general, the Workforce Innovation and Opportunity Act (WIOA) Title I Adult program provides resources to enable workers to obtain or retain good jobs by providing them with workforce services such as job assistance, career guidance, and training opportunities.",
+    "title": "WIOA"
+   },
+   {
+    "name": "Job Service Montana Offices",
+    "what": "Visit local offices for WIOA intake, eligibility determination, career counseling, and referral to training programs.",
+    "url": "https://wsd.dli.mt.gov/wioa",
+    "quote": "Services available at Job Service Montana Offices. Job Service Montana Office Locations",
+    "title": "WIOA"
+   }
+  ],
+  "dropped_unverified": 1,
+  "sent_to_search": "Bozeman, Montana (no client details)"
+ },
+ "Missoula, MT|volunteer": {
+  "location": "Missoula, MT",
+  "kind": "volunteer",
+  "query": "volunteer opportunities nonprofit Missoula Montana sign up",
+  "rule": "Community service (volunteering) counts toward the 80 hours.",
+  "as_of": "2026-10-10",
+  "options": [
+   {
+    "name": "Missoula Family YMCA",
+    "what": "Serve as a positive role model for 6th graders in the Active 6 after school program.",
+    "url": "https://www.ymcamissoula.org/volunteers",
+    "quote": "Serve as a positive role model for 6th graders in our Active 6 after school program.",
+    "title": "Volunteers - Nonprofit Opportunities in Missoula, MT | Missoula Family YMCA"
+   },
+   {
+    "name": "International Rescue Committee (IRC)",
+    "what": "Provide 1:1 or group English language support to refugees and immigrants in Missoula.",
+    "url": "https://www.rescue.org/volunteer-opportunities/missoula-mt",
+    "quote": "Provide 1:1 or group English language support to refugees and immigrants in Missoula",
+    "title": "Volunteer opportunities | The IRC"
+   },
+   {
+    "name": "Missoula Aging Services",
+    "what": "Volunteer with Meals on Wheels, Caring Companions, Cleanup Crew, and other community services.",
+    "url": "https://www.umt.edu/retirees-association/activities-and-events/volunteer.php",
+    "quote": "MAS volunteer activities include Meals on Wheels, Caring Companions, Cleanup Crew, and others.",
+    "title": "Volunteer Opportunities On and Off Campus | University of Montana"
+   }
+  ],
+  "dropped_unverified": 1,
+  "sent_to_search": "Missoula, Montana (no client details)"
+ },
+ "Missoula, MT|work_program": {
+  "location": "Missoula, MT",
+  "kind": "work_program",
+  "query": "free job training or workforce program Missoula Montana (American Job Center, WIOA, community college)",
+  "rule": "Participating in a work program (job training) counts toward the 80 hours.",
+  "as_of": "2026-10-10",
+  "options": [
+   {
+    "name": "Workforce Innovation & Opportunity Act Youth Program - Human Resource Council",
+    "what": "Provides eligible out-of-school youth ages 16-24 with work experience through paid job training and individualized employment plans.",
+    "url": "https://www.humanresourcecouncil.org/workforce-innovation-opportunity-act-youth-program",
+    "quote": "Work experience through paid job training",
+    "title": "Workforce Innovation & Opportunity Act Youth Program \u2013 Human Resource Council \u2013 Missoula, Montana"
+   },
+   {
+    "name": "Job Service Montana",
+    "what": "Offers HELP-Link connecting Medicaid recipients with workforce training, employment services, and local jobs.",
+    "url": "https://montanaworks.gov/job-service-montana",
+    "quote": "HELP-Link connects Montana Medicaid recipients with high quality workforce training, employment services, and jobs in local communities.",
+    "title": "Job Service Montana"
+   }
+  ],
+  "dropped_unverified": 2,
+  "sent_to_search": "Missoula, Montana (no client details)"
+ },
+ "Billings, MT|volunteer": {
+  "location": "Billings, MT",
+  "kind": "volunteer",
+  "query": "volunteer opportunities nonprofit Billings Montana sign up",
+  "rule": "Community service (volunteering) counts toward the 80 hours.",
+  "as_of": "2026-10-10",
+  "options": [
+   {
+    "name": "MSU Billings Community Engagement",
+    "what": "Assist children with disabilities in recreational activities through Eagle Mount volunteering.",
+    "url": "https://www.msubillings.edu/engagement/engage-community/serve.htm",
+    "quote": "Eagle mount volunteer assists a child with a disability in recreation activity",
+    "title": "Individual Service Opportunities | MSU Billings"
+   },
+   {
+    "name": "Billings Food Bank",
+    "what": "Perform various tasks to support food bank operations and community outreach.",
+    "url": "https://billingsfoodbank.com/volunteer",
+    "quote": "Join our team and help us make good things happen in our community!",
+    "title": "Volunteer - Billings Food Bank"
+   },
+   {
+    "name": "Billings Parks and Recreation",
+    "what": "Participate in annual Rims cleanup event or log service via United Way portal.",
+    "url": "https://www.billingsparks.org/get-involved/volunteer",
+    "quote": "Our Annual Refresh the Rims takes place every October.",
+    "title": "Volunteer - Billings Parks and Recreation"
+   },
+   {
+    "name": "Billings Public Library",
+    "what": "Support library operations through available volunteer positions.",
+    "url": "https://www.billingsmt.gov/1837/Volunteer",
+    "quote": "Billings Public Library There's plenty of books to keep you busy at our library.",
+    "title": "Volunteers Needed"
+   }
+  ],
+  "dropped_unverified": 0,
+  "sent_to_search": "Billings, Montana (no client details)"
+ },
+ "Billings, MT|work_program": {
+  "location": "Billings, MT",
+  "kind": "work_program",
+  "query": "free job training or workforce program Billings Montana (American Job Center, WIOA, community college)",
+  "rule": "Participating in a work program (job training) counts toward the 80 hours.",
+  "as_of": "2026-10-10",
+  "options": [
+   {
+    "name": "Montana Department of Labor & Industry - WIOA Programs",
+    "what": "Access WIOA Adult, Youth, Dislocated Worker, and Adult Education programs offering job training, career counseling, and occupational skills training.",
+    "url": "https://wsd.dli.mt.gov/wioa",
+    "quote": "MTDLI administers four Workforce Innovation and Opportunity Act (WIOA) programs designed to deliver these services:",
+    "title": "WIOA"
+   },
+   {
+    "name": "Job Service Montana Offices",
+    "what": "Receive workforce services including job assistance, career guidance, and training opportunities through WIOA Title I Adult program at local offices.",
+    "url": "https://wsd.dli.mt.gov/wioa",
+    "quote": "Services available at Job Service Montana Offices. Job Service Montana Office Locations",
+    "title": "WIOA"
+   },
+   {
+    "name": "City College at MSU Billings Workforce Development",
+    "what": "Enroll in flexible, non-credit training programs designed to meet Montana's workforce needs and support lifelong learning.",
+    "url": "https://www.msubillings.edu/citycollege/wtc",
+    "quote": "City College at MSU Billings delivers flexible, non-credit training and youth programs designed to meet Montana's workforce needs and support lifelong learning.",
+    "title": "Workforce Development & Community Education"
+   }
+  ],
+  "dropped_unverified": 1,
+  "sent_to_search": "Billings, Montana (no client details)"
+ }
+}

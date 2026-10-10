@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { api, fmtDate, type CaseRecord, type MonthResult, type Worksheet } from '../api'
+import { api, fmtDate, type CaseRecord, type MonthResult, type Plan, type Worksheet } from '../api'
 import { Card, Spinner, StatusPill } from '../components/ui'
 import AskBox from '../components/AskBox'
 import { imageToText, pdfToText } from '../ocr'
 import { useJuris, type Juris } from '../components/State'
+import { ForecastCard, PathsCard } from '../components/Plan'
 
 const PATH: Record<string, string> = {
   hours: '80+ activity hours', income: 'income ≥ threshold',
@@ -19,7 +20,11 @@ export default function CasePage() {
   const [adding, setAdding] = useState(false)
 
   const { state, setState } = useJuris()
-  const load = () => api.case(id!).then(setData).catch(e => setErr(String(e)))
+  const [plan, setPlan] = useState<Plan | null>(null)
+  const load = () => {
+    api.case(id!).then(setData).catch(e => setErr(String(e)))
+    api.plan(id!).then(setPlan).catch(() => setPlan(null))
+  }
   useEffect(() => { load() }, [id])
   useEffect(() => {  // keep the state switch in sync with the case being viewed
     const j = data?.record.case.jurisdiction as Juris | undefined
@@ -78,6 +83,9 @@ export default function CasePage() {
                 <ul className="list-disc pl-5 mt-1 space-y-0.5">{ws.warnings.map((w, i) => <li key={i}>{w}</li>)}</ul></details>
             )}
           </Card>
+
+          {plan && <PathsCard plan={plan} caseId={rec.case.id} />}
+          {plan && <ForecastCard f={plan.forecast} caseId={rec.case.id} />}
 
           <Card title="Ask about this case's rules">
             <AskBox asOf={ws.as_of} jurisdiction={rec.case.jurisdiction} suggestions={rec.case.jurisdiction === 'MT' ? [

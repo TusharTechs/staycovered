@@ -58,7 +58,8 @@
     "event_date": "2026-10-05",
     "notice_date": null,
     "months_in_question": [],
-    "notes": ""
+    "notes": "",
+    "location": "Billings, MT"
   },
   "client_name": "Marcus Lee",
   "navigator": "Demo navigator",

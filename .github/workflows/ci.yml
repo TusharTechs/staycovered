@@ -1,0 +1,32 @@
+name: ci (engine tests, citation check, web build)
+
+on:
+  push:
+    branches: [main]
+  pull_request: {}
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v7
+      - run: uv sync --frozen
+      - name: Engine, planner and forecast tests
+        run: uv run pytest -q
+      - name: Every rule and benchmark citation is still verbatim in its captured official source
+        run: uv run python scripts/verify_citations.py --bench
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Type-check and build the web app
+        run: npx --yes pnpm@12.10.1 --dir web install --frozen-lockfile && npx --yes pnpm@12.10.1 --dir web build

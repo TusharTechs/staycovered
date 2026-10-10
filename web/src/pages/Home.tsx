@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className="space-y-10">
       <section className="pt-6 md:pt-10">
-        <div className="flex flex-wrap items-center gap-3"><p className="text-sm font-medium text-brand">Medicaid work requirements · Nebraska first</p><LastChecked /></div>
+        <div className="flex flex-wrap items-center gap-3"><p className="text-sm font-medium text-brand">Medicaid work requirements · Nebraska and Montana</p><LastChecked /></div>
         <h1 className="mt-2 font-serif text-4xl md:text-6xl tracking-tight leading-[1.05] max-w-4xl">
           AI models are frozen at their training date.<br /><span className="text-brand">Medicaid rules aren't.</span>
         </h1>
@@ -53,12 +53,29 @@ export default function Home() {
         </section>
       )}
 
-      <section className="grid gap-4 md:grid-cols-4 text-sm">
+      <section className="grid gap-4 md:grid-cols-2">
+        <Link to="/cases/dani-ortiz" className="group rounded-2xl border border-line bg-white p-6 hover:border-brand">
+          <div className="text-xs font-medium uppercase tracking-wide text-brand">Paths to stay covered</div>
+          <div className="mt-2 font-serif text-2xl leading-snug">Dani is $70 a month from keeping her health insurance.</div>
+          <p className="mt-2 text-sm text-muted">The engine searches for the smallest fixes and re-runs the rules to prove each one: five more paid hours,
+            or 28 volunteer hours at real places nearby, found with Tavily. <span className="text-brand group-hover:underline">Open Dani's case →</span></p>
+        </Link>
+        <Link to="/cases/tom-becker" className="group rounded-2xl border border-line bg-white p-6 hover:border-brand">
+          <div className="text-xs font-medium uppercase tracking-wide text-brand">Coverage forecast</div>
+          <div className="mt-2 font-serif text-2xl leading-snug">Same life, changing rules.</div>
+          <p className="mt-2 text-sm text-muted">Tom's household stays exactly the same for twelve months; only the published rules move. In January 2027 he
+            becomes clearly covered, and the forecast names the rule that did it. <span className="text-brand group-hover:underline">Open Tom's case →</span></p>
+        </Link>
+      </section>
+
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 text-sm">
         {[
           ['Reads documents', 'Gig statements, pay stubs, letters → labelled numbers with exact source lines (Nemotron Nano).'],
           ['Code does the math', 'Deterministic rules engine; "meets only if…" instead of a false yes.'],
           ['Answers as of a date', 'Grounded in dated official snapshots; quotes verified word for word (Nemotron Super).'],
-          ['Watches the rules', 'Tavily + archives detect official changes; affected cases are flagged for re-check.'],
+          ['Watches the rules', 'Tavily + archives detect official changes every day; affected cases are flagged for re-check.'],
+          ['Finds the smallest fix', 'Counterfactual search over the rules engine; every suggested path is proven by re-running it.'],
+          ['Forecasts the year', 'Twelve months ahead under rules already published, with calendar reminders for the client.'],
         ].map(([t, b]) => (
           <div key={t} className="rounded-xl border border-line bg-white p-4"><div className="font-semibold">{t}</div><div className="mt-1 text-muted">{b}</div></div>
         ))}

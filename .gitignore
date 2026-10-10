@@ -15,3 +15,8 @@ submission/
 .vercel
 .env*
 research/
+
+# third-party reference docs kept locally
+NVIDIA_NemoClaw.md
+NVIDIA_OpenShell.md
+NousResearch_hermes-agent.md

@@ -1,0 +1,135 @@
+{
+  "case": {
+    "id": "dani-ortiz",
+    "jurisdiction": "NE",
+    "location": "Omaha, NE",
+    "household": [
+      {
+        "id": "dani",
+        "name": "Dani Ortiz",
+        "age": 27,
+        "applicable_adult": true,
+        "seasonal_worker": false,
+        "pregnant_or_postpartum": null,
+        "caretaker_of_young_child": null,
+        "caretaker_of_disabled_person": null,
+        "veteran_total_disability": null,
+        "american_indian_alaska_native": null,
+        "medically_frail_indicators": [],
+        "in_sud_treatment": null,
+        "meets_snap_or_tanf_work_rules": null,
+        "recently_incarcerated": null
+      }
+    ],
+    "client_id": "dani",
+    "ledger": [
+      {
+        "id": "dani-stub-r1",
+        "member_id": "dani",
+        "kind": "earned_income",
+        "period_start": "2026-09-01",
+        "period_end": "2026-09-30",
+        "amount": 510.0,
+        "payer": "Rise & Shine Bakery",
+        "source": {
+          "doc_id": "dani-stub",
+          "span": "Regular hours: 34.00   Rate: $15.00   Gross: $510.00",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "dani-stub-r2",
+        "member_id": "dani",
+        "kind": "work_hours",
+        "period_start": "2026-09-01",
+        "period_end": "2026-09-30",
+        "amount": 34.0,
+        "payer": "Rise & Shine Bakery",
+        "source": {
+          "doc_id": "dani-stub",
+          "span": "Regular hours: 34.00   Rate: $15.00   Gross: $510.00",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "dani-shelter-r1",
+        "member_id": "dani",
+        "kind": "community_service_hours",
+        "period_start": "2026-09-01",
+        "period_end": "2026-09-30",
+        "amount": 18.0,
+        "payer": "Heartland Animal Rescue",
+        "source": {
+          "doc_id": "dani-shelter",
+          "span": "volunteered at our shelter in September 2026: 18 hours",
+          "page": null
+        },
+        "note": ""
+      }
+    ],
+    "event": "renewal",
+    "event_date": "2026-11-02",
+    "notice_date": null,
+    "months_in_question": [],
+    "notes": ""
+  },
+  "client_name": "Dani Ortiz",
+  "navigator": "Demo navigator",
+  "language": "en",
+  "documents": [
+    {
+      "id": "dani-stub",
+      "name": "Rise & Shine Bakery pay stub",
+      "kind": "income",
+      "member_id": "dani",
+      "text": "Rise & Shine Bakery — Pay Stub (SYNTHETIC)\nEmployee: Dani Ortiz\nPay period: 09/01/2026 - 09/30/2026\nRegular hours: 34.00   Rate: $15.00   Gross: $510.00\nNet pay: $468.95\n",
+      "extracted": {
+        "gold": [
+          {
+            "kind": "earned_income",
+            "period_start": "2026-09-01",
+            "period_end": "2026-09-30",
+            "amount": 510.0,
+            "payer": "Rise & Shine Bakery",
+            "span": "Regular hours: 34.00   Rate: $15.00   Gross: $510.00"
+          },
+          {
+            "kind": "work_hours",
+            "period_start": "2026-09-01",
+            "period_end": "2026-09-30",
+            "amount": 34.0,
+            "payer": "Rise & Shine Bakery",
+            "span": "Regular hours: 34.00   Rate: $15.00   Gross: $510.00"
+          }
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "dani-shelter",
+      "name": "Animal shelter volunteer letter",
+      "kind": "income",
+      "member_id": "dani",
+      "text": "Heartland Animal Rescue (SYNTHETIC)\nDani Ortiz volunteered at our shelter in September 2026: 18 hours walking dogs and cleaning kennels.\n— Volunteer Program Lead\n",
+      "extracted": {
+        "gold": [
+          {
+            "kind": "community_service_hours",
+            "period_start": "2026-09-01",
+            "period_end": "2026-09-30",
+            "amount": 18.0,
+            "payer": "Heartland Animal Rescue",
+            "span": "volunteered at our shelter in September 2026: 18 hours"
+          }
+        ]
+      },
+      "problems": []
+    }
+  ],
+  "notice": null,
+  "flags": [],
+  "synthetic": true,
+  "updated": "2026-10-10"
+}

@@ -66,6 +66,7 @@ class Member(BaseModel):
 class Case(BaseModel):
     id: str
     jurisdiction: str = "NE"
+    location: str = ""  # "City, ST" only; used to look up nearby qualifying activities, never sent with anything else
     household: list[Member]
     client_id: str
     ledger: list[LedgerEntry] = Field(default_factory=list)

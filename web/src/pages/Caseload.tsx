@@ -1,14 +1,20 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { api, fmtDate, type CaseSummary } from '../api'
+import { api, fmtDate, type CaseloadForecast, type CaseSummary } from '../api'
 import { Card, Empty, Spinner, StatusPill } from '../components/ui'
 import { STATES, useJuris } from '../components/State'
+import { CaseloadOutlook } from '../components/Plan'
 
 export default function Caseload() {
   const [cases, setCases] = useState<CaseSummary[] | null>(null)
   const [err, setErr] = useState('')
   const { state } = useJuris()
-  useEffect(() => { setCases(null); api.cases(undefined, state).then(setCases).catch(e => setErr(String(e))) }, [state])
+  const [outlook, setOutlook] = useState<CaseloadForecast | null>(null)
+  useEffect(() => {
+    setCases(null); setOutlook(null)
+    api.cases(undefined, state).then(setCases).catch(e => setErr(String(e)))
+    api.forecast(state).then(setOutlook).catch(() => setOutlook(null))
+  }, [state])
 
   const urgent = cases?.filter(c => c.status !== 'meets' && c.days_left !== null && c.days_left <= 14).length ?? 0
   const flagged = cases?.filter(c => c.flags.length).length ?? 0
@@ -33,7 +39,8 @@ export default function Caseload() {
 
       {cases && cases.length > 0 && (
         <Card tour="caseload">
-          <table className="w-full text-sm">
+          <div className="relative overflow-x-auto" tabIndex={0} role="region" aria-label="Clients and their status">
+          <table className="w-full min-w-[560px] text-sm">
             <caption className="sr-only">Clients and their status</caption>
             <thead className="text-left text-xs text-muted">
               <tr className="border-b border-line">
@@ -55,8 +62,11 @@ export default function Caseload() {
               ))}
             </tbody>
           </table>
+          </div>
         </Card>
       )}
+
+      {outlook && <CaseloadOutlook data={outlook} />}
     </div>
   )
 }

@@ -209,7 +209,8 @@
     "months_in_question": [
       "2026-08"
     ],
-    "notes": ""
+    "notes": "",
+    "location": "Omaha, NE"
   },
   "client_name": "Maria Lopez",
   "navigator": "Demo navigator",
@@ -222,7 +223,32 @@
       "member_id": "maria",
       "text": "NEBRASKA DEPARTMENT OF HEALTH AND HUMAN SERVICES — SAMPLE (SYNTHETIC DEMO)\nNotice date: September 20, 2026\nCase number: DEMO-40417\nMARIA LOPEZ\n\nMedicaid Work Requirements: We need more information\nOur records do not show that you met the work requirement for August 2026.\nYou must work, volunteer, go to school, or be in a work program for at least 80 hours a month,\nor have monthly income of at least $580.\n\nWhat you need to do: Send proof of your hours or income for August 2026, or tell us why you should be exempt.\nYou have 30 days from the date of this notice to respond. If we do not hear from you, your Medicaid may end.\nHow to respond: Upload documents at iServe Nebraska, mail them to the address below, or call 1-855-632-7633.\n",
       "extracted": {
-        "gold": []
+        "gold": [],
+        "explanations": {
+          "es": {
+            "language": "es",
+            "summary": "El estado dice que no vio que hiciste el trabajo necesario en agosto y necesita que lo pruebes.",
+            "what_to_do": [
+              "Envía prueba de tus horas o ingresos de agosto",
+              "O explica por qué deberías estar exento"
+            ],
+            "deadline_sentence": "Tienes 30 días desde la fecha de esta notificación para responder.",
+            "keep_in_mind": [
+              "Puedes pedir ayuda si necesitas.",
+              "Si no respondes, tu Medicaid puede terminar."
+            ],
+            "spans": [
+              "work requirement",
+              "at least 80 hours a month",
+              "monthly income of at least $580",
+              "Send proof of your hours or income for August 2026",
+              "or tell us why you should be exempt",
+              "You have 30 days from the date of this notice to respond",
+              "If we do not hear from you, your Medicaid may end"
+            ],
+            "unverified_spans": 0
+          }
+        }
       },
       "problems": []
     },

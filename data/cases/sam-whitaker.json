@@ -72,7 +72,8 @@
     "event_date": "2026-10-20",
     "notice_date": null,
     "months_in_question": [],
-    "notes": ""
+    "notes": "",
+    "location": "Bozeman, MT"
   },
   "client_name": "Sam Whitaker",
   "navigator": "Demo navigator",

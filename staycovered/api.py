@@ -359,6 +359,102 @@ def packet(case_id: str, as_of: str | None = None) -> Response:
                     headers={"Content-Disposition": f'attachment; filename="staycovered-{case_id}.pdf"'})
 
 
+# ---------- paths to stay covered + coverage forecast ----------
+
+@app.get("/api/cases/{case_id}/plan")
+def case_plan(case_id: str, as_of: str | None = None) -> dict:
+    from .engine.forecast import forecast
+    from .engine.paths import month_paths
+
+    rec = store.load(case_id)
+    on = _d(as_of)
+    ws = worksheet(rec.case, on)
+    return {"paths": [{"month": r.month, "status": r.status, "paths": [asdict(x) for x in month_paths(rec.case, r, on)]}
+                      for r in ws.results if r.status != "meets"],
+            "forecast": asdict(forecast(rec.case, on)), "location": rec.case.location}
+
+
+@app.get("/api/forecast")
+def caseload_forecast(jurisdiction: str = "NE", as_of: str | None = None) -> dict:
+    from .engine.forecast import forecast
+
+    on = _d(as_of)
+    rows, changes = [], {}
+    for rec in store.all_cases():
+        if rec.case.jurisdiction != jurisdiction:
+            continue
+        f = forecast(rec.case, on)
+        rows.append({"id": rec.case.id, "client_name": rec.client_name, "headline": f.headline, "first_risk": f.first_risk,
+                     "months": [{"month": m.month, "status": m.status} for m in f.months]})
+        for m in f.months:
+            for c in m.changes:
+                changes.setdefault((m.month, c.label), {"month": m.month, "label": c.label, "before": c.before, "after": c.after,
+                                                         "fact_id": c.fact_id, "clients": []})["clients"].append(rec.client_name)
+    rows.sort(key=lambda r: (r["first_risk"] is None, r["first_risk"] or "", r["client_name"]))
+    months = rows[0]["months"] if rows else []
+    return {"months": [m["month"] for m in months], "rows": rows, "changes": list(changes.values())}
+
+
+@app.get("/api/cases/{case_id}/nearby")
+def case_nearby(case_id: str, kind: str, req: Request) -> dict:
+    from . import nearby
+
+    if kind not in nearby.QUERIES:
+        raise HTTPException(400, "kind must be volunteer or work_program")
+    rec = store.load(case_id)
+    if not rec.case.location:
+        raise HTTPException(400, "This case has no city on file.")
+    if (hit := nearby.cached(rec.case.location, kind)) is not None:
+        return hit
+    _rate_limit(req)
+    if not config.TAVILY_API_KEY:
+        raise HTTPException(503, "Search is not configured on this deployment.")
+    return _llm_guard(lambda: nearby.find(rec.case.location, kind))  # type: ignore[arg-type]
+
+
+def _ics_event(uid: str, day: date, title: str, desc: str, alarm_days: int | None = None) -> list[str]:
+    esc = lambda t: t.replace("\\", "\\\\").replace(",", "\\,").replace(";", "\\;").replace("\n", "\\n")  # noqa: E731
+    ev = ["BEGIN:VEVENT", f"UID:{uid}@staycovered", f"DTSTAMP:{date.today():%Y%m%d}T000000Z",
+          f"DTSTART;VALUE=DATE:{day:%Y%m%d}", f"SUMMARY:{esc(title)}", f"DESCRIPTION:{esc(desc)}"]
+    if alarm_days:
+        ev += ["BEGIN:VALARM", "ACTION:DISPLAY", f"DESCRIPTION:{esc(title)}", f"TRIGGER:-P{alarm_days}D", "END:VALARM"]
+    return ev + ["END:VEVENT"]
+
+
+@app.get("/api/cases/{case_id}/reminders.ics")
+def reminders(case_id: str, as_of: str | None = None) -> Response:
+    """Calendar reminders for the client: the response deadline, renewal, monthly proof-keeping, and rule changes."""
+    from .engine.compute import month_bounds
+    from .engine.forecast import forecast
+
+    rec = store.load(case_id)
+    on = _d(as_of)
+    ws = worksheet(rec.case, on)
+    f = forecast(rec.case, on)
+    first = rec.client_name.split()[0]
+    lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//StayCovered//Reminders//EN", "CALSCALE:GREGORIAN",
+             f"X-WR-CALNAME:Medicaid reminders ({first})"]
+    if ws.cure_deadline and ws.cure_deadline >= on:
+        lines += _ics_event(f"{case_id}-deadline", ws.cure_deadline, "Medicaid: answer the work-requirement notice TODAY",
+                            "Send proof of hours or income, or ask about an exemption. Ask your navigator for help.", 7)
+    if rec.case.event == "renewal" and rec.case.event_date >= on:
+        lines += _ics_event(f"{case_id}-renewal", rec.case.event_date, "Medicaid renewal",
+                            "Have pay stubs, volunteer letters or school letters ready.", 14)
+    for last, m in zip(f.months[0:6], f.months[1:7]):
+        ms = month_bounds(m.month)[0]
+        prev = month_bounds(last.month)[0]
+        note = "" if last.status == "meets" else (f" If {prev:%B} looked like your usual month, it falls short. Smallest fix: "
+                                                  + (last.paths[0].title if last.paths else "talk to your navigator") + ".")
+        lines += _ics_event(f"{case_id}-proof-{m.month}", ms, f"Medicaid: keep proof of {prev:%B} hours and income",
+                            "Save pay stubs, gig statements and volunteer or school letters for last month." + note)
+        for c in m.changes:
+            lines += _ics_event(f"{case_id}-rule-{m.month}-{c.param}", ms, f"Medicaid rule change: {c.label}",
+                                f"{c.before} -> {c.after}. Ask your navigator what this means for you.", 7)
+    lines.append("END:VCALENDAR")
+    return Response("\r\n".join(lines) + "\r\n", media_type="text/calendar",
+                    headers={"Content-Disposition": f'attachment; filename="medicaid-reminders-{first.lower()}.ics"'})
+
+
 @app.get("/api/extraction/results")
 def extraction_results() -> dict:
     out = {}

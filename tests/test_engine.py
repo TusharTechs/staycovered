@@ -156,3 +156,45 @@ def test_same_household_differs_by_state_in_2026():
     ne = worksheet(case(hh_ledger, household=SPOUSE, j="NE", event="application", event_date=on), on)
     mt = worksheet(case(hh_ledger, household=SPOUSE, j="MT", event="application", event_date=on), on)
     assert ne.overall == "conditional" and mt.overall == "meets"
+
+
+# ---------- paths to stay covered + forecast ----------
+
+from staycovered.engine.forecast import forecast  # noqa: E402
+from staycovered.engine.paths import month_paths  # noqa: E402
+
+
+def test_paths_find_the_exact_gap_and_prove_it():
+    c = case([entry("w", "c", Kind.EARNED_INCOME, "2026-09-01", "2026-09-30", 510),
+              entry("h", "c", Kind.WORK_HOURS, "2026-09-01", "2026-09-30", 34),
+              entry("v", "c", Kind.COMMUNITY_SERVICE_HOURS, "2026-09-01", "2026-09-30", 18)], j="NE")
+    ws = worksheet(c, date(2026, 10, 10))
+    assert ws.results[0].status == "does_not_meet"
+    by = {p.kind: p for p in month_paths(c, ws.results[0], date(2026, 10, 10))}
+    assert "28 more qualifying hours" in by["hours"].title and by["hours"].proven
+    assert "$70.00 more income" in by["income"].title and "5 more paid hours at $15.00/hr" in by["income"].title
+    assert by["hours"].title.startswith("Proof of")  # a past month can only be settled with evidence
+
+
+def test_expense_path_uses_the_headroom():
+    c = case([entry("g", "c", Kind.SELF_EMPLOYMENT_GROSS, "2026-09-01", "2026-09-30", 800),
+              entry("h", "c", Kind.WORK_HOURS, "2026-09-01", "2026-09-30", 20)])
+    ws = worksheet(c, date(2026, 10, 10))
+    p = next(x for x in month_paths(c, ws.results[0], date(2026, 10, 10)) if x.kind == "expenses")
+    assert "$220.00 or less" in p.title and p.proven
+
+
+def test_forecast_isolates_the_rule_change():
+    """Same household every month; only the rules move. Nebraska 2026 'may count' -> federal household MAGI in 2027."""
+    c = case([entry("p", "s", Kind.EARNED_INCOME, "2026-09-01", "2026-09-30", 900)], household=SPOUSE, j="NE")
+    f = forecast(c, date(2026, 10, 10))
+    st = {m.month: m.status for m in f.months}
+    assert st["2026-12"] == "conditional" and st["2027-01"] == "meets"
+    jan = next(m for m in f.months if m.month == "2027-01")
+    assert any(ch.param == "income_basis" for ch in jan.changes)
+    assert "starts to qualify clearly in Jan 2027" in f.headline
+
+
+def test_forecast_without_evidence_says_so():
+    f = forecast(case([]), date(2026, 10, 10))
+    assert f.pattern_month is None and f.months == []

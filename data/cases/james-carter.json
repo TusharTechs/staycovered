@@ -87,7 +87,8 @@
     "event_date": "2026-10-05",
     "notice_date": null,
     "months_in_question": [],
-    "notes": ""
+    "notes": "",
+    "location": "Kearney, NE"
   },
   "client_name": "James Carter",
   "navigator": "Demo navigator",
