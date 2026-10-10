@@ -2,93 +2,119 @@
   "version": "bench-v0",
   "split": "dev",
   "date": "2026-10-10",
-  "n_questions": 47,
+  "n_questions": 85,
   "systems": [
     {
       "system": "frozen-super",
       "model": "nvidia/nemotron-3-super-120b-a12b",
-      "score": 0.47517730496453897,
-      "ci_low": 0.3581560283687943,
-      "ci_high": 0.6028368794326241,
-      "n": 47,
+      "score": 0.47058823529411764,
+      "ci_low": 0.3921568627450981,
+      "ci_high": 0.5490196078431372,
+      "n": 85,
       "errors": 0,
-      "drift_sensitive_score": 0.2708333333333333
+      "drift_sensitive_score": 0.41904761904761906
     },
     {
       "system": "rag-latest",
       "model": "nvidia/nemotron-3-super-120b-a12b",
-      "score": 0.7553191489361702,
-      "ci_low": 0.6453900709219857,
-      "ci_high": 0.851063829787234,
-      "n": 47,
+      "score": 0.6705882352941176,
+      "ci_low": 0.5862745098039216,
+      "ci_high": 0.7549019607843138,
+      "n": 85,
       "errors": 0,
-      "citation_validity": 0.7802197802197802,
-      "unsupported_rate": 0.0425531914893617,
-      "drift_sensitive_score": 0.53125
+      "citation_validity": 0.8083832335329342,
+      "unsupported_rate": 0.08235294117647059,
+      "drift_sensitive_score": 0.4714285714285714
     },
     {
       "system": "staycovered",
       "model": "nvidia/nemotron-3-super-120b-a12b",
-      "score": 0.8439716312056738,
-      "ci_low": 0.7624113475177305,
-      "ci_high": 0.9148936170212766,
-      "n": 47,
+      "score": 0.7862745098039216,
+      "ci_low": 0.7235294117647059,
+      "ci_high": 0.8470588235294118,
+      "n": 85,
       "errors": 0,
-      "citation_validity": 0.711340206185567,
-      "unsupported_rate": 0.06382978723404255,
-      "drift_sensitive_score": 0.7604166666666666
+      "citation_validity": 0.8050314465408805,
+      "unsupported_rate": 0.11764705882352941,
+      "drift_sensitive_score": 0.8142857142857143
+    },
+    {
+      "system": "frozen-frontier",
+      "model": "claude-opus-5-5",
+      "score": 0.6509803921568628,
+      "ci_low": 0.5705882352941176,
+      "ci_high": 0.7274509803921569,
+      "n": 85,
+      "errors": 0,
+      "drift_sensitive_score": 0.5952380952380952
     }
   ],
   "by_category": {
     "applicability": {
       "frozen-super": 0.8333333333333334,
-      "rag-latest": 1.0,
-      "staycovered": 1.0
+      "rag-latest": 0.6,
+      "staycovered": 0.7333333333333333,
+      "frozen-frontier": 0.9333333333333333
     },
     "calculation": {
-      "frozen-super": 0.6666666666666666,
-      "rag-latest": 1.0,
-      "staycovered": 1.0
+      "frozen-super": 0.5416666666666666,
+      "rag-latest": 0.875,
+      "staycovered": 0.7916666666666666,
+      "frozen-frontier": 0.5
     },
     "exemption": {
-      "frozen-super": 0.5185185185185186,
-      "rag-latest": 0.6851851851851852,
-      "staycovered": 0.7592592592592592
+      "frozen-super": 0.5714285714285714,
+      "rag-latest": 0.7023809523809524,
+      "staycovered": 0.869047619047619,
+      "frozen-frontier": 0.7023809523809524
     },
     "good_cause": {
-      "frozen-super": 0.5,
-      "rag-latest": 0.8333333333333334,
-      "staycovered": 0.8333333333333334
+      "frozen-super": 0.375,
+      "rag-latest": 0.6666666666666666,
+      "staycovered": 0.6666666666666666,
+      "frozen-frontier": 0.35416666666666663
     },
     "income_alternative": {
-      "frozen-super": 0.27777777777777773,
-      "rag-latest": 0.6666666666666666,
-      "staycovered": 0.75
+      "frozen-super": 0.3333333333333333,
+      "rag-latest": 0.5740740740740741,
+      "staycovered": 0.7037037037037037,
+      "frozen-frontier": 0.6111111111111112
     },
     "lookback": {
-      "frozen-super": 0.5,
-      "rag-latest": 0.5,
-      "staycovered": 0.5
+      "frozen-super": 0.4666666666666667,
+      "rag-latest": 0.7,
+      "staycovered": 0.7,
+      "frozen-frontier": 0.7666666666666667
     },
     "notice_cure": {
-      "frozen-super": 0.625,
-      "rag-latest": 0.75,
-      "staycovered": 1.0
+      "frozen-super": 0.5,
+      "rag-latest": 0.48148148148148145,
+      "staycovered": 0.7777777777777778,
+      "frozen-frontier": 0.7407407407407408
+    },
+    "process": {
+      "frozen-super": 0.6666666666666666,
+      "rag-latest": 0.8333333333333333,
+      "staycovered": 0.8333333333333333,
+      "frozen-frontier": 0.8333333333333333
     },
     "requirement": {
-      "frozen-super": 0.5,
-      "rag-latest": 0.9,
-      "staycovered": 0.9
+      "frozen-super": 0.35185185185185186,
+      "rag-latest": 0.6851851851851852,
+      "staycovered": 0.7777777777777778,
+      "frozen-frontier": 0.5555555555555556
     },
     "timeline": {
-      "frozen-super": 0.2,
-      "rag-latest": 0.6666666666666666,
-      "staycovered": 0.8666666666666666
+      "frozen-super": 0.19047619047619047,
+      "rag-latest": 0.619047619047619,
+      "staycovered": 0.8095238095238094,
+      "frozen-frontier": 0.7619047619047619
     },
     "verification": {
-      "frozen-super": 0.4166666666666667,
-      "rag-latest": 0.75,
-      "staycovered": 0.9166666666666666
+      "frozen-super": 0.537037037037037,
+      "rag-latest": 0.7407407407407408,
+      "staycovered": 0.9074074074074073,
+      "frozen-frontier": 0.6666666666666666
     }
   },
   "judge": {
@@ -101,5 +127,6 @@
     "Each question is asked 'as of' a date; frozen models are told that date.",
     "rag-latest is an ablation: the same pipeline with today's sources, ignoring the question date."
   ],
-  "nemotron_usd": 0.463
+  "nemotron_usd": 0.1997,
+  "frontier_usd_total": 2.1554
 }
