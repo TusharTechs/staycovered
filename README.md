@@ -15,6 +15,7 @@ Built for the Nebius × NVIDIA Global AI Hackathon 2026 (Best Apps and Agents). 
 | What | Link |
 |---|---|
 | **Live app** (start with the ▶ Tour button) | https://staycovered.vercel.app |
+| **Demo video** (2:57) | https://youtu.be/5M8NqD3lFvs |
 | Self-check for people without a navigator (English/Spanish) | https://staycovered.vercel.app/check |
 | Policy sandbox: flip state choices, watch the caseload change | https://staycovered.vercel.app/sandbox |
 | Rule Time Machine: rules and answers as of any date | https://staycovered.vercel.app/time-machine |
@@ -24,7 +25,6 @@ Built for the Nebius × NVIDIA Global AI Hackathon 2026 (Best Apps and Agents). 
 | WorkReqBench method, judge and limitations | [bench/README.md](bench/README.md) |
 | Under the hood: model routing, costs, every Tavily request | https://staycovered.vercel.app/under-the-hood |
 | Source code | https://github.com/TusharTechs/staycovered |
-| Demo video | *added with the Devpost submission* |
 | Evidence for the problem | [docs/EVIDENCE.md](docs/EVIDENCE.md) |
 | Feedback on Nebius Token Factory and Tavily | [FEEDBACK.md](FEEDBACK.md) |
 
