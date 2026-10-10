@@ -8,6 +8,7 @@ verbatim; options whose quote or link can't be matched to a result are dropped.
 from __future__ import annotations
 
 import json
+import os
 import re
 from datetime import date
 from typing import Literal
@@ -64,6 +65,19 @@ def _exact(quote: str, text: str) -> str | None:
     return text[al.dest_start:al.dest_end].strip() if al and al.score >= 90 and len(quote) >= 20 else None
 
 
+DAILY_SEARCH_CAP = int(os.getenv("SC_DAILY_SEARCHES", "40" if config.ON_VERCEL else "100000"))
+
+
+def _searches_today() -> int:
+    from .drift.watch import TAVILY_LOG
+
+    if not TAVILY_LOG.exists():
+        return 0
+    today = date.today()
+    rows = (json.loads(line) for line in TAVILY_LOG.open() if '"search"' in line)
+    return sum(1 for r in rows if r.get("kind") == "search" and date.fromtimestamp(r["ts"]) == today)
+
+
 def _load(p) -> dict:
     return json.loads(p.read_text()) if p.exists() else {}
 
@@ -78,6 +92,8 @@ def find(location: str, kind: Literal["volunteer", "work_program"], write_cache:
         raise ValueError("location must look like 'City, ST'")
     if (hit := cached(location, kind)) is not None:
         return hit
+    if _searches_today() >= DAILY_SEARCH_CAP:
+        raise llm.BudgetExceeded("Today's limit for new place searches is used up; cached cities still work. Try again tomorrow.")
     from tavily import TavilyClient
 
     city, st = location.rsplit(", ", 1)
