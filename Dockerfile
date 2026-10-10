@@ -1,7 +1,7 @@
 # StayCovered: single container (FastAPI API + built React app)
 FROM node:22-slim AS web
 WORKDIR /app/web
-RUN corepack enable
+RUN npm install -g pnpm@12.10.1
 COPY web/package.json web/pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 COPY web/ ./
@@ -9,7 +9,7 @@ RUN pnpm build
 
 FROM python:3.12-slim
 WORKDIR /app
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
+RUN pip install --no-cache-dir uv
 COPY pyproject.toml uv.lock README.md ./
 RUN uv sync --frozen --no-dev --no-install-project
 COPY staycovered/ staycovered/

@@ -51,7 +51,13 @@ def export(n: int) -> None:
 
 
 def score() -> None:
-    rows = [r for r in csv.DictReader(CSV.open()) if r["human_pass"].strip().lower() in ("y", "n")]
+    graded = R / "grade_me.csv"
+    if graded.exists():  # blind copy filled in by the human + separate key
+        key = {r["row"]: r["judge_pass"] for r in csv.DictReader((R / "judge_key.csv").open())}
+        rows = [{**r, "judge_pass": key[r["row"]]} for r in csv.DictReader(graded.open())
+                if r["human_pass"].strip().lower() in ("y", "n")]
+    else:
+        rows = [r for r in csv.DictReader(CSV.open()) if r["human_pass"].strip().lower() in ("y", "n")]
     if not rows:
         sys.exit("no graded rows")
     h = [r["human_pass"].strip().lower() == "y" for r in rows]
