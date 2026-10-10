@@ -15,9 +15,9 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from staycovered import config
+from staycovered import config, extract, llm
 
-config.DAILY_USD_CAP = float("inf")  # offline evaluation is not subject to the public demo cap, extract, llm
+config.DAILY_USD_CAP = float("inf")  # offline evaluation is not subject to the public demo cap
 
 DOCS = Path(__file__).with_name("docs.json")
 OUT = Path(__file__).with_name("results.json")
