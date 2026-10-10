@@ -245,6 +245,38 @@ def extraction_results() -> dict:
     return out
 
 
+# ---------- human grading of the benchmark judge (blind) ----------
+_GRADE = config.BENCH_DIR / "results" / "grade_me.csv"
+
+
+@app.get("/api/grade/items")
+def grade_items() -> list[dict]:
+    import csv
+    if not _GRADE.exists():
+        return []
+    return [{k: v for k, v in r.items()} for r in csv.DictReader(_GRADE.open())]
+
+
+class GradeIn(BaseModel):
+    human_pass: str  # "y" | "n" | ""
+
+
+@app.post("/api/grade/{row}")
+def grade_row(row: str, g: GradeIn) -> dict:
+    import csv
+    rows = list(csv.DictReader(_GRADE.open()))
+    if g.human_pass not in ("y", "n", ""):
+        raise HTTPException(400, "y or n")
+    for r in rows:
+        if r["row"] == row:
+            r["human_pass"] = g.human_pass
+    with _GRADE.open("w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        w.writeheader()
+        w.writerows(rows)
+    return {"done": sum(1 for r in rows if r["human_pass"]), "total": len(rows)}
+
+
 # ---------- serve the built web app (single-service deploy) ----------
 _DIST = config.ROOT / "web" / "dist"
 if _DIST.exists():

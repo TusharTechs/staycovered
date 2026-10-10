@@ -6,6 +6,7 @@ import CasePage from './pages/CasePage'
 import TimeMachine from './pages/TimeMachine'
 import Bench from './pages/Bench'
 import UnderHood from './pages/UnderHood'
+import Grade from './pages/Grade'
 
 function Logo() {
   return (
@@ -61,6 +62,7 @@ export default function App() {
           <Route path="/time-machine" element={<TimeMachine />} />
           <Route path="/bench" element={<Bench />} />
           <Route path="/under-the-hood" element={<UnderHood />} />
+          <Route path="/grade" element={<Grade />} />
         </Routes>
       </main>
       <footer className="border-t border-line bg-white text-xs text-muted">
