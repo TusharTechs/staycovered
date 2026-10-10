@@ -50,5 +50,5 @@ ROUTES = {
 }
 
 # Public-demo protection: model spend per UTC day across all visitors (USD). Benchmarks set SC_DAILY_USD_CAP higher.
-DAILY_USD_CAP = float(os.getenv("SC_DAILY_USD_CAP", "0.75"))
+DAILY_USD_CAP = float(os.getenv("SC_DAILY_USD_CAP", "0.75" if ON_VERCEL else "inf"))
 ADMIN_TOKEN = os.getenv("SC_ADMIN_TOKEN", "")

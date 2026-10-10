@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { api, fmtDate, type CaseRecord, type MonthResult, type Worksheet } from '../api'
 import { Card, Spinner, StatusPill } from '../components/ui'
 import AskBox from '../components/AskBox'
+import { imageToText, pdfToText } from '../ocr'
 
 const PATH: Record<string, string> = {
   hours: '80+ activity hours', income: 'income ≥ threshold',
@@ -216,14 +217,45 @@ function AddDoc({ caseId, members, onDone }: { caseId: string; members: CaseReco
   const [member, setMember] = useState(members[0]?.id ?? '')
   const [text, setText] = useState('')
   const [busy, setBusy] = useState(false)
+  const [ocr, setOcr] = useState<{ pct: number; preview?: string } | null>(null)
   const [err, setErr] = useState('')
+
+  const read = async (file: Blob, fileName: string, displayName?: string) => {
+    setErr(''); setText('')
+    setName(n => displayName ?? (n || fileName.replace(/\.[a-z0-9]+$/i, '')))
+    try {
+      if (file.type === 'application/pdf' || fileName.toLowerCase().endsWith('.pdf')) {
+        setOcr({ pct: 0 })
+        setText(await pdfToText(file))
+      } else {
+        setOcr({ pct: 0, preview: URL.createObjectURL(file) })
+        setText(await imageToText(file, p => setOcr(o => ({ ...(o ?? {}), pct: p }))))
+      }
+    } catch (e) { setErr('Could not read that file: ' + String(e)) } finally { setOcr(o => (o ? { ...o, pct: 1 } : o)) }
+  }
+  const sample = async () => {
+    const blob = await (await fetch('/samples/paystub-photo.jpg')).blob()
+    await read(blob, 'paystub-photo.jpg', 'Riverside Diner pay stub (photo)')
+  }
   const submit = async () => {
     setBusy(true); setErr('')
     try { await api.addDoc(caseId, { name: name || 'Document', kind, member_id: member, text }); onDone() }
-    catch (e) { setErr(String(e)) } finally { setBusy(false) }
+    catch (e) { setErr(String(e).replace(/^Error: /, '')) } finally { setBusy(false) }
   }
+  const reading = ocr && ocr.pct < 1
   return (
     <div className="mb-3 space-y-2 rounded-lg bg-paper p-3 text-sm">
+      <div className="rounded-lg border border-dashed border-line bg-white p-3">
+        <label className="block text-xs font-medium">Photo or PDF of the document
+          <input type="file" accept="image/*,application/pdf" capture="environment" className="mt-1 block w-full text-xs"
+            onChange={e => { const f = e.target.files?.[0]; if (f) read(f, f.name) }} />
+        </label>
+        <button type="button" onClick={sample} className="mt-2 text-xs text-brand underline">Try a sample photo (synthetic pay stub)</button>
+        <p className="mt-1 text-[11px] text-muted">Text is read in your browser; the image itself is not uploaded. Check the text before extracting.</p>
+        {ocr?.preview && <img src={ocr.preview} alt="Document preview" className="mt-2 max-h-40 rounded border border-line" />}
+        {reading && <div className="mt-2 h-1.5 rounded-full bg-line overflow-hidden" role="progressbar" aria-valuenow={Math.round(ocr!.pct * 100)}><div className="h-full bg-brand transition-all" style={{ width: `${Math.max(5, ocr!.pct * 100)}%` }} /></div>}
+        {reading && <p className="text-[11px] text-muted mt-1">Reading the document…</p>}
+      </div>
       <label className="block">Name<input className="mt-0.5 w-full rounded border border-line px-2 py-1" value={name} onChange={e => setName(e.target.value)} /></label>
       <div className="flex gap-2">
         <label className="flex-1">Type<select className="mt-0.5 w-full rounded border border-line px-2 py-1" value={kind} onChange={e => setKind(e.target.value)}>
@@ -231,9 +263,9 @@ function AddDoc({ caseId, members, onDone }: { caseId: string; members: CaseReco
         <label className="flex-1">Whose<select className="mt-0.5 w-full rounded border border-line px-2 py-1" value={member} onChange={e => setMember(e.target.value)}>
           {members.map(m => <option key={m.id} value={m.id}>{m.name}</option>)}</select></label>
       </div>
-      <label className="block">Text of the document<textarea rows={6} className="mt-0.5 w-full rounded border border-line px-2 py-1 font-mono text-xs" value={text} onChange={e => setText(e.target.value)} /></label>
+      <label className="block">Text of the document (edit if the photo was misread)<textarea rows={7} className="mt-0.5 w-full rounded border border-line px-2 py-1 font-mono text-xs" value={text} onChange={e => setText(e.target.value)} /></label>
       {err && <p className="text-bad text-xs">{err}</p>}
-      <button disabled={busy || !text} onClick={submit} className="rounded bg-brand px-3 py-1.5 text-white disabled:opacity-50">{busy ? 'Reading with Nemotron…' : 'Extract'}</button>
+      <button disabled={busy || !text || !!reading} onClick={submit} className="rounded bg-brand px-3 py-1.5 text-white disabled:opacity-50">{busy ? 'Reading with Nemotron…' : 'Extract with Nemotron'}</button>
     </div>
   )
 }
