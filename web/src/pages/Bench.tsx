@@ -28,7 +28,7 @@ export default function Bench() {
       {!loading && !r?.systems && <Empty>No results yet. Run <code>uv run python -m bench.run</code>.</Empty>}
       {r?.systems && (
         <>
-          <Card title={`Results · ${r.split ?? ''} split · ${r.n_questions ?? ''} questions · ${r.date ?? ''}`}>
+          <Card tour="results" title={`Results · ${r.split ?? ''} split · ${r.n_questions ?? ''} questions · ${r.date ?? ''}`}>
             <div className="space-y-3">
               {r.split === 'dev' && <p className="rounded-lg bg-warn-soft p-2 text-xs text-warn">Development split: the pipeline was tuned while looking at these questions. Final numbers come from the held-out split.</p>}
               {[...r.systems].sort((a, b) => b.score - a.score).map(s => {

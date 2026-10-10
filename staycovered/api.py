@@ -304,6 +304,12 @@ def log_calls(n: int = 200) -> list[dict]:
     return _tail(CALL_LOG, n)
 
 
+@app.get("/api/log/summary")
+def log_summary() -> dict:
+    p = config.ROOT / "data" / "cache" / "usage_summary.json"
+    return json.loads(p.read_text()) if p.exists() else {}
+
+
 @app.get("/api/log/tavily")
 def log_tavily(n: int = 200) -> list[dict]:
     return _tail(watch.TAVILY_LOG, n)

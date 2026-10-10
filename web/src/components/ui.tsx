@@ -1,9 +1,9 @@
 import { useState, type ReactNode } from 'react'
 import { api, fmtDate } from '../api'
 
-export function Card({ title, children, actions, className = '' }: { title?: ReactNode; children: ReactNode; actions?: ReactNode; className?: string }) {
+export function Card({ title, children, actions, className = '', tour }: { title?: ReactNode; children: ReactNode; actions?: ReactNode; className?: string; tour?: string }) {
   return (
-    <section className={`bg-white border border-line rounded-xl ${className}`}>
+    <section data-tour={tour} className={`bg-white border border-line rounded-xl ${className}`}>
       {(title || actions) && (
         <div className="flex items-center gap-3 px-4 pt-3 pb-2">
           {title && <h2 className="text-sm font-semibold text-ink">{title}</h2>}

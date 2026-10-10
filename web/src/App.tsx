@@ -7,6 +7,8 @@ import TimeMachine from './pages/TimeMachine'
 import Bench from './pages/Bench'
 import UnderHood from './pages/UnderHood'
 import Grade from './pages/Grade'
+import Home from './pages/Home'
+import { useTour } from './components/Tour'
 
 function Logo() {
   return (
@@ -19,7 +21,7 @@ function Logo() {
 }
 
 const nav = [
-  { to: '/', label: 'Caseload', end: true },
+  { to: '/caseload', label: 'Caseload' },
   { to: '/time-machine', label: 'Rule Time Machine' },
   { to: '/bench', label: 'WorkReqBench' },
   { to: '/under-the-hood', label: 'Under the hood' },
@@ -27,6 +29,7 @@ const nav = [
 
 export default function App() {
   const [health, setHealth] = useState<{ nebius: boolean; tavily: boolean; sources: number; facts: number } | null>(null)
+  const tour = useTour()
   useEffect(() => { api.health().then(setHealth).catch(() => setHealth(null)) }, [])
   return (
     <div className="min-h-full flex flex-col">
@@ -38,13 +41,14 @@ export default function App() {
           </NavLink>
           <nav aria-label="Main" className="flex gap-1 overflow-x-auto">
             {nav.map(n => (
-              <NavLink key={n.to} to={n.to} end={n.end}
+              <NavLink key={n.to} to={n.to}
                 className={({ isActive }) => `px-3 py-1.5 rounded-md text-sm whitespace-nowrap ${isActive ? 'bg-brand-soft text-brand font-medium' : 'text-muted hover:text-ink hover:bg-paper'}`}>
                 {n.label}
               </NavLink>
             ))}
           </nav>
-          <div className="ml-auto hidden md:flex items-center gap-3 text-xs text-muted">
+          <button onClick={tour.start} className="ml-auto rounded-full bg-amber-400 px-3 py-1 text-xs font-semibold text-ink hover:bg-amber-300">▶ Tour</button>
+          <div className="hidden md:flex items-center gap-3 text-xs text-muted">
             {health && <span>{health.sources} official sources · {health.facts} rule facts</span>}
             <span className="inline-flex items-center gap-1 rounded-full bg-paper px-2 py-0.5 border border-line">
               <span className={`h-1.5 w-1.5 rounded-full ${health?.nebius ? 'bg-ok' : 'bg-warn'}`} /> Nemotron · Nebius
@@ -57,7 +61,8 @@ export default function App() {
       </header>
       <main id="main" className="flex-1 mx-auto w-full max-w-7xl px-4 py-6">
         <Routes>
-          <Route path="/" element={<Caseload />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/caseload" element={<Caseload />} />
           <Route path="/cases/:id" element={<CasePage />} />
           <Route path="/time-machine" element={<TimeMachine />} />
           <Route path="/bench" element={<Bench />} />

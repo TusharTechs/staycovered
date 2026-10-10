@@ -8,7 +8,9 @@ type TCall = { ts: number; kind: string; payload: { urls?: string[]; url?: strin
 export default function UnderHood() {
   const [calls, setCalls] = useState<Call[]>([])
   const [tav, setTav] = useState<TCall[]>([])
+  const [sum, setSum] = useState<{ generated: string; total_calls: number; total_usd: number; rows: { model: string; job: string; calls: number; tokens: number; usd: number; p50_latency_s: number }[]; tavily: { ts: number; kind: string; urls: string[]; results: number; ok: boolean }[] } | null>(null)
   useEffect(() => {
+    fetch('/api/log/summary').then(r => r.json()).then(setSum).catch(() => {})
     api.calls().then(x => setCalls(x as unknown as Call[]))
     api.tavily().then(x => setTav(x as unknown as TCall[]))
   }, [])
@@ -27,7 +29,7 @@ export default function UnderHood() {
         <p className="text-muted text-sm mt-1">Every model call and every web request, as logged by the backend.</p>
       </div>
       <div className="grid gap-5 lg:grid-cols-2">
-        <Card title="Nemotron on Nebius Token Factory — routing">
+        <Card tour="models" title="Nemotron on Nebius Token Factory — routing">
           {calls.length === 0 ? <Empty>No model calls logged yet.</Empty> : (
             <table className="w-full text-sm">
               <thead><tr className="text-left text-xs text-muted"><th className="py-1 font-medium">Model</th><th className="font-medium">Calls</th><th className="font-medium">Tokens</th><th className="font-medium">Cost</th><th className="font-medium">Avg latency</th></tr></thead>
@@ -50,6 +52,19 @@ export default function UnderHood() {
           {tavilyUrls.length > 0 && <p className="mt-2 text-xs text-ok">✓ {tavilyUrls.length} URLs sent, all on the official allow-list.</p>}
         </Card>
       </div>
+      {sum?.rows?.length ? (
+        <Card title={`Logged usage while building and evaluating · ${sum.total_calls.toLocaleString()} calls · $${sum.total_usd.toFixed(2)} total`}>
+          <table className="w-full text-sm">
+            <thead><tr className="text-left text-xs text-muted"><th className="py-1 font-medium">Model</th><th className="font-medium">Job</th><th className="font-medium">Calls</th><th className="font-medium">Tokens</th><th className="font-medium">Cost</th><th className="font-medium">p50 latency</th></tr></thead>
+            <tbody>{sum.rows.map((r, i) => (
+              <tr key={i} className="border-t border-line"><td className="py-1.5 font-mono text-xs">{r.model.replace('nvidia/', '')}</td><td className="text-xs">{r.job}</td><td className="tabular-nums">{r.calls}</td><td className="tabular-nums">{r.tokens.toLocaleString()}</td><td className="tabular-nums">${r.usd.toFixed(3)}</td><td className="tabular-nums">{r.p50_latency_s}s</td></tr>
+            ))}</tbody>
+          </table>
+          {sum.tavily?.length > 0 && <div className="mt-3 text-xs"><div className="font-medium">Tavily requests (all to allow-listed official URLs)</div>
+            <ul className="mt-1 font-mono space-y-0.5">{sum.tavily.map((t, i) => <li key={i}>{new Date(t.ts * 1000).toISOString().slice(0, 16)} · {t.kind} · {t.urls.length} official URLs · {t.results} results</li>)}</ul></div>}
+          <p className="mt-2 text-[11px] text-muted">Snapshot generated {sum.generated}. Live calls on this server appear in the cards above.</p>
+        </Card>
+      ) : null}
       <Card title="Recent calls">
         <ul className="text-xs font-mono space-y-0.5 max-h-96 overflow-auto">
           {calls.slice().reverse().slice(0, 100).map((c, i) => (

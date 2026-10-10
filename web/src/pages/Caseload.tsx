@@ -30,7 +30,7 @@ export default function Caseload() {
       {cases && cases.length === 0 && <Empty>No cases yet. Run <code>uv run python -m demo.seed</code> to load the synthetic demo caseload.</Empty>}
 
       {cases && cases.length > 0 && (
-        <Card>
+        <Card tour="caseload">
           <table className="w-full text-sm">
             <caption className="sr-only">Clients and their status</caption>
             <thead className="text-left text-xs text-muted">

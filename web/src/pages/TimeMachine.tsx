@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { api, fmtDate, today, type CaseSummary, type DriftEvent, type Fact } from '../api'
 import { Card, Cite, Spinner, StatusPill } from '../components/ui'
 import AskBox from '../components/AskBox'
@@ -36,6 +37,8 @@ export default function TimeMachine() {
   const [playing, setPlaying] = useState(false)
   const [events, setEvents] = useState<DriftEvent[]>([])
   const timer = useRef<number | null>(null)
+  const [params] = useSearchParams()
+  const wanted = params.get('date')
 
   useEffect(() => { api.replay().then(setEvents).catch(() => setEvents([])) }, [])
   useEffect(() => {
@@ -45,9 +48,11 @@ export default function TimeMachine() {
       ds.add(today())
       const sorted = [...ds].sort()
       setDates(sorted)
-      setIdx(sorted.indexOf(today()))
+      setIdx(sorted.indexOf(wanted && sorted.includes(wanted) ? wanted : today()))
     })
   }, [])
+
+  useEffect(() => { if (wanted && dates.includes(wanted)) { setPlaying(false); setIdx(dates.indexOf(wanted)) } }, [wanted, dates])
 
   const asOf = dates[idx]
   useEffect(() => {
@@ -80,7 +85,7 @@ export default function TimeMachine() {
         <p className="text-muted text-sm mt-1 max-w-3xl">AI models are frozen at their training date. Medicaid rules aren't. Move through the real policy timeline and watch the official sources, the answers and the caseload change with it.</p>
       </div>
 
-      <Card>
+      <Card tour="timeline">
         <div className="flex flex-wrap items-center gap-4 pt-3">
           <button onClick={() => setPlaying(p => !p)} className="rounded-full bg-brand text-white h-10 w-10 grid place-items-center" aria-label={playing ? 'Pause' : 'Play timeline'}>
             {playing ? '❚❚' : '▶'}
@@ -134,7 +139,7 @@ export default function TimeMachine() {
         </Card>
 
         <div className="lg:col-span-2 space-y-5">
-          <Card title="Ask — frozen model vs. rules as of this date">
+          <Card tour="ask" title="Ask — frozen model vs. rules as of this date">
             <AskBox key={asOf} asOf={asOf} compare suggestions={[
               'When do Nebraska Medicaid work requirements start for people already enrolled?',
               'How is medical frailty verified?',
@@ -166,7 +171,7 @@ function RuleChanges({ events, asOf }: { events: DriftEvent[]; asOf: string }) {
   if (events.length === 0) return null
   const latest = [...events].reverse()
   return (
-    <Card title="Official pages that changed (detected by drift-watch)" actions={<span className="text-xs text-muted">{events.length} change{events.length > 1 ? 's' : ''} up to {fmtDate(asOf)}</span>}>
+    <Card tour="changes" title="Official pages that changed (detected by drift-watch)" actions={<span className="text-xs text-muted">{events.length} change{events.length > 1 ? 's' : ''} up to {fmtDate(asOf)}</span>}>
       <ol className="space-y-3">
         {latest.slice(0, 4).map(e => (
           <li key={e.new_id} className={`rounded-lg border p-3 ${e.new_as_of === asOf ? 'border-warn bg-warn-soft/60' : 'border-line'}`}>

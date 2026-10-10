@@ -26,7 +26,7 @@ export default function CasePage() {
 
   return (
     <div className="space-y-5">
-      <div className="text-sm"><Link to="/" className="text-brand hover:underline">← Caseload</Link></div>
+      <div className="text-sm"><Link to="/caseload" className="text-brand hover:underline">← Caseload</Link></div>
       <div className="flex flex-wrap items-start gap-4">
         <div>
           <h1 className="font-serif text-3xl tracking-tight">{rec.client_name}</h1>
@@ -136,7 +136,7 @@ function MonthRow({ r, open, onToggle, docs }: { r: MonthResult; open: boolean; 
         </span>
       </button>
       {r.status === 'conditional' && r.conditions.length > 0 && (
-        <div className="border-t border-line bg-warn-soft/60 px-3 py-2 text-sm">
+        <div data-tour="conditional" className="border-t border-line bg-warn-soft/60 px-3 py-2 text-sm">
           <b>Meets only if:</b>
           <ul className="list-disc pl-5">{r.conditions.map((c, i) => <li key={i}>{c}</li>)}</ul>
           {r.expense_headroom !== null && <p className="text-xs text-muted mt-1">Ask the client for a mileage log or expense records for the month.</p>}
@@ -182,7 +182,7 @@ function NoticeCard({ notice, caseId }: { notice: Record<string, unknown>; caseI
   const tabs = [['nav', 'Navigator'], ['en', 'For the client'], ['es', 'Para el cliente (español)']] as const
   const cur = view !== 'nav' ? ex[view] : null
   return (
-    <Card title="What the notice says" actions={
+    <Card tour="notice" title="What the notice says" actions={
       <div role="tablist" className="flex gap-1">{tabs.map(([k, l]) => (
         <button key={k} role="tab" aria-selected={view === k} onClick={() => pick(k)}
           className={`rounded-md px-2 py-1 text-xs ${view === k ? 'bg-brand text-white' : 'text-muted hover:bg-paper'}`}>{l}</button>
@@ -245,7 +245,7 @@ function FormCard({ caseId }: { caseId: string }) {
   if (!plan) return null
   const filled = plan.fields.filter(f => f.field !== 'I Additional comments')
   return (
-    <Card title="Nebraska declaration form (MLTC-118)">
+    <Card tour="form" title="Nebraska declaration form (MLTC-118)">
       <p className="text-xs text-muted">Pre-filled draft of the state's real form. Only answers backed by documents or intake are filled; everything else stays blank for the client. SSN, birth date and signatures are never filled.</p>
       <button onClick={() => setOpen(o => !o)} className="mt-2 text-xs text-brand underline">{open ? 'Hide' : 'Show'} the {filled.length} filled fields and why</button>
       {open && (

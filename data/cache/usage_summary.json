@@ -1,0 +1,114 @@
+{
+ "generated": "2026-10-10T05:17:06+00:00",
+ "total_calls": 4967,
+ "total_usd": 4.25,
+ "rows": [
+  {
+   "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+   "job": "answer",
+   "calls": 2,
+   "tokens": 167,
+   "usd": 0.0,
+   "p50_latency_s": 0.66
+  },
+  {
+   "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+   "job": "extract",
+   "calls": 823,
+   "tokens": 442829,
+   "usd": 0.0446,
+   "p50_latency_s": 0.5
+  },
+  {
+   "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+   "job": "rewrite",
+   "calls": 1,
+   "tokens": 960,
+   "usd": 0.0001,
+   "p50_latency_s": 3.44
+  },
+  {
+   "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
+   "job": "judge",
+   "calls": 2303,
+   "tokens": 1183817,
+   "usd": 1.4415,
+   "p50_latency_s": 0.76
+  },
+  {
+   "model": "nvidia/Nemotron-3_5-Lightning",
+   "job": "answer",
+   "calls": 2,
+   "tokens": 395,
+   "usd": 0.0001,
+   "p50_latency_s": 0.78
+  },
+  {
+   "model": "nvidia/Nemotron-3_5-Lightning",
+   "job": "extract",
+   "calls": 1,
+   "tokens": 202,
+   "usd": 0.0,
+   "p50_latency_s": 0.42
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "job": "answer",
+   "calls": 975,
+   "tokens": 6378677,
+   "usd": 2.5836,
+   "p50_latency_s": 5.35
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "job": "drift_summary",
+   "calls": 11,
+   "tokens": 21561,
+   "usd": 0.0085,
+   "p50_latency_s": 2.18
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "job": "extract",
+   "calls": 1,
+   "tokens": 214,
+   "usd": 0.0001,
+   "p50_latency_s": 0.75
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b",
+   "job": "judge",
+   "calls": 848,
+   "tokens": 479258,
+   "usd": 0.1718,
+   "p50_latency_s": 1.04
+  }
+ ],
+ "tavily": [
+  {
+   "ts": 1791570600.57441,
+   "kind": "extract",
+   "urls": [
+    "https://dhhs.ne.gov/Pages/WorkRequirements.aspx"
+   ],
+   "results": 1,
+   "ok": true
+  },
+  {
+   "ts": 1791602422.192728,
+   "kind": "extract",
+   "urls": [
+    "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
+    "https://dhhs.ne.gov/Documents/MLTC-WR-Requirements-FAQ.pdf",
+    "https://dphhs.mt.gov/medicaidchanges",
+    "https://dphhs.mt.gov/medicaidchanges/faqs",
+    "https://humanservices.arkansas.gov/divisions-shared-services/medical-services/healthcare-programs/arhome/arhome-community-engagement-requirement/",
+    "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
+    "https://pathways.georgia.gov/about-pathways/faqs",
+    "https://www.medicaid.gov/resources-for-states/working-families-tax-cut-legislation/community-engagement"
+   ],
+   "results": 8,
+   "ok": true
+  }
+ ]
+}
