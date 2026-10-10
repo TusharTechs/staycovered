@@ -137,7 +137,7 @@ def _member_month(case: Case, member: Member, key: str, p: Params) -> MonthResul
     ambiguities: list[str] = []
     facts_used = [p.get(k).fact_id for k in ("monthly_hours", "income_threshold", "income_basis") if p.get(k).fact_id]
 
-    activity_hours = own_net = own_gross = other_net = other_gross = 0.0
+    activity_hours = paid_hours = own_net = own_gross = other_net = other_gross = 0.0
     half_time_school = False
     for e in case.ledger:
         if e.kind == Kind.EDUCATION_CREDIT_HOURS:
@@ -168,6 +168,7 @@ def _member_month(case: Case, member: Member, key: str, p: Params) -> MonthResul
         if e.kind in HOURS_KINDS:
             if mine:
                 activity_hours += amt
+                paid_hours += amt if e.kind == Kind.WORK_HOURS else 0
                 contributions.append(c)
         elif e.kind in INCOME_KINDS:
             gross = e.kind == Kind.SELF_EMPLOYMENT_GROSS
@@ -187,6 +188,12 @@ def _member_month(case: Case, member: Member, key: str, p: Params) -> MonthResul
             income = own_net  # household misses $580: each person is evaluated on their own income
         return income / min_wage
 
+    def credited_hours(income: float) -> float:
+        """Activity hours with income converted at the federal minimum wage. Conversion stands in for paid-work
+        hours (it is for when hours worked aren't documented), so paid work counts once: the larger of its documented
+        hours and income / minimum wage. Other activities are added on top."""
+        return activity_hours - paid_hours + max(paid_hours, income_hours(income))
+
     def passes(income: float) -> str | None:
         if half_time_school:
             return "school_half_time"
@@ -194,7 +201,7 @@ def _member_month(case: Case, member: Member, key: str, p: Params) -> MonthResul
             return "hours"
         if income >= threshold:
             return "income"
-        if p["income_to_hours"] and activity_hours + income_hours(income) >= hours_req:
+        if p["income_to_hours"] and credited_hours(income) >= hours_req:
             return "combined"
         return None
 
@@ -223,7 +230,7 @@ def _member_month(case: Case, member: Member, key: str, p: Params) -> MonthResul
         if status == "conditional":
             if "expenses" in needed:
                 gross_total = dict(extras)["expenses"]
-                need_income = threshold if path == "income" else max(0.0, hours_req - activity_hours) * min_wage
+                need_income = threshold if path == "income" else max(0.0, hours_req - (activity_hours - paid_hours)) * min_wage
                 headroom = round(acc - need_income, 2)
                 conditions.append(f"Business expenses for the month are ${headroom:,.2f} or less "
                                   f"(${gross_total:,.2f} is gig/self-employment payout before costs like fuel and phone).")
@@ -256,7 +263,7 @@ def _member_month(case: Case, member: Member, key: str, p: Params) -> MonthResul
         month=key, member_id=member.id, status=status, path=path, conditions=conditions,
         activity_hours=round(activity_hours, 2), own_income=round(own_net, 2), own_gross_self_employment=round(own_gross, 2),
         household_other_income=round(other_net + other_gross, 2), income_threshold=round(threshold, 2),
-        income_hours_equivalent=round(ih, 2), combined_hours=round(activity_hours + ih, 2),
+        income_hours_equivalent=round(ih, 2), combined_hours=round(credited_hours(all_income), 2),
         seasonal_average_income=None if seasonal_avg is None else round(seasonal_avg, 2),
         expense_headroom=headroom, contributions=contributions, ambiguities=list(dict.fromkeys(ambiguities)),
         facts_used=[f for f in facts_used if f],

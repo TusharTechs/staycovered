@@ -219,3 +219,14 @@ def test_selfcheck_gig_wage_not_mixed_with_job_hours():
     d = run(SelfCheckIn(jurisdiction="NE", work_hours=20, wages=300, gig_hours=30, gig_payouts=200), date(2026, 10, 10))
     inc = next((p for p in d["plan"] if p["kind"] == "income"), None)
     assert inc is None or inc["wage"] in (None, 15)
+
+
+def test_income_conversion_matches_cms_example_and_never_double_counts():
+    """CMS: $380 / $7.25 = 52 hours credited, 28 more needed. Documented paid hours from the same job are not added again."""
+    ok = worksheet(case([entry("w", "c", Kind.EARNED_INCOME, "2026-09-01", "2026-09-30", 380),
+                         entry("v", "c", Kind.COMMUNITY_SERVICE_HOURS, "2026-09-01", "2026-09-30", 28)], j="MT"), date(2026, 10, 10))
+    assert ok.results[0].status == "meets" and ok.results[0].path == "combined"
+    both = worksheet(case([entry("w", "c", Kind.EARNED_INCOME, "2026-09-01", "2026-09-30", 380),
+                           entry("h", "c", Kind.WORK_HOURS, "2026-09-01", "2026-09-30", 52),
+                           entry("v", "c", Kind.COMMUNITY_SERVICE_HOURS, "2026-09-01", "2026-09-30", 10)], j="MT"), date(2026, 10, 10))
+    assert both.results[0].status == "does_not_meet" and both.results[0].combined_hours == 62.41
