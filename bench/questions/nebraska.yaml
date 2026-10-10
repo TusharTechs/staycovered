@@ -1,0 +1,1840 @@
+# WorkReqBench Nebraska (NE) questions. Drafted with Claude from captured sources (see bench/README.md); split assigned by a seeded script (seed 20261010).
+# Paired/triple drift-sensitive questions (same wording, different as_of) carry a 'drift pair' comment and share a split.
+
+# drift pair with ne-0002
+- id: ne-0001
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-03-15
+  category: timeline
+  drift_sensitive: true
+  question: "When does Nebraska begin applying the Medicaid work requirement to people who are already enrolled in Medicaid expansion?"
+  reference_answer: "As of 2026-03-15 DHHS had published that work requirements take effect May 1, 2026 and that this includes people already covered under Medicaid expansion on that date as well as people who apply on or after it. No renewal-based phase-in had been published yet."
+  rubric:
+    - id: c1
+      text: "States that the requirement takes effect May 1, 2026 and covers people already enrolled in Medicaid expansion on that date as well as new applicants."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-03-03, quote: "Work requirements take effect on May 1, 2026. This includes people with Medicaid coverage under Medicaid expansion on this date or people who apply on or after this date."}
+    - id: c2
+      text: "Does not claim that existing members are checked only at their renewals, starting with eligibility periods ending on or after July 31, 2026 (that schedule was not yet published)."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-03-03, quote: "This includes people with Medicaid coverage under Medicaid expansion on this date or people who apply on or after this date."}
+
+# drift pair with ne-0001
+- id: ne-0002
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-05-20
+  category: timeline
+  drift_sensitive: true
+  question: "When does Nebraska begin applying the Medicaid work requirement to people who are already enrolled in Medicaid expansion?"
+  reference_answer: "Existing members are checked at their own regular renewals. DHHS first checks members whose coverage periods end on or after July 31, 2026, each in their own renewal month over the next year. Members with May or June 2026 renewals do not have to show compliance until their 2027 renewal."
+  rubric:
+    - id: c1
+      text: "States that DHHS first checks members whose coverage periods end on or after July 31, 2026, each in their own renewal month."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-05-13, quote: "DHHS will first start checking work requirements for members whose coverage periods end on or after July 31, 2026. Each member will be checked in their own renewal month over the next year."}
+    - id: c2
+      text: "States that members with renewal dates in May or June 2026 do not have to show compliance until their renewal in 2027."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-05-13, quote: "Members with renewal dates in May or June 2026 will not have to show they've met work requirements until their renewal in 2027."}
+    - id: c3
+      text: "Does not claim that all existing expansion members must prove compliance immediately on May 1, 2026."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-pr-take-effect-2026-04-30, quote: "Although the requirements take effect May 1, they will not be applied to all expansion members immediately. Reviews will occur during each member's regularly scheduled Medicaid renewal period."}
+
+# drift pair with ne-0004
+- id: ne-0003
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-04-20
+  category: income_alternative
+  drift_sensitive: true
+  question: "My client's 17-year-old daughter earns $700 a month at a part-time job. Does the daughter's income count toward the client's $580-a-month work-requirement income test?"
+  reference_answer: "As of 2026-04-20 the Nebraska FAQ answered 'No' to whether income from dependents counts: compliance is determined individually for each applicant or member based on Medicaid income rules."
+  rubric:
+    - id: c1
+      text: "States that, per the Nebraska FAQ at this date, dependents' income does not count; compliance is determined on an individual basis."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-04-15, quote: "No. Meeting Medicaid work requirements will be determined on an individual basis for each applicant or current member based on Medicaid income rules."}
+    - id: c2
+      text: "Does not say that dependents' income may count in some cases (that wording was only published in the later FAQ version)."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-04-15, quote: "No. Meeting Medicaid work requirements will be determined on an individual basis for each applicant or current member based on Medicaid income rules."}
+
+# drift pair with ne-0003
+- id: ne-0004
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-05-20
+  category: income_alternative
+  drift_sensitive: true
+  question: "My client's 17-year-old daughter earns $700 a month at a part-time job. Does the daughter's income count toward the client's $580-a-month work-requirement income test?"
+  reference_answer: "Per the updated Nebraska FAQ, dependents' income 'may count in some cases'; DHHS points to state regulations at 477 NAC 16. It is neither a flat yes nor a flat no."
+  rubric:
+    - id: c1
+      text: "States that dependents' income may count in some cases and cites or points to state regulations (477 NAC 16)."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "It may count in some cases. For more information, see state regulations in 477 NAC 16."}
+    - id: c2
+      text: "Does not state flatly that dependents' income never counts, or that it definitely counts."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "It may count in some cases. For more information, see state regulations in 477 NAC 16."}
+
+# drift pair with ne-0006, ne-0007
+- id: ne-0005
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-01-15
+  category: requirement
+  drift_sensitive: true
+  question: "My client takes classes at an accredited community college. How is 'half-time' defined for Nebraska's Medicaid work requirement, and how many credit hours is that?"
+  reference_answer: "As of 2026-01-15 the Nebraska FAQ said that as long as the client meets the school's own definition of half-time enrollment, it counts. No separate Medicaid definition or credit-hour number had been published."
+  rubric:
+    - id: c1
+      text: "States that meeting the school's own definition of half-time enrollment counts for the work requirement."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2025-12-30, quote: "As long as you meet your school’s definition of half-time enrollment, it will count for work requirements."}
+    - id: c2
+      text: "Does not claim that DHHS had published a fixed definition such as 'at least half of the program's full-time status' or a set number of credit hours."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2025-12-30, quote: "As long as you meet your school’s definition of half-time enrollment, it will count for work requirements."}
+
+# drift pair with ne-0005, ne-0007
+- id: ne-0006
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-04-20
+  category: requirement
+  drift_sensitive: true
+  question: "My client takes classes at an accredited community college. How is 'half-time' defined for Nebraska's Medicaid work requirement, and how many credit hours is that?"
+  reference_answer: "Half-time means enrollment in at least half of the program's full-time status. As of 2026-04-20 DHHS said it was still working with the federal government to confirm the number of hours needed for 'halftime' enrollment."
+  rubric:
+    - id: c1
+      text: "States that half-time means enrollment in at least half of the program's full-time status."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-04-15, quote: "Half-time means enrollment in at least half of the program’s full-time status."}
+    - id: c2
+      text: "States that the exact number of hours for half-time was still being confirmed with the federal government."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-04-15, quote: "Nebraska Medicaid is working with the federal government to confirm the number of hours needed for “halftime” enrollment."}
+    - id: c3
+      text: "Does not state a specific final credit-hour number as official Nebraska policy."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-04-15, quote: "Nebraska Medicaid is working with the federal government to confirm the number of hours needed for “halftime” enrollment."}
+
+# drift pair with ne-0005, ne-0006
+- id: ne-0007
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-05-20
+  category: requirement
+  drift_sensitive: true
+  question: "My client takes classes at an accredited community college. How is 'half-time' defined for Nebraska's Medicaid work requirement, and how many credit hours is that?"
+  reference_answer: "Half-time means enrollment in at least half of the program's full-time status (for example, half the credit load the school treats as full-time). DHHS verifies the school's accreditation to verify enrollment status."
+  rubric:
+    - id: c1
+      text: "States that half-time means enrollment in at least half of the program's full-time status."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "Half-time means enrollment in at least half of the program’s full-time status."}
+    - id: c2
+      text: "States that DHHS verifies the school's accreditation information."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "DHHS will verify your school’s accreditation information to verify enrollment status."}
+    - id: c3
+      text: "Does not say that the half-time hours are still pending federal confirmation, or that the school's own definition controls."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "Half-time means enrollment in at least half of the program’s full-time status."}
+
+# drift pair with ne-0009, ne-0010
+- id: ne-0008
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-02-01
+  category: notice_cure
+  drift_sensitive: true
+  question: "If a client loses Nebraska Medicaid because she did not meet the work requirement, can she get premium tax credits to buy a plan on the HealthCare.gov marketplace?"
+  reference_answer: "As of 2026-02-01 the Nebraska FAQ (v1.0) said the person must apply for Medicaid again as a new applicant and, during this time, will not be eligible for advanced premium tax credits on the federal marketplace."
+  rubric:
+    - id: c1
+      text: "States that the FAQ said the individual would not be eligible for advanced premium tax credits on the federal marketplace."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2025-12-30, quote: "During this time, this individual will not be eligible for advanced premium tax credits on the federal marketplace."}
+    - id: c2
+      text: "States that the person must apply for Medicaid again as a new applicant."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2025-12-30, quote: "the individual must apply for Medicaid again as a new applicant."}
+    - id: c3
+      text: "Does not say that the person may still qualify for marketplace financial assistance (later wording)."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2025-12-30, quote: "During this time, this individual will not be eligible for advanced premium tax credits on the federal marketplace."}
+
+# drift pair with ne-0008, ne-0010
+- id: ne-0009
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-04-20
+  category: notice_cure
+  drift_sensitive: true
+  question: "If a client loses Nebraska Medicaid because she did not meet the work requirement, can she get premium tax credits to buy a plan on the HealthCare.gov marketplace?"
+  reference_answer: "As of 2026-04-20 the April 14 Nebraska FAQ said that someone not meeting Medicaid work requirements will not qualify for advanced premium tax credits. If coverage ends she must meet work requirements and submit a new application."
+  rubric:
+    - id: c1
+      text: "States that the FAQ said people not meeting Medicaid work requirements will not qualify for advanced premium tax credits."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-04-15, quote: "If you are not meeting Medicaid work requirements, you will not qualify for advanced premium tax credits."}
+    - id: c2
+      text: "States that after coverage ends she must meet work requirements and submit a new application to regain coverage."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-04-15, quote: "If your coverage ends, you must meet work requirements and submit a new application to regain coverage through Medicaid expansion."}
+    - id: c3
+      text: "Does not say she may still qualify for marketplace financial assistance (wording added later)."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-04-15, quote: "If you are not meeting Medicaid work requirements, you will not qualify for advanced premium tax credits."}
+
+# drift pair with ne-0008, ne-0009
+- id: ne-0010
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-05-20
+  category: notice_cure
+  drift_sensitive: true
+  question: "If a client loses Nebraska Medicaid because she did not meet the work requirement, can she get premium tax credits to buy a plan on the HealthCare.gov marketplace?"
+  reference_answer: "The April 29 Nebraska FAQ softened the wording: she may still qualify for coverage through the marketplace, but might not qualify for financial assistance. It no longer says flatly that she will not qualify."
+  rubric:
+    - id: c1
+      text: "States that she may still qualify for marketplace coverage but might not qualify for financial assistance."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "If you are not meeting Medicaid work requirements you may still qualify for coverage through the marketplace, but you might not qualify for financial assistance."}
+    - id: c2
+      text: "Does not state flatly that she will not qualify for advanced premium tax credits (earlier FAQ wording)."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "If you are not meeting Medicaid work requirements you may still qualify for coverage through the marketplace, but you might not qualify for financial assistance."}
+
+# drift pair with ne-0012, ne-0013
+- id: ne-0011
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-07-10
+  category: good_cause
+  drift_sensitive: true
+  question: "My client is a Medicaid expansion member in Dawson County, which I hear has high unemployment. Is she exempt from Nebraska's work requirement right now, and does she need to send anything to DHHS?"
+  reference_answer: "As of 2026-07-10 the DHHS page named no specific county as under a hardship. It says DHHS itself checks whether a county emergency or high-unemployment hardship applies and that the member does not complete a declaration form for it. So she should not file a declaration, and no county exemption had been published for Dawson."
+  rubric:
+    - id: c1
+      text: "States that DHHS checks whether a county emergency or high-unemployment hardship applies, and that the member does not need to complete a declaration form for it."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "DHHS will check if either of these hardships apply to you. You don't need to complete a declaration form for living in a county under a federal emergency or with high unemployment."}
+    - id: c2
+      text: "Does not claim that DHHS had already announced a Dawson County exemption as of this date."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "If you lived in a county that was under a federal emergency declaration or in a county with a high unemployment rate, DHHS will check if either of these hardships apply to you."}
+
+# drift pair with ne-0011, ne-0013
+- id: ne-0012
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-08-15
+  category: good_cause
+  drift_sensitive: true
+  question: "My client is a Medicaid expansion member in Dawson County, which I hear has high unemployment. Is she exempt from Nebraska's work requirement right now, and does she need to send anything to DHHS?"
+  reference_answer: "Yes. DHHS posted a notice that anyone who lived in Dawson County during any qualifying month since February 2026 is automatically and temporarily exempt until Dawson County no longer has a high unemployment rate. No declaration form is needed for a county hardship."
+  rubric:
+    - id: c1
+      text: "States that anyone who lived in Dawson County during any qualifying month since February 2026 is automatically and temporarily exempt."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "If you lived in Dawson County during any qualifying month since February 2026, DHHS will automatically and temporarily exempt you from completing work requirement activities."}
+    - id: c2
+      text: "States that she does not need to complete a declaration form for the county hardship."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "You don't need to complete a declaration form for living in a county under a federal emergency or with high unemployment."}
+    - id: c3
+      text: "Does not tell her she must submit a declaration form or request to get the Dawson exemption."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "DHHS will automatically and temporarily exempt you from completing work requirement activities."}
+
+# drift pair with ne-0011, ne-0012
+- id: ne-0013
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-09-20
+  category: good_cause
+  drift_sensitive: true
+  question: "My client is a Medicaid expansion member in Dawson County, which I hear has high unemployment. Is she exempt from Nebraska's work requirement right now, and does she need to send anything to DHHS?"
+  reference_answer: "Yes. Dawson is one of 14 counties with temporary hardship exemptions. Existing expansion members who lived in Dawson County during any month since February 2026 qualify, and DHHS automatically excuses county-based hardships, so she does not need to send a declaration."
+  rubric:
+    - id: c1
+      text: "States that existing expansion members qualify if they lived in Dawson County during any month since February 2026."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "You qualify for this exemption if you are in the Medicaid expansion group and you have lived in Dawson County during any month since February 2026."}
+    - id: c2
+      text: "States that DHHS automatically excuses county-based hardships (no declaration needed)."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "County-Based Hardships"}
+    - id: c3
+      text: "Does not tell her to submit a declaration form for the county hardship."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "DHHS will automatically excuse you if you resided in a county during the time one of the following hardships was in effect:"}
+
+# drift pair with ne-0015
+- id: ne-0014
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-08-15
+  category: good_cause
+  drift_sensitive: true
+  question: "A new applicant told me she lived in Thurston County in May 2026 and applied for Medicaid expansion in June 2026. Does she get a county-based temporary hardship exemption?"
+  reference_answer: "As of 2026-08-15 the DHHS page named only Dawson County for an automatic county hardship; no exemption for Thurston County had been published. The general rule is that DHHS checks county hardships itself and no declaration is needed."
+  rubric:
+    - id: c1
+      text: "States that the only county named on the DHHS page at this date was Dawson County, so no Thurston exemption had been published."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "If you lived in Dawson County during any qualifying month since February 2026, DHHS will automatically and temporarily exempt you from completing work requirement activities."}
+    - id: c2
+      text: "States the general rule that DHHS checks county-based hardships itself and no declaration form is needed."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "You don't need to complete a declaration form for living in a county under a federal emergency or with high unemployment."}
+    - id: c3
+      text: "Does not claim that Thurston County had a published hardship exemption as of this date."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "If you lived in a county that was under a federal emergency declaration or in a county with a high unemployment rate, DHHS will check if either of these hardships apply to you."}
+
+# drift pair with ne-0014
+- id: ne-0015
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-09-20
+  category: good_cause
+  drift_sensitive: true
+  question: "A new applicant told me she lived in Thurston County in May 2026 and applied for Medicaid expansion in June 2026. Does she get a county-based temporary hardship exemption?"
+  reference_answer: "Yes. Thurston County is one of the severe-weather emergency counties (May 1 to May 31, 2026). New applicants qualify if they lived in one of those counties during May 2026 and applied in June 2026. DHHS applies it automatically."
+  rubric:
+    - id: c1
+      text: "States that Thurston is among the counties with a temporary hardship (severe weather emergency, May 2026)."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "Arthur, Buffalo, Dawson, Fillmore, Gage, Garden, Grant, Howard, Jefferson, Lincoln, Morrill, Nemaha, Thayer, Thurston."}
+    - id: c2
+      text: "States that a new applicant who lived there in May 2026 and applied in June 2026 qualifies."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "You qualify for this exemption if you lived in one of these counties during May 2026 and you applied for Medicaid in June 2026."}
+    - id: c3
+      text: "Does not say she must file a declaration to get a county-based exemption."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "DHHS will automatically excuse you if you resided in a county during the time one of the following hardships was in effect:"}
+
+# drift pair with ne-0017
+- id: ne-0016
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-08-15
+  category: notice_cure
+  drift_sensitive: true
+  question: "A client who lived in Garden County in March 2026 lost her Medicaid expansion coverage at an August 2026 renewal because DHHS said she did not meet the work requirement. Can she get her coverage back without starting over?"
+  reference_answer: "Per the guidance published by 2026-08-15, if coverage is denied or ends she must meet the work requirements and submit a new application (apply again). No county-hardship reprocessing process for people who lost coverage had been published yet."
+  rubric:
+    - id: c1
+      text: "States that, per published guidance, once coverage ends she must meet work requirements and submit a new application."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "If your coverage is denied or ends, you must meet work requirements and submit a new application to get coverage through Medicaid expansion."}
+    - id: c2
+      text: "States that the closure notice tells people they will need to apply for Medicaid again."
+      kind: must_include
+      citations:
+        - {source_id: ne-vocn-sample-eng-2026-04-29, quote: "To qualify for coverage, you will need to meet work requirements and apply for Medicaid again"}
+    - id: c3
+      text: "Does not claim that DHHS had published a promise to automatically reprocess closed cases for county-hardship residents as of this date."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "If your coverage is denied or ends, you must meet work requirements and submit a new application to get coverage through Medicaid expansion."}
+
+# drift pair with ne-0016
+- id: ne-0017
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-09-20
+  category: notice_cure
+  drift_sensitive: true
+  question: "A client who lived in Garden County in March 2026 lost her Medicaid expansion coverage at an August 2026 renewal because DHHS said she did not meet the work requirement. Can she get her coverage back without starting over?"
+  reference_answer: "Likely yes. Garden County is in the wildfire emergency group (March 1 to April 30, 2026). DHHS says that if you lived in a listed county during a qualifying month while the hardship was in effect and lost coverage for not meeting work requirements, DHHS will reprocess your application or renewal and you do not need to take action."
+  rubric:
+    - id: c1
+      text: "States that DHHS will reprocess the application or renewal for people who lived in a hardship county in a qualifying month and lost coverage, and no action is needed."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "DHHS will reprocess your application or renewal. You do not need to take any action."}
+    - id: c2
+      text: "States that existing members who lived in a wildfire county (including Garden) during March 2026 and have a renewal between July 2026 and February 2027 qualify."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "You qualify for this exemption if you lived in one these counties during March 2026 and have a Medicaid renewal in any month between July 2026 and February 2027."}
+    - id: c3
+      text: "Does not tell her she must start over with a brand-new application as the only option."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "If you have resided in one of these counties during a qualifying month while a temporary hardship was in effect and you lost your Medicaid coverage because of not meeting work requirements, DHHS will reprocess your application or renewal."}
+
+# drift pair with ne-0019
+- id: ne-0018
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-03-15
+  category: good_cause
+  drift_sensitive: true
+  question: "A client was hospitalized for a week in February 2026 and also lives in a county that has had an emergency declaration. How does she claim temporary hardships for these - does she have to send a request to DHHS?"
+  reference_answer: "As of 2026-03-15 DHHS said members and applicants with a temporary hardship reason (hospitalization or nursing home stay since last renewal, medical travel, or living in a county under an emergency declaration or with high unemployment since last renewal) may need to make a request to DHHS in person, online, by phone, or by mail."
+  rubric:
+    - id: c1
+      text: "States that people with a temporary hardship reason may need to make a request to DHHS in person, online, by phone, or by mail."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-03-03, quote: "Members and applicants who have one of these temporary hardship reasons may need to make a request to DHHS in person, online, by phone, or through the mail."}
+    - id: c2
+      text: "Identifies hospitalization since the last coverage renewal and living in a county under an emergency declaration as temporary hardship reasons."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-03-03, quote: "People who were hospitalized or lived in a nursing home since their last coverage renewal."}
+        - {source_id: ne-dhhs-wr-page-2026-03-03, quote: "People who lived in a county that was under an emergency declaration or in a county with a high unemployment rate since their last coverage renewal."}
+    - id: c3
+      text: "Does not say the county hardship is handled automatically with no request or declaration (that process was published later)."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-03-03, quote: "Members and applicants who have one of these temporary hardship reasons may need to make a request to DHHS in person, online, by phone, or through the mail."}
+
+# drift pair with ne-0018
+- id: ne-0019
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-05-20
+  category: good_cause
+  drift_sensitive: true
+  question: "A client was hospitalized for a week in February 2026 and also lives in a county that has had an emergency declaration. How does she claim temporary hardships for these - does she have to send a request to DHHS?"
+  reference_answer: "For the hospital stay she must fill out and send a declaration form to DHHS (online, by phone, by mail, or in person). For a county emergency or high-unemployment hardship she does not complete a declaration form; DHHS checks it."
+  rubric:
+    - id: c1
+      text: "States that for the hospital or nursing facility stay she must fill out a declaration form and send it to DHHS (online, phone, mail, or in person)."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-05-13, quote: "If you were in the hospital, staying at a nursing facility, or traveling to get medical care, you will have to fill out a declaration form and sent it to DHHS. You can send the declaration form to DHHS online, over the phone, by mail, or in person."}
+    - id: c2
+      text: "States that for a county emergency or high-unemployment hardship she does not complete a declaration form; DHHS checks whether it applies."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-05-13, quote: "You don't need to complete a declaration form for living in a county under a federal emergency or with high unemployment."}
+    - id: c3
+      text: "Does not say she must send a declaration form for the county emergency hardship."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-05-13, quote: "DHHS will check if either of these hardships apply to you."}
+
+# drift pair with ne-0021
+- id: ne-0020
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-09-10
+  category: exemption
+  drift_sensitive: true
+  question: "Has DHHS published an updated process for the medically frail and substance use disorder (SUD) treatment exemptions, and how does the current process work for an existing member?"
+  reference_answer: "As of 2026-09-10 the DHHS page linked 'Medically Frail and SUD Treatment Program Exemptions Process' with no update label; the captured process is the May 1, 2026 version. For existing enrollees, DHHS reviews medical claims data about 90 days before the end of the eligibility period; if qualifying conditions are found the person is treated as exempt, otherwise she submits a self-declaration."
+  rubric:
+    - id: c1
+      text: "States that for existing enrollees DHHS reviews available medical claims data approximately 90 days before the end of the eligibility period and treats the person as exempt if qualifying indicators are found."
+      kind: must_include
+      citations:
+        - {source_id: ne-frail-sud-process-2026-05-12, quote: "Nebraska Medicaid will review available medical claims data approximately 90 days before the end of a member’s eligibility period."}
+    - id: c2
+      text: "States that if there are no qualifying claims the person submits a self-declaration with basic information about the condition or SUD treatment provider."
+      kind: must_include
+      citations:
+        - {source_id: ne-frail-sud-process-2026-05-12, quote: "the individual will need to submit a self-declaration and provide basic information about their medically frail condition or SUD treatment provider."}
+    - id: c3
+      text: "Does not claim that a September 2026 update to the process had been published as of this date."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-08, quote: "Medically Frail and SUD Treatment Program Exemptions Process"}
+
+# drift pair with ne-0020
+- id: ne-0021
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-09-20
+  category: exemption
+  drift_sensitive: true
+  question: "Has DHHS published an updated process for the medically frail and substance use disorder (SUD) treatment exemptions, and how does the current process work for an existing member?"
+  reference_answer: "The DHHS page now labels the process document 'Updated September 14, 2026'. The text of that update is not in the captured sources, so what changed cannot be stated; the last captured version (May 1, 2026) uses claims data reviewed about 90 days before the eligibility period ends, with self-declaration if there are no qualifying claims. The user should check the updated document."
+  rubric:
+    - id: c1
+      text: "States that the DHHS page labels the medically frail and SUD exemptions process as updated September 14, 2026."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "Medically Frail and SUD Treatment Program Exemptions Process (Updated September 14, 2026)"}
+    - id: c2
+      text: "Notes that the content of the September 14 update is not available or unconfirmed, and refers to the earlier May 1, 2026 process (claims review about 90 days before the eligibility period ends) only as the last known version."
+      kind: must_include
+      citations:
+        - {source_id: ne-frail-sud-process-2026-05-12, quote: "Nebraska Medicaid will review available medical claims data approximately 90 days before the end of a member’s eligibility period."}
+    - id: c3
+      text: "Does not assert specific changes made in the September 14, 2026 update."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "Medically Frail and SUD Treatment Program Exemptions Process (Updated September 14, 2026)"}
+
+# drift pair with ne-0023
+- id: ne-0022
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-04-14
+  category: exemption
+  drift_sensitive: true
+  question: "For Nebraska's medically frail exemption, does a client's medical condition have to be both serious and complex, or is one of those enough?"
+  reference_answer: "As of 2026-04-14 the DHHS page listed 'A serious and complex medical condition' among the medically frail conditions, so the page wording required both."
+  rubric:
+    - id: c1
+      text: "States that the page at this date listed 'A serious and complex medical condition'."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-04-14, quote: "A serious and complex medical condition"}
+    - id: c2
+      text: "Does not say that a condition that is only serious or only complex is clearly enough under the published wording at this date."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-04-14, quote: "A serious and complex medical condition"}
+
+# drift pair with ne-0022
+- id: ne-0023
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-05-20
+  category: exemption
+  drift_sensitive: true
+  question: "For Nebraska's medically frail exemption, does a client's medical condition have to be both serious and complex, or is one of those enough?"
+  reference_answer: "DHHS corrected the wording to 'a serious or complex medical condition', so a condition that is serious or complex can qualify; it does not have to be both. Other listed conditions include blindness or disability, SUD, a disabling mental health condition, and a serious physical, intellectual, or developmental disability."
+  rubric:
+    - id: c1
+      text: "States that the corrected wording is 'serious or complex medical condition', so it need not be both."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-05-13, quote: "You have a serious or complex medical condition"}
+    - id: c2
+      text: "Does not say that the condition must be both serious and complex."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-05-13, quote: "You have a serious or complex medical condition"}
+
+# drift pair with ne-0025
+- id: ne-0024
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-02-15
+  category: applicability
+  drift_sensitive: true
+  question: "What is the income limit for Nebraska's Medicaid expansion group that must meet the work requirement, in annual dollars for a single person?"
+  reference_answer: "As of 2026-02-15 DHHS published up to 138 percent of the federal poverty level, about $21,610 per year for a single person or $44,380 for a family of four."
+  rubric:
+    - id: c1
+      text: "States about $21,610 per year for a single person ($44,380 for a family of four)."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2025-12-17, quote: "about $21,610 per year for a single person, or $44,380 for a family of four"}
+    - id: c2
+      text: "States the limit is 138 percent of the federal poverty level."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2025-12-30, quote: "who earn up to 138 percent of the federal poverty level"}
+    - id: c3
+      text: "Does not state $22,025 (a later figure) as the limit."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2025-12-17, quote: "about $21,610 per year for a single person, or $44,380 for a family of four"}
+
+# drift pair with ne-0024
+- id: ne-0025
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-05-20
+  category: applicability
+  drift_sensitive: true
+  question: "What is the income limit for Nebraska's Medicaid expansion group that must meet the work requirement, in annual dollars for a single person?"
+  reference_answer: "DHHS updated the figures: up to 138 percent of the federal poverty level, about $22,025 per year for one person or $45,540 for a family of four."
+  rubric:
+    - id: c1
+      text: "States about $22,025 per year for one person ($45,540 for a family of four)."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-05-13, quote: "earn up to 138% of the federal poverty level or about $22,025 per year for one person or $45,540 for a family of four"}
+    - id: c2
+      text: "Does not state the older $21,610 figure as the current limit."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-05-13, quote: "earn up to 138% of the federal poverty level or about $22,025 per year for one person or $45,540 for a family of four"}
+
+# drift pair with ne-0027
+- id: ne-0026
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-02-15
+  category: exemption
+  drift_sensitive: true
+  question: "My client is a California Indian who gets care through an urban Indian health program. Does Nebraska's work-requirement exemption for tribal members cover her?"
+  reference_answer: "As of 2026-02-15 the published exemption listed only 'people who are members of recognized Native American tribes'. Urban Indians, California Indians, and IHS service recipients were not named at that date, so coverage could not be confirmed from the published wording."
+  rubric:
+    - id: c1
+      text: "States that the published exemption at this date was for members of recognized Native American tribes."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2025-12-17, quote: "People who are members of recognized Native American tribes"}
+    - id: c2
+      text: "Does not claim that the published list at this date explicitly exempted Urban Indians, California Indians, or people receiving IHS services."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2025-12-17, quote: "People who are members of recognized Native American tribes"}
+
+# drift pair with ne-0026
+- id: ne-0027
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-05-20
+  category: exemption
+  drift_sensitive: true
+  question: "My client is a California Indian who gets care through an urban Indian health program. Does Nebraska's work-requirement exemption for tribal members cover her?"
+  reference_answer: "Yes. The updated exemption covers a member of a federally recognized tribe, an Urban Indian, a California Indian, or someone who receives services through the Indian Health Service. She should let the Medicaid program know about her tribal affiliation."
+  rubric:
+    - id: c1
+      text: "States that the exemption covers California Indians and Urban Indians, as well as members of federally recognized tribes and people receiving IHS services."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-05-13, quote: "federally recognized Native American tribe, an Urban Indian, a California Indian, or if you receive services through the Indian Health Service (IHS)"}
+    - id: c2
+      text: "States that she should tell the Medicaid program about her tribal affiliation."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "Let the Medicaid program know if you have a tribal affiliation."}
+
+# drift pair with ne-0029
+- id: ne-0028
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-04-20
+  category: lookback
+  drift_sensitive: true
+  question: "A woman applies for Medicaid expansion in Nebraska on June 10, 2026. Which calendar month does DHHS look at to decide whether she meets the work requirement or has an exemption?"
+  reference_answer: "As of 2026-04-20 DHHS said applicants on or after May 1, 2026 must meet work requirements in the month before they apply, so for a June 10 application the month reviewed is May 2026."
+  rubric:
+    - id: c1
+      text: "States that the month before applying (May 2026) is the review month."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-04-14, quote: "Individuals applying for Medicaid on or after May 1, 2026, must meet work requirements in the month before they apply."}
+    - id: c2
+      text: "Does not say that the month of application (June) can also be used for an exemption (that rule was published later)."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-04-14, quote: "Individuals applying for Medicaid on or after May 1, 2026, must meet work requirements in the month before they apply."}
+
+# drift pair with ne-0028
+- id: ne-0029
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-05-20
+  category: lookback
+  drift_sensitive: true
+  question: "A woman applies for Medicaid expansion in Nebraska on June 10, 2026. Which calendar month does DHHS look at to decide whether she meets the work requirement or has an exemption?"
+  reference_answer: "For work activities or the $580 income test the review period is the calendar month before applying (May 2026). For a temporary hardship it is also the month before. For an exemption it is either the month she applies (June) or the month before (May)."
+  rubric:
+    - id: c1
+      text: "States that for work, school, a work program, volunteering, or earning $580 the review period is the calendar month before applying."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-05-13, quote: "If you are working, going to school, participating in a work program, volunteering, or earning at least $580, the work requirement review period is the calendar month before you apply."}
+    - id: c2
+      text: "States that for an exemption the review period is either the month of application or the month before."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-05-13, quote: "If you qualify for an exemption the work requirement review period is the calendar month you apply or the calendar month before you apply."}
+    - id: c3
+      text: "States that for a temporary hardship the review period is the calendar month before applying."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-05-13, quote: "If you qualify for a temporary hardship the work requirement review period is the calendar month before you apply."}
+
+# drift pair with ne-0031
+- id: ne-0030
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-04-20
+  category: verification
+  drift_sensitive: true
+  question: "A client is applying for Medicaid expansion in Nebraska for the first time and says she is medically frail because of a chronic condition. Does she need to gather medical records to send to DHHS?"
+  reference_answer: "As of 2026-04-20 the Nebraska FAQ only said that Medicaid may ask for documentation of the medically frail condition. It did not yet say that medical records are not needed; documentation could be requested."
+  rubric:
+    - id: c1
+      text: "States that, per the FAQ at this date, Medicaid may ask for documentation of the medically frail condition."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-04-15, quote: "Medicaid may ask for documentation."}
+    - id: c2
+      text: "Does not state that medical records definitely need not be sent (that assurance was published later)."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-04-15, quote: "Medicaid may ask for documentation."}
+
+# drift pair with ne-0030
+- id: ne-0031
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-05-20
+  category: verification
+  drift_sensitive: true
+  question: "A client is applying for Medicaid expansion in Nebraska for the first time and says she is medically frail because of a chronic condition. Does she need to gather medical records to send to DHHS?"
+  reference_answer: "No. First-time applicants can use the declaration form to tell DHHS about their health condition and do not need to send medical records. The process asks only for basic information (description of the condition and provider) and no additional documentation."
+  rubric:
+    - id: c1
+      text: "States that a first-time applicant can use the declaration form to tell DHHS about her health condition and does not need to send medical records."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "If you’re applying for the first time, you can use the declaration form to tell DHHS about your health condition. You will not need to send in medical records."}
+    - id: c2
+      text: "States that no additional documentation is required at this time with the declaration for new applicants."
+      kind: must_include
+      citations:
+        - {source_id: ne-frail-sud-process-2026-05-12, quote: "No additional documentation is required at this time."}
+    - id: c3
+      text: "Does not tell her she must submit medical records or doctor documentation up front."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "You will not need to send in medical records."}
+
+# drift pair with ne-0033
+- id: ne-0032
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-02-15
+  category: notice_cure
+  drift_sensitive: true
+  question: "If a Nebraska Medicaid member does not respond to a work-requirement request for information, will DHHS send her another notice before her coverage is closed?"
+  reference_answer: "As of 2026-02-15 the published guidance said that if DHHS requests information the member must respond within 30 days or may lose Medicaid coverage; a second notice before closure had not been promised in the captured FAQ or outreach notice."
+  rubric:
+    - id: c1
+      text: "States that a member who is asked for information must respond within 30 days or may lose Medicaid coverage."
+      kind: must_include
+      citations:
+        - {source_id: ne-outreach-notice-2025-12-18, quote: "If DHHS requests information from you, you must respond within 30 days, or you may lose your Medicaid coverage."}
+    - id: c2
+      text: "Does not claim that DHHS had promised to send another notice before closing coverage as of this date."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2025-12-30, quote: "If someone is required to complete work requirements and does not complete them in a qualifying month and are not exempt, they will lose their Medicaid coverage."}
+
+# drift pair with ne-0032
+- id: ne-0033
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-05-20
+  category: notice_cure
+  drift_sensitive: true
+  question: "If a Nebraska Medicaid member does not respond to a work-requirement request for information, will DHHS send her another notice before her coverage is closed?"
+  reference_answer: "Yes. Medicaid first sends a notice giving 30 days to respond; if she is not compliant, it will send another notice prior to denying or closing her coverage."
+  rubric:
+    - id: c1
+      text: "States that Medicaid first sends a notice giving 30 days to respond."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "Medicaid will send a notice giving you 30 days to respond if we cannot confirm that you meet Medicaid work requirements."}
+    - id: c2
+      text: "States that Medicaid will send another notice before denying or closing coverage."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "Medicaid will send another notice prior to denying or closing your coverage."}
+    - id: c3
+      text: "Does not say coverage closes immediately with no further notice."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "Medicaid will send another notice prior to denying or closing your coverage."}
+
+# drift pair with ne-0035
+- id: ne-0034
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-04-20
+  category: income_alternative
+  drift_sensitive: true
+  question: "Which kinds of income count toward the $580-a-month test in Nebraska - only wages from a job, or other money like benefits too?"
+  reference_answer: "As of 2026-04-20 Nebraska had not answered this: the FAQ said DHHS was working with the federal government to confirm guidance on income and would update the question when guidance was received."
+  rubric:
+    - id: c1
+      text: "States that DHHS had not yet published guidance on what income counts and was working with the federal government to confirm it."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-04-15, quote: "Nebraska Medicaid is working with the federal government to confirm guidance on income. This question will be updated once guidance is received."}
+    - id: c2
+      text: "Does not state definitively that other benefits or household members' income count (or do not count)."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-04-15, quote: "Nebraska Medicaid is working with the federal government to confirm guidance on income. This question will be updated once guidance is received."}
+
+# drift pair with ne-0034
+- id: ne-0035
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-05-20
+  category: income_alternative
+  drift_sensitive: true
+  question: "Which kinds of income count toward the $580-a-month test in Nebraska - only wages from a job, or other money like benefits too?"
+  reference_answer: "Income earned from a job counts, as well as income from other sources such as other benefits. Medicaid will count the member's income and may also count household members' income in some cases; see state regulations at 477 NAC 16."
+  rubric:
+    - id: c1
+      text: "States that job income counts, as well as income from other sources such as other benefits."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "Income you earn from a job counts, as well as income you may receive from other sources such as other benefits."}
+    - id: c2
+      text: "States that income of others in the household may be counted in some cases, and refers to 477 NAC 16."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "Medicaid will count your income and may also count the income from others in your household in some cases."}
+    - id: c3
+      text: "Does not say that only wages from a job count."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "Income you earn from a job counts, as well as income you may receive from other sources such as other benefits."}
+
+- id: ne-0036
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: timeline
+  drift_sensitive: false
+  question: "A client's Medicaid expansion renewal is June 15, 2026. Does she have to show at that renewal that she met Nebraska's work requirement?"
+  reference_answer: "No. Members with renewal dates in May or June 2026 do not have to show they met work requirements until their renewal in 2027. Members can check their renewal date in iServe."
+  rubric:
+    - id: c1
+      text: "States that members with May or June 2026 renewal dates do not have to show compliance until their renewal in 2027."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "Members with renewal dates in May or June 2026 will not have to show they've met work requirements until their renewal in 2027."}
+    - id: c2
+      text: "States that a member can check her renewal date by logging into iServe."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "Members can check their renewal date by logging into iServe."}
+    - id: c3
+      text: "Does not claim she must prove compliance or lose coverage at the June 2026 renewal."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-pr-take-effect-2026-04-30, quote: "Members with renewal dates in May or June 2026 will not be subject to the requirements."}
+
+- id: ne-0037
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-08-15
+  category: timeline
+  drift_sensitive: false
+  question: "A colleague says federal law does not require work requirements until January 1, 2027, so our Nebraska clients do not have to do anything yet. Is that right for Nebraska?"
+  reference_answer: "No. January 1, 2027 is the federal deadline for states, but Nebraska chose to start earlier: requirements began May 1, 2026 for new applicants, and existing members are checked at renewals ending on or after July 31, 2026."
+  rubric:
+    - id: c1
+      text: "States that Nebraska began implementing before the federal January 1, 2027 deadline, starting May 1, 2026."
+      kind: must_include
+      citations:
+        - {source_id: ne-pr-community-partners-2026-04-13, quote: "States are required to adopt the requirements by January 1, 2027. Nebraska will implement the requirements starting May 1, 2026."}
+    - id: c2
+      text: "States that existing members are checked at renewals for coverage periods ending on or after July 31, 2026."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "DHHS will first start checking work requirements for members whose coverage periods end on or after July 31, 2026."}
+    - id: c3
+      text: "Does not claim that Nebraska's requirement does not begin until January 1, 2027."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "Medicaid work requirements start on May 1, 2026."}
+
+- id: ne-0038
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-05-20
+  category: timeline
+  drift_sensitive: false
+  question: "Is it true that every Nebraska Medicaid expansion member had to prove compliance on May 1, 2026 or lose coverage?"
+  reference_answer: "No. The requirements took effect May 1, 2026 but were not applied to all expansion members immediately. They apply right away to new applicants; existing members are reviewed at their regular renewals, starting with eligibility periods ending July 31, 2026, with phased implementation through June 2027."
+  rubric:
+    - id: c1
+      text: "States that existing members are reviewed during their regularly scheduled renewal rather than all at once on May 1."
+      kind: must_include
+      citations:
+        - {source_id: ne-pr-take-effect-2026-04-30, quote: "Although the requirements take effect May 1, they will not be applied to all expansion members immediately. Reviews will occur during each member's regularly scheduled Medicaid renewal period."}
+    - id: c2
+      text: "States that the first group affected has eligibility periods ending July 31, 2026, with phased implementation through June 2027."
+      kind: must_include
+      citations:
+        - {source_id: ne-pr-take-effect-2026-04-30, quote: "The first group impacted will be those with eligibility periods ending July 31, 2026, with phased implementation continuing through June 2027."}
+    - id: c3
+      text: "States that the requirements apply immediately to new expansion applicants."
+      kind: must_include
+      citations:
+        - {source_id: ne-pr-take-effect-2026-04-30, quote: "Requirements go into effect immediately for new Medicaid applicants eligible in the expansion category."}
+
+- id: ne-0039
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: applicability
+  drift_sensitive: false
+  question: "If a parent on Medicaid expansion loses coverage for not meeting the work requirement, does her child's Medicaid end too?"
+  reference_answer: "No. Work requirements only affect the person who must meet them; the child's Medicaid is not affected."
+  rubric:
+    - id: c1
+      text: "States that work requirements only affect the person who must meet them and that the child's Medicaid will not be affected."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "Work requirements only affect the person who must meet them. For example, if a parent is eligible through Medicaid expansion but loses coverage because the parent is not meeting work requirements, the child’s Medicaid will not be affected."}
+    - id: c2
+      text: "Does not say the child or other household members lose coverage because of the parent's noncompliance."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "the child’s Medicaid will not be affected."}
+
+- id: ne-0040
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: applicability
+  drift_sensitive: false
+  question: "My 45-year-old client has Medicaid because of a disability, not through expansion. Does Nebraska's work requirement apply to her?"
+  reference_answer: "No. Work requirements only apply to people applying for or already covered through Medicaid expansion; the expansion group is adults 19-64 who are not pregnant, do not have a disability, and are not on Medicare."
+  rubric:
+    - id: c1
+      text: "States that work requirements only apply to people applying for or covered through Medicaid expansion."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "Work requirements only apply to you if you are applying for or already have Medicaid coverage through Medicaid expansion."}
+    - id: c2
+      text: "States that the expansion group does not include people who have a disability."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "Do not have a disability"}
+    - id: c3
+      text: "Does not say the requirement applies to all Nebraska Medicaid members regardless of category."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "Work requirements only apply to you if you are applying for or already have Medicaid coverage through Medicaid expansion."}
+
+- id: ne-0041
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: requirement
+  drift_sensitive: false
+  question: "A client has no paid job, but in one month she volunteered 40 hours and attended a job-skills program for 40 hours. Does she meet Nebraska's work requirement, and how does she report it?"
+  reference_answer: "Yes. Activities can be combined to reach 80 hours in a calendar month (40 + 40 = 80). To report volunteer hours and work-program hours she must complete the individual declaration form (IDF)."
+  rubric:
+    - id: c1
+      text: "States that activities can be combined to reach 80 hours in a calendar month, so 40 + 40 hours meets the requirement."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "Or, you can combine any of these activities to get to 80 hours in a calendar month."}
+    - id: c2
+      text: "States that volunteer hours are reported with the individual declaration form (IDF)."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "To report volunteer hours, you must complete the individual declaration form (IDF)."}
+    - id: c3
+      text: "States that job-skills or training program hours are also reported with the IDF."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "To report job-skills or training programs hours, you must complete the individual declaration form (IDF)."}
+
+- id: ne-0042
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: requirement
+  drift_sensitive: false
+  question: "My client spends about 30 hours a week searching for a job on her own. Does job searching count toward Nebraska's 80 hours?"
+  reference_answer: "No. Job searching outside of an approved program does not count. Participation in an organized work program that helps people prepare for, find, or keep a job can count."
+  rubric:
+    - id: c1
+      text: "States that job searching outside of an approved program does not count."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "No. Job searching outside of an approved program does not count."}
+    - id: c2
+      text: "States that an organized work program that helps people prepare for, find, or keep a job can count as a work-program activity."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "A work program is an organized program that helps people prepare for, find, or keep a job."}
+    - id: c3
+      text: "Does not say that self-directed job search hours count toward the 80 hours."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "Job searching outside of an approved program does not count."}
+
+- id: ne-0043
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: requirement
+  drift_sensitive: false
+  question: "My client goes to Alcoholics Anonymous meetings three times a week. Does that make her exempt as someone in a drug or alcohol treatment program?"
+  reference_answer: "No. Attending Alcoholics Anonymous or similar drug and alcohol support groups does not count as participating in a drug addiction or alcohol treatment program for the work requirement exemption."
+  rubric:
+    - id: c1
+      text: "States that attending AA or similar support groups does not count as a treatment program for this purpose."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "No, attending Alcoholics Anonymous (AA) or similar drug and alcohol support groups does not count as participating in a drug addiction or alcoholic treatment program to meet work requirements."}
+    - id: c2
+      text: "Does not say AA attendance alone qualifies her for the treatment-program exemption."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "attending Alcoholics Anonymous (AA) or similar drug and alcohol support groups does not count"}
+
+- id: ne-0044
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: income_alternative
+  drift_sensitive: false
+  question: "Where does Nebraska's $580 figure come from, and can a client who works fewer than 80 hours in a month still meet the requirement with it?"
+  reference_answer: "$580 per calendar month equals 80 hours at the federal minimum wage. A person who earns at least $580 in a calendar month meets the requirement even if she worked fewer than 80 hours. Seasonal workers can qualify with a six-month average monthly income of at least $580."
+  rubric:
+    - id: c1
+      text: "States that $580 in a calendar month equals 80 hours worked at the current federal minimum wage."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "You can also meet work requirements if you are working and earn $580 in a calendar month. This is equal to 80 hours worked at the current federal minimum wage."}
+    - id: c2
+      text: "States that earning at least $580 meets the requirement even with fewer than 80 hours worked."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "If you earn at least $580 in a calendar month, you meet the work requirement even if you work fewer than 80 hours."}
+    - id: c3
+      text: "States that seasonal workers can qualify with an average monthly income over the last six months of at least $580."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "You can also meet work requirements if your average monthly income from working over the last six months from seasonal work is at least $580, regardless of the number of hours worked."}
+
+- id: ne-0045
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-09-20
+  category: income_alternative
+  drift_sensitive: false
+  question: "My client earns $300 a month at a part-time job and her husband earns $2,500. Will DHHS add his income to hers so she clears the $580 test?"
+  reference_answer: "Not something to promise. Nebraska's FAQ says Medicaid will count the member's income and may also count household members' income in some cases, and refers to state regulations at 477 NAC 16. It does not say a spouse's income always counts, or never counts."
+  rubric:
+    - id: c1
+      text: "States that others' household income may be counted in some cases and points to 477 NAC 16."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "Medicaid will count your income and may also count the income from others in your household in some cases."}
+    - id: c2
+      text: "Does not state that the spouse's income definitely counts toward the $580 test."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "may also count the income from others in your household in some cases"}
+    - id: c3
+      text: "Does not state that the spouse's income definitely does not count."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "It may count in some cases. For more information, see state regulations in 477 NAC 16."}
+
+- id: ne-0046
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: lookback
+  drift_sensitive: false
+  question: "I read that federal rules let states require a new applicant to show compliance for up to three months before applying. Does a new Nebraska applicant need to show three months of work?"
+  reference_answer: "No. In Nebraska the review period for an applicant's work, school, volunteering or $580 income is the calendar month before applying. For an exemption it can be the month of application or the month before."
+  rubric:
+    - id: c1
+      text: "States that Nebraska's review period for activities and income is the calendar month before applying (one month)."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "If you are working, going to school, participating in a work program, volunteering, or earning at least $580, the work requirement review period is the calendar month before you apply."}
+    - id: c2
+      text: "Does not say a Nebraska applicant must show three consecutive months of activity."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "If you are working, going to school, participating in a work program, volunteering, or earning at least $580, the work requirement review period is the calendar month before you apply."}
+
+- id: ne-0047
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-08-15
+  category: lookback
+  drift_sensitive: false
+  question: "For an existing Nebraska Medicaid expansion member at renewal, how far back does DHHS look, and how many months does she have to meet the requirement?"
+  reference_answer: "The review period is 12 months. She must complete work requirement activities, qualify for an exemption, or have a temporary hardship during at least one calendar month since her last renewal."
+  rubric:
+    - id: c1
+      text: "States that the review period for existing members is 12 months."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "If you're already on Medicaid, the work requirement review period is 12 months."}
+    - id: c2
+      text: "States that she needs at least one calendar month since her last renewal in which she did activities, had an exemption, or had a temporary hardship."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "you must complete work requirement activities, qualify for an exemption, or have a temporary hardship during at least one calendar month since your last renewal."}
+    - id: c3
+      text: "Does not say she must meet the requirement in every month of the 12."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "during at least one calendar month since your last renewal."}
+
+- id: ne-0048
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-08-15
+  category: lookback
+  drift_sensitive: false
+  question: "A member worked 90 hours in one month but then lost her job. Is she out of compliance for the rest of her eligibility period?"
+  reference_answer: "No. If Medicaid can confirm she met the requirement in at least one qualifying month, she is considered compliant for the full eligibility period."
+  rubric:
+    - id: c1
+      text: "States that confirming one qualifying month makes her compliant for the full eligibility period."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "If Medicaid can confirm you met the requirement for at least one qualifying month, you will be considered compliant for the full eligibility period."}
+    - id: c2
+      text: "Does not say she must show 80 hours or $580 in every month."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "If Medicaid can confirm you met the requirement for at least one qualifying month, you will be considered compliant for the full eligibility period."}
+
+- id: ne-0049
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-07-10
+  category: requirement
+  drift_sensitive: false
+  question: "A client runs a small landscaping business. She worked about 90 hours in her business in June but the business lost money that month. Can that count for the work requirement?"
+  reference_answer: "Yes. A self-employed person can meet the requirement by working 80 hours in a qualifying month even if the business operates at a loss, or by earning $580 in a qualifying calendar month."
+  rubric:
+    - id: c1
+      text: "States that 80 hours of self-employment in a qualifying month can count even if the business operates at a loss."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "Or, you can work 80 hours in a qualifying month as self-employed even if your business operates at a loss during a qualifying calendar month."}
+    - id: c2
+      text: "Does not say a business loss disqualifies her from meeting the requirement through hours worked."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "even if your business operates at a loss during a qualifying calendar month"}
+
+- id: ne-0050
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: verification
+  drift_sensitive: false
+  question: "A client's renewal is coming up. Should she mail DHHS her pay stubs and school transcripts now to prove she meets the work requirement?"
+  reference_answer: "No. She should not send new documents unless Medicaid asks her to. If DHHS does not send a request she does not have to send additional work-requirement information, but she must still report changes that could affect eligibility."
+  rubric:
+    - id: c1
+      text: "States that she should not send new documents unless Medicaid asks for them."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "No. Do not send new documents unless Medicaid asks you to."}
+    - id: c2
+      text: "States that she must still report changes that could affect her eligibility."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "You must still report changes that could affect your eligibility."}
+    - id: c3
+      text: "Does not say that sending documents in advance is required to keep coverage."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "If DHHS does not send you a request, then you do not have to send additional information about work requirements."}
+
+- id: ne-0051
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: verification
+  drift_sensitive: false
+  question: "Does a Nebraska Medicaid member have to prove she meets the work requirement herself, or does DHHS check first?"
+  reference_answer: "DHHS first uses information it already has. If it can verify compliance it sends an approval notice. If not, it sends a notice describing what is needed plus a declaration form to complete and return."
+  rubric:
+    - id: c1
+      text: "States that DHHS first uses information it already has to check whether the person meets work requirements and sends an approval notice if verified."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "The Department of Health and Human Services (DHHS) will use information we already have to check if you already meet work requirements. If we can verify that you already meet work requirements, we'll send you an approval notice."}
+    - id: c2
+      text: "States that if information is insufficient DHHS sends a notice describing what is needed and a declaration form to return."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "We'll send you a notice describing the information we need and a declaration form you must complete and return to DHHS."}
+    - id: c3
+      text: "Does not say every member must submit proof up front before DHHS checks its own records."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "will use information we already have to check if you already meet work requirements."}
+
+- id: ne-0052
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: verification
+  drift_sensitive: false
+  question: "Which situations is the Nebraska Medicaid Individual Declaration Form (MLTC-118) meant for, and does a client with an ordinary paid job use it to report her hours?"
+  reference_answer: "The form (MLTC-118, 5/2026) should only be used for declaring volunteering, education or work programs, caring for a person with a disability, previous incarceration, medical exemptions, and VA disability ratings. Paid work is first checked from information DHHS has; if it cannot verify, it may ask for documents showing hours worked or income."
+  rubric:
+    - id: c1
+      text: "Lists the situations the declaration form is for: volunteering, education or work programs, caring for a person with a disability, previous incarceration, medical exemptions, and VA disability ratings."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-05-13, quote: "This form should only be used for declaring: volunteering, education or work programs, caring for a person with a disability, previous incarceration, medical exemptions, and VA disability ratings."}
+    - id: c2
+      text: "States that for paid work DHHS first checks information it has and may ask for documents showing hours worked or income."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "If DHHS cannot verify this information, we may ask for documents that show your number of hours worked or income."}
+    - id: c3
+      text: "Identifies the form as MLTC-118 (5/2026), the Medicaid Work Requirements Individual Declaration Form."
+      kind: must_include
+      citations:
+        - {source_id: ne-declaration-mltc118-2026-05-29, quote: "Medicaid Work Requirements - Individual Declaration Form"}
+        - {source_id: ne-declaration-mltc118-2026-05-29, quote: "MLTC-118 5/2026"}
+
+- id: ne-0053
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-08-15
+  category: exemption
+  drift_sensitive: false
+  question: "A client gave birth in March 2026 and had Nebraska Medicaid during her pregnancy. A friend says the postpartum work-requirement exemption lasts only 60 days. Her renewal is in September 2026. Is she exempt?"
+  reference_answer: "Yes, she should be exempt. Nebraska's exemption covers people who are pregnant or up to 12 months postpartum if they had Medicaid when they were pregnant, so a September 2026 renewal (about 6 months after a March birth) falls within the window. The 60-day claim is wrong for Nebraska."
+  rubric:
+    - id: c1
+      text: "States that the exemption runs up to 12 months postpartum for someone who had Medicaid while pregnant."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "You are pregnant or are up to 12 months postpartum (and you had Medicaid when you were pregnant)"}
+    - id: c2
+      text: "Concludes that a September 2026 renewal, about six months after a March 2026 birth, falls within the exemption period."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "You are pregnant or are up to 12 months postpartum (and you had Medicaid when you were pregnant)"}
+    - id: c3
+      text: "Does not say the postpartum exemption ends after 60 days."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "up to 12 months postpartum"}
+
+- id: ne-0054
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: exemption
+  drift_sensitive: false
+  question: "My client's household gets SNAP. Is she automatically exempt from Nebraska's Medicaid work requirement?"
+  reference_answer: "Not automatically. The exemption is for people in a household that gets SNAP or TANF benefits and are compliant under certain conditions with work requirements. The notice describes it as being compliant with TANF work rules or in a SNAP household that is not exempt from work rules."
+  rubric:
+    - id: c1
+      text: "States that the SNAP/TANF exemption applies to people in a household getting SNAP or TANF who are compliant under certain conditions with work requirements."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "You are in a household that gets supplemental nutrition assistance program (SNAP) or Temporary Assistance for Needy Families (TANF) benefits and are compliant under certain conditions with work requirements"}
+    - id: c2
+      text: "Mentions the notice wording: compliant with TANF work rules, or in a SNAP household that is not exempt from work rules."
+      kind: must_include
+      citations:
+        - {source_id: ne-vocn-sample-eng-2026-04-29, quote: "In a SNAP household that is not exempt from work rules"}
+    - id: c3
+      text: "Does not say that merely receiving SNAP automatically exempts her."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "are compliant under certain conditions with work requirements"}
+
+- id: ne-0055
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-08-15
+  category: exemption
+  drift_sensitive: false
+  question: "A 24-year-old client aged out of foster care in Kansas at 18 and had Medicaid then. Does she qualify for Nebraska's foster care exemption, and how does she claim it?"
+  reference_answer: "Yes. Someone who aged out of foster care, had Medicaid at that time, and is under age 26 does not need to complete work requirement activities, whether she aged out in Nebraska or another state. She should let the Medicaid program know."
+  rubric:
+    - id: c1
+      text: "States that a person who aged out of foster care, had Medicaid when she aged out, and is under 26 does not need to complete work activities."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "If you aged out of the foster care system, had Medicaid at the time you aged out, and are currently under age 26, you will not need to complete work requirement activities."}
+    - id: c2
+      text: "States that the foster care can be in Nebraska or another state, and that she should let the Medicaid program know."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "Let the Medicaid program know if you aged out of the foster care system, either in Nebraska or in another state."}
+    - id: c3
+      text: "Does not say the exemption only applies to people who were in Nebraska foster care."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "either in Nebraska or in another state"}
+
+- id: ne-0056
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: exemption
+  drift_sensitive: false
+  question: "A new applicant is in an outpatient substance use disorder treatment program. How does she claim the SUD treatment exemption, and what does she have to provide?"
+  reference_answer: "A new applicant can self-declare that she is enrolled in an SUD treatment program, giving basic information such as the treatment facility name, a contact name and phone number, and the dates services were provided. No additional documentation is required with the declaration, and declarations are made under penalty of perjury."
+  rubric:
+    - id: c1
+      text: "States that new applicants may self-declare enrollment in an SUD treatment program and provide basic information about the treatment provider (facility name, contact, dates of service)."
+      kind: must_include
+      citations:
+        - {source_id: ne-frail-sud-process-2026-05-12, quote: "Individuals may self-declare that they are medically frail or enrolled in an SUD treatment program."}
+        - {source_id: ne-frail-sud-process-2026-05-12, quote: "Name of treatment facility"}
+    - id: c2
+      text: "States that no additional documentation is required with the declaration form."
+      kind: must_include
+      citations:
+        - {source_id: ne-frail-sud-process-2026-05-12, quote: "No additional documentation is required to be submitted with the individual declaration form."}
+    - id: c3
+      text: "States that all declarations are made under penalty of perjury."
+      kind: must_include
+      citations:
+        - {source_id: ne-frail-sud-process-2026-05-12, quote: "All declarations are made under penalty of perjury."}
+
+- id: ne-0057
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-10-01
+  category: good_cause
+  drift_sensitive: false
+  question: "A client was hospitalized in June 2026. How does she claim a medical temporary hardship, and how can she send it to DHHS?"
+  reference_answer: "For medical hardships (a hospital or nursing home stay, or travel outside the community to get care for a serious health condition for herself or a dependent) she must submit a declaration to DHHS online, by phone, by mail, or in person."
+  rubric:
+    - id: c1
+      text: "States that she must submit a declaration to DHHS for a medical hardship such as hospitalization."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "You must submit a declaration to DHHS (online, by phone, by mail, or in person) if:"}
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "You have been hospitalized or lived in a nursing home."}
+    - id: c2
+      text: "States the ways to send it: online, by phone, by mail, or in person."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "You must submit a declaration to DHHS (online, by phone, by mail, or in person) if:"}
+    - id: c3
+      text: "States that travel outside the community to get care for a serious health condition (for herself or a dependent) is also a medical hardship."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "You or a dependent have had to travel outside your community to get care for a serious health condition."}
+
+- id: ne-0058
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-10-01
+  category: good_cause
+  drift_sensitive: false
+  question: "How long do Nebraska's county-based temporary hardship exemptions last, and have the wildfire and severe-weather ones ended?"
+  reference_answer: "Per the DHHS table, the Dawson County high-unemployment exemption lasts until Dawson no longer has an unemployment rate over 8% or 1.5 times the national rate. The wildfire emergency (Arthur, Grant, Garden, Lincoln, Morrill) lasted until April 30, 2026 and the severe-weather emergency (eight counties) until May 31, 2026, but whether a person qualifies depends on living there in the stated months."
+  rubric:
+    - id: c1
+      text: "States that the Dawson County exemption lasts until the county no longer has an unemployment rate over 8% or 1.5 times the national rate."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "The temporary hardship exemption will last until Dawson County no longer has an unemployment rate that is over 8% or 1.5 times the national unemployment rate."}
+    - id: c2
+      text: "States that the wildfire emergency hardship lasted until April 30, 2026 and the severe-weather one until May 31, 2026."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "Lasts Until: April 30, 2026"}
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "Lasts Until: May 31, 2026"}
+    - id: c3
+      text: "States that qualification depends on which month or months the person lived in the county, per the table."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "Read this table to see which month or months you had to live in the counties to qualify for the temporary hardship exemption."}
+
+- id: ne-0059
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: notice_cure
+  drift_sensitive: false
+  question: "A client received a Medicaid Verification of Compliance Notice from DHHS. How can she respond, and should she send her original documents?"
+  reference_answer: "She can respond by scanning the QR code in the notice, through iServe online, by mail, by phone, or in person at a local DHHS office; the sample notice also lists a fax number. She should not send original documents because DHHS cannot return them."
+  rubric:
+    - id: c1
+      text: "Lists the response channels: QR code in the notice, iServe online, mail, phone, or a local DHHS office."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "Scanning the QR code in your notice"}
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "Visiting iServe online"}
+    - id: c2
+      text: "Mentions that the notice also allows return by fax or by submitting online at iServe."
+      kind: must_include
+      citations:
+        - {source_id: ne-vocn-sample-eng-2026-04-29, quote: "Provide the requested verifications to the office address listed above or FAX to the number above or submit online at https://iserve.nebraska.gov."}
+    - id: c3
+      text: "States that she should not send original documents because DHHS cannot return them."
+      kind: must_include
+      citations:
+        - {source_id: ne-vocn-sample-eng-2026-04-29, quote: "Do not send original documents as the Department will not be able to return your documents."}
+
+- id: ne-0060
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: notice_cure
+  drift_sensitive: false
+  question: "How long does a client have to respond when DHHS asks for more work-requirement information, and what happens if she misses the deadline?"
+  reference_answer: "She must submit the information within 30 days of getting the notice, or she may be denied or lose coverage. The notice itself states a due date for the verification items."
+  rubric:
+    - id: c1
+      text: "States that she must submit the information within 30 days of getting the notice."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "you must submit the information within 30 days of getting the notice, or you may be denied or lose coverage"}
+    - id: c2
+      text: "States that missing the deadline may result in denial or loss of coverage."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "or you may be denied or lose coverage"}
+    - id: c3
+      text: "Mentions that the notice lists a specific due date by which verification items must be returned."
+      kind: must_include
+      citations:
+        - {source_id: ne-vocn-sample-eng-2026-04-29, quote: "you must return the following verification items by 06-24-2026"}
+
+- id: ne-0061
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: notice_cure
+  drift_sensitive: false
+  question: "A client's Medicaid expansion coverage was closed because she did not respond to the work-requirement notice by the due date. Can she just send the missing information to reopen it?"
+  reference_answer: "No. The notice and FAQ say that if coverage is denied or closed she will need to meet work requirements and apply for Medicaid again (submit a new application)."
+  rubric:
+    - id: c1
+      text: "States that after coverage is denied or closed she must meet work requirements and apply again (new application)."
+      kind: must_include
+      citations:
+        - {source_id: ne-vocn-sample-eng-2026-04-29, quote: "To qualify for coverage, you will need to meet work requirements and apply for Medicaid again"}
+        - {source_id: ne-faq-2026-05-12, quote: "If your coverage is denied or ends, you must meet work requirements and submit a new application to get coverage through Medicaid expansion."}
+    - id: c2
+      text: "Does not say simply sending the missing information after closure automatically reinstates coverage."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "If your coverage is denied or ends, you must meet work requirements and submit a new application to get coverage through Medicaid expansion."}
+
+- id: ne-0062
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: notice_cure
+  drift_sensitive: false
+  question: "What does the Nebraska Verification of Compliance Notice say will happen if a client does not return the requested verification by the due date?"
+  reference_answer: "Her coverage will be denied or closed. The notice says failure to provide verifications by the due date could result in denial, termination or decrease in benefits."
+  rubric:
+    - id: c1
+      text: "States that failing to respond by the due date could result in denial, termination or decrease in benefits."
+      kind: must_include
+      citations:
+        - {source_id: ne-vocn-sample-eng-2026-04-29, quote: "Failure to provide verifications by 06-24-2026 could result in the denial, termination or decrease in your benefits."}
+    - id: c2
+      text: "States that coverage will be denied or closed if she does not meet the requirement, has no exemption, or does not respond by the due date."
+      kind: must_include
+      citations:
+        - {source_id: ne-vocn-sample-eng-2026-04-29, quote: "If you fail to qualify for Medicaid coverage because you do not meet Medicaid work requirements, do not have an exemption, or you do not respond to this notice by its due date, your coverage will be denied or closed."}
+    - id: c3
+      text: "Does not say that ignoring the notice has no effect on coverage."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-vocn-sample-eng-2026-04-29, quote: "your coverage will be denied or closed"}
+
+- id: ne-0063
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-10-01
+  category: process
+  drift_sensitive: false
+  question: "What phone numbers, fax number, and mailing address can a client use to contact Nebraska Medicaid about work requirements or to send information?"
+  reference_answer: "Phone (855) 632-7633 (option 3); Lincoln (402) 473-7000 (option 3); Omaha (402) 595-1178 (option 3); TTY (402) 471-7256; fax (402) 742-2351; mail P.O. Box 2992, Omaha, NE 68103-2992; online at iServe (iserve.nebraska.gov) or in person at a local DHHS office."
+  rubric:
+    - id: c1
+      text: "Gives the toll-free number (855) 632-7633 (press option 3) and the Lincoln (402) 473-7000 and Omaha (402) 595-1178 numbers."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "Phone Number: (855) 632-7633 (press option 3)"}
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "Lincoln Phone Number: (402) 473-7000 (press option 3)"}
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "Omaha Phone Number: (402) 595-1178 (press option 3)"}
+    - id: c2
+      text: "Gives the TTY number (402) 471-7256 and fax (402) 742-2351."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "TTY Number: (402) 471-7256"}
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "Fax: (402) 742-2351"}
+    - id: c3
+      text: "Gives the mailing address P.O. Box 2992, Omaha, NE 68103-2992 and the iServe website."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "By mail: P.O. Box 2992 Omaha, NE 68103-2992"}
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "Online: at https://iserve.nebraska.gov/"}
+
+- id: ne-0064
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-10-01
+  category: process
+  drift_sensitive: false
+  question: "What kinds of changes must a Nebraska Medicaid member report to DHHS, and how can she report them?"
+  reference_answer: "She must report changes that impact eligibility, including changes in income, home address, work status, and household size (such as marriage, divorce, pregnancy, or adoption). She can report in person, online, by phone, or by mail."
+  rubric:
+    - id: c1
+      text: "Lists changes in income, home address, work status, and household size as reportable changes."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "you must report changes that impact your eligibility. This can include changes in income, home address, work status, and household size"}
+    - id: c2
+      text: "States she can report in person, online, by phone, or through the mail."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "You can provide this information to DHHS in person, online, by phone, or through the mail."}
+
+- id: ne-0065
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: process
+  drift_sensitive: false
+  question: "Once a client is enrolled in Nebraska Medicaid expansion, will DHHS check her work requirement every month?"
+  reference_answer: "No. A first-time applicant is checked when she applies. After enrollment DHHS only checks at each regularly scheduled renewal."
+  rubric:
+    - id: c1
+      text: "States that after enrollment DHHS only checks at each regularly scheduled renewal."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "After you’re enrolled, DHHS will only check that you’re meeting work requirements or have an exemption at each regularly scheduled renewal."}
+    - id: c2
+      text: "States that first-time applicants are checked when they apply."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "If you’re applying for coverage for the first time, DHHS will check that you’re meeting work requirements or have an exemption when you apply."}
+    - id: c3
+      text: "Does not say members must report hours to DHHS every month."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "DHHS will only check that you’re meeting work requirements or have an exemption at each regularly scheduled renewal."}
+
+- id: ne-0066
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: process
+  drift_sensitive: false
+  question: "How does Nebraska decide which medical conditions make someone medically frail, and does an existing member with a qualifying diagnosis have to apply for the exemption?"
+  reference_answer: "DHHS staff reviewed thousands of diagnosis and procedure codes (ICD-10, CPT, HCPCS). For existing enrollees, DHHS reviews medical claims data about 90 days before the eligibility period ends; if qualifying indicators are found the person is treated as exempt without taking action. If there are no qualifying claims she submits a self-declaration."
+  rubric:
+    - id: c1
+      text: "States that DHHS reviewed thousands of diagnosis and procedure codes, including ICD-10, CPT, and HCPCS codes."
+      kind: must_include
+      citations:
+        - {source_id: ne-frail-sud-process-2026-05-12, quote: "DHHS staff have reviewed thousands of medical diagnosis and procedure codes, including ICD-10, CPT, and HCPCS codes"}
+    - id: c2
+      text: "States that if claims data show qualifying conditions the existing member is treated as exempt without taking additional action."
+      kind: must_include
+      citations:
+        - {source_id: ne-frail-sud-process-2026-05-12, quote: "the individual will be treated as exempt without needing to take additional action"}
+    - id: c3
+      text: "States that without qualifying claims the member must submit a self-declaration."
+      kind: must_include
+      citations:
+        - {source_id: ne-frail-sud-process-2026-05-12, quote: "the individual will need to submit a self-declaration and provide basic information about their medically frail condition or SUD treatment provider."}
+
+- id: ne-0067
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: calculation
+  drift_sensitive: false
+  question: "In June 2026 a Nebraska Medicaid expansion member worked 40 hours at $11.25 an hour ($450 total) and also volunteered 30 hours. She has no other activity and no exemption. Does she meet the work requirement for June? Can her $450 be converted into extra hours (about 62 hours at $7.25) and added to her volunteer hours?"
+  reference_answer: "No for June. Her hours total 40 + 30 = 70, below 80, and her earnings of $450 are below $580. Nebraska's published rules offer hours (80, combining activities) or $580 earnings as separate routes; they do not describe converting income into hours to combine with other activities."
+  rubric:
+    - id: c1
+      text: "Calculates 70 combined hours (40 working + 30 volunteering), which is below 80, and $450 earnings, below $580, so June is not met."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "Or, you can combine any of these activities to get to 80 hours in a calendar month."}
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "You can also meet work requirements if you are working and earn $580 in a calendar month."}
+    - id: c2
+      text: "Does not claim that Nebraska lets income be converted into hours (for example $450 / $7.25 = about 62 hours) and added to volunteer hours to reach 80."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "You can also meet work requirements if you are working and earn $580 in a calendar month. This is equal to 80 hours worked at the current federal minimum wage."}
+    - id: c3
+      text: "States that the volunteer hours are reported on the individual declaration form (IDF)."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "To report volunteer hours, you must complete the individual declaration form (IDF)."}
+
+- id: ne-0068
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-07-20
+  category: calculation
+  drift_sensitive: false
+  question: "A client applied for Medicaid expansion on July 8, 2026. She worked 30 hours in June 2026 and 90 hours in July 2026. She has no exemption or hardship. Does she meet Nebraska's work requirement for this application?"
+  reference_answer: "No. For work activities the review period is the calendar month before applying, which is June 2026, when she worked only 30 hours (below 80). July hours, the month she applied, are not the review month for activities."
+  rubric:
+    - id: c1
+      text: "Identifies June 2026 (the calendar month before applying) as the review month for work activities."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "If you are working, going to school, participating in a work program, volunteering, or earning at least $580, the work requirement review period is the calendar month before you apply."}
+    - id: c2
+      text: "Concludes she does not meet the requirement because June has only 30 hours (below 80) and no exemption or hardship applies."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "You must spend at least 80 hours in at least one calendar month doing one of these activities"}
+    - id: c3
+      text: "Does not count her July hours (the month of application) toward the work activity requirement."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "the work requirement review period is the calendar month before you apply"}
+
+- id: ne-0069
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-09-20
+  category: calculation
+  drift_sensitive: false
+  question: "A Nebraska Medicaid expansion member's last renewal was November 30, 2025 and her next eligibility period ends November 30, 2026. She had no work activity in any month except July 2026, when she worked 100 hours. She has no exemption. Is she compliant at the November 2026 renewal?"
+  reference_answer: "Yes. Her eligibility period ends after July 31, 2026, so she is checked at that renewal. The review period is 12 months and one calendar month of 80+ hours since her last renewal is enough; July 2026 (100 hours) satisfies it."
+  rubric:
+    - id: c1
+      text: "States that the 12-month review period requires activity in at least one calendar month since the last renewal."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "you must complete work requirement activities, qualify for an exemption, or have a temporary hardship during at least one calendar month since your last renewal."}
+    - id: c2
+      text: "Concludes she is compliant because July 2026 with 100 hours meets the 80-hour threshold."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "You must spend at least 80 hours in at least one calendar month doing one of these activities"}
+    - id: c3
+      text: "Does not say she must have met the requirement in every month of the year."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "If Medicaid can confirm you met the requirement for at least one qualifying month, you will be considered compliant for the full eligibility period."}
+
+- id: ne-0070
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-07-20
+  category: calculation
+  drift_sensitive: false
+  question: "At a community college, full-time status is 12 credit hours. Student A is enrolled in 6 credit hours and Student B in 5 credit hours. Neither works or volunteers and neither has an exemption. Using Nebraska's published half-time definition, which student meets the work requirement through school alone?"
+  reference_answer: "Student A. Half-time means enrollment in at least half of the program's full-time status: half of 12 is 6, so 6 credits qualifies and 5 does not. Student B is less than half-time and would need to combine school with other activities to reach 80 hours."
+  rubric:
+    - id: c1
+      text: "Applies the definition that half-time is at least half of the program's full-time status (6 of 12 credit hours)."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "Half-time means enrollment in at least half of the program’s full-time status."}
+    - id: c2
+      text: "Concludes Student A (6 credits) meets the requirement through school and Student B (5 credits) does not alone."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "If you are attending an accredited school or participating in a registered apprenticeship at least half-time, you will meet work requirements."}
+    - id: c3
+      text: "States that less-than-half-time school can be combined with other activities to reach 80 hours."
+      kind: must_include
+      citations:
+        - {source_id: ne-onepager-2026-05-12, quote: "If you are attending school less than half-time, you can combine it with other work requirement activities to reach 80 hours."}
+
+- id: ne-0071
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-09-20
+  category: calculation
+  drift_sensitive: false
+  question: "Two existing Medicaid expansion members both lived in Morrill County in April 2026 (wildfire emergency). Member X has a Medicaid renewal in March 2027; Member Y has a renewal in April 2027. Using DHHS's county hardship table, which one qualifies for the wildfire hardship exemption?"
+  reference_answer: "Member X qualifies: someone who lived in a wildfire county during April 2026 qualifies if the renewal falls in any month between July 2026 and March 2027. Member Y's April 2027 renewal is outside that window, so the wildfire exemption does not apply to Y (for April-only residence)."
+  rubric:
+    - id: c1
+      text: "States that Morrill is in the wildfire emergency group (March 1 to April 30, 2026)."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "Arthur Grant Garden Lincoln Morrill Started: March 1, 2026"}
+    - id: c2
+      text: "States that living there in April 2026 qualifies an existing member with a renewal in any month between July 2026 and March 2027, so X (March 2027) qualifies."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "You also qualify for this exemption if you lived in one of these counties during April 2026 and have a Medicaid renewal in any month between July 2026 and March 2027."}
+    - id: c3
+      text: "Does not say Member Y (April 2027 renewal) qualifies under the wildfire exemption."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "have a Medicaid renewal in any month between July 2026 and March 2027"}
+
+- id: ne-0072
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-09-20
+  category: calculation
+  drift_sensitive: false
+  question: "Two new applicants both lived in Thurston County in May 2026. Applicant X applied for Medicaid expansion on June 20, 2026 and Applicant Y applied on July 2, 2026. Using DHHS's county hardship table, which one qualifies for the severe-weather hardship exemption?"
+  reference_answer: "Applicant X qualifies: new applicants qualify if they lived in one of the severe-weather counties during May 2026 and applied in June 2026. Applicant Y applied in July, so the May hardship does not fall in her review month (June) and that exemption does not apply."
+  rubric:
+    - id: c1
+      text: "States that new applicants qualify if they lived in a listed county during May 2026 and applied for Medicaid in June 2026."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "You qualify for this exemption if you lived in one of these counties during May 2026 and you applied for Medicaid in June 2026."}
+    - id: c2
+      text: "Concludes X (applied June 20) qualifies and Y (applied July 2) does not qualify under this exemption."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "Started: May 1, 2026 Lasts Until: May 31, 2026"}
+    - id: c3
+      text: "Does not say Applicant Y qualifies for the severe-weather hardship exemption."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "you applied for Medicaid in June 2026"}
+
+- id: ne-0073
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-08-15
+  category: calculation
+  drift_sensitive: false
+  question: "A self-employed designer worked 70 hours on her business in July 2026, and the business ran a $200 loss for the month. She also volunteered 15 hours that month. She has no exemption. Does she meet Nebraska's work requirement for July?"
+  reference_answer: "Yes. Self-employment hours count even if the business operates at a loss, and activities can be combined: 70 + 15 = 85 hours, which is at least 80 in a calendar month. Volunteer hours are reported with the individual declaration form (IDF)."
+  rubric:
+    - id: c1
+      text: "States that self-employment hours count even if the business operates at a loss."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "you can work 80 hours in a qualifying month as self-employed even if your business operates at a loss during a qualifying calendar month."}
+    - id: c2
+      text: "Calculates 70 + 15 = 85 combined hours, meeting the 80-hour threshold."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "Or, you can combine any of these activities to get to 80 hours in a calendar month."}
+    - id: c3
+      text: "Does not say the business loss disqualifies the hours or that she must instead show $580 profit."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "even if your business operates at a loss"}
+
+- id: ne-0074
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-08-05
+  category: calculation
+  drift_sensitive: false
+  question: "Three Medicaid expansion members have eligibility periods ending on different dates: Member A on June 30, 2026, Member B on August 31, 2026, and Member C on December 31, 2026. Which of them must show Nebraska work-requirement compliance at that renewal?"
+  reference_answer: "Members B and C must, because DHHS checks members whose coverage periods end on or after July 31, 2026, each in their own renewal month. Member A has a June 2026 renewal, so she does not have to show compliance until her renewal in 2027."
+  rubric:
+    - id: c1
+      text: "States that members whose coverage periods end on or after July 31, 2026 are checked at their own renewal, so B (Aug 31) and C (Dec 31) must show compliance."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "DHHS will first start checking work requirements for members whose coverage periods end on or after July 31, 2026. Each member will be checked in their own renewal month over the next year."}
+    - id: c2
+      text: "States that Member A, with a June 2026 renewal, does not have to show compliance until her 2027 renewal."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-08-01, quote: "Members with renewal dates in May or June 2026 will not have to show they've met work requirements until their renewal in 2027."}
+    - id: c3
+      text: "Does not say Member A must show compliance at the June 2026 renewal."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-pr-take-effect-2026-04-30, quote: "Members with renewal dates in May or June 2026 will not be subject to the requirements."}
+
+- id: ne-0075
+  split: heldout
+  jurisdiction: NE
+  as_of: 2026-06-10
+  category: calculation
+  drift_sensitive: false
+  question: "Client A worked 65 hours in a month at $9.00 an hour. Client B worked 70 hours in the same month at $8.00 an hour. Neither had other activities or exemptions. Using Nebraska's published rules, which client meets the work requirement for that month?"
+  reference_answer: "Client A meets it: $9.00 x 65 = $585, which is at least $580, so she qualifies by income even though she worked fewer than 80 hours. Client B earned $8.00 x 70 = $560, below $580, and worked 70 hours, below 80, so she does not meet it that month."
+  rubric:
+    - id: c1
+      text: "Calculates A's earnings as $585 (65 x $9.00), at least $580, so A meets the requirement despite fewer than 80 hours."
+      kind: must_include
+      citations:
+        - {source_id: ne-faq-2026-05-12, quote: "If you earn at least $580 in a calendar month, you meet the work requirement even if you work fewer than 80 hours."}
+    - id: c2
+      text: "Calculates B's earnings as $560 and 70 hours, which is below both $580 and 80 hours, so B does not meet it."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "You can also meet work requirements if you are working and earn $580 in a calendar month."}
+    - id: c3
+      text: "Does not say B qualifies by rounding 70 hours up to 80 or by converting her $560 earnings into 80 hours."
+      kind: must_not_claim
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-06-03, quote: "You must spend at least 80 hours in at least one calendar month doing one of these activities"}
+
+- id: ne-0076
+  split: dev
+  jurisdiction: NE
+  as_of: 2026-10-01
+  category: calculation
+  drift_sensitive: false
+  question: "A client was released from county jail on August 1, 2026 and applied for Medicaid expansion on October 1, 2026. She has no job and no other exemption. Does she have an exemption for the work requirement, and how would she report it?"
+  reference_answer: "Yes. The incarceration exemption covers people in jail or recently released within 90 days of a qualifying month. For an applicant the exemption review period is the month she applies (October) or the month before (September), and both fall within 90 days of an August 1 release. She would report previous incarceration on the individual declaration form."
+  rubric:
+    - id: c1
+      text: "States that people in jail or released within 90 days of a qualifying month are exempt."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "You are in jail or recently released (within 90 days of a qualifying month)"}
+    - id: c2
+      text: "States that for an exemption an applicant's review period is the month she applies or the month before, and concludes that September or October 2026 is within 90 days of an August 1 release."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "If you qualify for an exemption the work requirement review period is the calendar month you apply or the calendar month before you apply."}
+    - id: c3
+      text: "States that previous incarceration is declared on the individual declaration form."
+      kind: must_include
+      citations:
+        - {source_id: ne-dhhs-wr-page-2026-09-15, quote: "previous incarceration, medical exemptions, and VA disability ratings"}
+
