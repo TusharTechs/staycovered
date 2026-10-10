@@ -4,7 +4,7 @@
   "functions": {
     "index.py": {
       "maxDuration": 120,
-      "includeFiles": "{rules/**,sources/manifest.json,sources/text/**,data/cases/**,data/cache/**,bench/questions/**,bench/results/latest.json,bench/results/rejudge-*.json,bench/extraction/results*.json,staycovered/drift/allowlist.yaml,web/dist/**}"
+      "includeFiles": "{rules/**,sources/manifest.json,sources/text/**,data/cases/**,data/cache/**,data/forms/**,bench/questions/**,bench/results/latest.json,bench/results/rejudge-*.json,bench/extraction/results*.json,staycovered/drift/allowlist.yaml,web/dist/**}"
     }
   }
 }

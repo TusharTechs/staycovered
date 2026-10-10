@@ -91,6 +91,8 @@ export default function CasePage() {
             </ul>
           </Card>
 
+          <FormCard caseId={rec.case.id} />
+
           {ws.exemptions.length > 0 && (
             <Card title="Possible exemptions">
               <ul className="space-y-2 text-sm">{ws.exemptions.map((e, i) => (
@@ -233,5 +235,25 @@ function AddDoc({ caseId, members, onDone }: { caseId: string; members: CaseReco
       {err && <p className="text-bad text-xs">{err}</p>}
       <button disabled={busy || !text} onClick={submit} className="rounded bg-brand px-3 py-1.5 text-white disabled:opacity-50">{busy ? 'Reading with Nemotron…' : 'Extract'}</button>
     </div>
+  )
+}
+
+function FormCard({ caseId }: { caseId: string }) {
+  const [plan, setPlan] = useState<Awaited<ReturnType<typeof api.mltc118>> | null>(null)
+  const [open, setOpen] = useState(false)
+  useEffect(() => { api.mltc118(caseId).then(setPlan).catch(() => setPlan(null)) }, [caseId])
+  if (!plan) return null
+  const filled = plan.fields.filter(f => f.field !== 'I Additional comments')
+  return (
+    <Card title="Nebraska declaration form (MLTC-118)">
+      <p className="text-xs text-muted">Pre-filled draft of the state's real form. Only answers backed by documents or intake are filled; everything else stays blank for the client. SSN, birth date and signatures are never filled.</p>
+      <button onClick={() => setOpen(o => !o)} className="mt-2 text-xs text-brand underline">{open ? 'Hide' : 'Show'} the {filled.length} filled fields and why</button>
+      {open && (
+        <ul className="mt-2 space-y-1.5 text-xs">{filled.map(f => (
+          <li key={f.field} className="rounded bg-paper p-1.5"><span className="font-medium">{f.label}:</span> {f.value}<div className="text-muted">{f.reason}</div></li>
+        ))}</ul>
+      )}
+      <a href={`/api/cases/${caseId}/mltc118.pdf`} className="mt-3 inline-block rounded-lg border border-brand px-3 py-1.5 text-sm text-brand hover:bg-brand-soft">Download pre-filled MLTC-118 (PDF)</a>
+    </Card>
   )
 }

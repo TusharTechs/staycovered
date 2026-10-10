@@ -75,6 +75,7 @@ export const api = {
   replay: (jurisdiction = 'NE') => fetch('/api/drift/replay' + q({ jurisdiction })).then(j<DriftEvent[]>),
   explain: (id: string, lang: 'en' | 'es') => fetch(`/api/cases/${id}/explain` + q({ lang }), { method: 'POST' }).then(j<{ summary: string; what_to_do: string[]; deadline_sentence: string; keep_in_mind: string[]; spans: string[] }>),
   extraction: () => fetch('/api/extraction/results').then(j<Record<string, { model: string; docs: number; row_precision: number; row_recall: number; row_f1: number; doc_exact: number; injected_docs: number; injected_exact: number; usd: number }>>),
+  mltc118: (id: string) => fetch(`/api/cases/${id}/mltc118`).then(j<{ form: string; fields: { field: string; label: string; value: string; reason: string }[] }>),
   calls: () => fetch('/api/log/calls').then(j<Record<string, unknown>[]>),
   tavily: () => fetch('/api/log/tavily').then(j<Record<string, unknown>[]>),
   bench: () => fetch('/api/bench/results').then(j<Record<string, unknown>>),

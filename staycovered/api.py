@@ -315,6 +315,24 @@ def bench_results() -> dict:
     return json.loads(p.read_text()) if p.exists() else {}
 
 
+@app.get("/api/cases/{case_id}/mltc118")
+def mltc118_plan(case_id: str, as_of: str | None = None) -> dict:
+    from dataclasses import asdict as _a
+
+    from .forms import FORM_ID, plan
+    rec = store.load(case_id)
+    return {"form": FORM_ID, "fields": [_a(f) for f in plan(rec, worksheet(rec.case, _d(as_of)))]}
+
+
+@app.get("/api/cases/{case_id}/mltc118.pdf")
+def mltc118_pdf(case_id: str, as_of: str | None = None) -> Response:
+    from .forms import fill
+    rec = store.load(case_id)
+    pdf, _ = fill(rec, worksheet(rec.case, _d(as_of)))
+    return Response(pdf, media_type="application/pdf",
+                    headers={"Content-Disposition": f'attachment; filename="MLTC-118-draft-{case_id}.pdf"'})
+
+
 @app.get("/api/cases/{case_id}/packet.pdf")
 def packet(case_id: str, as_of: str | None = None) -> Response:
     from .packet import build_packet
