@@ -275,6 +275,8 @@ def drift_check(req: Request) -> list[dict]:
         raise HTTPException(403, "Live checks are run by the maintainer (they use Tavily credits).")
     if not config.TAVILY_API_KEY:
         raise HTTPException(400, "TAVILY_API_KEY not set")
+    if config.ON_VERCEL:
+        raise HTTPException(501, "Live snapshots are written to the repository; run drift-watch from the maintainer's machine or CI.")
     out = []
     for e in watch.check_live():
         out.append(asdict(e) | {"affected_cases": watch.flag_cases(e)})
@@ -340,7 +342,7 @@ _GRADE = config.BENCH_DIR / "results" / "grade_me.csv"
 @app.get("/api/grade/items")
 def grade_items() -> list[dict]:
     import csv
-    if not _GRADE.exists():
+    if config.ON_VERCEL or not _GRADE.exists():  # local-only tool
         return []
     return [{k: v for k, v in r.items()} for r in csv.DictReader(_GRADE.open())]
 
@@ -352,6 +354,8 @@ class GradeIn(BaseModel):
 @app.post("/api/grade/{row}")
 def grade_row(row: str, g: GradeIn) -> dict:
     import csv
+    if config.ON_VERCEL:
+        raise HTTPException(403, "Grading is a local-only tool.")
     rows = list(csv.DictReader(_GRADE.open()))
     if g.human_pass not in ("y", "n", ""):
         raise HTTPException(400, "y or n")

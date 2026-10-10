@@ -14,7 +14,9 @@ load_dotenv(ROOT / ".env")
 SOURCES_DIR = ROOT / "sources"
 RULES_DIR = ROOT / "rules"
 BENCH_DIR = ROOT / "bench"
-RUNTIME_DIR = ROOT / "data" / "runtime"
+ON_VERCEL = bool(os.getenv("VERCEL"))
+# Serverless hosts have a read-only filesystem except /tmp; runtime logs and caches go there.
+RUNTIME_DIR = Path("/tmp/staycovered-runtime") if ON_VERCEL else ROOT / "data" / "runtime"
 RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
 
 NEBIUS_API_KEY = os.getenv("NEBIUS_API_KEY", "")

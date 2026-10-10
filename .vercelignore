@@ -1,0 +1,15 @@
+research/
+sources/raw/
+web/node_modules/
+data/runtime/
+bench/results/2026*.json
+bench/results/grade_me.csv
+bench/results/judge_key.csv
+bench/results/judge_sample.csv
+bench/extraction/docs*.json
+submission/
+PLAN.md
+.env
+.venv/
+.claude/
+**/__pycache__/

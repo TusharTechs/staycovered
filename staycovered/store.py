@@ -11,7 +11,16 @@ from pydantic import BaseModel, Field
 from . import config
 from .engine.model import Case
 
-CASES = config.ROOT / "data" / "cases"
+_SEED_CASES = config.ROOT / "data" / "cases"
+if config.ON_VERCEL:
+    # writable copy of the synthetic demo caseload for this instance
+    import shutil
+
+    CASES = config.RUNTIME_DIR / "cases"
+    if not CASES.exists():
+        shutil.copytree(_SEED_CASES, CASES)
+else:
+    CASES = _SEED_CASES
 CASES.mkdir(parents=True, exist_ok=True)
 
 
