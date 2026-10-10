@@ -13,7 +13,7 @@ from staycovered.llm import CALL_LOG
 
 
 def main() -> None:
-    calls = [json.loads(line) for line in CALL_LOG.read_text().splitlines() if line.strip()]
+    calls = [json.loads(line) for line in CALL_LOG.read_text(encoding="utf-8").splitlines() if line.strip()]
     by = defaultdict(list)
     for c in calls:
         by[(c["model"], c["job"])].append(c)
@@ -22,12 +22,13 @@ def main() -> None:
         lat = sorted(c["latency_s"] for c in cs)
         rows.append({"model": model, "job": job, "calls": len(cs), "tokens": sum((c["prompt_tokens"] or 0) + (c["completion_tokens"] or 0) for c in cs),
                      "usd": round(sum(c["usd"] for c in cs), 4), "p50_latency_s": round(st.median(lat), 2)})
-    tav = [json.loads(line) for line in watch.TAVILY_LOG.read_text().splitlines() if line.strip()] if watch.TAVILY_LOG.exists() else []
+    tav = [json.loads(line) for line in watch.TAVILY_LOG.read_text(encoding="utf-8").splitlines() if line.strip()] if watch.TAVILY_LOG.exists() else []
     out = {"generated": datetime.now(timezone.utc).isoformat(timespec="seconds"), "total_calls": len(calls),
            "total_usd": round(sum(c["usd"] for c in calls), 3), "rows": rows,
-           "tavily": [{"ts": t["ts"], "kind": t["kind"], "urls": t["payload"].get("urls") or [t["payload"].get("url")], "results": t["results"], "ok": t["ok"]} for t in tav]}
+           "tavily": [{"ts": t["ts"], "kind": t["kind"], "urls": t["payload"].get("urls") or ([t["payload"]["url"]] if t["payload"].get("url") else []),
+                       "query": t["payload"].get("query"), "results": t["results"], "ok": t["ok"]} for t in tav]}
     p = config.ROOT / "data" / "cache" / "usage_summary.json"
-    p.write_text(json.dumps(out, indent=1))
+    p.write_text(json.dumps(out, indent=1), encoding="utf-8")
     print(f"{len(calls)} calls, ${out['total_usd']} -> {p}")
 
 

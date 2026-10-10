@@ -24,7 +24,7 @@ def main() -> None:
     a = ap.parse_args()
 
     src = sorted(p for p in RDIR.glob(f"*-{a.split}.json"))[-1]
-    res = json.loads(src.read_text())
+    res = json.loads(src.read_text(encoding="utf-8"))
     qs = {q["id"]: q for q in load_questions(a.split)}
     orig_judge = config.ROUTES["judge"]
     config.ROUTES["judge"] = a.judge
@@ -50,7 +50,7 @@ def main() -> None:
                                      "agreement_per_question": sum(1 for o, n in pairs if abs(o - n) < 1e-9) / len(pairs)}
     finally:
         config.ROUTES["judge"] = orig_judge
-    (RDIR / f"rejudge-{a.split}-{a.judge.split('/')[-1]}.json").write_text(json.dumps(out, indent=2))
+    (RDIR / f"rejudge-{a.split}-{a.judge.split('/')[-1]}.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
     for s, v in sorted(out["systems"].items(), key=lambda kv: -kv[1]["rejudged"]):
         print(f"{s:16s} {orig_judge.split('/')[-1]}: {v['original']:.3f}   {a.judge.split('/')[-1]}: {v['rejudged']:.3f} "
               f"[{v['ci_low']:.3f}-{v['ci_high']:.3f}]  same-score questions {v['agreement_per_question']:.0%}")

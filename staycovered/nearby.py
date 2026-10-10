@@ -74,12 +74,12 @@ def _searches_today() -> int:
     if not TAVILY_LOG.exists():
         return 0
     today = date.today()
-    rows = (json.loads(line) for line in TAVILY_LOG.open() if '"search"' in line)
+    rows = (json.loads(line) for line in TAVILY_LOG.open(encoding="utf-8") if '"search"' in line)
     return sum(1 for r in rows if r.get("kind") == "search" and date.fromtimestamp(r["ts"]) == today)
 
 
 def _load(p) -> dict:
-    return json.loads(p.read_text()) if p.exists() else {}
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
 
 
 def cached(location: str, kind: str) -> dict | None:
@@ -126,5 +126,5 @@ def find(location: str, kind: Literal["volunteer", "work_program"], write_cache:
     target = CACHE if write_cache else RUNTIME
     d = _load(target)
     d[f"{location}|{kind}"] = out
-    target.write_text(json.dumps(d, indent=1))
+    target.write_text(json.dumps(d, indent=1), encoding="utf-8")
     return out

@@ -60,7 +60,7 @@ def main() -> None:
         except Exception as e:  # noqa: BLE001
             print("  tavily extract FAILED", str(e)[:300])
 
-    calls = [json.loads(x) for x in llm.CALL_LOG.read_text().splitlines() if '"spike' in x]
+    calls = [json.loads(x) for x in llm.CALL_LOG.read_text(encoding="utf-8").splitlines() if '"spike' in x]
     print(f"spike cost: ${sum(c['usd'] for c in calls):.5f} over {len(calls)} calls")
 
 

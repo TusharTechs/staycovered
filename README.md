@@ -1,12 +1,32 @@
-# StayCovered
+<p align="center"><img src="docs/logo.svg" width="72" alt="StayCovered logo: an umbrella over four month blocks"></p>
 
-**AI models are frozen at their training date. Medicaid rules aren't.**
+<h1 align="center">StayCovered</h1>
 
-StayCovered is an open-source copilot for Medicaid navigators. It helps them keep people covered under the new community engagement ("work") requirements, starting with Nebraska. Every answer is grounded in the official rules *as of a specific date*, and open cases are re-checked when those rules change.
+<p align="center"><b>AI models are frozen at their training date. Medicaid rules aren't.</b></p>
+
+StayCovered is an open-source copilot that helps people keep Medicaid under the new community engagement ("work") requirements. Navigators get a case worksheet in which every number and rule is cited; people without a navigator get a bilingual self-check. Every answer is grounded in the official rules *as of a specific date*, open cases are re-checked when those rules change, and the engine finds the smallest proven fix when someone falls short. Nebraska and Montana today.
 
 Built for the Nebius × NVIDIA Global AI Hackathon 2026 (Best Apps and Agents). Inference uses NVIDIA Nemotron on Nebius Token Factory; official-source monitoring and local-program search use Tavily.
 
-**Live demo:** https://staycovered.vercel.app. Start with "Take the guided tour", or try the self-check at /check. Evidence for the problem is in [docs/EVIDENCE.md](docs/EVIDENCE.md).
+![StayCovered: three clients' next 12 months under changing rules](docs/social-card.png)
+
+## Links
+
+| What | Link |
+|---|---|
+| **Live app** (start with the ▶ Tour button) | https://staycovered.vercel.app |
+| Self-check for people without a navigator (English/Spanish) | https://staycovered.vercel.app/check |
+| Policy sandbox: flip state choices, watch the caseload change | https://staycovered.vercel.app/sandbox |
+| Rule Time Machine: rules and answers as of any date | https://staycovered.vercel.app/time-machine |
+| Example case: Dani, $70 from staying covered (paths + nearby programs) | https://staycovered.vercel.app/cases/dani-ortiz |
+| Example case: Tom, same life, changing rules (forecast) | https://staycovered.vercel.app/cases/tom-becker |
+| WorkReqBench results | https://staycovered.vercel.app/bench |
+| WorkReqBench method, judge and limitations | [bench/README.md](bench/README.md) |
+| Under the hood: model routing, costs, every Tavily request | https://staycovered.vercel.app/under-the-hood |
+| Source code | https://github.com/TusharTechs/staycovered |
+| Demo video | *added with the Devpost submission* |
+| Evidence for the problem | [docs/EVIDENCE.md](docs/EVIDENCE.md) |
+| Feedback on Nebius Token Factory and Tavily | [FEEDBACK.md](FEEDBACK.md) |
 
 ## Results (WorkReqBench, held-out)
 
@@ -34,7 +54,7 @@ How to read this:
 ## Why
 
 - Under H.R.1, every Medicaid expansion state must verify work or community engagement from **January 1, 2027**.
-- Nebraska started early, in May 2026. In its first months, most coverage losses at renewal were people not responding to information requests, rather than people found non-compliant (see `research/`).
+- Nebraska started early, in May 2026. In its first months, most coverage losses at renewal were people not responding to information requests, rather than people found non-compliant (see [docs/EVIDENCE.md](docs/EVIDENCE.md)).
 - The rules are still moving:
   - an interim final rule (June 2026)
   - a correction (June 29)
@@ -65,6 +85,66 @@ How to read this:
 | **Accessible** | 0 axe-core violations on every page (WCAG 2.2 AA plus best practices). Keyboard operable with visible focus, live regions for answers, honours reduced-motion settings, responsive down to phone width, and a Spanish client view. |
 | **WorkReqBench** | An open benchmark of dated questions with rubrics cited to official text. See [`bench/README.md`](bench/README.md). |
 
+## Architecture
+
+```mermaid
+flowchart TB
+    subgraph IN["Inputs"]
+        direction LR
+        PAGES["Official pages and PDFs<br/>federal statute, IFR, CMS,<br/>Nebraska, Montana"]
+        DOCS["Client documents<br/>pay stubs, gig statements,<br/>letters, notices, photos"]
+        PERSON["A person's usual month<br/>(self-check, anonymous)"]
+    end
+
+    subgraph AI["NVIDIA Nemotron on Nebius Token Factory + Tavily"]
+        direction LR
+        TX["drift-watch, daily<br/>Tavily Extract + Map<br/>allow-listed URLs only"]
+        SUM["Nemotron Super<br/>summarises rule changes"]
+        EXT["Nemotron Nano<br/>labels each number<br/>+ its exact line"]
+        QA["Nemotron Super<br/>grounded answers as of a date<br/>+ Nano entailment check"]
+        NEAR["Tavily Search + Super<br/>nearby programs<br/>city name only"]
+    end
+
+    subgraph DATA["Dated, verifiable knowledge"]
+        direction LR
+        SNAP[("Snapshots<br/>sources/")]
+        FACTS[("Rule facts<br/>rules/*.yaml<br/>verbatim quotes + dates")]
+        LEDGER[("Ledger<br/>every number cited")]
+    end
+
+    subgraph ENG["Deterministic engine: plain Python, no AI arithmetic"]
+        direction LR
+        WS["Worksheet<br/>meets / conditional / short"]
+        PATHS["Paths<br/>smallest fix, proven<br/>by re-running"]
+        FC["Forecast<br/>12 months, same life,<br/>changing rules"]
+        SB["Policy sandbox<br/>state options re-run<br/>the caseload"]
+    end
+
+    OUT["Web app: caseload, case, self-check, Time Machine, sandbox, WorkReqBench<br/>Packet PDF · Nebraska MLTC-118 · calendar .ics"]
+
+    PAGES --> TX --> SNAP --> FACTS
+    TX --> SUM
+    DOCS --> EXT --> LEDGER
+    PERSON --> LEDGER
+    FACTS --> WS
+    LEDGER --> WS
+    WS --> PATHS & FC & SB
+    PATHS --> NEAR
+    SNAP --> QA
+    FACTS --> QA
+    SUM -->|stale facts, cases to re-check| OUT
+    QA --> OUT
+    ENG --> OUT
+    NEAR --> OUT
+```
+
+**Design rules behind the diagram**
+
+- **The model never does arithmetic or decides eligibility.** Nemotron reads documents and writes explanations; plain Python applies the rules. Every number carries the document line it came from, and every rule carries a verbatim official quote.
+- **Everything is dated.** Facts have `effective_from`/`effective_to` and `known_from` (the first captured source that states them), so the same question can be answered as of any date.
+- **Nothing unverifiable is shown as fact.** Quotes that can't be found in the captured source are repaired to the exact text or dropped, and the answer becomes "can't confirm".
+- **Minimal data leaves.** Nebius receives document text for extraction; Tavily receives only official URLs or a city name. The self-check, forecast, paths and sandbox make no AI calls at all.
+
 ## Models (Nebius Token Factory)
 
 | Job | Model |
@@ -75,35 +155,135 @@ How to read this:
 
 Every call is logged with its tokens, cost and latency (*Under the hood* page).
 
-## Repository
+## Project structure
 
 ```
-rules/        fact packs: typed, dated facts with verbatim citations (US.yaml, NE.yaml, ...)
-sources/      captured official documents (raw + text + manifest.json with url, as_of, sha256)
-staycovered/  engine (deterministic worksheet, paths, forecast), answer (grounded QA), extract, drift (drift-watch), nearby, api, packet
-bench/        WorkReqBench questions, runner, judge, results
-web/          React app: Caseload, Case, Rule Time Machine, WorkReqBench, Under the hood
-demo/         synthetic caseload with gold-standard extraction labels
-research/     problem, market and competition research behind the project
+staycovered/
+├── staycovered/                 Python backend (FastAPI)
+│   ├── api.py                   HTTP API; also serves the built web app
+│   ├── config.py                models, routes, paths, spend caps
+│   ├── llm.py                   Nebius Token Factory client: retries, JSON schema, call log, daily budget
+│   ├── sources.py, rules.py     captured sources and dated rule facts
+│   ├── retrieval.py, answer.py  BM25 retrieval and grounded answers with verified quotes
+│   ├── extract.py               document extraction (Nemotron labels, code parses numbers)
+│   ├── engine/
+│   │   ├── model.py             case, household and ledger types
+│   │   ├── params.py            rule parameters resolved as of a date (+ sandbox overrides)
+│   │   ├── compute.py           month-by-month worksheet, exemption screens
+│   │   ├── paths.py             smallest proven fixes
+│   │   └── forecast.py          12-month outlook under published rules
+│   ├── drift/                   drift-watch: Tavily capture, diff, summaries, affected cases
+│   ├── nearby.py                Tavily Search for local programs (city only)
+│   ├── selfcheck.py             anonymous self-check
+│   ├── sandbox.py               policy sandbox
+│   ├── forms.py, packet.py      Nebraska MLTC-118 pre-fill and the evidence packet PDF
+│   └── store.py                 case files (data/cases/*.json)
+├── web/                         React + Vite + Tailwind front end
+│   └── src/pages, src/components
+├── rules/                       fact packs: US.yaml, NE.yaml, MT.yaml, ... (see rules/SCHEMA.md)
+├── sources/                     captured official documents: text/ + manifest.json (url, date, sha256)
+├── bench/                       WorkReqBench: questions, runner, judge, results, extraction benchmark
+├── demo/seed.py                 synthetic demo caseload with gold extraction labels
+├── data/                        demo cases, pre-computed caches, the official MLTC-118 PDF
+├── scripts/                     citation verifier, cache pre-warming, usage summary
+├── tests/                       engine, paths, forecast, self-check and sandbox tests
+├── docs/                        evidence, logo, social card
+├── .github/workflows/           ci.yml (tests, citations, web build) and drift-watch.yml (daily)
+├── Dockerfile                   single container: API + built web app
+├── index.py, vercel.json        Vercel deployment entry point
+└── pyproject.toml, uv.lock      Python dependencies (uv)
 ```
 
-## Run locally
+## Run it on your machine
+
+Works on **macOS, Linux and Windows**. You need **Git**, **[uv](https://docs.astral.sh/uv/)** (installs the right Python for you) and **Node.js 22 or newer**.
+
+### 1. Install the tools (once)
+
+| | macOS / Linux | Windows (PowerShell) |
+|---|---|---|
+| uv | `curl -LsSf https://astral.sh/uv/install.sh \| sh` | `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 \| iex"` |
+| Node.js 22+ | `brew install node` or https://nodejs.org | `winget install OpenJS.NodeJS.LTS` or https://nodejs.org |
+| Git | `brew install git` / your package manager | `winget install Git.Git` |
+
+Open a new terminal afterwards so the tools are on your `PATH`. pnpm is not needed globally; the commands below run the pinned version with `npx`.
+
+### 2. Get the code and settings
 
 ```bash
-cp .env.example .env            # add NEBIUS_API_KEY and TAVILY_API_KEY
+git clone https://github.com/TusharTechs/staycovered.git
+cd staycovered
+```
+
+Copy the example settings file:
+
+| macOS / Linux | Windows PowerShell | Windows cmd |
+|---|---|---|
+| `cp .env.example .env` | `Copy-Item .env.example .env` | `copy .env.example .env` |
+
+API keys are **optional**. Without them, everything deterministic works (caseload, worksheets, paths, forecast, self-check, sandbox, Time Machine timeline, packets, forms) and every pre-answered question and pre-searched city is served from the cache. Add keys to `.env` to ask new questions, extract new documents and run drift-watch:
+
+- `NEBIUS_API_KEY`: from https://tokenfactory.nebius.com
+- `TAVILY_API_KEY`: from https://tavily.com
+
+### 3. Run it (one server, simplest)
+
+The same commands work in every terminal (bash, zsh, PowerShell, cmd):
+
+```bash
 uv sync
-uv run python -m demo.seed      # synthetic caseload
+npx --yes pnpm@12.10.1 --dir web install
+npx --yes pnpm@12.10.1 --dir web build
 uv run uvicorn staycovered.api:app --port 8000
-pnpm --dir web install && pnpm --dir web dev   # http://localhost:5173
 ```
 
-Tests and checks:
+Open http://localhost:8000. The API serves the built web app.
+
+### Or: development mode with hot reload (two terminals)
 
 ```bash
-uv run --group dev pytest
-uv run --with pyyaml python scripts/verify_citations.py --bench   # every rule fact and rubric quote verified verbatim
-uv run python -m bench.run --split dev
+# terminal 1: API
+uv run uvicorn staycovered.api:app --port 8000 --reload --reload-dir staycovered
 ```
+
+```bash
+# terminal 2: web app (proxies /api to port 8000)
+npx --yes pnpm@12.10.1 --dir web install
+npx --yes pnpm@12.10.1 --dir web dev
+```
+
+Open http://localhost:5173.
+
+### Or: Docker (any OS)
+
+```bash
+docker build -t staycovered .
+docker run --rm -p 7860:7860 --env-file .env staycovered
+```
+
+Open http://localhost:7860.
+
+### Tests and checks
+
+```bash
+uv run pytest -q                                      # engine, paths, forecast, self-check, sandbox
+uv run python scripts/verify_citations.py --bench     # every rule and rubric quote is verbatim in its source
+uv run python -m staycovered.drift                    # one drift-watch run (needs both keys)
+uv run python -m bench.run --split dev                # WorkReqBench on the dev split (needs NEBIUS_API_KEY; costs credits)
+```
+
+CI runs the first two plus a full web build on every push.
+
+### Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| `uv` or `npx` not found | Open a new terminal after installing, or restart your computer on Windows. |
+| Port 8000 already in use | Use another port, e.g. `--port 8010` (in dev mode, also change the proxy in `web/vite.config.ts`). |
+| PowerShell blocks the uv installer | The command above already uses `-ExecutionPolicy ByPass` for that one script. |
+| Corporate network or proxy breaks `npx` / `uv` downloads | Set `HTTPS_PROXY`, or install Node and uv from the offline installers. |
+| Demo cases look changed after experimenting | `git checkout data/cases` restores them. (`uv run python -m demo.seed` rebuilds them from scratch but drops cached explanations.) |
+| A new question says "can't confirm" or 503 | No `NEBIUS_API_KEY`, or the daily spend cap was reached; cached questions still work. |
 
 ## Honesty notes
 
@@ -113,4 +293,4 @@ uv run python -m bench.run --split dev
 
 ## License
 
-Apache-2.0
+Apache-2.0. The Nebraska MLTC-118 form in `data/forms/` is a public state document. Demo clients are synthetic.

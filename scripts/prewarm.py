@@ -54,9 +54,9 @@ def main() -> None:
         r = c.post("/api/ask", json={"question": q, "as_of": d, "jurisdiction": j, "compare_closed_book": cmp})
         print(i, len(jobs), d, r.status_code, q[:50])
     api.ANSWER_CACHE.parent.mkdir(parents=True, exist_ok=True)
-    merged = json.loads(api.ANSWER_CACHE.read_text()) if api.ANSWER_CACHE.exists() else {}
-    merged |= json.loads(api.RUNTIME_ANSWERS.read_text())
-    api.ANSWER_CACHE.write_text(json.dumps(merged, indent=1))
+    merged = json.loads(api.ANSWER_CACHE.read_text(encoding="utf-8")) if api.ANSWER_CACHE.exists() else {}
+    merged |= json.loads(api.RUNTIME_ANSWERS.read_text(encoding="utf-8"))
+    api.ANSWER_CACHE.write_text(json.dumps(merged, indent=1), encoding="utf-8")
     print(f"cached {len(merged)} answers -> {api.ANSWER_CACHE}")
 
 

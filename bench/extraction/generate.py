@@ -103,7 +103,7 @@ def build(n_each: int = 6) -> list[dict]:
 
 if __name__ == "__main__":
     docs = build()
-    OUT.write_text(json.dumps(docs, indent=2))
+    OUT.write_text(json.dumps(docs, indent=2), encoding="utf-8")
     print(f"wrote {len(docs)} documents ({sum(d.get('injected', False) for d in docs)} with injection) to {OUT}")
 
 
@@ -165,5 +165,5 @@ def build_heldout(n_each: int = 6) -> list[dict]:
 
 if __name__ == "__main__" and "--heldout" in __import__("sys").argv:
     hd = build_heldout()
-    OUT.with_name("docs_heldout.json").write_text(json.dumps(hd, indent=2))
+    OUT.with_name("docs_heldout.json").write_text(json.dumps(hd, indent=2), encoding="utf-8")
     print(f"wrote {len(hd)} held-out documents ({sum(d.get('injected', False) for d in hd)} with injection)")

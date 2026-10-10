@@ -69,4 +69,4 @@ The Legal Quick Guide is clear: content is not used for training, inputs may be 
 
 - `extract` returns Markdown. We strip link targets and markup before diffing, so formatting differences are not mistaken for rule changes.
 - Comparing Tavily captures with archive captures made by a different HTML-to-text method produces false "changes". We compare like with like only.
-- The privacy policy advises against personal data in queries. We send only allow-listed official URLs, and our request log shows this.
+- The privacy policy advises against personal data in queries. Rule monitoring sends only allow-listed official URLs; the nearby-programs search sends only a city name and the activity type. Our request log shows both.

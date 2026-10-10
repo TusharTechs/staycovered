@@ -55,7 +55,7 @@ def _manifest_raw() -> tuple[dict, ...]:
     p = config.SOURCES_DIR / "manifest.json"
     if not p.exists():
         return ()
-    return tuple(json.loads(p.read_text()))
+    return tuple(json.loads(p.read_text(encoding="utf-8")))
 
 
 def reload() -> None:

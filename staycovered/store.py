@@ -52,12 +52,12 @@ def path(case_id: str) -> Path:
 
 def save(rec: CaseRecord) -> None:
     rec.updated = date.today()
-    path(rec.case.id).write_text(rec.model_dump_json(indent=2))
+    path(rec.case.id).write_text(rec.model_dump_json(indent=2), encoding="utf-8")
 
 
 def load(case_id: str) -> CaseRecord:
-    return CaseRecord.model_validate_json(path(case_id).read_text())
+    return CaseRecord.model_validate_json(path(case_id).read_text(encoding="utf-8"))
 
 
 def all_cases() -> list[CaseRecord]:
-    return [CaseRecord.model_validate(json.loads(p.read_text())) for p in sorted(CASES.glob("*.json"))]
+    return [CaseRecord.model_validate(json.loads(p.read_text(encoding="utf-8"))) for p in sorted(CASES.glob("*.json"))]

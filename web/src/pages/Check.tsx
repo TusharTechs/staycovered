@@ -169,7 +169,7 @@ export default function Check() {
       <p className="rounded-lg bg-brand-soft px-3 py-2 text-sm text-brand">🔒 {t.privacy}</p>
 
       <form className="space-y-5" onSubmit={e => { e.preventDefault(); run() }}>
-        <fieldset className="rounded-xl border border-line bg-white p-4">
+        <fieldset className="min-w-0 rounded-xl border border-line bg-white p-4">
           <legend className="px-1 text-sm font-semibold">{t.state}</legend>
           <div className="flex gap-2">
             {(Object.keys(STATES) as Juris[]).map(j => (
@@ -179,7 +179,7 @@ export default function Check() {
           </div>
         </fieldset>
 
-        <fieldset className="rounded-xl border border-line bg-white p-4">
+        <fieldset className="min-w-0 rounded-xl border border-line bg-white p-4">
           <legend className="px-1 text-sm font-semibold">{t.usual}</legend>
           <div className="divide-y divide-line">
             <div className="pb-2"><div className="text-sm font-medium">{t.job}</div>
@@ -202,7 +202,7 @@ export default function Check() {
           </div>
         </fieldset>
 
-        <fieldset className="rounded-xl border border-line bg-white p-4">
+        <fieldset className="min-w-0 rounded-xl border border-line bg-white p-4">
           <legend className="px-1 text-sm font-semibold">{t.any}</legend>
           <div className="space-y-1.5">
             {EXEMPT.map(e => {

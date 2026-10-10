@@ -53,16 +53,16 @@ def _cache_key(*parts: object) -> str:
 def _cache_get(key: str) -> dict | None:
     for p in (ANSWER_CACHE, RUNTIME_ANSWERS):
         if p.exists():
-            v = json.loads(p.read_text()).get(key)
+            v = json.loads(p.read_text(encoding="utf-8")).get(key)
             if v:
                 return v
     return None
 
 
 def _cache_put(key: str, value: dict) -> None:
-    d = json.loads(RUNTIME_ANSWERS.read_text()) if RUNTIME_ANSWERS.exists() else {}
+    d = json.loads(RUNTIME_ANSWERS.read_text(encoding="utf-8")) if RUNTIME_ANSWERS.exists() else {}
     d[key] = value
-    RUNTIME_ANSWERS.write_text(json.dumps(d))
+    RUNTIME_ANSWERS.write_text(json.dumps(d), encoding="utf-8")
 
 
 def _llm_guard(fn):
@@ -268,7 +268,7 @@ def timeline(jurisdiction: str = "NE") -> dict:
 def drift_events() -> list[dict]:
     if not watch.EVENTS.exists():
         return []
-    return [json.loads(line) for line in watch.EVENTS.read_text().splitlines() if line.strip()]
+    return [json.loads(line) for line in watch.EVENTS.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
 @app.post("/api/drift/check")
@@ -304,7 +304,7 @@ def drift_status() -> dict:
 def _tail(p, n: int) -> list[dict]:
     if not p.exists():
         return []
-    lines = p.read_text().splitlines()[-n:]
+    lines = p.read_text(encoding="utf-8").splitlines()[-n:]
     return [json.loads(x) for x in lines if x.strip()]
 
 
@@ -317,7 +317,7 @@ def log_calls(n: int = 200) -> list[dict]:
 @app.get("/api/log/summary")
 def log_summary() -> dict:
     p = config.ROOT / "data" / "cache" / "usage_summary.json"
-    return json.loads(p.read_text()) if p.exists() else {}
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
 
 
 @app.get("/api/log/tavily")
@@ -328,7 +328,7 @@ def log_tavily(n: int = 200) -> list[dict]:
 @app.get("/api/bench/results")
 def bench_results() -> dict:
     p = config.BENCH_DIR / "results" / "latest.json"
-    return json.loads(p.read_text()) if p.exists() else {}
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
 
 
 @app.get("/api/cases/{case_id}/mltc118")
@@ -503,7 +503,7 @@ def extraction_results() -> dict:
     for name in ("results.json", "results_heldout.json"):
         p = config.BENCH_DIR / "extraction" / name
         if p.exists():
-            out[name.replace(".json", "")] = {k: v for k, v in json.loads(p.read_text()).items() if k != "rows"}
+            out[name.replace(".json", "")] = {k: v for k, v in json.loads(p.read_text(encoding="utf-8")).items() if k != "rows"}
     return out
 
 
@@ -516,7 +516,7 @@ def grade_items() -> list[dict]:
     import csv
     if config.ON_VERCEL or not _GRADE.exists():  # local-only tool
         return []
-    return [{k: v for k, v in r.items()} for r in csv.DictReader(_GRADE.open())]
+    return [{k: v for k, v in r.items()} for r in csv.DictReader(_GRADE.open(encoding="utf-8"))]
 
 
 class GradeIn(BaseModel):
@@ -528,13 +528,13 @@ def grade_row(row: str, g: GradeIn) -> dict:
     import csv
     if config.ON_VERCEL:
         raise HTTPException(403, "Grading is a local-only tool.")
-    rows = list(csv.DictReader(_GRADE.open()))
+    rows = list(csv.DictReader(_GRADE.open(encoding="utf-8")))
     if g.human_pass not in ("y", "n", ""):
         raise HTTPException(400, "y or n")
     for r in rows:
         if r["row"] == row:
             r["human_pass"] = g.human_pass
-    with _GRADE.open("w", newline="") as f:
+    with _GRADE.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
         w.writeheader()
         w.writerows(rows)

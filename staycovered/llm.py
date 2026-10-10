@@ -43,7 +43,7 @@ def spent_today() -> float:
         _spend_cache.update(day=day, usd=0.0, pos=0)
     if CALL_LOG.exists():
         midnight = _dt.datetime.fromisoformat(day).replace(tzinfo=_dt.timezone.utc).timestamp()
-        with CALL_LOG.open() as f:
+        with CALL_LOG.open(encoding="utf-8") as f:
             f.seek(_spend_cache["pos"])
             for line in f:
                 try:
@@ -66,7 +66,7 @@ def client() -> OpenAI:
 
 
 def _log(entry: dict[str, Any]) -> None:
-    with CALL_LOG.open("a") as f:
+    with CALL_LOG.open("a", encoding="utf-8") as f:
         f.write(json.dumps(entry) + "\n")
 
 

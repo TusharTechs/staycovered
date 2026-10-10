@@ -59,11 +59,11 @@ export default function Sandbox() {
       </div>
 
       <div className="grid gap-5 lg:grid-cols-5">
-        <div className="space-y-3 lg:col-span-2" data-tour="levers">
+        <div className="min-w-0 space-y-3 lg:col-span-2" data-tour="levers">
           {data.levers.map(l => {
             const on = l.value !== l.default
             return (
-              <fieldset key={l.key} className={`rounded-xl border bg-white p-4 ${on ? 'border-brand' : 'border-line'}`}>
+              <fieldset key={l.key} className={`min-w-0 rounded-xl border bg-white p-4 ${on ? 'border-brand' : 'border-line'}`}>
                 <legend className="sr-only">{l.label}</legend>
                 <div className="flex items-start gap-3">
                   <div className="flex-1">
@@ -96,7 +96,7 @@ export default function Sandbox() {
           {changed && <button onClick={() => setParams(new URLSearchParams(), { replace: true })} className="text-sm text-brand underline">Reset to {STATES[state].name}'s published rules</button>}
         </div>
 
-        <div className="space-y-5 lg:col-span-3">
+        <div className="min-w-0 space-y-5 lg:col-span-3">
           <Card title="The caseload, before and after">
             <div aria-live="polite" className="space-y-3">
               <Bar t={b} label={`${STATES[state].name}'s published rules`} />

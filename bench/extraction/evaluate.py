@@ -44,7 +44,7 @@ def score_doc(pred: list[dict], gold: list[dict]) -> tuple[int, int, int]:
 
 
 def run(model: str | None, docs_path: Path = DOCS, out: Path = OUT) -> dict:
-    docs = json.loads(docs_path.read_text())
+    docs = json.loads(docs_path.read_text(encoding="utf-8"))
     t0 = time.time()
 
     def one(d: dict) -> dict:
@@ -69,7 +69,7 @@ def run(model: str | None, docs_path: Path = DOCS, out: Path = OUT) -> dict:
         b = by_type.setdefault(r["type"], {"docs": 0, "exact": 0})
         b["docs"] += 1
         b["exact"] += int(r["exact"])
-    usd = sum(json.loads(x)["usd"] for x in llm.CALL_LOG.read_text().splitlines() if x.strip() and json.loads(x)["ts"] >= t0)
+    usd = sum(json.loads(x)["usd"] for x in llm.CALL_LOG.read_text(encoding="utf-8").splitlines() if x.strip() and json.loads(x)["ts"] >= t0)
     res = {
         "model": model or config.ROUTES["extract"], "docs": len(rows), "row_precision": round(prec, 3), "row_recall": round(rec, 3),
         "row_f1": round(2 * prec * rec / max(1e-9, prec + rec), 3), "doc_exact": round(sum(r["exact"] for r in rows) / len(rows), 3),
@@ -78,7 +78,7 @@ def run(model: str | None, docs_path: Path = DOCS, out: Path = OUT) -> dict:
         "by_type": by_type, "usd": round(usd, 4), "rows": rows,
     }
     res["set"] = docs_path.name
-    out.write_text(json.dumps(res, indent=2))
+    out.write_text(json.dumps(res, indent=2), encoding="utf-8")
     return res
 
 

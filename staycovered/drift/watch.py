@@ -32,11 +32,11 @@ EVENTS = config.RUNTIME_DIR / "drift_events.jsonl"
 
 
 def allowlist() -> list[dict]:
-    return (yaml.safe_load(ALLOWLIST.read_text()) or {}).get("pages", [])
+    return (yaml.safe_load(ALLOWLIST.read_text(encoding="utf-8")) or {}).get("pages", [])
 
 
 def _log_tavily(kind: str, payload: dict, n_results: int, ok: bool, err: str = "") -> None:
-    with TAVILY_LOG.open("a") as f:
+    with TAVILY_LOG.open("a", encoding="utf-8") as f:
         f.write(json.dumps({"ts": time.time(), "kind": kind, "payload": payload, "results": n_results, "ok": ok, "err": err}) + "\n")
 
 
@@ -77,7 +77,7 @@ def tavily_map(root: str, limit: int = 60) -> list[str]:
 
 
 def _allowed_prefixes() -> list[str]:
-    return (yaml.safe_load(ALLOWLIST.read_text()) or {}).get("domains", [])
+    return (yaml.safe_load(ALLOWLIST.read_text(encoding="utf-8")) or {}).get("domains", [])
 
 
 # ---------- diffing ----------
@@ -169,10 +169,10 @@ def save_snapshot(url: str, text: str, jurisdiction: str, title: str, as_of: dat
     rp = Path("sources/raw") / jurisdiction / f"{sid}.tavily.txt"
     (config.ROOT / tp).parent.mkdir(parents=True, exist_ok=True)
     (config.ROOT / rp).parent.mkdir(parents=True, exist_ok=True)
-    (config.ROOT / tp).write_text(text)
-    (config.ROOT / rp).write_text(text)
+    (config.ROOT / tp).write_text(text, encoding="utf-8")
+    (config.ROOT / rp).write_text(text, encoding="utf-8")
     mpath = config.SOURCES_DIR / "manifest.json"
-    man = json.loads(mpath.read_text()) if mpath.exists() else []
+    man = json.loads(mpath.read_text(encoding="utf-8")) if mpath.exists() else []
     if not any(e["id"] == sid for e in man):
         man.append({
             "id": sid, "jurisdiction": jurisdiction, "title": title, "publisher": "", "url": url, "wayback_url": None,
@@ -180,13 +180,13 @@ def save_snapshot(url: str, text: str, jurisdiction: str, title: str, as_of: dat
             "content_type": "text/plain", "raw_path": str(rp), "text_path": str(tp),
             "sha256": hashlib.sha256(text.encode()).hexdigest(), "notes": f"captured by drift-watch via {via}",
         })
-        mpath.write_text(json.dumps(man, indent=2))
+        mpath.write_text(json.dumps(man, indent=2), encoding="utf-8")
     sources.reload()
     return sid
 
 
 def _notes(source_id: str) -> str:
-    man = json.loads((config.SOURCES_DIR / "manifest.json").read_text())
+    man = json.loads((config.SOURCES_DIR / "manifest.json").read_text(encoding="utf-8"))
     return next((e.get("notes", "") for e in man if e["id"] == source_id), "")
 
 
@@ -210,7 +210,7 @@ class DriftEvent:
 
 
 def _emit(ev: DriftEvent) -> None:
-    with EVENTS.open("a") as f:
+    with EVENTS.open("a", encoding="utf-8") as f:
         f.write(json.dumps(asdict(ev)) + "\n")
 
 
@@ -265,26 +265,26 @@ def check_live(summarise: bool = True) -> list[DriftEvent]:
             events.append(ev)
         statuses.append(st | {"status": "cosmetic change" if cosmetic else "changed", "snapshot": sid,
                               "headline": (summ or {}).get("headline", "")})
-    log = json.loads(LIVE_EVENTS.read_text()) if LIVE_EVENTS.exists() else []
+    log = json.loads(LIVE_EVENTS.read_text(encoding="utf-8")) if LIVE_EVENTS.exists() else []
     for ev in events:
         row = asdict(ev)
         row["added"], row["removed"] = ev.added[:25], ev.removed[:25]
         row["affected_cases"] = affected_cases(ev)
         log.append(row)
-    LIVE_EVENTS.write_text(json.dumps(log, indent=1))
+    LIVE_EVENTS.write_text(json.dumps(log, indent=1), encoding="utf-8")
     STATUS.write_text(json.dumps({
         "last_checked": datetime.now(timezone.utc).isoformat(timespec="minutes"),
         "pages": statuses, "changes_today": len(events), "total_live_changes": len(log), "method": "Tavily Extract (advanced)",
-    }, indent=1))
+    }, indent=1), encoding="utf-8")
     return events
 
 
 def live_status() -> dict:
-    return json.loads(STATUS.read_text()) if STATUS.exists() else {}
+    return json.loads(STATUS.read_text(encoding="utf-8")) if STATUS.exists() else {}
 
 
 def live_events() -> list[dict]:
-    return json.loads(LIVE_EVENTS.read_text()) if LIVE_EVENTS.exists() else []
+    return json.loads(LIVE_EVENTS.read_text(encoding="utf-8")) if LIVE_EVENTS.exists() else []
 
 
 def replay(url: str, summarise: bool = False) -> list[DriftEvent]:
@@ -376,7 +376,7 @@ REPLAY_CACHE = config.ROOT / "data" / "cache" / "replay_cache.json"  # committed
 
 def replay_all(jurisdiction: str, summarise: bool = True, allow_llm: bool = True) -> list[dict]:
     """All historical change events for allow-listed pages of a jurisdiction, with summaries (cached)."""
-    cache = json.loads(REPLAY_CACHE.read_text()) if REPLAY_CACHE.exists() else {}
+    cache = json.loads(REPLAY_CACHE.read_text(encoding="utf-8")) if REPLAY_CACHE.exists() else {}
     out = []
     for p in allowlist():
         if p["jurisdiction"] not in (jurisdiction, "US"):
@@ -390,7 +390,7 @@ def replay_all(jurisdiction: str, summarise: bool = True, allow_llm: bool = True
                 except Exception as e:  # noqa: BLE001
                     cache[key] = {"headline": "Change detected (summary unavailable)", "details": [], "who_is_affected": "",
                                   "navigator_action": "", "substantive": True, "error": str(e)[:200]}
-                REPLAY_CACHE.write_text(json.dumps(cache, indent=2))
+                REPLAY_CACHE.write_text(json.dumps(cache, indent=2), encoding="utf-8")
             ev.summary = cache.get(key)
             row = asdict(ev)
             row["added"], row["removed"] = ev.added[:25], ev.removed[:25]

@@ -1,7 +1,7 @@
 {
- "generated": "2026-10-10T05:17:06+00:00",
- "total_calls": 4967,
- "total_usd": 4.25,
+ "generated": "2026-10-10T13:23:27+00:00",
+ "total_calls": 6523,
+ "total_usd": 5.158,
  "rows": [
   {
    "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
@@ -14,26 +14,26 @@
   {
    "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
    "job": "extract",
-   "calls": 823,
-   "tokens": 442829,
-   "usd": 0.0446,
+   "calls": 936,
+   "tokens": 502532,
+   "usd": 0.0495,
    "p50_latency_s": 0.5
   },
   {
    "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
    "job": "rewrite",
-   "calls": 1,
-   "tokens": 960,
-   "usd": 0.0001,
-   "p50_latency_s": 3.44
+   "calls": 2,
+   "tokens": 1806,
+   "usd": 0.0002,
+   "p50_latency_s": 2.6
   },
   {
    "model": "nvidia/Nemotron-3-Ultra-550b-a55b",
    "job": "judge",
-   "calls": 2303,
-   "tokens": 1183817,
-   "usd": 1.4415,
-   "p50_latency_s": 0.76
+   "calls": 2704,
+   "tokens": 1452882,
+   "usd": 1.7577,
+   "p50_latency_s": 0.77
   },
   {
    "model": "nvidia/Nemotron-3_5-Lightning",
@@ -54,18 +54,18 @@
   {
    "model": "nvidia/nemotron-3-super-120b-a12b",
    "job": "answer",
-   "calls": 975,
-   "tokens": 6378677,
-   "usd": 2.5836,
-   "p50_latency_s": 5.35
+   "calls": 1120,
+   "tokens": 7368086,
+   "usd": 2.9718,
+   "p50_latency_s": 5.27
   },
   {
    "model": "nvidia/nemotron-3-super-120b-a12b",
    "job": "drift_summary",
-   "calls": 11,
-   "tokens": 21561,
-   "usd": 0.0085,
-   "p50_latency_s": 2.18
+   "calls": 14,
+   "tokens": 33493,
+   "usd": 0.0128,
+   "p50_latency_s": 2.36
   },
   {
    "model": "nvidia/nemotron-3-super-120b-a12b",
@@ -78,10 +78,10 @@
   {
    "model": "nvidia/nemotron-3-super-120b-a12b",
    "job": "judge",
-   "calls": 848,
-   "tokens": 479258,
-   "usd": 0.1718,
-   "p50_latency_s": 1.04
+   "calls": 1741,
+   "tokens": 1026344,
+   "usd": 0.3662,
+   "p50_latency_s": 1.01
   }
  ],
  "tavily": [
@@ -91,6 +91,7 @@
    "urls": [
     "https://dhhs.ne.gov/Pages/WorkRequirements.aspx"
    ],
+   "query": null,
    "results": 1,
    "ok": true
   },
@@ -107,6 +108,393 @@
     "https://pathways.georgia.gov/about-pathways/faqs",
     "https://www.medicaid.gov/resources-for-states/working-families-tax-cut-legislation/community-engagement"
    ],
+   "query": null,
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791634508.581412,
+   "kind": "extract",
+   "urls": [
+    "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
+    "https://dhhs.ne.gov/Documents/MLTC-WR-Requirements-FAQ.pdf",
+    "https://dphhs.mt.gov/medicaidchanges",
+    "https://dphhs.mt.gov/medicaidchanges/faqs",
+    "https://humanservices.arkansas.gov/divisions-shared-services/medical-services/healthcare-programs/arhome/arhome-community-engagement-requirement/",
+    "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
+    "https://pathways.georgia.gov/about-pathways/faqs",
+    "https://www.medicaid.gov/resources-for-states/working-families-tax-cut-legislation/community-engagement"
+   ],
+   "query": null,
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791634544.550108,
+   "kind": "extract",
+   "urls": [
+    "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
+    "https://dhhs.ne.gov/Documents/MLTC-WR-Requirements-FAQ.pdf",
+    "https://dphhs.mt.gov/medicaidchanges",
+    "https://dphhs.mt.gov/medicaidchanges/faqs",
+    "https://humanservices.arkansas.gov/divisions-shared-services/medical-services/healthcare-programs/arhome/arhome-community-engagement-requirement/",
+    "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
+    "https://pathways.georgia.gov/about-pathways/faqs",
+    "https://www.medicaid.gov/resources-for-states/working-families-tax-cut-legislation/community-engagement"
+   ],
+   "query": null,
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636296.918453,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Omaha Nebraska sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636307.9293041,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Omaha Nebraska (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636497.8627572,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Omaha Nebraska sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636504.1942358,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Omaha Nebraska (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636512.8022962,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Lincoln Nebraska sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636520.065114,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Lincoln Nebraska (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636527.777478,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Kearney Nebraska sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636536.042918,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Kearney Nebraska (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636544.4389,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Grand Island Nebraska sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636550.6855218,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Grand Island Nebraska (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636558.994071,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Bozeman Montana sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636565.02176,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Bozeman Montana (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636571.296937,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Missoula Montana sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636577.805514,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Missoula Montana (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636584.238272,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Billings Montana sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636591.271928,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Billings Montana (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636619.371649,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Omaha Nebraska sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636624.1249979,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Omaha Nebraska (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636628.402903,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Lincoln Nebraska sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636633.806974,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Lincoln Nebraska (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636638.0803132,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Kearney Nebraska sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636643.524431,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Kearney Nebraska (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636648.378515,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Grand Island Nebraska sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636652.8849542,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Grand Island Nebraska (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636656.878022,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Bozeman Montana sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636661.320632,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Bozeman Montana (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636665.977965,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Missoula Montana sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636669.6172748,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Missoula Montana (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636673.775745,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Billings Montana sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636678.138491,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Billings Montana (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636694.729571,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Omaha Nebraska sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636698.984035,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Omaha Nebraska (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636703.424513,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Lincoln Nebraska sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636707.772944,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Lincoln Nebraska (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636711.306048,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Kearney Nebraska sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636716.168913,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Kearney Nebraska (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636719.838142,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Grand Island Nebraska sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636724.051038,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Grand Island Nebraska (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636727.2866108,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Bozeman Montana sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636732.097301,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Bozeman Montana (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636735.95244,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Missoula Montana sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636740.703551,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Missoula Montana (American Job Center, WIOA, community college)",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636744.836236,
+   "kind": "search",
+   "urls": [],
+   "query": "volunteer opportunities nonprofit Billings Montana sign up",
+   "results": 8,
+   "ok": true
+  },
+  {
+   "ts": 1791636749.545283,
+   "kind": "search",
+   "urls": [],
+   "query": "free job training or workforce program Billings Montana (American Job Center, WIOA, community college)",
    "results": 8,
    "ok": true
   }

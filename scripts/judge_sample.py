@@ -19,7 +19,7 @@ CSV = R / "judge_sample.csv"
 
 def latest_full() -> dict:
     files = sorted(p for p in R.glob("*.json") if p.name != "latest.json")
-    return json.loads(files[-1].read_text())
+    return json.loads(files[-1].read_text(encoding="utf-8"))
 
 
 def export(n: int) -> None:
@@ -27,7 +27,7 @@ def export(n: int) -> None:
 
     qs = {}
     for p in (R.parent / "questions").glob("*.yaml"):
-        for q in yaml.safe_load(p.read_text()):
+        for q in yaml.safe_load(p.read_text(encoding="utf-8")):
             qs[q["id"]] = q
     res = latest_full()
     rows = []
@@ -43,7 +43,7 @@ def export(n: int) -> None:
                              "answer": r["answer"][:2000], "human_pass": "", "judge_pass": "y" if g["passed"] else "n"})
     random.Random(11).shuffle(rows)
     rows = rows[:n]
-    with CSV.open("w", newline="") as f:
+    with CSV.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
         w.writeheader()
         w.writerows(rows)
@@ -53,11 +53,11 @@ def export(n: int) -> None:
 def score() -> None:
     graded = R / "grade_me.csv"
     if graded.exists():  # blind copy filled in by the human + separate key
-        key = {r["row"]: r["judge_pass"] for r in csv.DictReader((R / "judge_key.csv").open())}
-        rows = [{**r, "judge_pass": key[r["row"]]} for r in csv.DictReader(graded.open())
+        key = {r["row"]: r["judge_pass"] for r in csv.DictReader((R / "judge_key.csv").open(encoding="utf-8"))}
+        rows = [{**r, "judge_pass": key[r["row"]]} for r in csv.DictReader(graded.open(encoding="utf-8"))
                 if r["human_pass"].strip().lower() in ("y", "n")]
     else:
-        rows = [r for r in csv.DictReader(CSV.open()) if r["human_pass"].strip().lower() in ("y", "n")]
+        rows = [r for r in csv.DictReader(CSV.open(encoding="utf-8")) if r["human_pass"].strip().lower() in ("y", "n")]
     if not rows:
         sys.exit("no graded rows")
     h = [r["human_pass"].strip().lower() == "y" for r in rows]
@@ -70,11 +70,11 @@ def score() -> None:
     print(f"n={n} agreement={agree:.3f} kappa={kappa:.3f}")
     lp = R / "latest.json"
     if lp.exists():
-        d = json.loads(lp.read_text())
+        d = json.loads(lp.read_text(encoding="utf-8"))
         d.setdefault("judge", {})["human_agreement"] = round(agree, 3)
         d["judge"]["human_kappa"] = round(kappa, 3)
         d["judge"]["human_n"] = n
-        lp.write_text(json.dumps(d, indent=2))
+        lp.write_text(json.dumps(d, indent=2), encoding="utf-8")
 
 
 if __name__ == "__main__":

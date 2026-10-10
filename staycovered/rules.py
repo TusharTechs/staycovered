@@ -68,7 +68,7 @@ def _known_from(declared: date | None, cites: tuple[Citation, ...]) -> date | No
 def _load() -> tuple[Fact, ...]:
     facts: list[Fact] = []
     for p in sorted(config.RULES_DIR.glob("*.yaml")):
-        doc = yaml.safe_load(p.read_text()) or {}
+        doc = yaml.safe_load(p.read_text(encoding="utf-8")) or {}
         j = doc.get("jurisdiction", p.stem)
         for f in doc.get("facts", []) or []:
             cites = tuple(Citation(c["source_id"], c["quote"]) for c in f.get("citations", []) or [])

@@ -31,7 +31,7 @@ RDIR.mkdir(exist_ok=True)
 def load_questions(split: str | None = None) -> list[dict]:
     qs = []
     for p in sorted(QDIR.glob("*.yaml")):
-        for q in yaml.safe_load(p.read_text()) or []:
+        for q in yaml.safe_load(p.read_text(encoding="utf-8")) or []:
             q["as_of"] = str(q["as_of"])
             if split in (None, "all") or q.get("split") == split:
                 qs.append(q)
@@ -61,7 +61,7 @@ FRONTIER_LOG = config.RUNTIME_DIR / "frontier_calls.jsonl"
 def frontier_spent() -> float:
     if not FRONTIER_LOG.exists():
         return 0.0
-    return sum(json.loads(l).get("usd", 0) for l in FRONTIER_LOG.read_text().splitlines() if l.strip())
+    return sum(json.loads(l).get("usd", 0) for l in FRONTIER_LOG.read_text(encoding="utf-8").splitlines() if l.strip())
 
 
 def sys_frontier(q: dict) -> dict:
@@ -84,7 +84,7 @@ def sys_frontier(q: dict) -> dict:
     u = resp.usage
     usd = (u.input_tokens * pin + u.output_tokens * pout) / 1e6
     served_by = resp.model
-    with FRONTIER_LOG.open("a") as f:
+    with FRONTIER_LOG.open("a", encoding="utf-8") as f:
         f.write(json.dumps({"ts": time.time(), "model": FRONTIER_MODEL, "served_by": served_by, "in": u.input_tokens,
                             "out": u.output_tokens, "usd": round(usd, 6), "stop": resp.stop_reason}) + "\n")
     if resp.stop_reason == "refusal":
@@ -136,7 +136,7 @@ def _claude_verdict(model: str, prompt: str) -> Verdict:
     )
     pin, pout = FRONTIER_PRICE.get(model, (4.0, 20.0))
     usd = (resp.usage.input_tokens * pin + resp.usage.output_tokens * pout) / 1e6
-    with FRONTIER_LOG.open("a") as f:
+    with FRONTIER_LOG.open("a", encoding="utf-8") as f:
         f.write(json.dumps({"ts": time.time(), "model": model, "role": "judge", "in": resp.usage.input_tokens,
                             "out": resp.usage.output_tokens, "usd": round(usd, 6), "stop": resp.stop_reason}) + "\n")
     if resp.parsed_output is None:
@@ -171,7 +171,7 @@ def bootstrap(xs: list[float], n: int = 2000, seed: int = 7) -> tuple[float, flo
 def spent(since: float) -> float:
     if not llm.CALL_LOG.exists():
         return 0.0
-    return sum(json.loads(l)["usd"] for l in llm.CALL_LOG.read_text().splitlines() if l.strip() and json.loads(l)["ts"] >= since)
+    return sum(json.loads(l)["usd"] for l in llm.CALL_LOG.read_text(encoding="utf-8").splitlines() if l.strip() and json.loads(l)["ts"] >= since)
 
 
 def run(split: str, systems: list[str], limit: int | None, max_usd: float, workers: int, reuse: list[str] | None = None) -> dict:
@@ -183,7 +183,7 @@ def run(split: str, systems: list[str], limit: int | None, max_usd: float, worke
     if reuse:  # carry over unchanged systems from the latest full run of this split
         prev = sorted(RDIR.glob(f"*-{split}.json"))
         if prev:
-            old = json.loads(prev[-1].read_text())["records"]
+            old = json.loads(prev[-1].read_text(encoding="utf-8"))["records"]
             for s in reuse:
                 if s in old:
                     records[s] = old[s]
@@ -241,8 +241,8 @@ def run(split: str, systems: list[str], limit: int | None, max_usd: float, worke
         "frontier_usd_total": round(frontier_spent(), 4),
     }
     stamp = datetime.now().strftime("%Y%m%dT%H%M%S")
-    (RDIR / f"{stamp}-{split}.json").write_text(json.dumps(result, indent=2, default=str))
-    (RDIR / "latest.json").write_text(json.dumps({k: v for k, v in result.items() if k != "records"}, indent=2, default=str))
+    (RDIR / f"{stamp}-{split}.json").write_text(json.dumps(result, indent=2, default=str), encoding="utf-8")
+    (RDIR / "latest.json").write_text(json.dumps({k: v for k, v in result.items() if k != "records"}, indent=2, default=str), encoding="utf-8")
     return result
 
 
