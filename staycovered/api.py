@@ -401,6 +401,21 @@ def nearby_city(location: str, kind: str, req: Request) -> dict:
         raise HTTPException(400, str(e))
 
 
+@app.get("/api/sandbox")
+def policy_sandbox(jurisdiction: str = "NE", income_to_hours: bool | None = None, household_income: bool | None = None,
+                   required_months: int | None = None, ex_parte: bool | None = None, as_of: str | None = None) -> dict:
+    """What if the state chose differently? Deterministic; no AI call."""
+    from . import sandbox
+
+    if jurisdiction not in ("NE", "MT"):
+        raise HTTPException(400, "jurisdiction must be NE or MT")
+    if required_months is not None and required_months not in (1, 2, 3):
+        raise HTTPException(400, "required_months must be 1, 2 or 3")
+    lv = {k: v for k, v in {"income_to_hours": income_to_hours, "household_income": household_income,
+                            "required_months": required_months, "ex_parte": ex_parte}.items() if v is not None}
+    return sandbox.run(jurisdiction, lv, _d(as_of))
+
+
 @app.get("/api/forecast")
 def caseload_forecast(jurisdiction: str = "NE", as_of: str | None = None) -> dict:
     from .engine.forecast import forecast

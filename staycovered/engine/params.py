@@ -7,9 +7,11 @@ is published, a conservative default is used and marked unverified so the UI and
 
 from __future__ import annotations
 
+from contextlib import contextmanager
+from contextvars import ContextVar
 from dataclasses import dataclass, field
 from datetime import date
-from typing import Any, Callable
+from typing import Any, Callable, Iterator
 
 from .. import rules
 
@@ -91,6 +93,19 @@ SPEC: dict[str, tuple[list[Cand], Any, str]] = {
 }
 
 
+# Policy sandbox: hypothetical rule choices layered over the published ones for one computation.
+_OVERRIDES: ContextVar[dict[str, Param]] = ContextVar("param_overrides", default={})
+
+
+@contextmanager
+def overrides(values: dict[str, Param]) -> Iterator[None]:
+    token = _OVERRIDES.set(values)
+    try:
+        yield
+    finally:
+        _OVERRIDES.reset(token)
+
+
 def resolve(jurisdiction: str, on: date) -> Params:
     p = Params(jurisdiction, on)
     for name, (cands, default, label) in SPEC.items():
@@ -105,4 +120,5 @@ def resolve(jurisdiction: str, on: date) -> Params:
             chosen = Param(v, f.id, verified, label)
             break
         p.values[name] = chosen or Param(default, None, False, label)
+    p.values.update(_OVERRIDES.get())
     return p

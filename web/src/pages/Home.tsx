@@ -85,6 +85,8 @@ export default function Home() {
           ['Watches the rules', 'Tavily + archives detect official changes every day; affected cases are flagged for re-check.'],
           ['Finds the smallest fix', 'Counterfactual search over the rules engine; every suggested path is proven by re-running it.'],
           ['Forecasts the year', 'Twelve months ahead under rules already published, with calendar reminders for the client.'],
+          ['Tests policy choices', 'A sandbox flips the options federal law leaves to states and re-runs the whole caseload: who is short, and who is at risk only for paperwork.'],
+          ['Serves people directly', 'A bilingual, anonymous self-check: status, smallest fix and a 12-month forecast, with nothing saved.'],
         ].map(([t, b]) => (
           <div key={t} className="rounded-xl border border-line bg-white p-4"><div className="font-semibold">{t}</div><div className="mt-1 text-muted">{b}</div></div>
         ))}

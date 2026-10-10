@@ -1,0 +1,181 @@
+{
+  "case": {
+    "id": "rosa-delgado",
+    "jurisdiction": "MT",
+    "location": "Missoula, MT",
+    "household": [
+      {
+        "id": "rosa",
+        "name": "Rosa Delgado",
+        "age": 44,
+        "applicable_adult": true,
+        "seasonal_worker": false,
+        "pregnant_or_postpartum": null,
+        "caretaker_of_young_child": null,
+        "caretaker_of_disabled_person": null,
+        "veteran_total_disability": null,
+        "american_indian_alaska_native": null,
+        "medically_frail_indicators": [],
+        "in_sud_treatment": null,
+        "meets_snap_or_tanf_work_rules": null,
+        "recently_incarcerated": null
+      }
+    ],
+    "client_id": "rosa",
+    "ledger": [
+      {
+        "id": "rosa-pay-r1",
+        "member_id": "rosa",
+        "kind": "earned_income",
+        "period_start": "2026-08-01",
+        "period_end": "2026-08-31",
+        "amount": 420.0,
+        "payer": "Bright Corners Home Cleaning",
+        "source": {
+          "doc_id": "rosa-pay",
+          "span": "August 2026 total paid: $420.00",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "rosa-pay-r2",
+        "member_id": "rosa",
+        "kind": "earned_income",
+        "period_start": "2026-09-01",
+        "period_end": "2026-09-30",
+        "amount": 420.0,
+        "payer": "Bright Corners Home Cleaning",
+        "source": {
+          "doc_id": "rosa-pay",
+          "span": "September 2026 total paid: $420.00",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "rosa-foodbank-r1",
+        "member_id": "rosa",
+        "kind": "community_service_hours",
+        "period_start": "2026-07-01",
+        "period_end": "2026-07-31",
+        "amount": 30.0,
+        "payer": "Missoula Food Bank & Community Center",
+        "source": {
+          "doc_id": "rosa-foodbank",
+          "span": "July 2026, 30 hours",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "rosa-foodbank-r2",
+        "member_id": "rosa",
+        "kind": "community_service_hours",
+        "period_start": "2026-08-01",
+        "period_end": "2026-08-31",
+        "amount": 30.0,
+        "payer": "Missoula Food Bank & Community Center",
+        "source": {
+          "doc_id": "rosa-foodbank",
+          "span": "August 2026, 30 hours",
+          "page": null
+        },
+        "note": ""
+      },
+      {
+        "id": "rosa-foodbank-r3",
+        "member_id": "rosa",
+        "kind": "community_service_hours",
+        "period_start": "2026-09-01",
+        "period_end": "2026-09-30",
+        "amount": 30.0,
+        "payer": "Missoula Food Bank & Community Center",
+        "source": {
+          "doc_id": "rosa-foodbank",
+          "span": "September 2026, 30 hours",
+          "page": null
+        },
+        "note": ""
+      }
+    ],
+    "event": "renewal",
+    "event_date": "2026-11-16",
+    "notice_date": null,
+    "months_in_question": [],
+    "notes": ""
+  },
+  "client_name": "Rosa Delgado",
+  "navigator": "Demo navigator",
+  "language": "en",
+  "documents": [
+    {
+      "id": "rosa-pay",
+      "name": "Bright Corners earnings summary",
+      "kind": "income",
+      "member_id": "rosa",
+      "text": "Bright Corners Home Cleaning — Earnings Summary (SYNTHETIC)\nWorker: Rosa Delgado\nAugust 2026 total paid: $420.00\nSeptember 2026 total paid: $420.00\n(Paid per house cleaned; hours are not tracked.)\n",
+      "extracted": {
+        "gold": [
+          {
+            "kind": "earned_income",
+            "period_start": "2026-08-01",
+            "period_end": "2026-08-31",
+            "amount": 420.0,
+            "payer": "Bright Corners Home Cleaning",
+            "span": "August 2026 total paid: $420.00"
+          },
+          {
+            "kind": "earned_income",
+            "period_start": "2026-09-01",
+            "period_end": "2026-09-30",
+            "amount": 420.0,
+            "payer": "Bright Corners Home Cleaning",
+            "span": "September 2026 total paid: $420.00"
+          }
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "rosa-foodbank",
+      "name": "Food bank volunteer letter",
+      "kind": "income",
+      "member_id": "rosa",
+      "text": "Missoula Food Bank & Community Center (SYNTHETIC)\nRosa Delgado volunteers in our warehouse. Hours: July 2026, 30 hours; August 2026, 30 hours; September 2026, 30 hours.\n— Volunteer Services\n",
+      "extracted": {
+        "gold": [
+          {
+            "kind": "community_service_hours",
+            "period_start": "2026-07-01",
+            "period_end": "2026-07-31",
+            "amount": 30.0,
+            "payer": "Missoula Food Bank & Community Center",
+            "span": "July 2026, 30 hours"
+          },
+          {
+            "kind": "community_service_hours",
+            "period_start": "2026-08-01",
+            "period_end": "2026-08-31",
+            "amount": 30.0,
+            "payer": "Missoula Food Bank & Community Center",
+            "span": "August 2026, 30 hours"
+          },
+          {
+            "kind": "community_service_hours",
+            "period_start": "2026-09-01",
+            "period_end": "2026-09-30",
+            "amount": 30.0,
+            "payer": "Missoula Food Bank & Community Center",
+            "span": "September 2026, 30 hours"
+          }
+        ]
+      },
+      "problems": []
+    }
+  ],
+  "notice": null,
+  "flags": [],
+  "synthetic": true,
+  "updated": "2026-10-10"
+}

@@ -84,6 +84,7 @@ export const api = {
   forecast: (jurisdiction: string, as_of?: string) => fetch('/api/forecast' + q({ jurisdiction, as_of })).then(j<CaseloadForecast>),
   nearby: (id: string, kind: 'volunteer' | 'work_program') => fetch(`/api/cases/${id}/nearby` + q({ kind })).then(j<Nearby>),
   nearbyCity: (location: string, kind: 'volunteer' | 'work_program') => fetch('/api/nearby' + q({ location, kind })).then(j<Nearby>),
+  sandbox: (jurisdiction: string, levers: Record<string, string>) => fetch('/api/sandbox' + q({ jurisdiction, ...levers })).then(j<Sandbox>),
   selfcheck: (body: SelfCheckIn) =>
     fetch('/api/selfcheck', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }).then(j<SelfCheckOut>),
 }
@@ -137,4 +138,15 @@ export interface DriftEvent {
   old_as_of: string | null; new_as_of: string; added: string[]; removed: string[]; stale_facts: string[]
   summary: { headline: string; details: string[]; who_is_affected: string; navigator_action: string; substantive: boolean } | null
   affected_cases: { case_id: string; client_name: string; reasons: string[] }[]
+}
+
+export type Outcome = 'covered' | 'protected' | 'depends' | 'short' | 'paperwork'
+export interface SandboxClient { id: string; client_name: string; outcome: Outcome; why: string; covered_months: number; months: { month: string; status: Status }[] }
+export interface SandboxTotals { covered: number; protected: number; depends: number; short: number; paperwork: number; covered_months: number; clients: number }
+export interface Sandbox {
+  jurisdiction: string; as_of: string
+  levers: { key: string; label: string; help: string; kind: 'bool' | 'choice'; options?: number[]; fact_id: string; default: boolean | number; value: boolean | number; quote: string; source_id: string }[]
+  baseline: { clients: SandboxClient[]; totals: SandboxTotals }
+  scenario: { clients: SandboxClient[]; totals: SandboxTotals }
+  flips: { id: string; client_name: string; before: Outcome; after: Outcome; why: string; months_delta: number }[]
 }

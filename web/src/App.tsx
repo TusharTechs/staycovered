@@ -9,6 +9,7 @@ import UnderHood from './pages/UnderHood'
 import Grade from './pages/Grade'
 import Home from './pages/Home'
 import Check from './pages/Check'
+import Sandbox from './pages/Sandbox'
 import { useTour } from './components/Tour'
 import { StateSwitch } from './components/State'
 
@@ -26,6 +27,7 @@ const nav = [
   { to: '/caseload', label: 'Caseload' },
   { to: '/check', label: 'Self-check' },
   { to: '/time-machine', label: 'Rule Time Machine' },
+  { to: '/sandbox', label: 'Policy sandbox' },
   { to: '/bench', label: 'WorkReqBench' },
   { to: '/under-the-hood', label: 'Under the hood' },
 ]
@@ -68,6 +70,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/caseload" element={<Caseload />} />
           <Route path="/check" element={<Check />} />
+          <Route path="/sandbox" element={<Sandbox />} />
           <Route path="/cases/:id" element={<CasePage />} />
           <Route path="/time-machine" element={<TimeMachine />} />
           <Route path="/bench" element={<Bench />} />

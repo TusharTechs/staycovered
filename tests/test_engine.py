@@ -230,3 +230,26 @@ def test_income_conversion_matches_cms_example_and_never_double_counts():
                            entry("h", "c", Kind.WORK_HOURS, "2026-09-01", "2026-09-30", 52),
                            entry("v", "c", Kind.COMMUNITY_SERVICE_HOURS, "2026-09-01", "2026-09-30", 10)], j="MT"), date(2026, 10, 10))
     assert both.results[0].status == "does_not_meet" and both.results[0].combined_hours == 62.41
+
+
+# ---------- policy sandbox ----------
+
+from staycovered import sandbox  # noqa: E402
+
+
+def test_sandbox_overrides_are_scoped():
+    from staycovered.engine.params import Param, overrides, resolve
+    with overrides({"income_to_hours": Param(True, None, True, "sandbox")}):
+        assert resolve("NE", date(2026, 10, 10))["income_to_hours"] is True
+    assert resolve("NE", date(2026, 10, 10))["income_to_hours"] is False
+
+
+def test_sandbox_levers_move_the_right_clients():
+    on = date(2026, 10, 10)
+    assert sandbox.run("NE", {}, on)["flips"] == []
+    flips = {f["id"]: f for f in sandbox.run("NE", {"income_to_hours": True}, on)["flips"]}
+    assert flips["dani-ortiz"]["before"] == "short" and flips["dani-ortiz"]["after"] == "covered"
+    ex = sandbox.run("NE", {"ex_parte": True}, on)
+    assert ex["scenario"]["totals"]["paperwork"] == 0 and ex["scenario"]["totals"]["protected"] == 2
+    mt = {f["id"]: f for f in sandbox.run("MT", {"income_to_hours": False}, on)["flips"]}
+    assert mt["rosa-delgado"]["after"] == "short"

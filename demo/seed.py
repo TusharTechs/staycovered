@@ -94,6 +94,18 @@ Dani Ortiz volunteered at our shelter in September 2026: 18 hours walking dogs a
 — Volunteer Program Lead
 """
 
+ROSA_PAY = """Bright Corners Home Cleaning — Earnings Summary (SYNTHETIC)
+Worker: Rosa Delgado
+August 2026 total paid: $420.00
+September 2026 total paid: $420.00
+(Paid per house cleaned; hours are not tracked.)
+"""
+
+ROSA_VOL = """Missoula Food Bank & Community Center (SYNTHETIC)
+Rosa Delgado volunteers in our warehouse. Hours: July 2026, 30 hours; August 2026, 30 hours; September 2026, 30 hours.
+— Volunteer Services
+"""
+
 AISHA_VOL = """Lincoln Community Food Pantry (SYNTHETIC)
 To whom it may concern,
 Aisha Mohammed volunteered with our pantry in September 2026 for a total of 20 hours (sorting and distribution).
@@ -274,6 +286,23 @@ def build() -> list[store.CaseRecord]:
                   household=[Member(id="dani", name="Dani Ortiz", age=27)],
                   ledger=ed1 + ed2, event="renewal", event_date=D("2026-11-02")),
         client_name="Dani Ortiz", documents=[d1, d2]))
+    # 11. Rosa (Montana) — paid per house with no hours tracked, plus food-bank volunteering. Montana converts her
+    #     $420 to 57.9 hours, so Aug and Sep qualify; July (volunteering only) doesn't. Montana needs 3 qualifying
+    #     months at renewal, so she needs proof of one more month. The sandbox's Montana example.
+    r1, er1 = doc("rosa-pay", "Bright Corners earnings summary", "income", "rosa", ROSA_PAY, [
+        (Kind.EARNED_INCOME, "2026-08-01", "2026-08-31", 420.00, "Bright Corners Home Cleaning", "August 2026 total paid: $420.00"),
+        (Kind.EARNED_INCOME, "2026-09-01", "2026-09-30", 420.00, "Bright Corners Home Cleaning", "September 2026 total paid: $420.00"),
+    ])
+    r2, er2 = doc("rosa-foodbank", "Food bank volunteer letter", "income", "rosa", ROSA_VOL, [
+        (Kind.COMMUNITY_SERVICE_HOURS, "2026-07-01", "2026-07-31", 30.0, "Missoula Food Bank & Community Center", "July 2026, 30 hours"),
+        (Kind.COMMUNITY_SERVICE_HOURS, "2026-08-01", "2026-08-31", 30.0, "Missoula Food Bank & Community Center", "August 2026, 30 hours"),
+        (Kind.COMMUNITY_SERVICE_HOURS, "2026-09-01", "2026-09-30", 30.0, "Missoula Food Bank & Community Center", "September 2026, 30 hours"),
+    ])
+    recs.append(store.CaseRecord(
+        case=Case(id="rosa-delgado", location="Missoula, MT", jurisdiction="MT", client_id="rosa",
+                  household=[Member(id="rosa", name="Rosa Delgado", age=44)],
+                  ledger=er1 + er2, event="renewal", event_date=D("2026-11-16")),
+        client_name="Rosa Delgado", documents=[r1, r2]))
     return recs
 
 
