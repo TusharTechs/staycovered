@@ -1,11 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "pnpm --dir web install --frozen-lockfile && pnpm --dir web build && rm -rf public && cp -r web/dist public",
+  "buildCommand": "npx --yes pnpm@12.10.1 --dir web install --frozen-lockfile && npx --yes pnpm@12.10.1 --dir web build && rm -rf public && cp -r web/dist public",
   "functions": {
     "index.py": {
       "maxDuration": 120,
       "includeFiles": "{rules/**,sources/manifest.json,sources/text/**,data/cases/**,data/cache/**,bench/questions/**,bench/results/latest.json,bench/results/rejudge-*.json,bench/extraction/results*.json,staycovered/drift/allowlist.yaml,web/dist/**}"
     }
-  },
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.py" }]
+  }
 }
