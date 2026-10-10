@@ -10,7 +10,7 @@ const NAMES: Record<string, [string, string]> = {
   'rag-latest': ['Nemotron + today\'s sources', 'same pipeline, ignores the question date'],
   'frozen-super': ['Nemotron Super, no sources', 'answers from memory, told the date'],
 }
-type Results = { judge_robustness?: Record<string, Record<string, number>>; version?: string; split?: string; date?: string; n_questions?: number; systems?: SystemRow[]; by_category?: Record<string, Record<string, number>>; judge?: { model: string; human_agreement?: number | null; human_kappa?: number; human_n?: number; human_note?: string }; notes?: string[] }
+type Results = { paired?: Record<string, Record<'all' | 'date_sensitive', { diff: number; ci_low: number; ci_high: number; n: number }>>; by_jurisdiction?: Record<string, { fed: number; ne: number }>; evaluated_commit?: string; judge_robustness?: Record<string, Record<string, number>>; version?: string; split?: string; date?: string; n_questions?: number; systems?: SystemRow[]; by_category?: Record<string, Record<string, number>>; judge?: { model: string; human_agreement?: number | null; human_kappa?: number; human_n?: number; human_note?: string }; notes?: string[] }
 
 export default function Bench() {
   const [r, setR] = useState<Results | null>(null)
@@ -74,6 +74,26 @@ export default function Bench() {
                 ))}</tbody>
               </table>
               <p className="mt-2 text-xs text-muted">The model labels what each number is and copies it exactly; code parses numbers and applies counting rules. Synthetic documents with known answers.</p>
+            </Card>
+          )}
+          {r.paired && (
+            <Card title="Head-to-head on the same questions (paired differences, 95% bootstrap CI)">
+              <table className="w-full text-sm">
+                <thead><tr className="text-left text-xs text-muted"><th className="py-1 font-medium">StayCovered vs.</th><th className="font-medium">All questions</th><th className="font-medium">Questions whose answer changed over time</th></tr></thead>
+                <tbody>{Object.entries(r.paired).map(([b, v]) => (
+                  <tr key={b} className="border-t border-line">
+                    <td className="py-1.5">{(NAMES[b] ?? [b])[0]}</td>
+                    {(['all', 'date_sensitive'] as const).map(k => (
+                      <td key={k} className="tabular-nums"><b className={v[k].ci_low > 0 ? 'text-ok' : 'text-muted'}>{v[k].diff >= 0 ? '+' : ''}{(v[k].diff * 100).toFixed(1)} pts</b>
+                        <span className="text-xs text-muted"> [{(v[k].ci_low * 100).toFixed(1)}, {(v[k].ci_high * 100).toFixed(1)}] · n={v[k].n}</span></td>
+                    ))}
+                  </tr>
+                ))}</tbody>
+              </table>
+              {r.by_jurisdiction && (
+                <p className="mt-2 text-xs text-muted">By jurisdiction — federal questions: StayCovered {(r.by_jurisdiction['staycovered'].fed * 100).toFixed(0)}% vs frontier {(r.by_jurisdiction['frozen-frontier']?.fed * 100).toFixed(0)}% (roughly tied); Nebraska questions: {(r.by_jurisdiction['staycovered'].ne * 100).toFixed(0)}% vs {(r.by_jurisdiction['frozen-frontier']?.ne * 100).toFixed(0)}%. The advantage comes from state-specific and recently changed rules — the problem StayCovered is built for.</p>
+              )}
+              {r.evaluated_commit && <p className="mt-1 text-[11px] text-muted">Evaluated code: commit {r.evaluated_commit}.</p>}
             </Card>
           )}
           {r.judge_robustness && (

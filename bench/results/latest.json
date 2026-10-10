@@ -1,120 +1,120 @@
 {
   "version": "bench-v0",
-  "split": "dev",
+  "split": "heldout",
   "date": "2026-10-10",
-  "n_questions": 85,
+  "n_questions": 86,
   "systems": [
     {
       "system": "frozen-super",
       "model": "nvidia/nemotron-3-super-120b-a12b",
-      "score": 0.47058823529411764,
-      "ci_low": 0.3921568627450981,
-      "ci_high": 0.5490196078431372,
-      "n": 85,
+      "score": 0.3527131782945736,
+      "ci_low": 0.28488372093023256,
+      "ci_high": 0.42441860465116277,
+      "n": 86,
       "errors": 0,
-      "drift_sensitive_score": 0.41904761904761906
+      "drift_sensitive_score": 0.2696078431372549
     },
     {
       "system": "rag-latest",
       "model": "nvidia/nemotron-3-super-120b-a12b",
-      "score": 0.6705882352941176,
-      "ci_low": 0.5862745098039216,
-      "ci_high": 0.7549019607843138,
-      "n": 85,
+      "score": 0.6550387596899225,
+      "ci_low": 0.5775193798449613,
+      "ci_high": 0.7306201550387598,
+      "n": 86,
       "errors": 0,
-      "citation_validity": 0.8083832335329342,
-      "unsupported_rate": 0.08235294117647059,
-      "drift_sensitive_score": 0.4714285714285714
+      "citation_validity": 0.7647058823529411,
+      "unsupported_rate": 0.06976744186046512,
+      "drift_sensitive_score": 0.4852941176470588
     },
     {
       "system": "staycovered",
       "model": "nvidia/nemotron-3-super-120b-a12b",
-      "score": 0.7862745098039216,
-      "ci_low": 0.7235294117647059,
-      "ci_high": 0.8470588235294118,
-      "n": 85,
+      "score": 0.7286821705426356,
+      "ci_low": 0.6569767441860465,
+      "ci_high": 0.7945736434108527,
+      "n": 86,
       "errors": 0,
-      "citation_validity": 0.8050314465408805,
-      "unsupported_rate": 0.11764705882352941,
-      "drift_sensitive_score": 0.8142857142857143
+      "citation_validity": 0.8253968253968254,
+      "unsupported_rate": 0.13953488372093023,
+      "drift_sensitive_score": 0.6666666666666667
     },
     {
       "system": "frozen-frontier",
       "model": "claude-opus-5-5",
-      "score": 0.6509803921568628,
-      "ci_low": 0.5705882352941176,
-      "ci_high": 0.7274509803921569,
-      "n": 85,
+      "score": 0.6298449612403101,
+      "ci_low": 0.5562015503875969,
+      "ci_high": 0.7015503875968992,
+      "n": 86,
       "errors": 0,
-      "drift_sensitive_score": 0.5952380952380952
+      "drift_sensitive_score": 0.446078431372549
     }
   ],
   "by_category": {
     "applicability": {
-      "frozen-super": 0.8333333333333334,
-      "rag-latest": 0.6,
-      "staycovered": 0.7333333333333333,
-      "frozen-frontier": 0.9333333333333333
+      "frozen-super": 0.5,
+      "rag-latest": 0.6904761904761905,
+      "staycovered": 0.8333333333333333,
+      "frozen-frontier": 0.7857142857142857
     },
     "calculation": {
-      "frozen-super": 0.5416666666666666,
-      "rag-latest": 0.875,
-      "staycovered": 0.7916666666666666,
-      "frozen-frontier": 0.5
+      "frozen-super": 0.37037037037037035,
+      "rag-latest": 0.7037037037037037,
+      "staycovered": 0.7407407407407408,
+      "frozen-frontier": 0.8518518518518519
     },
     "exemption": {
-      "frozen-super": 0.5714285714285714,
-      "rag-latest": 0.7023809523809524,
-      "staycovered": 0.869047619047619,
-      "frozen-frontier": 0.7023809523809524
+      "frozen-super": 0.3194444444444444,
+      "rag-latest": 0.7222222222222222,
+      "staycovered": 0.6944444444444445,
+      "frozen-frontier": 0.625
     },
     "good_cause": {
-      "frozen-super": 0.375,
-      "rag-latest": 0.6666666666666666,
-      "staycovered": 0.6666666666666666,
-      "frozen-frontier": 0.35416666666666663
+      "frozen-super": 0.4523809523809524,
+      "rag-latest": 0.6904761904761905,
+      "staycovered": 0.9523809523809524,
+      "frozen-frontier": 0.6666666666666667
     },
     "income_alternative": {
-      "frozen-super": 0.3333333333333333,
-      "rag-latest": 0.5740740740740741,
-      "staycovered": 0.7037037037037037,
-      "frozen-frontier": 0.6111111111111112
+      "frozen-super": 0.25925925925925924,
+      "rag-latest": 0.6851851851851852,
+      "staycovered": 0.8333333333333334,
+      "frozen-frontier": 0.5
     },
     "lookback": {
-      "frozen-super": 0.4666666666666667,
-      "rag-latest": 0.7,
-      "staycovered": 0.7,
-      "frozen-frontier": 0.7666666666666667
+      "frozen-super": 0.47222222222222227,
+      "rag-latest": 0.8333333333333334,
+      "staycovered": 0.7222222222222222,
+      "frozen-frontier": 0.7222222222222222
     },
     "notice_cure": {
-      "frozen-super": 0.5,
-      "rag-latest": 0.48148148148148145,
-      "staycovered": 0.7777777777777778,
-      "frozen-frontier": 0.7407407407407408
+      "frozen-super": 0.36666666666666664,
+      "rag-latest": 0.6833333333333333,
+      "staycovered": 0.7166666666666666,
+      "frozen-frontier": 0.5833333333333333
     },
     "process": {
-      "frozen-super": 0.6666666666666666,
-      "rag-latest": 0.8333333333333333,
-      "staycovered": 0.8333333333333333,
-      "frozen-frontier": 0.8333333333333333
+      "frozen-super": 0.16666666666666666,
+      "rag-latest": 0.5,
+      "staycovered": 0.6666666666666666,
+      "frozen-frontier": 0.5
     },
     "requirement": {
-      "frozen-super": 0.35185185185185186,
-      "rag-latest": 0.6851851851851852,
-      "staycovered": 0.7777777777777778,
-      "frozen-frontier": 0.5555555555555556
+      "frozen-super": 0.42857142857142855,
+      "rag-latest": 0.7857142857142857,
+      "staycovered": 0.619047619047619,
+      "frozen-frontier": 0.8571428571428571
     },
     "timeline": {
-      "frozen-super": 0.19047619047619047,
-      "rag-latest": 0.619047619047619,
-      "staycovered": 0.8095238095238094,
-      "frozen-frontier": 0.7619047619047619
+      "frozen-super": 0.26666666666666666,
+      "rag-latest": 0.4833333333333333,
+      "staycovered": 0.7166666666666666,
+      "frozen-frontier": 0.4333333333333333
     },
     "verification": {
-      "frozen-super": 0.537037037037037,
-      "rag-latest": 0.7407407407407408,
-      "staycovered": 0.9074074074074073,
-      "frozen-frontier": 0.6666666666666666
+      "frozen-super": 0.23809523809523808,
+      "rag-latest": 0.3333333333333333,
+      "staycovered": 0.47619047619047616,
+      "frozen-frontier": 0.4047619047619047
     }
   },
   "judge": {
@@ -122,34 +122,98 @@
     "human_agreement": 0.675,
     "human_kappa": 0.091,
     "human_n": 40,
-    "human_note": "One non-expert human graded 40 random criteria blind. Agreement 67.5% (kappa 0.09); in all 13 disagreements the AI grader was stricter. An AI-assisted review of the 13 sided with the AI grader in 11 and with the human in 2. No expert has graded yet."
+    "human_note": "One non-expert human graded 40 random criteria blind (from the dev run). Agreement 67.5% (kappa 0.09); in all 13 disagreements the AI grader was stricter. An AI-assisted review of the 13 sided with the AI grader in 11 and with the human in 2. No expert has graded yet."
   },
   "notes": [
     "Questions and rubrics were drafted with AI assistance from captured official sources, reviewed, and committed before tuning.",
     "Every rubric criterion cites verbatim official text (verified by script).",
     "Each question is asked 'as of' a date; frozen models are told that date.",
-    "rag-latest is an ablation: the same pipeline with today's sources, ignoring the question date."
+    "rag-latest is an ablation: the same pipeline with today's sources, ignoring the question date.",
+    "Held-out split: questions never inspected while building or tuning the system; run once on the evaluated commit."
   ],
-  "nemotron_usd": 0.1997,
-  "frontier_usd_total": 2.1554,
+  "nemotron_usd": 1.3566,
+  "frontier_usd_total": 4.5355,
+  "paired": {
+    "frozen-frontier": {
+      "all": {
+        "diff": 0.099,
+        "ci_low": 0.01,
+        "ci_high": 0.184,
+        "n": 86
+      },
+      "date_sensitive": {
+        "diff": 0.221,
+        "ci_low": 0.083,
+        "ci_high": 0.363,
+        "n": 34
+      }
+    },
+    "rag-latest": {
+      "all": {
+        "diff": 0.074,
+        "ci_low": -0.004,
+        "ci_high": 0.151,
+        "n": 86
+      },
+      "date_sensitive": {
+        "diff": 0.181,
+        "ci_low": 0.029,
+        "ci_high": 0.338,
+        "n": 34
+      }
+    },
+    "frozen-super": {
+      "all": {
+        "diff": 0.376,
+        "ci_low": 0.283,
+        "ci_high": 0.463,
+        "n": 86
+      },
+      "date_sensitive": {
+        "diff": 0.397,
+        "ci_low": 0.265,
+        "ci_high": 0.52,
+        "n": 34
+      }
+    }
+  },
+  "by_jurisdiction": {
+    "frozen-super": {
+      "fed": 0.306,
+      "ne": 0.412
+    },
+    "rag-latest": {
+      "fed": 0.618,
+      "ne": 0.702
+    },
+    "staycovered": {
+      "fed": 0.712,
+      "ne": 0.75
+    },
+    "frozen-frontier": {
+      "fed": 0.701,
+      "ne": 0.539
+    }
+  },
   "judge_robustness": {
     "nvidia/nemotron-3-super-120b-a12b": {
-      "frozen-super": 0.392,
-      "rag-latest": 0.624,
-      "staycovered": 0.771,
-      "frozen-frontier": 0.518
+      "frozen-super": 0.328,
+      "rag-latest": 0.609,
+      "staycovered": 0.719,
+      "frozen-frontier": 0.558
     },
     "claude-haiku-5-5": {
-      "frozen-super": 0.394,
-      "rag-latest": 0.643,
-      "staycovered": 0.741,
-      "frozen-frontier": 0.502
+      "frozen-super": 0.322,
+      "rag-latest": 0.601,
+      "staycovered": 0.686,
+      "frozen-frontier": 0.531
     },
     "nvidia/Nemotron-3-Ultra-550b-a55b": {
-      "frozen-super": 0.471,
-      "rag-latest": 0.671,
-      "staycovered": 0.786,
-      "frozen-frontier": 0.651
+      "frozen-super": 0.353,
+      "rag-latest": 0.655,
+      "staycovered": 0.729,
+      "frozen-frontier": 0.63
     }
-  }
+  },
+  "evaluated_commit": "5c0ffc6"
 }
