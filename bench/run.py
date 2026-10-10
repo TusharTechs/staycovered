@@ -93,7 +93,7 @@ def sys_frontier(q: dict) -> dict:
 
 def sys_staycovered(q: dict, *, date_aware: bool = True) -> dict:
     on = date.fromisoformat(q["as_of"]) if date_aware else date.today()
-    r = ans.answer(q["question"], q["jurisdiction"] if q["jurisdiction"] != "US" else "NE", on)
+    r = ans.answer(q["question"], q["jurisdiction"], on)  # federal questions get federal sources only
     return {"answer": r.answer, "citations": r.citations, "dropped": r.dropped_citations, "unsupported": r.unsupported}
 
 
