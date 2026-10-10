@@ -10,3 +10,5 @@ research/data/clones/
 .DS_Store
 research/data/
 PLAN.md
+bench/results/judge_sample.csv
+submission/
