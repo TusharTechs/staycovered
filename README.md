@@ -55,6 +55,8 @@ How to read this:
 | **Snap a photo** | Photos are read by OCR in the browser, so the image never leaves the device. PDFs use their text layer. The navigator reviews the text before Nemotron extracts it. |
 | **Always-on drift-watch** | A daily GitHub Actions job checks the official pages with Tavily and summarises real changes with Nemotron. It commits the status, and the site redeploys showing "last checked". |
 | **Guided tour** | A 9-step, 90-second walkthrough for first-time visitors. |
+| **Two states** | **Nebraska** and **Montana**, switchable in the header. The same household can get different results under each state's published rules. For example, a spouse's income counts toward $580 in Montana but only "may count" in Nebraska in 2026. Montana also needs 3 qualifying months at renewal and converts part-time credit hours to 13 hours each. |
+| **Accessible** | 0 axe-core violations on every page (WCAG 2.2 AA plus best practices). Keyboard operable with visible focus, live regions for answers, honours reduced-motion settings, responsive down to phone width, and a Spanish client view. |
 | **WorkReqBench** | An open benchmark of dated questions with rubrics cited to official text. See [`bench/README.md`](bench/README.md). |
 
 ## Models (Nebius Token Factory)

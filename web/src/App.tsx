@@ -36,11 +36,11 @@ export default function App() {
     <div className="min-h-full flex flex-col">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:p-2 focus:bg-white">Skip to content</a>
       <header className="bg-white border-b border-line">
-        <div className="mx-auto max-w-7xl px-4 h-14 flex items-center gap-6">
+        <div className="mx-auto max-w-7xl px-4 min-h-14 py-2 flex flex-wrap items-center gap-x-6 gap-y-2">
           <NavLink to="/" className="flex items-center gap-2 font-semibold text-ink">
             <Logo /> <span className="text-lg tracking-tight">StayCovered</span>
           </NavLink>
-          <nav aria-label="Main" className="flex gap-1 overflow-x-auto">
+          <nav aria-label="Main" className="order-3 w-full lg:order-none lg:w-auto flex gap-1 overflow-x-auto">
             {nav.map(n => (
               <NavLink key={n.to} to={n.to}
                 className={({ isActive }) => `px-3 py-1.5 rounded-md text-sm whitespace-nowrap ${isActive ? 'bg-brand-soft text-brand font-medium' : 'text-muted hover:text-ink hover:bg-paper'}`}>
@@ -50,7 +50,7 @@ export default function App() {
           </nav>
           <div className="ml-auto"><StateSwitch /></div>
           <button onClick={tour.start} className=" rounded-full bg-amber-400 px-3 py-1 text-xs font-semibold text-ink hover:bg-amber-300">▶ Tour</button>
-          <div className="hidden md:flex items-center gap-3 text-xs text-muted">
+          <div className="hidden xl:flex items-center gap-3 text-xs text-muted">
             {health && <span>{health.sources} official sources · {health.facts} rule facts</span>}
             <span className="inline-flex items-center gap-1 rounded-full bg-paper px-2 py-0.5 border border-line">
               <span className={`h-1.5 w-1.5 rounded-full ${health?.nebius ? 'bg-ok' : 'bg-warn'}`} /> Nemotron · Nebius

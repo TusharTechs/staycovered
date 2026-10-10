@@ -4,6 +4,7 @@ import { api, fmtDate, type CaseRecord, type MonthResult, type Worksheet } from 
 import { Card, Spinner, StatusPill } from '../components/ui'
 import AskBox from '../components/AskBox'
 import { imageToText, pdfToText } from '../ocr'
+import { useJuris, type Juris } from '../components/State'
 
 const PATH: Record<string, string> = {
   hours: '80+ activity hours', income: 'income ≥ threshold',
@@ -17,8 +18,13 @@ export default function CasePage() {
   const [open, setOpen] = useState<string | null>(null)
   const [adding, setAdding] = useState(false)
 
+  const { state, setState } = useJuris()
   const load = () => api.case(id!).then(setData).catch(e => setErr(String(e)))
   useEffect(() => { load() }, [id])
+  useEffect(() => {  // keep the state switch in sync with the case being viewed
+    const j = data?.record.case.jurisdiction as Juris | undefined
+    if (j && j !== state && (j === 'NE' || j === 'MT')) setState(j)
+  }, [data])
 
   if (err) return <p className="text-bad">{err}</p>
   if (!data) return <Spinner label="Loading case" />
@@ -41,7 +47,7 @@ export default function CasePage() {
             <div className="rounded-xl border border-bad/30 bg-bad-soft px-4 py-2 text-bad">
               <div className="text-xs">Respond by</div>
               <div className="text-lg font-semibold">{fmtDate(ws.cure_deadline)}</div>
-              {ws.cure_note && <div className="max-w-56 text-[10px] leading-tight text-bad/80">{ws.cure_note}</div>}
+              {ws.cure_note && <div className="max-w-56 text-[11px] leading-tight text-bad">{ws.cure_note}</div>}
             </div>
           )}
           <a href={`/api/cases/${rec.case.id}/packet.pdf`} className="rounded-lg bg-brand px-4 py-2.5 text-sm font-medium text-white hover:opacity-90">Download packet (PDF)</a>

@@ -27,8 +27,9 @@ export default function AskBox({ asOf, suggestions = [], compare = false, jurisd
           <button key={s} onClick={() => ask(s)} className="rounded-full border border-line bg-paper px-3 py-1 text-xs hover:border-brand">{s}</button>
         ))}</div>
       )}
+      <div aria-live="polite" aria-atomic="false">
       {busy && <Spinner label="Reading the official sources" />}
-      {err && <p className="text-bad text-sm">{err}</p>}
+      {err && <p role="alert" className="text-bad text-sm">{err}</p>}
       {res && (
         <div className={`grid gap-3 ${res.closed_book !== undefined ? 'md:grid-cols-2' : ''}`}>
           {res.closed_book !== undefined && (
@@ -52,6 +53,7 @@ export default function AskBox({ asOf, suggestions = [], compare = false, jurisd
           </div>
         </div>
       )}
+      </div>
     </div>
   )
 }

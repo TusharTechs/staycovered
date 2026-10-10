@@ -43,7 +43,7 @@ export default function UnderHood() {
         <Card title="Tavily — what left the building">
           <p className="text-xs text-muted mb-2">Only allow-listed official URLs are ever sent to Tavily. No client names, documents or questions.</p>
           {tav.length === 0 ? <Empty>No Tavily requests logged yet.</Empty> : (
-            <ul className="space-y-1 text-xs font-mono max-h-80 overflow-auto">
+            <ul tabIndex={0} aria-label="Tavily request log" className="space-y-1 text-xs font-mono max-h-80 overflow-auto">
               {tav.slice().reverse().map((t, i) => (
                 <li key={i} className={t.ok ? '' : 'text-bad'}>{new Date(t.ts * 1000).toISOString().slice(0, 19)} · {t.kind} · {(t.payload.urls ?? [t.payload.url]).join(', ')} · {t.results} results</li>
               ))}
@@ -66,7 +66,7 @@ export default function UnderHood() {
         </Card>
       ) : null}
       <Card title="Recent calls">
-        <ul className="text-xs font-mono space-y-0.5 max-h-96 overflow-auto">
+        <ul tabIndex={0} aria-label="Recent model calls" className="text-xs font-mono space-y-0.5 max-h-96 overflow-auto">
           {calls.slice().reverse().slice(0, 100).map((c, i) => (
             <li key={i}>{new Date(c.ts * 1000).toISOString().slice(11, 19)} · {c.job}/{c.tag} · {c.model.replace('nvidia/', '')} · {c.prompt_tokens}+{c.completion_tokens} tok · ${c.usd.toFixed(5)} · {c.latency_s}s</li>
           ))}
