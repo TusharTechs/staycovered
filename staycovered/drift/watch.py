@@ -169,16 +169,22 @@ def save_snapshot(url: str, text: str, jurisdiction: str, title: str, as_of: dat
     rp = Path("sources/raw") / jurisdiction / f"{sid}.tavily.txt"
     (config.ROOT / tp).parent.mkdir(parents=True, exist_ok=True)
     (config.ROOT / rp).parent.mkdir(parents=True, exist_ok=True)
-    (config.ROOT / tp).write_text(text, encoding="utf-8")
-    (config.ROOT / rp).write_text(text, encoding="utf-8")
+    # newline="" keeps the bytes identical on every OS, so the recorded sha256 always matches the file
+    (config.ROOT / tp).write_text(text, encoding="utf-8", newline="")
+    (config.ROOT / rp).write_text(text, encoding="utf-8", newline="")
+    sha = hashlib.sha256(text.encode()).hexdigest()
     mpath = config.SOURCES_DIR / "manifest.json"
     man = json.loads(mpath.read_text(encoding="utf-8")) if mpath.exists() else []
+    for e in man:
+        if e["id"] == sid and e.get("sha256") != sha:  # same page captured again the same day: keep the manifest true
+            e["sha256"], e["retrieved_at"] = sha, datetime.now(timezone.utc).isoformat(timespec="seconds")
+            mpath.write_text(json.dumps(man, indent=2), encoding="utf-8")
     if not any(e["id"] == sid for e in man):
         man.append({
             "id": sid, "jurisdiction": jurisdiction, "title": title, "publisher": "", "url": url, "wayback_url": None,
             "as_of": as_of.isoformat(), "retrieved_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "content_type": "text/plain", "raw_path": str(rp), "text_path": str(tp),
-            "sha256": hashlib.sha256(text.encode()).hexdigest(), "notes": f"captured by drift-watch via {via}",
+            "sha256": sha, "notes": f"captured by drift-watch via {via}",
         })
         mpath.write_text(json.dumps(man, indent=2), encoding="utf-8")
     sources.reload()
