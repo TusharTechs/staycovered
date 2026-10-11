@@ -1,12 +1,13 @@
 {
- "last_checked": "2026-10-10T17:52+00:00",
+ "last_checked": "2026-10-11T18:05+00:00",
  "pages": [
   {
    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
    "title": "Nebraska DHHS \u2014 Medicaid Work Requirements",
    "jurisdiction": "NE",
-   "status": "unchanged",
-   "since": "2026-10-10"
+   "status": "changed",
+   "snapshot": "ne-88f65eb8-2026-10-11",
+   "headline": "Added language selection tool and translation feedback widget to the Work Requirements page."
   },
   {
    "url": "https://dhhs.ne.gov/Documents/MLTC-WR-Requirements-FAQ.pdf",
@@ -58,7 +59,7 @@
    "since": "2026-10-10"
   }
  ],
- "changes_today": 0,
- "total_live_changes": 0,
+ "changes_today": 1,
+ "total_live_changes": 1,
  "method": "Tavily Extract (advanced)"
 }
