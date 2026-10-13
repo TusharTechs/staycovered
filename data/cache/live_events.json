@@ -105,5 +105,41 @@
    "substantive": true
   },
   "affected_cases": []
+ },
+ {
+  "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
+  "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
+  "jurisdiction": "IA",
+  "old_id": "ia-8baf74ba-2026-10-12",
+  "new_id": "ia-8baf74ba-2026-10-13",
+  "old_as_of": "2026-10-12",
+  "new_as_of": "2026-10-13",
+  "added": [
+   "Official State of Iowa Website Agencies A-Z Programs & Services ![Back to home page](/) Health & Human Services IHAWP Community Engagement Requirements On this page...",
+   "To report a change call 1-877-347-5678 or by emailing [[email protected]](/cdn-cgi/l/email-protection#9dd4d0decededdf5f5eeb3f4f2eafcb3faf2eb) If you want to see whether these requirements apply to you, visit our Self-Service Portal and chat with Ellie, our virtual assistant.",
+   "To report a change call 1-877-347-5678 or by emailing [[email protected]](/cdn-cgi/l/email-protection#753c38362636351d1d065b1c1a02145b121a03) Participants can meet the community engagement requirements by completing approved volunteer hours.",
+   "Email us at [[email protected]](/cdn-cgi/l/email-protection#5516103a2021273034363d153d3d267b3c3a22347b323a23) Check Your Eligibility See if these requirements apply to you.",
+   "Self-Service Portal Closeup image of a woman typing on laptop computer at home Back to top Resources IHAWP Eligibility Changes Community Engagement Flyer Medicaid Public Resource Directory FindHelp Volunteer Opportunities Finding a Job Member Letter Member Letter (Spanish) Back to top Income Maintenance Customer Service Center (IMCSC) Email Address [[email protected]](/cdn-cgi/l/email-protection#86cfcbc5d5c5c6eeeef5a8efe9f1e7a8e1e9f0) Phone(s) 1-877-347-5678"
+  ],
+  "removed": [
+   "Official State of Iowa Website Agencies A-Z Programs & Services Health & Human Services IHAWP Community Engagement Requirements On this page...",
+   "To report a change call 1-877-347-5678 or by emailing [[email protected]](/cdn-cgi/l/email-protection#e5aca8a6b6a6a58d8d96cb8c8a9284cb828a93) If you want to see whether these requirements apply to you, visit our Self-Service Portal and chat with Ellie, our virtual assistant.",
+   "To report a change call 1-877-347-5678 or by emailing [[email protected]](/cdn-cgi/l/email-protection#632a2e203020230b0b104d0a0c14024d040c15) Participants can meet the community engagement requirements by completing approved volunteer hours.",
+   "Email us at [[email protected]](/cdn-cgi/l/email-protection#a8ebedc7dddcdacdc9cbc0e8c0c0db86c1c7dfc986cfc7de) Check Your Eligibility See if these requirements apply to you.",
+   "Self-Service Portal Back to top Resources IHAWP Eligibility Changes Community Engagement Flyer Medicaid Public Resource Directory FindHelp Volunteer Opportunities Finding a Job Member Letter Member Letter (Spanish) Back to top Income Maintenance Customer Service Center (IMCSC) Email Address [[email protected]](/cdn-cgi/l/email-protection#bbf2f6f8e8f8fbd3d3c895d2d4ccda95dcd4cd) Phone(s) 1-877-347-5678"
+  ],
+  "stale_facts": [],
+  "summary": {
+   "headline": "Updated contact information and added visual elements to the IHAWP community engagement requirements page.",
+   "details": [
+    "The phone number reporting instruction was retained but the associated email obfuscation strings were updated across multiple instances.",
+    "Added a 'Back to home page' image link and a 'Closeup image of a woman typing on laptop computer at home' to the page content.",
+    "All email protection hashes were changed, indicating updated or rotated email addresses for contact purposes."
+   ],
+   "who_is_affected": "Iowa residents enrolled in or applying for IHAWP (Medicaid) who need to report changes or check eligibility for community engagement requirements.",
+   "navigator_action": "Navigators should continue to direct individuals to the Self-Service Portal and virtual assistant Ellie for eligibility checks, and use the updated contact methods when assisting with change reports or inquiries.",
+   "substantive": true
+  },
+  "affected_cases": []
  }
 ]

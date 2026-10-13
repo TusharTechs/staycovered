@@ -1,5 +1,5 @@
 {
- "last_checked": "2026-10-12T21:45+00:00",
+ "last_checked": "2026-10-13T19:52+00:00",
  "pages": [
   {
    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
@@ -26,8 +26,9 @@
    "url": "https://dphhs.mt.gov/medicaidchanges/faqs",
    "title": "Montana DPHHS \u2014 Medicaid changes FAQ",
    "jurisdiction": "MT",
-   "status": "unchanged",
-   "since": "2026-10-10"
+   "status": "cosmetic change",
+   "snapshot": "mt-e06e50b3-2026-10-13",
+   "headline": "Montana Medicaid FAQ updated with minor formatting fixes and added language assistance notice while removing extensive navigation menu content."
   },
   {
    "url": "https://humanservices.arkansas.gov/divisions-shared-services/medical-services/healthcare-programs/arhome/arhome-community-engagement-requirement/",
@@ -41,8 +42,8 @@
    "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
    "jurisdiction": "IA",
    "status": "changed",
-   "snapshot": "ia-8baf74ba-2026-10-12",
-   "headline": "Updated formatting and added specific details to IHAWP community engagement requirements page."
+   "snapshot": "ia-8baf74ba-2026-10-13",
+   "headline": "Updated contact information and added visual elements to the IHAWP community engagement requirements page."
   },
   {
    "url": "https://pathways.georgia.gov/about-pathways/faqs",
@@ -60,6 +61,6 @@
   }
  ],
  "changes_today": 1,
- "total_live_changes": 2,
+ "total_live_changes": 3,
  "method": "Tavily Extract (advanced)"
 }
