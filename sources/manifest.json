@@ -1125,5 +1125,35 @@
     "text_path": "sources/text/MT/mt-e06e50b3-2026-10-14.txt",
     "sha256": "634fef1058db0f2f451bbb78b65e68b577fd1087854b9a5209e0e8bc52acf6e4",
     "notes": "captured by drift-watch via tavily-extract"
+  },
+  {
+    "id": "ne-88f65eb8-2026-10-15",
+    "jurisdiction": "NE",
+    "title": "Nebraska DHHS \u2014 Medicaid Work Requirements",
+    "publisher": "",
+    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
+    "wayback_url": null,
+    "as_of": "2026-10-15",
+    "retrieved_at": "2026-10-15T17:47:05+00:00",
+    "content_type": "text/plain",
+    "raw_path": "sources/raw/NE/ne-88f65eb8-2026-10-15.tavily.txt",
+    "text_path": "sources/text/NE/ne-88f65eb8-2026-10-15.txt",
+    "sha256": "5a93d2a822468f727b3376afe1d47cf928a38c3ac693c38b9f4a725b5513ee52",
+    "notes": "captured by drift-watch via tavily-extract"
+  },
+  {
+    "id": "mt-5a5f1f40-2026-10-15",
+    "jurisdiction": "MT",
+    "title": "Montana DPHHS \u2014 Medicaid changes",
+    "publisher": "",
+    "url": "https://dphhs.mt.gov/medicaidchanges",
+    "wayback_url": null,
+    "as_of": "2026-10-15",
+    "retrieved_at": "2026-10-15T17:47:07+00:00",
+    "content_type": "text/plain",
+    "raw_path": "sources/raw/MT/mt-5a5f1f40-2026-10-15.tavily.txt",
+    "text_path": "sources/text/MT/mt-5a5f1f40-2026-10-15.txt",
+    "sha256": "8b7b396c48ba6303518b759225be867704845ab16adf6cf50e7ed90c2034d3fb",
+    "notes": "captured by drift-watch via tavily-extract"
   }
 ]
