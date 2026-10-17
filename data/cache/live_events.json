@@ -234,5 +234,43 @@
    "substantive": true
   },
   "affected_cases": []
+ },
+ {
+  "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
+  "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
+  "jurisdiction": "IA",
+  "old_id": "ia-8baf74ba-2026-10-16",
+  "new_id": "ia-8baf74ba-2026-10-17",
+  "old_as_of": "2026-10-16",
+  "new_as_of": "2026-10-17",
+  "added": [
+   "Official State of Iowa Website Agencies A-Z Programs & Services ![Back to home page](/) Health & Human Services IHAWP Community Engagement Requirements On this page...",
+   "To report a change call 1-877-347-5678 or by emailing [[email protected]](/cdn-cgi/l/email-protection#551c18160616153d3d267b3c3a22347b323a23) If you want to see whether these requirements apply to you, visit our Self-Service Portal and chat with Ellie, our virtual assistant.",
+   "To report a change call 1-877-347-5678 or by emailing [[email protected]](/cdn-cgi/l/email-protection#4f06020c1c0c0f27273c612620382e61282039) Participants can meet the community engagement requirements by completing approved volunteer hours.",
+   "Email us at [[email protected]](/cdn-cgi/l/email-protection#3b787e544e4f495e5a58537b5353481552544c5a155c544d) Check Your Eligibility See if these requirements apply to you.",
+   "Self-Service Portal Closeup image of a woman typing on laptop computer at home Back to top Resources IHAWP Eligibility Changes Community Engagement Flyer Medicaid Public Resource Directory FindHelp Volunteer Opportunities Finding a Job Member Letter Member Letter (Spanish) CER Reporting Process Back to top Income Maintenance Customer Service Center (IMCSC) Email Address [[email protected]](/cdn-cgi/l/email-protection#83cacec0d0c0c3ebebf0adeaecf4e2ade4ecf5) Phone(s) 1-877-347-5678"
+  ],
+  "removed": [
+   "Official State of Iowa Website Agencies A-Z Programs & Services Health & Human Services IHAWP Community Engagement Requirements On this page...",
+   "To report a change call 1-877-347-5678 or by emailing [[email protected]](/cdn-cgi/l/email-protection#6d24202e3e2e2d05051e4304021a0c430a021b) If you want to see whether these requirements apply to you, visit our Self-Service Portal and chat with Ellie, our virtual assistant.",
+   "To report a change call 1-877-347-5678 or by emailing [[email protected]](/cdn-cgi/l/email-protection#1950545a4a5a5971716a3770766e78377e766f) Participants can meet the community engagement requirements by completing approved volunteer hours.",
+   "Email us at [[email protected]](/cdn-cgi/l/email-protection#a5e6e0cad0d1d7c0c4c6cde5cdcdd68bcccad2c48bc2cad3) Check Your Eligibility See if these requirements apply to you.",
+   "Self-Service Portal Back to top Resources IHAWP Eligibility Changes Community Engagement Flyer Medicaid Public Resource Directory FindHelp Volunteer Opportunities Finding a Job Member Letter Member Letter (Spanish) CER Reporting Process Back to top Income Maintenance Customer Service Center (IMCSC) Email Address [[email protected]](/cdn-cgi/l/email-protection#327b7f716171725a5a411c5b5d45531c555d44) Phone(s) 1-877-347-5678"
+  ],
+  "stale_facts": [],
+  "summary": {
+   "headline": "Updated contact email addresses and added descriptive image alt text on the IHAWP community engagement requirements page.",
+   "details": [
+    "The contact email address for reporting changes was updated from [[email protected]](/cdn-cgi/l/email-protection#6d24202e3e2e2d05051e4304021a0c430a021b) to [[email protected]](/cdn-cgi/l/email-protection#551c18160616153d3d267b3c3a22347b323a23).",
+    "The contact email address for volunteer hours information was updated from [[email protected]](/cdn-cgi/l/email-protection#1950545a4a5a5971716a3770766e78377e766f) to [[email protected]](/cdn-cgi/l/email-protection#4f06020c1c0c0f27273c612620382e61282039).",
+    "The general inquiry email address was updated from [[email protected]](/cdn-cgi/l/email-protection#a5e6e0cad0d1d7c0c4c6cde5cdcdd68bcccad2c48bc2cad3) to [[email protected]](/cdn-cgi/l/email-protection#3b787e544e4f495e5a58537b5353481552544c5a155c544d).",
+    "The IMCSC email address was updated from [[email protected]](/cdn-cgi/l/email-protection#327b7f716171725a5a411c5b5d45531c555d44) to [[email protected]](/cdn-cgi/l/email-protection#83cacec0d0c0c3ebebf0adeaecf4e2ade4ecf5).",
+    "Added alt text 'Closeup image of a woman typing on laptop computer at home' to an image in the Resources section, replacing a generic 'Back to home page' link label."
+   ],
+   "who_is_affected": "Iowa residents participating in or applying for the Iowa Health and Wellness Plan (IHAWP) who need to report changes, check eligibility, or meet community engagement requirements.",
+   "navigator_action": "Navigators should verify that all contact information and referral guidance reflects the updated email addresses when assisting individuals with IHAWP community engagement requirements or eligibility inquiries.",
+   "substantive": true
+  },
+  "affected_cases": []
  }
 ]
