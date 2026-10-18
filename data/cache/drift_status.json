@@ -1,5 +1,5 @@
 {
- "last_checked": "2026-10-17T16:26+00:00",
+ "last_checked": "2026-10-18T16:33+00:00",
  "pages": [
   {
    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
@@ -26,9 +26,9 @@
    "url": "https://dphhs.mt.gov/medicaidchanges/faqs",
    "title": "Montana DPHHS \u2014 Medicaid changes FAQ",
    "jurisdiction": "MT",
-   "status": "cosmetic change",
-   "snapshot": "mt-e06e50b3-2026-10-17",
-   "headline": "Montana Medicaid FAQ updated with minor formatting fixes and added language assistance notice while removing extensive navigation menu content."
+   "status": "changed",
+   "snapshot": "mt-e06e50b3-2026-10-18",
+   "headline": "Montana Medicaid FAQ updated with revised formatting and restored content after accidental removal."
   },
   {
    "url": "https://humanservices.arkansas.gov/divisions-shared-services/medical-services/healthcare-programs/arhome/arhome-community-engagement-requirement/",
@@ -41,9 +41,8 @@
    "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
    "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
    "jurisdiction": "IA",
-   "status": "changed",
-   "snapshot": "ia-8baf74ba-2026-10-17",
-   "headline": "Updated contact email addresses and added descriptive image alt text on the IHAWP community engagement requirements page."
+   "status": "unchanged",
+   "since": "2026-10-17"
   },
   {
    "url": "https://pathways.georgia.gov/about-pathways/faqs",
@@ -56,11 +55,12 @@
    "url": "https://www.medicaid.gov/resources-for-states/working-families-tax-cut-legislation/community-engagement",
    "title": "Medicaid.gov \u2014 Community engagement",
    "jurisdiction": "US",
-   "status": "unchanged",
-   "since": "2026-10-10"
+   "status": "changed",
+   "snapshot": "us-1bc44268-2026-10-18",
+   "headline": "Removed introductory content and added new resources including outreach materials, fact sheets, press releases, and updated technical assistance details while retaining core policy language."
   }
  ],
- "changes_today": 1,
- "total_live_changes": 6,
+ "changes_today": 2,
+ "total_live_changes": 8,
  "method": "Tavily Extract (advanced)"
 }
