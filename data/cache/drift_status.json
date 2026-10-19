@@ -1,5 +1,5 @@
 {
- "last_checked": "2026-10-18T16:33+00:00",
+ "last_checked": "2026-10-19T19:20+00:00",
  "pages": [
   {
    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
@@ -19,30 +19,32 @@
    "url": "https://dphhs.mt.gov/medicaidchanges",
    "title": "Montana DPHHS \u2014 Medicaid changes",
    "jurisdiction": "MT",
-   "status": "unchanged",
-   "since": "2026-10-16"
+   "status": "changed",
+   "snapshot": "mt-5a5f1f40-2026-10-19",
+   "headline": "Montana removed detailed Medicaid expansion content including specific requirements, examples, forms, and webinar links while keeping core structure."
   },
   {
    "url": "https://dphhs.mt.gov/medicaidchanges/faqs",
    "title": "Montana DPHHS \u2014 Medicaid changes FAQ",
    "jurisdiction": "MT",
-   "status": "changed",
-   "snapshot": "mt-e06e50b3-2026-10-18",
-   "headline": "Montana Medicaid FAQ updated with revised formatting and restored content after accidental removal."
+   "status": "unchanged",
+   "since": "2026-10-18"
   },
   {
    "url": "https://humanservices.arkansas.gov/divisions-shared-services/medical-services/healthcare-programs/arhome/arhome-community-engagement-requirement/",
    "title": "Arkansas DHS \u2014 ARHOME community engagement requirement",
    "jurisdiction": "AR",
-   "status": "unchanged",
-   "since": "2026-10-10"
+   "status": "changed",
+   "snapshot": "ar-8f8aeebe-2026-10-19",
+   "headline": "Updated guidance on fulfilling community engagement requirements by adding job resource references."
   },
   {
    "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
    "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
    "jurisdiction": "IA",
-   "status": "unchanged",
-   "since": "2026-10-17"
+   "status": "cosmetic change",
+   "snapshot": "ia-8baf74ba-2026-10-19",
+   "headline": "Email protection obfuscation codes updated across contact information while content remains unchanged"
   },
   {
    "url": "https://pathways.georgia.gov/about-pathways/faqs",
@@ -55,12 +57,11 @@
    "url": "https://www.medicaid.gov/resources-for-states/working-families-tax-cut-legislation/community-engagement",
    "title": "Medicaid.gov \u2014 Community engagement",
    "jurisdiction": "US",
-   "status": "changed",
-   "snapshot": "us-1bc44268-2026-10-18",
-   "headline": "Removed introductory content and added new resources including outreach materials, fact sheets, press releases, and updated technical assistance details while retaining core policy language."
+   "status": "unchanged",
+   "since": "2026-10-18"
   }
  ],
  "changes_today": 2,
- "total_live_changes": 8,
+ "total_live_changes": 10,
  "method": "Tavily Extract (advanced)"
 }

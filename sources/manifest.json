@@ -1245,5 +1245,50 @@
     "text_path": "sources/text/US/us-1bc44268-2026-10-18.txt",
     "sha256": "b68cd74bd54836eb21c3cab35e84c380ed0768d79e6e631d9d4530e87bbebdfc",
     "notes": "captured by drift-watch via tavily-extract"
+  },
+  {
+    "id": "mt-5a5f1f40-2026-10-19",
+    "jurisdiction": "MT",
+    "title": "Montana DPHHS \u2014 Medicaid changes",
+    "publisher": "",
+    "url": "https://dphhs.mt.gov/medicaidchanges",
+    "wayback_url": null,
+    "as_of": "2026-10-19",
+    "retrieved_at": "2026-10-19T19:20:39+00:00",
+    "content_type": "text/plain",
+    "raw_path": "sources/raw/MT/mt-5a5f1f40-2026-10-19.tavily.txt",
+    "text_path": "sources/text/MT/mt-5a5f1f40-2026-10-19.txt",
+    "sha256": "785a2957c9fa772bd8aa45a4da0f7117583c0c59a2461a5d26ae89868d56fe34",
+    "notes": "captured by drift-watch via tavily-extract"
+  },
+  {
+    "id": "ar-8f8aeebe-2026-10-19",
+    "jurisdiction": "AR",
+    "title": "Arkansas DHS \u2014 ARHOME community engagement requirement",
+    "publisher": "",
+    "url": "https://humanservices.arkansas.gov/divisions-shared-services/medical-services/healthcare-programs/arhome/arhome-community-engagement-requirement/",
+    "wayback_url": null,
+    "as_of": "2026-10-19",
+    "retrieved_at": "2026-10-19T19:20:42+00:00",
+    "content_type": "text/plain",
+    "raw_path": "sources/raw/AR/ar-8f8aeebe-2026-10-19.tavily.txt",
+    "text_path": "sources/text/AR/ar-8f8aeebe-2026-10-19.txt",
+    "sha256": "22d86b6ab6e0ae4df941583cb44c9e2a14a4027fd40ecd725f40b37c947e4d51",
+    "notes": "captured by drift-watch via tavily-extract"
+  },
+  {
+    "id": "ia-8baf74ba-2026-10-19",
+    "jurisdiction": "IA",
+    "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
+    "publisher": "",
+    "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
+    "wayback_url": null,
+    "as_of": "2026-10-19",
+    "retrieved_at": "2026-10-19T19:20:43+00:00",
+    "content_type": "text/plain",
+    "raw_path": "sources/raw/IA/ia-8baf74ba-2026-10-19.tavily.txt",
+    "text_path": "sources/text/IA/ia-8baf74ba-2026-10-19.txt",
+    "sha256": "1087c42315c987a7b3d88d67fce31acf3235c047ccfbffdcf3a86c4b6e2f27e8",
+    "notes": "captured by drift-watch via tavily-extract"
   }
 ]
