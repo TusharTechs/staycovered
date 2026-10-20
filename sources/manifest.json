@@ -1290,5 +1290,20 @@
     "text_path": "sources/text/IA/ia-8baf74ba-2026-10-19.txt",
     "sha256": "1087c42315c987a7b3d88d67fce31acf3235c047ccfbffdcf3a86c4b6e2f27e8",
     "notes": "captured by drift-watch via tavily-extract"
+  },
+  {
+    "id": "mt-e06e50b3-2026-10-20",
+    "jurisdiction": "MT",
+    "title": "Montana DPHHS \u2014 Medicaid changes FAQ",
+    "publisher": "",
+    "url": "https://dphhs.mt.gov/medicaidchanges/faqs",
+    "wayback_url": null,
+    "as_of": "2026-10-20",
+    "retrieved_at": "2026-10-20T17:59:45+00:00",
+    "content_type": "text/plain",
+    "raw_path": "sources/raw/MT/mt-e06e50b3-2026-10-20.tavily.txt",
+    "text_path": "sources/text/MT/mt-e06e50b3-2026-10-20.txt",
+    "sha256": "71f7a7daf8494b72bb17d711a82a4fda34e7a0862c62f73a9456bdda8a9b43b9",
+    "notes": "captured by drift-watch via tavily-extract"
   }
 ]

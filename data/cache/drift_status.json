@@ -1,5 +1,5 @@
 {
- "last_checked": "2026-10-19T19:20+00:00",
+ "last_checked": "2026-10-20T17:59+00:00",
  "pages": [
   {
    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
@@ -19,32 +19,30 @@
    "url": "https://dphhs.mt.gov/medicaidchanges",
    "title": "Montana DPHHS \u2014 Medicaid changes",
    "jurisdiction": "MT",
-   "status": "changed",
-   "snapshot": "mt-5a5f1f40-2026-10-19",
-   "headline": "Montana removed detailed Medicaid expansion content including specific requirements, examples, forms, and webinar links while keeping core structure."
+   "status": "unchanged",
+   "since": "2026-10-19"
   },
   {
    "url": "https://dphhs.mt.gov/medicaidchanges/faqs",
    "title": "Montana DPHHS \u2014 Medicaid changes FAQ",
    "jurisdiction": "MT",
-   "status": "unchanged",
-   "since": "2026-10-18"
+   "status": "changed",
+   "snapshot": "mt-e06e50b3-2026-10-20",
+   "headline": "Montana Medicaid FAQ updated with revised formatting, added language assistance notice, cookie consent banner, and social media links while removing extensive navigation menu content."
   },
   {
    "url": "https://humanservices.arkansas.gov/divisions-shared-services/medical-services/healthcare-programs/arhome/arhome-community-engagement-requirement/",
    "title": "Arkansas DHS \u2014 ARHOME community engagement requirement",
    "jurisdiction": "AR",
-   "status": "changed",
-   "snapshot": "ar-8f8aeebe-2026-10-19",
-   "headline": "Updated guidance on fulfilling community engagement requirements by adding job resource references."
+   "status": "unchanged",
+   "since": "2026-10-19"
   },
   {
    "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
    "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
    "jurisdiction": "IA",
-   "status": "cosmetic change",
-   "snapshot": "ia-8baf74ba-2026-10-19",
-   "headline": "Email protection obfuscation codes updated across contact information while content remains unchanged"
+   "status": "unchanged",
+   "since": "2026-10-19"
   },
   {
    "url": "https://pathways.georgia.gov/about-pathways/faqs",
@@ -61,7 +59,7 @@
    "since": "2026-10-18"
   }
  ],
- "changes_today": 2,
- "total_live_changes": 10,
+ "changes_today": 1,
+ "total_live_changes": 11,
  "method": "Tavily Extract (advanced)"
 }
