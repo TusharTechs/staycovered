@@ -1,5 +1,5 @@
 {
- "last_checked": "2026-10-20T17:59+00:00",
+ "last_checked": "2026-10-21T18:03+00:00",
  "pages": [
   {
    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
@@ -19,16 +19,17 @@
    "url": "https://dphhs.mt.gov/medicaidchanges",
    "title": "Montana DPHHS \u2014 Medicaid changes",
    "jurisdiction": "MT",
-   "status": "unchanged",
-   "since": "2026-10-19"
+   "status": "changed",
+   "snapshot": "mt-5a5f1f40-2026-10-21",
+   "headline": "Montana updated its Medicaid expansion page to clarify community engagement requirements, add specific examples of qualifying activities and documentation, update exclusion criteria, revise retroactive coverage periods, and reorganize content structure."
   },
   {
    "url": "https://dphhs.mt.gov/medicaidchanges/faqs",
    "title": "Montana DPHHS \u2014 Medicaid changes FAQ",
    "jurisdiction": "MT",
-   "status": "changed",
-   "snapshot": "mt-e06e50b3-2026-10-20",
-   "headline": "Montana Medicaid FAQ updated with revised formatting, added language assistance notice, cookie consent banner, and social media links while removing extensive navigation menu content."
+   "status": "cosmetic change",
+   "snapshot": "mt-e06e50b3-2026-10-21",
+   "headline": "Montana Medicaid reformatted its community engagement requirements FAQ while preserving core content."
   },
   {
    "url": "https://humanservices.arkansas.gov/divisions-shared-services/medical-services/healthcare-programs/arhome/arhome-community-engagement-requirement/",
@@ -60,6 +61,6 @@
   }
  ],
  "changes_today": 1,
- "total_live_changes": 11,
+ "total_live_changes": 12,
  "method": "Tavily Extract (advanced)"
 }
