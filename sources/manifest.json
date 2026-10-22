@@ -1335,5 +1335,35 @@
     "text_path": "sources/text/MT/mt-e06e50b3-2026-10-21.txt",
     "sha256": "634fef1058db0f2f451bbb78b65e68b577fd1087854b9a5209e0e8bc52acf6e4",
     "notes": "captured by drift-watch via tavily-extract"
+  },
+  {
+    "id": "mt-5a5f1f40-2026-10-22",
+    "jurisdiction": "MT",
+    "title": "Montana DPHHS \u2014 Medicaid changes",
+    "publisher": "",
+    "url": "https://dphhs.mt.gov/medicaidchanges",
+    "wayback_url": null,
+    "as_of": "2026-10-22",
+    "retrieved_at": "2026-10-22T17:59:55+00:00",
+    "content_type": "text/plain",
+    "raw_path": "sources/raw/MT/mt-5a5f1f40-2026-10-22.tavily.txt",
+    "text_path": "sources/text/MT/mt-5a5f1f40-2026-10-22.txt",
+    "sha256": "f11fd0e43a6c1402bc17baee213f53e62a2b0d86239bbaa485ff6681eecfe442",
+    "notes": "captured by drift-watch via tavily-extract"
+  },
+  {
+    "id": "ia-8baf74ba-2026-10-22",
+    "jurisdiction": "IA",
+    "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
+    "publisher": "",
+    "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
+    "wayback_url": null,
+    "as_of": "2026-10-22",
+    "retrieved_at": "2026-10-22T17:59:57+00:00",
+    "content_type": "text/plain",
+    "raw_path": "sources/raw/IA/ia-8baf74ba-2026-10-22.tavily.txt",
+    "text_path": "sources/text/IA/ia-8baf74ba-2026-10-22.txt",
+    "sha256": "93206278be8c06c32511d20013810311db8f35d0dd96b461405d10b3f1e278ae",
+    "notes": "captured by drift-watch via tavily-extract"
   }
 ]

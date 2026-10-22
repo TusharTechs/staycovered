@@ -585,5 +585,73 @@
    "substantive": true
   },
   "affected_cases": []
+ },
+ {
+  "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
+  "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
+  "jurisdiction": "IA",
+  "old_id": "ia-8baf74ba-2026-10-19",
+  "new_id": "ia-8baf74ba-2026-10-22",
+  "old_as_of": "2026-10-19",
+  "new_as_of": "2026-10-22",
+  "added": [
+   "Check Your Eligibility See if these requirements apply to you.",
+   "Self-Service Portal Closeup image of a woman typing on laptop computer at home Back to top How to Meet New Requirements There are several ways to meet these new requirements, including working, participating in an education or work program, completing community service, or combining different activities.",
+   "List items for IHAWP Work Requirement Activities You can work at least 80 hours per month or earn at least $580 per month, based on the federal minimum wage.",
+   "What counts as work?",
+   "Work can include: Full-time or part-time employment Self-employment Seasonal work Work in exchange for money, goods, or services Unpaid work other than community service (see Community Service below) Examples of proof You can provide: Pay stubs A W-2 An employer earnings statement or letter showing your earnings and/or hours worked A self-employment ledger showing your earnings and/or hours worked A tax return, including all pages and schedules What must the proof show?",
+   "If you earn less than $580 per month, your proof must show the number of hours you work.",
+   "You can participate in a qualifying job training or work program for at least 80 hours per month.",
+   "What counts as job training?",
+   "Your program must qualify under at least one of the following: Title I of the Workforce Innovation and Opportunity Act (WIOA) of 2014 Section 236 of the Trade Act of 1974 The Employment and Training Program under section 6(d)(4) of the Food and Nutrition Act of 2008.",
+   "Find eligible programs in Iowa.",
+   "An employment and training program operated by the U.S.",
+   "Department of Labor or the U.S.",
+   "Department of Veterans Affairs Examples of proof You can provide training logs or a letter from your training program.",
+   "What must the proof show?",
+   "Your proof must confirm that the program qualifies and show the dates and hours you participated.",
+   "You can be enrolled in an educational program at least half-time.",
+   "If you are enrolled less than half-time, you must complete other qualifying activities to meet the requirement of at least 80 hours per month.",
+   "What counts as education?",
+   "Qualifying educational programs include: A college or other institute of higher education High school or an equivalent program A career or technical school Examples of proof You can provide: An enrollment letter A transcript A registration letter A class schedule What must the proof show?",
+   "If you are enrolled less than half-time, your proof must show the number of credit hours or monthly attendance hours.",
+   "You can complete at least 80 hours of unpaid community service per month as part of a structured program that benefits the community.",
+   "Community service can be voluntary or court-ordered.",
+   "It cannot involve partisan activities.",
+   "Examples of community service You may be able to complete community service at: Schools Humane societies Libraries Food banks Parks through volunteer programs Examples of proof You can provide a letter from the organization, signed by your community service supervisor.",
+   "Your proof must include: The organization's name and address The type of activity The dates and hours of service The name of a contact person You can meet the community engagement requirement by combining qualifying activities that total at least 80 hours per month."
+  ],
+  "removed": [
+   "Back to top How to Meet New Requirements There are several ways to meet these new requirements, including working, participating in an education or work program, completing community service, or combining different activities.",
+   "List items for IHAWP Work Requirement Activities You must either: Work at least 80 hours per month, or Earn at least $580 per month based on the federal minimum wage.\\ Work can be: Paid work Work in exchange for goods or services (in-kind work) Unpaid work Seasonal workers: Income is averaged over six months.",
+   "Enroll in a qualifying job training or work program for 80+ hours per month.",
+   "Enrolling in an education program at least half-time meets work requirements.",
+   "Education programs include: High school GED program at a community college Community college Vocational and technical school 4-year colleges and universities leading to a bachelor's degree 1-2 year programs leading to a master's or higher-level degree Community service through unpaid work with a structured program completed for the benefit of the community meets work requirement activities.",
+   "Community service hours do not have to be voluntary.",
+   "They may be court ordered.",
+   "Community service cannot be partisan activities, benefit specific individuals, or be purely recreational in nature.",
+   "Examples of community service locations: Schools Humane society Libraries Food banks Park volunteer You can meet the requirement by completing a combination of activities totaling at least 80 hours per month, including: Work Education or training Work programs Community service Back to top Exclusions Some people on the IHAWP program are excluded from these new requirements.",
+   "Pregnant or had a baby in the last 12 months while on Iowa Medicaid Caregivers of children under 14 or someone with a disability Participating in a drug or alcohol treatment program Participants in SNAP or FIP work programs Veterans rated as totally disabled Individuals currently or recently in jail or prison Back to top Frequently Asked Questions (FAQ) List items for Community Engagement Requirements FAQ Download a digital or print-friendly (153.32 KB) .pdf version of the FAQ.",
+   "To report a change call 1-877-347-5678 or by emailing [[email protected]](/cdn-cgi/l/email-protection#6b22262838282b0303184502041c0a450c041d) If you want to see whether these requirements apply to you, visit our Self-Service Portal and chat with Ellie, our virtual assistant.",
+   "To report a change call 1-877-347-5678 or by emailing [[email protected]](/cdn-cgi/l/email-protection#4d04000e1e0e0d25253e6324223a2c632a223b) Participants can meet the community engagement requirements by completing approved volunteer hours.",
+   "Email us at [[email protected]](/cdn-cgi/l/email-protection#1251577d6766607773717a527a7a613c7b7d65733c757d64) Check Your Eligibility See if these requirements apply to you.",
+   "Self-Service Portal Closeup image of a woman typing on laptop computer at home Back to top Resources IHAWP Eligibility Changes Community Engagement Flyer Medicaid Public Resource Directory FindHelp Volunteer Opportunities Finding a Job Member Letter Member Letter (Spanish) CER Reporting Process Back to top Income Maintenance Customer Service Center (IMCSC) Email Address [[email protected]](/cdn-cgi/l/email-protection#226b6f617161624a4a510c4b4d55430c454d54) Phone(s) 1-877-347-5678"
+  ],
+  "stale_facts": [],
+  "summary": {
+   "headline": "Iowa updated its IHAWP community engagement requirements page with clearer definitions, expanded examples, revised formatting, and restructured exclusion criteria.",
+   "details": [
+    "The description of work requirements was simplified from \"Work at least 80 hours per month, or Earn at least $580 per month\" to \"You can work at least 80 hours per month or earn at least $580 per month,\" removing redundant phrasing and adding clarity on federal minimum wage basis.",
+    "Added detailed subsections explaining what counts as work, job training, education, and community service, including specific qualifying programs (WIOA, Trade Act, SNAP E&T), proof requirements, and examples of acceptable documentation.",
+    "Clarified that community service can be voluntary or court-ordered and cannot involve partisan activities, benefit specific individuals, or be purely recreational\u2014retaining prior restrictions but presenting them more clearly.",
+    "Revised the exclusion criteria into a structured list with distinct \"Who qualifies\" sections for each category (pregnancy/postpartum, caregiving, incarceration/work release, substance abuse treatment, disability/medical condition, SNAP/FIP work requirements, VA disability rating), each with specific proof requirements and verification notes.",
+    "Removed redundant or outdated FAQ items and contact information duplicates (e.g., repeated phone/email lines, Ellie virtual assistant mention, PDF download link) while retaining core eligibility check and self-service portal guidance.",
+    "Updated examples of proof across all activity types to be more specific and actionable (e.g., pay stubs, W-2s, tax returns, training logs, enrollment letters, transcripts, supervisor-signed letters)."
+   ],
+   "who_is_affected": "All Iowa Health and Wellness Plan (IHAWP) members subject to community engagement requirements, particularly those seeking to comply via work, education, job training, or community service, and those claiming exclusions based on pregnancy, caregiving, incarceration, treatment participation, disability, SNAP/FIP status, or VA disability rating.",
+   "navigator_action": "Navigators should review the updated proof requirements and exclusion criteria with clients, ensure documentation matches the new standards (e.g., tax returns with all schedules, supervisor-signed community service letters), and verify eligibility for exclusions using the clarified guidelines\u2014especially for VA disability ratings and SNAP/FIP work requirement overlaps.",
+   "substantive": true
+  },
+  "affected_cases": []
  }
 ]
