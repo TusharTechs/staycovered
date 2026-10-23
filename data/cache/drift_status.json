@@ -1,12 +1,13 @@
 {
- "last_checked": "2026-10-22T18:00+00:00",
+ "last_checked": "2026-10-23T17:53+00:00",
  "pages": [
   {
    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
    "title": "Nebraska DHHS \u2014 Medicaid Work Requirements",
    "jurisdiction": "NE",
-   "status": "unchanged",
-   "since": "2026-10-15"
+   "status": "changed",
+   "snapshot": "ne-88f65eb8-2026-10-23",
+   "headline": "Removed detailed descriptions of work requirements, exemptions, reporting methods, and resources; simplified language and removed specific examples, tables, and procedural details."
   },
   {
    "url": "https://dhhs.ne.gov/Documents/MLTC-WR-Requirements-FAQ.pdf",
@@ -19,9 +20,8 @@
    "url": "https://dphhs.mt.gov/medicaidchanges",
    "title": "Montana DPHHS \u2014 Medicaid changes",
    "jurisdiction": "MT",
-   "status": "cosmetic change",
-   "snapshot": "mt-5a5f1f40-2026-10-22",
-   "headline": "Added image link to DPHHS home page in navigation header"
+   "status": "unchanged",
+   "since": "2026-10-22"
   },
   {
    "url": "https://dphhs.mt.gov/medicaidchanges/faqs",
@@ -41,9 +41,8 @@
    "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
    "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
    "jurisdiction": "IA",
-   "status": "changed",
-   "snapshot": "ia-8baf74ba-2026-10-22",
-   "headline": "Iowa updated its IHAWP community engagement requirements page with clearer definitions, expanded examples, revised formatting, and restructured exclusion criteria."
+   "status": "unchanged",
+   "since": "2026-10-22"
   },
   {
    "url": "https://pathways.georgia.gov/about-pathways/faqs",
@@ -61,6 +60,6 @@
   }
  ],
  "changes_today": 1,
- "total_live_changes": 13,
+ "total_live_changes": 14,
  "method": "Tavily Extract (advanced)"
 }
