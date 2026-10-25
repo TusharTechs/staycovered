@@ -735,5 +735,60 @@
    "substantive": true
   },
   "affected_cases": []
+ },
+ {
+  "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
+  "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
+  "jurisdiction": "IA",
+  "old_id": "ia-8baf74ba-2026-10-22",
+  "new_id": "ia-8baf74ba-2026-10-25",
+  "old_as_of": "2026-10-22",
+  "new_as_of": "2026-10-25",
+  "added": [
+   "Work can include: Full-time or part-time employment Self-employment Seasonal work Work in exchange for money, goods, or services Unpaid work other than community service Examples of proof You can provide: Pay stubs A W-2 An employer earnings statement or letter showing your earnings and/or hours worked A self-employment ledger showing your earnings and/or hours worked A tax return, including all pages and schedules What must the proof show?",
+   "Back to top Frequently Asked Questions (FAQ) List items for Community Engagement Requirements FAQ Download a digital or print-friendly (158.22 KB) .pdf version of the FAQ.",
+   "If the requirement applies to you, you must spend at least 80 hours each month on one or more of these activities: Work:Work for 80 hours per month or earn at least $580 per month (based on the federal minimum wage).",
+   "\\Income from seasonal work may be averaged.",
+   "To report a change, call 1-877-347-5678 or email [[email protected]](/cdn-cgi/l/email-protection#ace5e1efffefecc4c4df82c5c3dbcd82cbc3da).",
+   "If you want to see whether these requirements apply to you, visit our Self-Service Portal and chat with Ellie, our virtual assistant.",
+   "To report a change call 1-877-347-5678 or by emailing [[email protected]](/cdn-cgi/l/email-protection#86cfcbc5d5c5c6eeeef5a8efe9f1e7a8e1e9f0) Participants can meet the community engagement requirements by completing approved volunteer hours.",
+   "Iowa HHS will contact you if they need information about your Community Engagement activities.",
+   "If you're contacted, you can use the Community Engagement Portal (CEP) to upload information, but you can also provide information by: Phone: 1-877-347-5678 Fax: The fax number will be provided on the request for information.",
+   "Or visit your local HHS office.",
+   "The online CEP will be active on December 1, 2026.",
+   "The CEP will only be available if you are required to submit your hours, and only during your application and renewal period.",
+   "To learn how to report your hours in the CEP, view the CER Reporting Process (386.34 KB) .pdf .",
+   "Email us at [[email protected]](/cdn-cgi/l/email-protection#3271775d4746405753515a725a5a411c5b5d45531c555d44) Back to top Resources IHAWP Eligibility Changes Community Engagement Flyer Medicaid Public Resource Directory FindHelp Volunteer Opportunities Finding a Job Member Letter Member Letter (Spanish) CER Reporting Process Back to top Income Maintenance Customer Service Center (IMCSC) Email Address [[email protected]](/cdn-cgi/l/email-protection#662f2b253525260e0e15480f09110748010910)"
+  ],
+  "removed": [
+   "Work can include: Full-time or part-time employment Self-employment Seasonal work Work in exchange for money, goods, or services Unpaid work other than community service (see Community Service below) Examples of proof You can provide: Pay stubs A W-2 An employer earnings statement or letter showing your earnings and/or hours worked A self-employment ledger showing your earnings and/or hours worked A tax return, including all pages and schedules What must the proof show?",
+   "Back to top Frequently Asked Questions (FAQ) List items for Community Engagement Requirements FAQ Download a digital or print-friendly (148.79 KB) .pdf version of the FAQ.",
+   "If the requirement applies to you, you must spend at least 80 hours each month on one or more of these activities: Work:Work for 80 hours per month or earn at least $580 per month (based on federal minimum wage).\\ Income from seasonal work may be averaged over six months.",
+   "To report a change call 1-877-347-5678 or by emailing [[email protected]](/cdn-cgi/l/email-protection#fab3b7b9a9b9ba929289d493958d9bd49d958c) If you want to see whether these requirements apply to you, visit our Self-Service Portal and chat with Ellie, our virtual assistant.",
+   "To report a change call 1-877-347-5678 or by emailing [[email protected]](/cdn-cgi/l/email-protection#226b6f617161624a4a510c4b4d55430c454d54) Participants can meet the community engagement requirements by completing approved volunteer hours.",
+   "Iowa HHS will check records to see if you already meet the requirements or are excluded.",
+   "If HHS needs more proof, they will send you a letter telling you what to send and how to send it.",
+   "Email us at [[email protected]](/cdn-cgi/l/email-protection#672422081213150206040f270f0f14490e08100649000811) Back to top Resources IHAWP Eligibility Changes Community Engagement Flyer Medicaid Public Resource Directory FindHelp Volunteer Opportunities Finding a Job Member Letter Member Letter (Spanish) CER Reporting Process Back to top Income Maintenance Customer Service Center (IMCSC) Email Address [[email protected]](/cdn-cgi/l/email-protection#afe6e2ecfcecefc7c7dc81c6c0d8ce81c8c0d9)"
+  ],
+  "stale_facts": [],
+  "summary": {
+   "headline": "Updated language around reporting methods, added new Community Engagement Portal details, and revised income averaging wording.",
+   "details": [
+    "Removed unpaid work clarification '(see Community Service below)' from list of qualifying work types.",
+    "Updated file size of downloadable FAQ PDF from 148.79 KB to 158.22 KB.",
+    "Changed 'earn at least $580 per month (based on federal minimum wage)' to remove parentheses around 'federal minimum wage'.",
+    "Revised 'Income from seasonal work may be averaged over six months' to '\\Income from seasonal work may be averaged.' (removed timeframe and added backslash).",
+    "Simplified reporting instruction: removed 'or by emailing' duplication and updated encrypted email link for reporting changes.",
+    "Replaced general records check with specific statement: 'Iowa HHS will contact you if they need information about your Community Engagement activities.'",
+    "Added detailed response options if contacted: use CEP portal, phone, fax (number provided later), or visit local HHS office.",
+    "Added new timeline: online CEP active December 1, 2026, only available during application/renewal if required to submit hours.",
+    "Added guidance to view CER Reporting Process PDF (386.34 KB) to learn how to report hours in CEP.",
+    "Updated encrypted email address for general inquiries."
+   ],
+   "who_is_affected": "Iowa Health and Wellness Plan (IHAWP) members subject to community engagement requirements.",
+   "navigator_action": "Navigate affected members to the updated FAQ and prepare them for the new Community Engagement Portal launching December 1, 2026, including informing them of reporting options and timing restrictions.",
+   "substantive": true
+  },
+  "affected_cases": []
  }
 ]

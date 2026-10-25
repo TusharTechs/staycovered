@@ -1,5 +1,5 @@
 {
- "last_checked": "2026-10-24T16:35+00:00",
+ "last_checked": "2026-10-25T17:04+00:00",
  "pages": [
   {
    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
@@ -40,8 +40,9 @@
    "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
    "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
    "jurisdiction": "IA",
-   "status": "unchanged",
-   "since": "2026-10-22"
+   "status": "changed",
+   "snapshot": "ia-8baf74ba-2026-10-25",
+   "headline": "Updated language around reporting methods, added new Community Engagement Portal details, and revised income averaging wording."
   },
   {
    "url": "https://pathways.georgia.gov/about-pathways/faqs",
@@ -58,7 +59,7 @@
    "since": "2026-10-18"
   }
  ],
- "changes_today": 0,
- "total_live_changes": 14,
+ "changes_today": 1,
+ "total_live_changes": 15,
  "method": "Tavily Extract (advanced)"
 }
