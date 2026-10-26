@@ -81,7 +81,7 @@ export const api = {
   tavily: () => fetch('/api/log/tavily').then(j<Record<string, unknown>[]>),
   bench: () => fetch('/api/bench/results').then(j<Record<string, unknown>>),
   agentPlan: () => fetch('/api/agent/plan').then(j<AgentStep[]>),
-  agentStep: (id: string, n: number) => fetch(`/api/cases/${id}/agent/step/${n}`, { method: 'POST' }).then(j<AgentStep>),
+  agentStep: (id: string, n: number, live = false) => fetch(`/api/cases/${id}/agent/step/${n}` + (live ? '?live=true' : ''), { method: 'POST' }).then(j<AgentStep>),
   session: () => fetch('/api/session').then(j<{ isolated: boolean; changed_cases: string[] }>),
   resetSession: () => fetch('/api/session/reset', { method: 'POST' }).then(j<{ reset_cases: number }>),
   plan: (id: string, as_of?: string) => fetch(`/api/cases/${id}/plan` + q({ as_of })).then(j<Plan>),

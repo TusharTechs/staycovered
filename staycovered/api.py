@@ -236,11 +236,11 @@ class AskIn(BaseModel):
     compare_closed_book: bool = False
 
 
-def ask_cached(question: str, jurisdiction: str, on: date, compare: bool = False) -> dict:
+def ask_cached(question: str, jurisdiction: str, on: date, compare: bool = False, fresh: bool = False) -> dict:
     """Grounded answer as of a date: served from the cache when the same rules were in force, else computed."""
     key = _cache_key("ask", question, jurisdiction, on.isoformat(), compare)
     kkey = _cache_key("ask-k", question, jurisdiction, _knowledge(jurisdiction, on), compare)
-    hit = _cache_get(key) or _cache_get(kkey)
+    hit = None if fresh else (_cache_get(key) or _cache_get(kkey))
     if hit:
         g = hit["grounded"]
         same = {} if g["as_of"] == on.isoformat() else {"same_rules_as": g["as_of"]}  # identical rules and sources then

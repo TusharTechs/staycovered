@@ -14,6 +14,7 @@ import hashlib
 import json
 import re
 import time
+from contextvars import ContextVar
 from dataclasses import asdict
 from datetime import date
 
@@ -40,6 +41,7 @@ STEPS = [
     ("draft_message", "Draft a message for the client", [SUPER]),
     ("package", "Assemble the packet, form and reminders", ["Code"]),
 ]
+LIVE: ContextVar[bool] = ContextVar("agent_live", default=False)  # live runs make every call fresh (no reused results)
 FRONTIER = ("a frontier API model", 4.0, 20.0)      # $/M in, $/M out (same price list as WorkReqBench)
 ULTRA = config.ULTRA
 
@@ -157,8 +159,9 @@ def _s_nearby(rec, on):
     needs_hours = any(p.kind == "hours" for r in ws.results for p in month_paths(rec.case, r, on))
     if not needs_hours or not rec.case.location:
         return {"skipped": "No extra hours needed, so no search." if not needs_hours else "No city on file."}
-    reused = nearby.cached(rec.case.location, "work_program") is not None
-    r = nearby.find(rec.case.location, "work_program")
+    fresh = LIVE.get()
+    reused = not fresh and nearby.cached(rec.case.location, "work_program") is not None
+    r = nearby.find(rec.case.location, "work_program", fresh=fresh)
     return {"headline": f"{len(r['options'])} job-training programs near {rec.case.location}", "details": [o["name"] for o in r["options"][:3]]
             + [f"Sent to search: {r['sent_to_search']}"], "reused": f"Search results reused from {r['as_of']} for this city" if reused else None}
 
@@ -175,7 +178,7 @@ def _s_verify_rule(rec, on):
     from .api import ask_cached
 
     q = KEY_QUESTION[(rec.case.jurisdiction, rec.case.event == "noncompliance_notice")]
-    out = ask_cached(q, rec.case.jurisdiction, on)
+    out = ask_cached(q, rec.case.jurisdiction, on, fresh=LIVE.get())
     g = out["grounded"]
     n = len(g["citations"])
     return {"headline": g["answer"], "question": q,
@@ -240,8 +243,12 @@ def run_step(case_id: str, n: int, live: bool = False, write_cache: bool = False
         if hit:
             return hit | {"cached": True}
     t0 = time.time()
-    with llm.collect() as calls:
-        out = RUN[sid](rec, on)
+    token = LIVE.set(live)
+    try:
+        with llm.collect() as calls:
+            out = RUN[sid](rec, on)
+    finally:
+        LIVE.reset(token)
     res = {"n": n, "id": sid, "title": title, "actors": actors, "output": out, "metrics": _metrics(calls, time.time() - t0),
            "ran_at": date.today().isoformat()}
     target = CACHE if write_cache else RUNTIME

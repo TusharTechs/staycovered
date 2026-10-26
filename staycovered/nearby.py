@@ -87,10 +87,10 @@ def cached(location: str, kind: str) -> dict | None:
     return _load(RUNTIME).get(key) or _load(CACHE).get(key)
 
 
-def find(location: str, kind: Literal["volunteer", "work_program"], write_cache: bool = False) -> dict:
+def find(location: str, kind: Literal["volunteer", "work_program"], write_cache: bool = False, fresh: bool = False) -> dict:
     if not _LOC.match(location):
         raise ValueError("location must look like 'City, ST'")
-    if (hit := cached(location, kind)) is not None:
+    if not fresh and (hit := cached(location, kind)) is not None:
         return hit
     if _searches_today() >= DAILY_SEARCH_CAP:
         raise llm.BudgetExceeded("Today's limit for new place searches is used up; cached cities still work. Try again tomorrow.")

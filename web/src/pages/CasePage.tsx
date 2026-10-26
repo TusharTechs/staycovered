@@ -17,6 +17,7 @@ export default function CasePage() {
   const { id } = useParams()
   const [params] = useSearchParams()
   const autoRun = params.get('run') === '1'
+  const liveRun = params.get('live') === '1'  // local only: the public demo replays recorded runs
   const [data, setData] = useState<{ record: CaseRecord; worksheet: Worksheet } | null>(null)
   const [err, setErr] = useState('')
   const [open, setOpen] = useState<string | null>(null)
@@ -66,7 +67,7 @@ export default function CasePage() {
       </div>
 
       <WhatToDo rec={rec} ws={ws} plan={plan} />
-      <div data-tour="agent"><AgentRun key={rec.case.id} caseId={rec.case.id} autoStart={autoRun} /></div>
+      <div data-tour="agent"><AgentRun key={rec.case.id} caseId={rec.case.id} autoStart={autoRun} live={liveRun} /></div>
 
       {rec.flags.length > 0 && (
         <div role="alert" className="rounded-xl border border-warn/40 bg-warn-soft p-3 text-sm text-warn">

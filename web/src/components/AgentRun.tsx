@@ -14,7 +14,7 @@ const MODEL: Record<string, string> = {
 
 type Row = AgentStep & { state: 'waiting' | 'running' | 'done' | 'error'; err?: string }
 
-export default function AgentRun({ caseId, autoStart = false, onDone }: { caseId: string; autoStart?: boolean; onDone?: () => void }) {
+export default function AgentRun({ caseId, autoStart = false, live = false, onDone }: { caseId: string; autoStart?: boolean; live?: boolean; onDone?: () => void }) {
   const [rows, setRows] = useState<Row[]>([])
   const [running, setRunning] = useState(false)
   const stop = useRef(false)
@@ -30,7 +30,7 @@ export default function AgentRun({ caseId, autoStart = false, onDone }: { caseId
       setRows(rs => rs.map(r => (r.n === p.n ? { ...r, state: 'running' } : r)))
       const t0 = performance.now()
       try {
-        const res = await api.agentStep(caseId, p.n)
+        const res = await api.agentStep(caseId, p.n, live)
         // a recorded step is replayed with a short pause so each step can be read; it says so on screen
         const wait = res.cached ? Math.max(0, 700 - (performance.now() - t0)) : 0
         await new Promise(r => setTimeout(r, wait))
@@ -58,7 +58,7 @@ export default function AgentRun({ caseId, autoStart = false, onDone }: { caseId
   if (!rows.length) {
     return (
       <button onClick={run} className="rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-90">
-        ▶ Run the StayCovered agent on this case
+        ▶ Run the StayCovered agent on this case{live ? ' (live)' : ''}
       </button>
     )
   }
