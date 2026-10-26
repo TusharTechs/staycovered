@@ -26,6 +26,33 @@ app = FastAPI(title="StayCovered API")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 
+@app.middleware("http")
+async def visitor_session(request: Request, call_next):
+    """Give each browser an anonymous session id, so its changes to demo cases stay private to it."""
+    sid = request.cookies.get("sc_sid", "")
+    fresh = not (len(sid) == 32 and all(c in "0123456789abcdef" for c in sid))
+    if fresh:
+        sid = uuid.uuid4().hex
+    token = store.SESSION.set(sid)
+    try:
+        response = await call_next(request)
+    finally:
+        store.SESSION.reset(token)
+    if fresh:
+        response.set_cookie("sc_sid", sid, max_age=60 * 60 * 24 * 30, httponly=True, samesite="lax", secure=config.ON_VERCEL)
+    return response
+
+
+@app.get("/api/session")
+def session_info() -> dict:
+    return {"isolated": store.ISOLATE, "changed_cases": store.changed_cases()}
+
+
+@app.post("/api/session/reset")
+def session_reset() -> dict:
+    return {"reset_cases": store.reset_session()}
+
+
 # ---------- public-demo protection: answer cache + per-visitor rate limit ----------
 ANSWER_CACHE = config.ROOT / "data" / "cache" / "answers.json"      # committed, pre-warmed
 RUNTIME_ANSWERS = config.RUNTIME_DIR / "answers.json"              # grows at runtime
@@ -96,7 +123,7 @@ def _knowledge(jurisdiction: str, on: date) -> str:
 def _knowledge_cached(jurisdiction: str, on: date, _n_sources: int) -> str:
     juris = {"US", jurisdiction}
     facts = sorted(f"{f.id}:{int(f.in_force(on))}" for f in rules.facts_known(on, juris))
-    srcs = sorted(x.id for x in sources.sources_as_of(on, juris))
+    srcs = sorted(x.id for x in sources.sources_as_of(on, juris) if x.retrieval)  # curated sources answers can use
     return hashlib.sha256(json.dumps([facts, srcs]).encode()).hexdigest()[:20]
 
 

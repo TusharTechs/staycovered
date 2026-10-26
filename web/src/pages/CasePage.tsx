@@ -21,10 +21,13 @@ export default function CasePage() {
 
   const { state, setState } = useJuris()
   const [plan, setPlan] = useState<Plan | null>(null)
+  const [mine, setMine] = useState<{ isolated: boolean; changed: boolean }>({ isolated: false, changed: false })
   const load = () => {
     api.case(id!).then(setData).catch(e => setErr(String(e)))
     api.plan(id!).then(setPlan).catch(() => setPlan(null))
+    api.session().then(s => setMine({ isolated: s.isolated, changed: s.changed_cases.includes(id!) })).catch(() => {})
   }
+  const resetMine = async () => { await api.resetSession(); load() }
   useEffect(() => { load() }, [id])
   useEffect(() => {  // keep the state switch in sync with the case being viewed
     const j = data?.record.case.jurisdiction as Juris | undefined
@@ -121,6 +124,8 @@ export default function CasePage() {
           )}
 
           <Card title={`Documents (${rec.documents.length})`} actions={<button className="text-xs text-brand hover:underline" onClick={() => setAdding(a => !a)}>{adding ? 'Close' : '+ Add document'}</button>}>
+            {mine.isolated && <p className="mb-2 text-[11px] text-muted">Documents you add here are private to your browser; other visitors see the original demo case.
+              {mine.changed && <button onClick={resetMine} className="ml-1 text-brand underline">Reset this demo case</button>}</p>}
             {adding && <AddDoc caseId={rec.case.id} members={rec.case.household} onDone={() => { setAdding(false); load() }} />}
             <ul className="space-y-2 text-sm">
               {rec.documents.map(d => (

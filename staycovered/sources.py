@@ -76,7 +76,9 @@ def all_sources() -> list[Source]:
                 text_path=e["text_path"],
                 wayback_url=e.get("wayback_url"),
                 publisher=e.get("publisher", ""),
-                retrieval=e.get("retrieval", True),
+                # drift-watch captures are monitoring evidence: they flag changes for review but never feed
+                # answers until a person curates the new rule text into facts (human in the loop)
+                retrieval=e.get("retrieval", "drift-watch" not in e.get("notes", "")),
             )
         )
     return out

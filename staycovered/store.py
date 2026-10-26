@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import os
+from contextvars import ContextVar
 from datetime import date
 from pathlib import Path
 
@@ -46,13 +48,28 @@ class CaseRecord(BaseModel):
     updated: date | None = None
 
 
+# Per-visitor isolation on the public demo: a visitor's changes (added documents, explanations) go to a private
+# overlay keyed by their session cookie, so one judge's test never shows up in the next judge's caseload.
+SESSION: ContextVar[str | None] = ContextVar("session", default=None)
+SESSIONS = config.RUNTIME_DIR / "sessions"
+ISOLATE = config.ON_VERCEL or os.getenv("SC_ISOLATE") == "1"
+
+
+def _overlay(case_id: str) -> Path | None:
+    sid = SESSION.get()
+    return SESSIONS / sid / f"{case_id}.json" if ISOLATE and sid else None
+
+
 def path(case_id: str) -> Path:
-    return CASES / f"{case_id}.json"
+    ov = _overlay(case_id)
+    return ov if ov and ov.exists() else CASES / f"{case_id}.json"
 
 
 def save(rec: CaseRecord) -> None:
     rec.updated = date.today()
-    path(rec.case.id).write_text(rec.model_dump_json(indent=2), encoding="utf-8")
+    target = _overlay(rec.case.id) or CASES / f"{rec.case.id}.json"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(rec.model_dump_json(indent=2), encoding="utf-8")
 
 
 def load(case_id: str) -> CaseRecord:
@@ -60,4 +77,20 @@ def load(case_id: str) -> CaseRecord:
 
 
 def all_cases() -> list[CaseRecord]:
-    return [CaseRecord.model_validate(json.loads(p.read_text(encoding="utf-8"))) for p in sorted(CASES.glob("*.json"))]
+    return [load(p.stem) for p in sorted(CASES.glob("*.json"))]
+
+
+def changed_cases() -> list[str]:
+    """Cases this visitor has changed (private overlay)."""
+    sid = SESSION.get()
+    d = SESSIONS / sid if ISOLATE and sid else None
+    return sorted(p.stem for p in d.glob("*.json")) if d and d.exists() else []
+
+
+def reset_session() -> int:
+    import shutil
+    n = len(changed_cases())
+    sid = SESSION.get()
+    if ISOLATE and sid and (SESSIONS / sid).exists():
+        shutil.rmtree(SESSIONS / sid)
+    return n
