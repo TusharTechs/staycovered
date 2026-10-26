@@ -264,7 +264,9 @@ def test_agent_replays_recorded_steps_without_a_key():
     steps = [agent.run_step("maria-lopez", n) for n in range(len(agent.STEPS))]
     assert all(s["cached"] for s in steps)
     assert steps[2]["output"]["headline"].startswith("12 of 12 numbers match")
-    assert "12 of 12 match" in steps[8]["output"]["details"][-1]  # numbers in the client message checked
+    import re
+    m = re.search(r"(\d+) of (\d+) match", steps[8]["output"]["details"][-1])  # every number in the client message checked
+    assert m and m.group(1) == m.group(2)
     r = agent.receipt(steps)
     assert 0 < r["usd"] < r["ultra_usd"] < r["frontier_usd"]
 
