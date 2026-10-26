@@ -9,9 +9,9 @@ export const STEPS: Step[] = [
   { path: '/cases/maria-lopez', target: 'todo', title: 'What to do now, first', body: 'Deadline, smallest fix and what to send sit at the top. The evidence, with every number tied to its line in her documents, is below.' },
   { path: '/cases/tom-becker', target: 'forecast', title: 'Same life, changing rules', body: 'Tom\'s household is held constant for 12 months; only the published rules move. In January 2027 the federal household-income rule takes over and he becomes clearly covered.' },
   { path: '/time-machine?date=2026-10-10', target: 'ask', title: 'Frozen model vs. rules as of a date', body: 'Ask whether a spouse\'s income counts: the frozen model answers from memory; StayCovered quotes the official text in force on the date, and shows its evidence check.' },
-  { path: '/sandbox?income_to_hours=true', target: 'levers', title: 'What if the state chose differently?', body: 'Flip a choice federal law leaves to states and the caseload re-runs. It separates people who are short from people at risk only for paperwork.' },
-  { path: '/check', target: 'selfcheck', title: 'For people without a navigator', body: 'Phone-first, English or Spanish: status, smallest fix and a 12-month forecast. No name, nothing stored, no AI call.' },
-  { path: '/bench', target: 'results', title: 'Measured, not claimed', body: 'WorkReqBench: 171 dated questions, frozen before tuning. Grounded Nemotron beats a frontier model answering from memory, and the ranking holds under three graders.' },
+  { path: '/sandbox?income_to_hours=true', target: 'levers', title: 'What if the state chose differently?', body: 'Flip a state policy choice (each cited to the federal rule) and the caseload re-runs. It separates people who are short from people at risk only for paperwork.' },
+  { path: '/check', target: 'selfcheck', title: 'For people without a navigator', body: 'Phone-first, English or Spanish: status, smallest fix and a 12-month forecast. No name, nothing stored, and no AI call for the check itself.' },
+  { path: '/bench', target: 'results', title: 'Measured, not claimed', body: 'WorkReqBench: 171 dated questions, committed before any benchmark run. Grounded Nemotron beats a frontier model answering from memory, and the ranking holds under three graders.' },
 ]
 
 type Ctx = { active: boolean; index: number; start: () => void; stop: () => void; next: () => void; back: () => void }

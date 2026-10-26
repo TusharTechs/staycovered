@@ -265,8 +265,7 @@ def test_agent_replays_recorded_steps_without_a_key():
     assert all(s["cached"] for s in steps)
     assert steps[2]["output"]["headline"].startswith("12 of 12 numbers match")
     import re
-    m = re.search(r"(\d+) of (\d+) match", steps[8]["output"]["details"][-1])  # every number in the client message checked
-    assert m and m.group(1) == m.group(2)
+    assert re.search(r"Numbers checked against the worksheet: all \d+ match", steps[8]["output"]["details"][-1])  # every number checked
     r = agent.receipt(steps)
     assert 0 < r["usd"] < r["ultra_usd"] < r["frontier_usd"]
 

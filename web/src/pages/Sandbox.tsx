@@ -53,7 +53,7 @@ export default function Sandbox() {
     <div className="space-y-6">
       <div>
         <h1 className="font-serif text-3xl tracking-tight">Policy sandbox</h1>
-        <p className="mt-1 max-w-3xl text-muted">What if {STATES[state].name} chose differently? Each switch is a choice the federal rule leaves to states,
+        <p className="mt-1 max-w-3xl text-muted">What if {STATES[state].name} chose differently? Each switch is a state policy choice, cited to the federal rule (one, checking exemptions from existing data first, is required from 2027),
           cited below. The same engine re-runs every client in the caseload. The demo clients are synthetic, so this shows <em>how</em> each choice
           works, not how many real people it affects.</p>
       </div>

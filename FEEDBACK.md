@@ -9,9 +9,9 @@ These notes come from building StayCovered in October 2026. The numbers are from
 | **OpenAI compatibility** | We used the standard `openai` Python SDK with `base_url=https://api.tokenfactory.nebius.com/v1/` and changed nothing else. `models.list()` returned all four Nemotron models. |
 | **Structured output** | `response_format={"type": "json_schema", ...}` worked on Nemotron 3 Nano, 3.5 Lightning and 3 Super, even though the catalog does not tag these models with "JSON mode". In thousands of structured calls we never had to fall back to prompt-only JSON. |
 | **Price and performance** | Nano (extraction): 936 calls, p50 0.5 s, $0.05 in total. Super, with reasoning on (grounded answers): 1,120 calls, p50 5.3 s, $2.97. Ultra (benchmark judge): 2,704 calls, p50 0.8 s, $1.76. A complete 47-question benchmark run across three systems, including judging, cost about $0.50. |
-| **Reliability** | No retries were needed. We saw no 429s or 5xx errors at our volume, with up to 6 parallel workers. |
+| **Reliability** | Every logged call succeeded on its first attempt, with up to 6 parallel workers. (We log successful calls; the SDK may retry silently, so this is "none observed", not a guarantee.) |
 | **Model ladder** | Nano for extraction, Super for grounded reasoning and Ultra for judging gave a natural cost and quality split on one API. |
-| **Tavily Extract** | It fetched `dhhs.ne.gov` pages in about 2 s, while our own direct `curl` requests to the same site timed out repeatedly. One call covered 8 official pages across 5 states. |
+| **Tavily Extract** | It fetched `dhhs.ne.gov` pages reliably while our own direct `curl` requests to the same site kept timing out. One call covers all 8 monitored pages (5 states plus the federal site). |
 
 ## Friction and suggestions
 
@@ -39,7 +39,7 @@ Real client documents are photographed pay stubs. With only text models on serve
 
 ### 5. Model retirement churn
 
-Models were removed from serverless on 2026-06-22 and 2026-08-31 with no automatic rerouting. **Suggestion:** stable aliases (e.g. `nemotron-super-latest`) plus a deprecation header on responses well before removal.
+Some models were retired from serverless during the year (per the Token Factory catalog notes we read), with no automatic rerouting. **Suggestion:** stable aliases (e.g. `nemotron-super-latest`) plus a deprecation header on responses well before removal.
 
 ### 6. Data retention
 
@@ -53,7 +53,7 @@ The Legal Quick Guide is clear: content is not used for training, inputs may be 
 ### 7. Onboarding
 
 - Many hackathon participants reported that their country was missing from the billing list.
-- The $1 trial credit is small for evaluating a 550B model.
+- The trial credit is small for evaluating a 550B model.
 
 ## Nemotron behaviour worth knowing (with our mitigations)
 
@@ -62,7 +62,7 @@ The Legal Quick Guide is clear: content is not used for training, inputs may be 
 | Super sometimes cited our internal fact IDs instead of document IDs. | Resolve fact IDs to their source documents in code; clearer prompt wording. |
 | Super paraphrased "quotes" slightly, so verbatim checks failed. | Fuzzy repair (at least 90% similar) maps each quote back to the exact source text. If nothing verifies, one retry. |
 | With an "as of" date in June, Super described a July event in the past tense. | Explicit tense rule in the system prompt. |
-| Nano mislabelled gig payouts as wages, and skipped hours rows on pay stubs. | Redesign: the model labels *what each number is* and copies it exactly; deterministic code parses and classifies. One worked example in the prompt fixed the missing pay-stub hours. Held-out extraction F1 rose from 0.45 to 0.995. |
+| Nano mislabelled gig payouts as wages, and skipped hours rows on pay stubs. | Redesign: the model labels *what each number is* and copies it exactly; deterministic code parses and classifies. One worked example in the prompt fixed the missing pay-stub hours. Final extraction F1 is 1.0 on our development formats and 0.995 on a second set (whose first run scored 0.918 before a parser fix). |
 | Prompt injection inside documents. | Out of 7 held-out documents with injected instructions, none produced inflated numbers. Document text is treated as data, and extraction has no tools. |
 
 ## Tavily-specific

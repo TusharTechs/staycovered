@@ -113,8 +113,14 @@ class Diff:
 _NORM = re.compile(r"[^a-z0-9$%]+")
 
 
+_IMG = re.compile(r"!\[[^\]]*\]\([^)]*\)")
+_LINK_TARGET = re.compile(r"\]\([^)]*\)")
+
+
 def _key(sentence: str) -> str:
-    """Comparison key: words only (case, punctuation, list markers and spacing ignored)."""
+    """Comparison key: words only. Case, punctuation, list markers, spacing, image markup and link targets (which
+    carry rotating tokens such as Cloudflare email protection) are ignored."""
+    sentence = _LINK_TARGET.sub("]", _IMG.sub(" ", sentence))
     return " ".join(_NORM.sub(" ", sentence.lower()).split())
 
 
@@ -151,7 +157,7 @@ class ChangeSummary(BaseModel):
                                           "banners, menus, links, translation notices, or rewording that keeps the same meaning.")
 
 
-def summarize(d: Diff, title: str) -> ChangeSummary:
+def summarize(d: Diff, title: str, temperature: float = 0.0) -> ChangeSummary:
     body = "REMOVED:\n" + "\n".join(f"- {s}" for s in d.removed[:60]) + "\n\nADDED:\n" + "\n".join(f"- {s}" for s in d.added[:60])
     return llm.structured(
         "drift_summary",
@@ -161,6 +167,7 @@ def summarize(d: Diff, title: str) -> ChangeSummary:
         f"Page: {title}\nOld snapshot: {d.old_as_of}\nNew snapshot: {d.new_as_of}\n\n{body}",
         ChangeSummary,
         tag="drift_summary",
+        temperature=temperature,
     )
 
 
@@ -174,6 +181,17 @@ def stale_facts(old_id: str, new_text: str) -> list[str]:
                 out.append(f.id)
                 break
     return sorted(set(out))
+
+
+RULE_TERMS = re.compile(r"(\$\s?\d|\b\d+\s*(hours?|days?|months?)\b|\b(income|exempt\w*|exclu\w*|deadline|due|must|required?|"
+                        r"requirements?|verif\w*|report\w*|eligib\w*|renewal|effective|penalt\w*|terminat\w*|"
+                        r"january|february|march|april|may|june|july|august|september|october|november|december|20\d\d)\b)", re.I)
+
+
+def rule_bearing(d: Diff) -> bool:
+    """Deterministic guard: a change can only be substantive if the changed lines themselves mention rule content.
+    (A model summary can't overrule the actual text, e.g. invent a removal that isn't in the diff.)"""
+    return any(RULE_TERMS.search(x) for x in d.added + d.removed)
 
 
 def stale_facts_live(url: str, old_text: str, new_text: str) -> list[str]:
@@ -322,6 +340,8 @@ def check_live(summarise: bool = True) -> list[DriftEvent]:
         ev = DriftEvent(p["url"], p["title"], p["jurisdiction"], d.old_id, sid, d.old_as_of, d.new_as_of, added, removed,
                         stale_facts_live(p["url"], old.text, new_text), summ)
         _emit(ev)
+        if summ is not None and not rule_bearing(d):
+            summ["substantive"] = False
         cosmetic = summ is not None and not summ.get("substantive", True) and not ev.stale_facts
         if not cosmetic:
             events.append(ev)
@@ -331,6 +351,9 @@ def check_live(summarise: bool = True) -> list[DriftEvent]:
     for ev in events:
         row = asdict(ev)
         row["added"], row["removed"] = ev.added[:25], ev.removed[:25]
+        subst = bool(ev.summary and ev.summary.get("substantive"))
+        row["classification"] = "rule change" if subst else ("reworded: cited quotes to update" if ev.stale_facts else "cosmetic")
+        row["reviewed"] = "automatic (single judgement; re-run scripts/review_drift.py for a 3-vote review)"
         row["affected_cases"] = affected_cases(ev)
         log.append(row)
     LIVE_EVENTS.write_text(json.dumps(log, indent=1), encoding="utf-8")

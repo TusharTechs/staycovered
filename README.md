@@ -19,7 +19,7 @@ Built for the Nebius × NVIDIA Global AI Hackathon 2026 (Best Apps and Agents). 
 | Self-check for people without a navigator (English/Spanish) | https://staycovered.vercel.app/check |
 | Policy sandbox: flip state choices, watch the caseload change | https://staycovered.vercel.app/sandbox |
 | Rule Time Machine: rules and answers as of any date | https://staycovered.vercel.app/time-machine |
-| **Watch the agent handle a notice** (one click, 30 s) | https://staycovered.vercel.app/cases/maria-lopez?run=1 |
+| **Watch the agent handle a (synthetic) notice** (one click, a recorded run, about 10 s) | https://staycovered.vercel.app/cases/maria-lopez?run=1 |
 | Example case: Dani, $70 from staying covered (paths + nearby programs) | https://staycovered.vercel.app/cases/dani-ortiz |
 | Example case: Tom, same life, changing rules (forecast) | https://staycovered.vercel.app/cases/tom-becker |
 | WorkReqBench results | https://staycovered.vercel.app/bench |
@@ -67,24 +67,24 @@ How to read this:
 
 | Feature | What it means |
 |---|---|
-| **The StayCovered agent (start here)** | One click runs a case end to end as 10 visible steps: read the state's notice (Nemotron Nano) → explain it in the client's language (Nano) → read the client's documents (Nano, checked against the reviewed ledger) → apply the rules as of the date (code) → find the smallest proven fix (code) → forecast 12 months (code) → find nearby programs (Tavily Search + Super) → check the key rule against official text (Super + Nano) → draft a message for the client (Super, every number checked against the worksheet) → assemble the packet, state form and reminders. Each step shows its model, tokens, cost and time, and a receipt compares right-sized Nemotron with all-Ultra and a frontier API model (about 60× cheaper). Try it: [Maria's case](https://staycovered.vercel.app/cases/maria-lopez?run=1). |
+| **The StayCovered agent (start here)** | One click runs a case end to end as 10 visible steps: read the state's notice (Nemotron Nano) → explain it in the client's language (Nano) → read the client's documents (Nano, checked against the reviewed ledger) → apply the rules as of the date (code) → find the smallest proven fix (code) → forecast 12 months (code) → find nearby programs (Tavily Search + Super) → check the key rule against official text (Super + Nano) → draft a message for the client (Super, every number checked against the worksheet) → assemble the packet, state form and reminders. Each step shows its model, tokens, cost and time. The receipt prices the same tokens three ways: a whole case costs $0.003–0.007 on right-sized Nemotron, about 4× less than running every step on Nemotron Ultra and 16–27× less than a frontier model's list price ($4/$20 per million tokens, an assumed price). On the public site the agent replays recorded runs (each step is labelled "recorded run"); run it locally with `?live=1` to watch every call happen live. Try it: [Maria's case](https://staycovered.vercel.app/cases/maria-lopez?run=1). |
 | **Attestation worksheet** | Messy client documents become a month-by-month worksheet against the 80-hour / $580 test. Inputs include gig-app weekly statements, pay stubs and volunteer letters. **Code does all arithmetic.** Every number links to the exact line in the client's document. Household MAGI income, the income-to-hours conversion, seasonal six-month averaging and weeks that cross months are handled explicitly. Gig payouts before expenses produce *"meets if expenses are ≤ $X"* instead of a false "meets". |
 | **Grounded answers, as of a date** | Nemotron Super answers from the rule facts and official passages that existed on the chosen date. Citations are checked verbatim against the captured source, and a second, cheap check (Nemotron Nano) confirms each quote actually supports the answer. Anything unsupported becomes "can't confirm — check with the agency". |
 | **Rule Time Machine** | Move through the real policy timeline and watch the rules, the answers and the caseload change. A frozen model's answer sits side by side for comparison. |
-| **drift-watch** | Tavily Extract/Map monitors an allow-list of official pages. When text changes, Nemotron summarises the diff. Rule facts whose quoted text disappeared are marked stale, and cases that relied on them are flagged for re-check. Only allow-listed public URLs are ever sent to Tavily Extract; the request log proves it. |
+| **drift-watch** | Tavily Extract monitors an allow-list of official pages. When text changes, Nemotron summarises the diff. Rule facts whose quoted text disappeared are marked stale, and cases that relied on them are flagged for re-check. Only allow-listed public URLs are ever sent to Tavily Extract; the request log proves it. |
 | **Paths to stay covered** | For any month that doesn't clearly qualify, the engine searches for the smallest fixes: a few more hours, a little more income, expense receipts, an agency decision, or screening questions. It **re-runs the rules with each change to prove it works**. Past months can only be settled with proof; future months get a plan. For example, *"$70 more income (about 5 more paid hours at $15/hr) or 28 more volunteer hours."* |
-| **Nearby ways to earn hours** | Tavily Search finds local volunteering and job-training programs. Only the city is sent, e.g. "Omaha, Nebraska". Nemotron Super picks real local options, and each must quote its own search result word for word and mention the place, or it's dropped. |
+| **Nearby ways to earn hours** | Tavily Search finds local volunteering and job-training programs. Only the city is sent, e.g. "Omaha, Nebraska". Nemotron Super picks real local options, and each must quote its own search result word for word and mention the city or state, or it's dropped. |
 | **Coverage forecast: same life, changing rules** | Holds the client's latest documented month constant for 12 months and applies each month's published rules. Any change in colour is caused by the rules alone, and each change names its rule fact. The caseload view shows every client's year at once. |
-| **Self-check, for people without a navigator** | A phone-first page in English and Spanish: describe a usual month, get your status, the smallest fix, a 12-month forecast, a proof checklist and calendar reminders. No name, nothing stored, no AI call. The same engine runs it. |
-| **Policy sandbox** | Flip the choices the federal rule leaves to states, each cited: count earnings toward hours, count household income now, qualifying months needed at renewal (1–3), and checking exemptions from existing data first. The same engine re-runs the whole caseload and separates people who **fall short** from people **at risk only for paperwork**. Shareable URLs; illustrative on synthetic clients. |
+| **Self-check, for people without a navigator** | A phone-first page in English and Spanish: describe a usual month, get your status, the smallest fix, a 12-month forecast, a proof checklist and calendar reminders. No name, nothing stored, and the check itself makes no AI call; the optional nearby search sends only the city to Tavily and Nemotron. The same engine runs it. |
+| **Policy sandbox** | Flip state policy choices, each cited to the federal rule (three are state options; checking exemptions from existing data first is required from 2027, and a state can start sooner): count earnings toward hours, count household income now, qualifying months needed at renewal (1–3), and checking exemptions from existing data first. The same engine re-runs the whole caseload and separates people who **fall short** from people **at risk only for paperwork**. Shareable URLs; illustrative on synthetic clients. |
 | **Calendar reminders** | A `.ics` file for the client: response deadline, renewal, monthly "keep proof of last month", and dated rule changes. |
 | **Packet** | A PDF with the worksheet, evidence index, items to confirm with the agency, possible exemptions to raise, and the exact rules used. |
 | **Nebraska's real MLTC-118 form** | The state's actual Individual Declaration Form, pre-filled only where evidence exists. Each field shows its reason. SSN, date of birth and signatures are never filled. |
 | **Snap a photo** | Photos are read by OCR in the browser, so the image never leaves the device. PDFs use their text layer. The navigator reviews the text before Nemotron extracts it. |
-| **Always-on drift-watch** | A daily GitHub Actions job checks 8 official pages with Tavily and summarises changes with Nemotron. Site boilerplate is filtered, a page that suddenly shrinks is re-checked before anyone is alerted, and rule facts whose cited quote disappeared are held for re-verification. **Live since Oct 10, 2026: 5 real rule changes found** (including Nebraska's Oct 23 page rewrite, which removed 14 cited quotes, and Iowa's new reporting portal), **10 cosmetic edits and capture glitches filtered out.** Changed pages never feed answers until a person re-verifies the rule text. |
+| **Always-on drift-watch** | A daily GitHub Actions job checks 8 official pages with Tavily and summarises changes with Nemotron. Site boilerplate is filtered, a page that suddenly shrinks is re-checked before anyone is alerted, and rule facts whose cited quote disappeared are held for re-verification. **Live since Oct 10, 2026 (as of the Oct 25 check): 4 changes needing review** (2 Iowa rule changes, including a new reporting portal from Dec 1; Nebraska's Oct 23 page rewrite, which left 14 rule facts with cited quotes no longer on the page; and an Iowa rewording that broke 4 citations), **11 cosmetic edits and capture glitches filtered out.** A change only counts if the changed lines themselves mention rule content, and borderline verdicts are a majority of three Nemotron judgements. Changed pages never feed answers until a person re-verifies the rule text. |
 | **Guided tour** | A 7-step walkthrough for first-time visitors. |
 | **Two states** | **Nebraska** and **Montana**, switchable in the header. The same household can get different results under each state's published rules. For example, a spouse's income counts toward $580 in Montana but only "may count" in Nebraska in 2026. Montana also needs 3 qualifying months at renewal and converts part-time credit hours to 13 hours each. |
-| **Accessible** | 0 axe-core violations on every page (WCAG 2.2 AA plus best practices). Keyboard operable with visible focus, live regions for answers, honours reduced-motion settings, responsive down to phone width, and a Spanish client view. |
+| **Accessible** | 0 axe-core violations on all 17 views checked on Oct 26, 2026 (WCAG 2.2 AA plus best practices; [report](docs/ACCESSIBILITY.md)). Keyboard operable with visible focus, live regions for answers, honours reduced-motion settings, responsive down to phone width, and a Spanish client view. |
 | **WorkReqBench** | An open benchmark of dated questions with rubrics cited to official text. See [`bench/README.md`](bench/README.md). |
 
 ## Architecture
@@ -100,7 +100,7 @@ flowchart TB
 
     subgraph AI["NVIDIA Nemotron on Nebius Token Factory + Tavily"]
         direction LR
-        TX["drift-watch, daily<br/>Tavily Extract + Map<br/>allow-listed URLs only"]
+        TX["drift-watch, daily<br/>Tavily Extract<br/>allow-listed URLs only"]
         SUM["Nemotron Super<br/>summarises rule changes"]
         EXT["Nemotron Nano<br/>labels each number<br/>+ its exact line"]
         QA["Nemotron Super<br/>grounded answers as of a date<br/>+ Nano entailment check"]
@@ -145,7 +145,7 @@ flowchart TB
 - **The model never does arithmetic or decides eligibility.** Nemotron reads documents and writes explanations; plain Python applies the rules. Every number carries the document line it came from, and every rule carries a verbatim official quote.
 - **Everything is dated.** Facts have `effective_from`/`effective_to` and `known_from` (the first captured source that states them), so the same question can be answered as of any date.
 - **Nothing unverifiable is shown as fact.** Quotes that can't be found in the captured source are repaired to the exact text or dropped, and the answer becomes "can't confirm".
-- **Minimal data leaves.** Nebius receives document text for extraction; Tavily receives only official URLs or a city name. The self-check, forecast, paths and sandbox make no AI calls at all.
+- **Minimal data leaves.** Nebius receives document text for extraction; Tavily receives only official URLs or a city name. The self-check, forecast, paths and sandbox make no AI calls (the self-check's optional nearby search is the one exception, and sends only a city).
 
 ## Models (Nebius Token Factory)
 
@@ -290,18 +290,18 @@ CI runs the first three on **Ubuntu, Windows and macOS**, builds the web app, an
 
 ## Limitations (what isn't done yet)
 
-- **No real users yet.** Every client is synthetic. Navigator and legal-aid outreach has started, but no one has used StayCovered on a real case.
-- **Two states modelled in full.** Nebraska and Montana have full rule packs. Arkansas, Iowa and Georgia pages are monitored but not yet modelled.
+- **No real users yet.** Every client is synthetic. Outreach emails to navigator and legal-aid organisations are drafted; no one has used StayCovered on a real case.
+- **Two states modelled in full.** Nebraska and Montana run through the engine. Arkansas, Iowa and Georgia have rule facts captured (82 of the 362) and daily monitoring, but aren't wired into the engine yet.
 - **Rules need a human after a rewrite.** drift-watch flags changes and stale quotes but never edits rule facts itself. After Nebraska's Oct 23 rewrite, 14 facts await re-verification.
-- **Our own benchmark.** WorkReqBench is self-built. The human check was one non-expert grading 40 criteria blind (67.5% agreement with the AI grader). No expert review yet.
-- **Documents are synthetic.** Extraction scores 0.995 F1 on unseen synthetic formats, but real phone photos and unusual pay stubs are untested. On Rosa's case 2 of 5 numbers need a human look.
+- **Our own benchmark.** WorkReqBench is self-built. The human check was one non-expert grading 40 criteria from the dev run blind: 67.5% agreement with the AI grader (Cohen's κ = 0.09, low), and in every disagreement the AI grader was the stricter one. No expert review yet.
+- **Documents are synthetic.** Extraction scores 0.995 F1 on a second set of synthetic formats (its first run scored 0.918, and we fixed a parser after seeing it, so it isn't strictly unseen); real phone photos and unusual pay stubs are untested. On Rosa's case 2 of 5 numbers need a human look.
 - **Interpretations we chose.** Income converts to hours as the larger of documented paid hours and income ÷ $7.25; weeks crossing months are split by days. Both are flagged 'confirm with the agency'.
 - **Exemptions are screening only.** StayCovered lists possible exemptions to raise; it doesn't decide them, and medical frailty is not assessed.
 - **Not production-ready.** No sign-in or real client data. Real use needs Zero Data Retention on Token Factory and agency-specific review.
 
 ## Honesty notes
 
-- Rule facts and benchmark questions were drafted with AI assistance from captured official sources. Every quote is machine-verified against the source text, and the files were committed before system tuning (tag `bench-v0-federal`).
+- Rule facts and benchmark questions were drafted with AI assistance from captured official sources. Every quote is machine-verified against the source text, and the question files were committed and tagged before any benchmark run (`bench-v0-federal` before the system was built; `bench-v0-nebraska` after the Nebraska pipeline existed but before its first benchmark run).
 - The benchmark is self-built. Its construction, judge and limitations are documented in `bench/README.md`.
 - No real client data has been processed. For real use, enable Zero Data Retention on Nebius Token Factory.
 

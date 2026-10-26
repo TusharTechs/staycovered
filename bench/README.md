@@ -32,16 +32,16 @@ Questions live in `bench/questions/*.yaml`. Each one looks like this:
 
 1. Questions, rubrics and citations are written from captured official sources only. Every rubric citation must pass `scripts/verify_citations.py --bench`.
 2. Questions were drafted with AI assistance (Claude) from the sources, then reviewed. This is disclosed because a Claude model is also one of the systems compared.
-3. The question files are committed and tagged **before** any system is tuned against them (`git tag bench-v0`). The held-out split is used only for final reporting.
-4. Grading uses an LLM judge (Nemotron Ultra). The judge sees the question, the rubric criterion and the answer, but not which system produced the answer. Judge-vs-human agreement is measured on a random sample and reported.
+3. The question files are committed and tagged before any benchmark run (`bench-v0-federal`, before the system was built; `bench-v0-nebraska`, after the Nebraska pipeline existed but before its first run). The held-out split is used only for final reporting.
+4. Grading uses an LLM judge (Nemotron Ultra). The judge sees the question, its as-of date, the reference answer, the rubric criterion and the answer, but not which system produced the answer. Judge-vs-human agreement is measured on a random sample and reported.
 5. Scores are reported with 95% bootstrap confidence intervals.
 
 ## Systems compared
 
 | System | What it is |
 |---|---|
-| `frozen-super` | Nemotron Super, no sources. Told today's date. |
-| `frozen-frontier` | A frontier model, no sources (small capped run). |
+| `frozen-super` | Nemotron Super, no sources. Told the question's as-of date. |
+| `frozen-frontier` | A frontier model (Claude Opus 5.5), no sources, told the question's as-of date. Ran all 86 held-out questions. |
 | `rag-latest` | Nemotron Super with the latest sources but **no as-of filtering**. A date-blind ablation. |
 | `staycovered` | Nemotron Super with sources and rule facts **as of the question date**, plus verbatim citation checks. |
 

@@ -115,11 +115,15 @@ def find(location: str, kind: Literal["volunteer", "work_program"], write_cache:
         r = by_url.get(o.url)
         quote = _exact(o.quote, r.get("title", "") + " " + r.get("content", "")) if r else None
         page = (r.get("title", "") + " " + r.get("content", "") + " " + r.get("url", "")).lower() if r else ""
-        local = city.lower() in page or STATE_NAME.get(st, st).lower() in page  # must be about this place
-        if not r or not quote or not local or o.name.lower() in seen:
+        state = STATE_NAME.get(st, st).lower()
+        local = city.lower() in page or state in o.name.lower()  # in the client's city, or a statewide program named for the state
+        name = re.sub(r"[^a-z0-9 ]", "", o.name.lower()).strip()
+        dup = any(name.startswith(k) or k.startswith(name) for k in seen)  # same organisation under two names
+        social = bool(r) and bool(re.search(r"(facebook|instagram|twitter|x|linkedin|tiktok|youtube|reddit)\.com", r.get("url", "")))
+        if not r or not quote or not local or dup or social:
             dropped += 1
             continue
-        seen.add(o.name.lower())
+        seen.add(name)
         kept.append(o.model_dump() | {"quote": quote, "title": r.get("title", "")})
     out = {"location": location, "kind": kind, "query": query, "rule": ACTIVITY_RULE[kind], "as_of": date.today().isoformat(),
            "options": kept[:4], "dropped_unverified": dropped, "sent_to_search": f"{city}, {STATE_NAME.get(st, st)} (no client details)"}

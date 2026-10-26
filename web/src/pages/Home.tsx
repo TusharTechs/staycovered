@@ -32,7 +32,7 @@ export default function Home() {
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <Link to="/cases/maria-lopez?run=1" className="rounded-xl bg-brand px-5 py-3 text-base font-semibold text-white shadow-sm hover:opacity-90">
-            ▶ Watch the agent handle a real notice (30 s)
+            ▶ Watch the agent handle a notice (about 10 s)
           </Link>
           <button onClick={tour.start} className="rounded-xl border border-line bg-white px-5 py-3 text-base font-medium hover:border-brand">Take the guided tour</button>
           <Link to="/check" className="rounded-xl border border-line bg-white px-5 py-3 text-base font-medium hover:border-brand">Check your own coverage <span lang="es" className="text-muted">· en español</span></Link>
@@ -41,9 +41,9 @@ export default function Home() {
       </section>
 
       <section className="grid gap-4 md:grid-cols-3">
-        <Stat big="Jan 1, 2027" label="Every Medicaid expansion state must start verifying 80 hours of work or activity (or ~$580/month income)." />
-        <Stat big="Paperwork" label="In Nebraska's early rollout, most coverage losses came from people not responding to requests — not from being found non-compliant." />
-        <Stat big="9 changes" label="Substantive changes to Nebraska's official work-requirements page between Dec 2025 and Oct 2026, plus federal rule, correction and CMS guidance." />
+        <Stat big="Jan 1, 2027" label="Every Medicaid expansion state must start verifying 80 hours of work or activity (or ~$580/month income), unless granted a good-faith-effort exemption." />
+        <Stat big="Paperwork" label="In Nebraska's early rollout, most coverage losses were reportedly people not responding to requests, not people found non-compliant." />
+        <Stat big="9 changes" label="Documented changes to Nebraska's official work-requirements page between Dec 2025 and Oct 2026 (most of them substantive), plus the federal rule, its correction and CMS guidance." />
       </section>
 
       {sc && fr && (
@@ -85,7 +85,7 @@ export default function Home() {
           ['Watches the rules', 'Tavily + archives detect official changes every day; affected cases are flagged for re-check.'],
           ['Finds the smallest fix', 'Counterfactual search over the rules engine; every suggested path is proven by re-running it.'],
           ['Forecasts the year', 'Twelve months ahead under rules already published, with calendar reminders for the client.'],
-          ['Tests policy choices', 'A sandbox flips the options federal law leaves to states and re-runs the whole caseload: who is short, and who is at risk only for paperwork.'],
+          ['Tests policy choices', 'A sandbox flips state policy choices, each cited to the federal rule, and re-runs the whole caseload: who is short, and who is at risk only for paperwork.'],
           ['Serves people directly', 'A bilingual, anonymous self-check: status, smallest fix and a 12-month forecast, with nothing saved.'],
         ].map(([t, b]) => (
           <div key={t} className="rounded-xl border border-line bg-white p-4"><div className="font-semibold">{t}</div><div className="mt-1 text-muted">{b}</div></div>

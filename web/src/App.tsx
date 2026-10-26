@@ -50,7 +50,7 @@ export default function App() {
             <Logo /> <span className="text-lg tracking-tight">Stay<span className="text-brand">Covered</span></span>
           </NavLink>
           <div className="hidden lg:flex items-center gap-3 text-xs text-muted">
-            {health && <span>{health.sources} official sources · {health.facts} rule facts</span>}
+            {health && <span>{health.sources} curated official sources · {health.facts} rule facts</span>}
             <span className="inline-flex items-center gap-1 rounded-full bg-paper px-2 py-0.5 border border-line">
               <span className={`h-1.5 w-1.5 rounded-full ${health?.nebius ? 'bg-ok' : 'bg-warn'}`} /> Nemotron · Nebius
             </span>

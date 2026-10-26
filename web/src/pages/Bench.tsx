@@ -22,7 +22,7 @@ export default function Bench() {
     <div className="space-y-5">
       <div>
         <h1 className="font-serif text-3xl tracking-tight">WorkReqBench</h1>
-        <p className="text-muted text-sm mt-1 max-w-3xl">The first open benchmark for Medicaid work requirements. Every question has an "as of" date, and every grading criterion is cited to official text. Questions and rubrics were committed before the system was tuned; final numbers come from a held-out split.</p>
+        <p className="text-muted text-sm mt-1 max-w-3xl">To our knowledge, the first open benchmark for Medicaid work requirements. Every question has an "as of" date, and every grading criterion is cited to official text. Questions and rubrics were committed and tagged before any benchmark run; final numbers come from the held-out split.</p>
       </div>
       {loading && <Spinner />}
       {!loading && !r?.systems && <Empty>No results yet. Run <code>uv run python -m bench.run</code>.</Empty>}
@@ -69,7 +69,7 @@ export default function Bench() {
               <table className="w-full text-sm">
                 <thead><tr className="text-left text-xs text-muted"><th className="py-1 font-medium">Test set</th><th className="font-medium">Docs</th><th className="font-medium">Row F1</th><th className="font-medium">Documents exactly right</th><th className="font-medium">Prompt-injected docs exactly right</th></tr></thead>
                 <tbody>{Object.entries(ex).map(([k, v]) => (
-                  <tr key={k} className="border-t border-line"><td className="py-1.5">{k === 'results' ? 'Development formats' : 'Held-out formats (unseen templates)'}</td><td className="tabular-nums">{v.docs}</td>
+                  <tr key={k} className="border-t border-line"><td className="py-1.5">{k === 'results' ? 'Development formats' : 'Second format set (first run 0.918; parser fixed after)'}</td><td className="tabular-nums">{v.docs}</td>
                     <td className="tabular-nums">{(v.row_f1 * 100).toFixed(1)}%</td><td className="tabular-nums">{(v.doc_exact * 100).toFixed(0)}%</td><td className="tabular-nums">{(v.injected_exact * 100).toFixed(0)}% of {v.injected_docs}</td></tr>
                 ))}</tbody>
               </table>
@@ -107,7 +107,7 @@ export default function Bench() {
                   </tr>
                 ))}</tbody>
               </table>
-              <p className="mt-2 text-xs text-muted">The ranking is the same under all three graders, including one from a different model family (Claude), which if anything would favour the Claude answers.</p>
+              <p className="mt-2 text-xs text-muted">The ranking is the same under all three graders, including one from a different model family (Claude Haiku).</p>
               {r.judge?.human_note && <p className="mt-2 text-xs text-muted"><b>Human check:</b> {r.judge.human_note}</p>}
             </Card>
           )}

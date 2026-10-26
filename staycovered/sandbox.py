@@ -1,6 +1,7 @@
 """Policy sandbox: flip a state option the federal rule allows and watch the caseload change.
 
-Each lever is a choice the federal rule leaves to states (cited), applied over the state's published rules with
+Each lever is a state policy choice cited to the federal rule (three are state options; ex parte exemption checks
+are required from 2027 and can start sooner), applied over the state's published rules with
 the same deterministic engine, worksheet and forecast. Outcomes separate people who fall short from people who
 are at risk only for paperwork, the distinction that drove coverage losses in earlier work-requirement programs.
 Illustrative: the demo caseload is a handful of synthetic clients, not a population estimate.
@@ -27,7 +28,8 @@ LEVERS = [
      "help": "The federal rule lets each state require one or more months, consecutive or not, since the last renewal.",
      "kind": "choice", "options": [1, 2, 3], "fact_id": "US.lookback.renewal"},
     {"key": "ex_parte", "label": "Check exemptions from data the state already has",
-     "help": "Use claims and other records to confirm an exemption before asking the person for paperwork. "
+     "help": "Use claims and other records to confirm an exemption before asking the person for paperwork. The federal "
+             "rule requires this from January 2027; a state can start sooner. "
              "Assumes the state's data shows what the case file shows.",
      "kind": "bool", "fact_id": "US.verification.ex_parte_first"},
 ]

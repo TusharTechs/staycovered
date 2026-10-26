@@ -93,7 +93,7 @@ export function LastChecked() {
       <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ok opacity-60" /><span className="relative inline-flex h-2 w-2 rounded-full bg-ok" /></span>
       drift-watch checked {pages.length} official pages · {when.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} {when.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}
       <span className={changed ? 'text-warn font-medium' : ''}>· {changed ? `${changed} changed` : 'no changes'}</span>
-      {st.track_record?.since && <span>· live since {new Date(st.track_record.since + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}: <b className="text-ink">{st.track_record.real_changes} real rule changes</b> found, {st.track_record.filtered} cosmetic edits and glitches filtered out</span>}
+      {st.track_record?.since && <span>· live since {new Date(st.track_record.since + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}: <b className="text-ink">{st.track_record.real_changes} changes needing review</b>, {st.track_record.filtered} cosmetic edits and capture glitches filtered out</span>}
     </span>
   )
 }

@@ -116,7 +116,7 @@ export default function AgentRun({ caseId, autoStart = false, live = false, onDo
       {finished && (
         <div className="mt-4 rounded-xl bg-paper p-4">
           <div className="text-sm font-semibold">Receipt for this case</div>
-          <p className="mt-0.5 text-xs text-muted">{tot.tokens.toLocaleString()} tokens across Nemotron Nano and Super, each step on the smallest model that does it well; {tot.seconds.toFixed(1)}s of work. The same tokens, priced:</p>
+          <p className="mt-0.5 text-xs text-muted">{tot.tokens.toLocaleString()} tokens across Nemotron Nano and Super, each step routed to the model size chosen for its job; {tot.seconds.toFixed(1)}s of work. The same tokens, priced:</p>
           <div className="mt-3 space-y-2">
             {[
               { label: 'StayCovered: right-sized Nemotron on Nebius Token Factory', v: tot.usd, cls: 'bg-brand' },

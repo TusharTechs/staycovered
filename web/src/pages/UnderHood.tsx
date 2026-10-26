@@ -7,11 +7,11 @@ type TCall = { ts: number; kind: string; payload: { urls?: string[]; url?: strin
 
 
 const LIMITS: [string, string][] = [
-  ['No real users yet', 'Every client is synthetic. Navigator and legal-aid outreach has started, but no one has used StayCovered on a real case.'],
-  ['Two states modelled in full', 'Nebraska and Montana have full rule packs. Arkansas, Iowa and Georgia pages are monitored but not yet modelled.'],
+  ['No real users yet', 'Every client is synthetic. Outreach emails to navigator and legal-aid organisations are drafted; no one has used StayCovered on a real case.'],
+  ['Two states run through the engine', 'Nebraska and Montana run through the engine. Arkansas, Iowa and Georgia have rule facts captured (82 of 362) and daily monitoring, but are not wired into the engine yet.'],
   ['Rules need a human after a rewrite', "drift-watch flags changes and stale quotes but never edits rule facts itself. After Nebraska's Oct 23 rewrite, 14 facts await re-verification."],
-  ['Our own benchmark', 'WorkReqBench is self-built. The human check was one non-expert grading 40 criteria blind (67.5% agreement with the AI grader). No expert review yet.'],
-  ['Documents are synthetic', "Extraction scores 0.995 F1 on unseen synthetic formats, but real phone photos and unusual pay stubs are untested. On Rosa's case 2 of 5 numbers need a human look."],
+  ['Our own benchmark', 'WorkReqBench is self-built. The human check was one non-expert grading 40 dev-run criteria blind: 67.5% agreement with the AI grader (κ = 0.09), the AI always the stricter. No expert review yet.'],
+  ['Documents are synthetic', "Extraction scores 0.995 F1 on a second set of synthetic formats (first run 0.918, then a parser fix), but real phone photos and unusual pay stubs are untested. On Rosa's case 2 of 5 numbers need a human look."],
   ['Interpretations we chose', "Income converts to hours as the larger of documented paid hours and income ÷ $7.25; weeks crossing months are split by days. Both are flagged 'confirm with the agency'."],
   ['Exemptions are screening only', "StayCovered lists possible exemptions to raise; it doesn't decide them, and medical frailty is not assessed."],
   ['Not production-ready', 'No sign-in or real client data. Real use needs Zero Data Retention on Token Factory and agency-specific review.'],
@@ -53,7 +53,7 @@ export default function UnderHood() {
           <p className="mt-3 text-xs text-muted">Extraction and plain-language rewriting use the cheap Nano model; reasoning over rules uses Super; the benchmark judge is Ultra.</p>
         </Card>
         <Card title="Tavily — what left the building">
-          <p className="text-xs text-muted mb-2">Rule monitoring (Extract, Map) sends only allow-listed official URLs. The nearby search sends only a city and the kind of activity. No client names, documents or questions ever leave.</p>
+          <p className="text-xs text-muted mb-2">Rule monitoring (Tavily Extract) sends only allow-listed official URLs. The nearby search sends only a city and the kind of activity. No client names, documents or questions ever leave.</p>
           {tav.length === 0 ? <Empty>No Tavily requests logged yet.</Empty> : (
             <ul tabIndex={0} aria-label="Tavily request log" className="space-y-1 text-xs font-mono max-h-80 overflow-auto">
               {tav.slice().reverse().map((t, i) => (

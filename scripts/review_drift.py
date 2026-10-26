@@ -1,9 +1,13 @@
-"""Re-review every live drift-watch event with the current, stricter logic (reproducible; writes the committed log).
+"""Re-review every live drift-watch event with the current, stricter logic (re-runnable; writes the committed log).
+
+Model votes on borderline edits can differ between runs; the deterministic guards (boilerplate filter, link-target
+normalisation, rule-term check, partial-capture rule) do not.
 
 Per page, in date order, each capture is compared with the last *accepted* capture (not a half-size one):
 - a capture that shrank by more than 40% and recovered later is a transient partial capture (ignored);
 - one that stayed shrunken on later checks is a confirmed rewrite;
-- otherwise the diff (without site boilerplate) is re-summarised with the stricter 'substantive' definition;
+- otherwise the diff (without site boilerplate) is re-summarised with the stricter 'substantive' definition, and the
+  verdict is the majority of three independent Nemotron Super judgements (borderline edits are unstable on one call);
 - rule facts whose cited quote was in the accepted capture and is gone now are listed, even after a rewording.
 The first summary is kept for transparency.
 
@@ -51,10 +55,14 @@ def main() -> None:
                 e["summary"], subst = None, False
             else:
                 d = watch.Diff(url, base_id, e["new_id"], sources.get(base_id).as_of.isoformat(), e["new_as_of"], added, removed)
-                e["summary"] = watch.summarize(d, e["title"]).model_dump()
-                subst = e["summary"]["substantive"]
-            e["classification"] = ("confirmed rewrite" if "review_note" in e else "rule change") if subst else (
-                "reworded: cited quotes to update" if e["stale_facts"] else "cosmetic")
+                runs = [watch.summarize(d, e["title"], temperature=0.7).model_dump() for _ in range(3)]  # majority of 3 independent judgements
+                votes = [r["substantive"] for r in runs]
+                subst = sum(votes) >= 2 and watch.rule_bearing(d)  # the changed lines must mention rule content
+                e["summary"] = next(r for r in runs if r["substantive"] == subst) | {"votes": f"{sum(votes)} of 3 judged substantive", "rule_terms_in_diff": watch.rule_bearing(d)}
+            if "review_note" in e:  # shrank and stayed shrunken: a structural rewrite, whatever the vote on wording
+                e["classification"] = "confirmed rewrite"
+            else:
+                e["classification"] = "rule change" if subst else ("reworded: cited quotes to update" if e["stale_facts"] else "cosmetic")
             e["affected_cases"] = watch.affected_cases(watch.DriftEvent(**{k: e[k] for k in (
                 "url", "title", "jurisdiction", "old_id", "new_id", "old_as_of", "new_as_of", "added", "removed", "stale_facts", "summary")})) \
                 if e["classification"] != "cosmetic" else []

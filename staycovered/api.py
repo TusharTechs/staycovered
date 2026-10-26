@@ -135,7 +135,8 @@ def _ws(rec: store.CaseRecord, on: date) -> dict:
 def health() -> dict:
     from .llm import spent_today
     return {"ok": True, "nebius": bool(config.NEBIUS_API_KEY), "tavily": bool(config.TAVILY_API_KEY),
-            "sources": len(sources.all_sources()), "facts": len(rules.all_facts()),
+            "sources": sum(1 for x in sources.all_sources() if "drift-watch" not in watch._notes(x.id)),
+            "monitoring_captures": sum(1 for x in sources.all_sources() if "drift-watch" in watch._notes(x.id)), "facts": len(rules.all_facts()),
             "budget_left_today": round(max(0.0, config.DAILY_USD_CAP - spent_today()), 3),
             "demo_as_of": config.DEMO_AS_OF.isoformat()}
 

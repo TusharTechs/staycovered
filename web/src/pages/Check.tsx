@@ -11,7 +11,7 @@ const num = (n: number) => n.toLocaleString('en-US', { maximumFractionDigits: 1 
 const T = {
   en: {
     title: 'Will I keep my Medicaid?', lede: 'Medicaid now asks many adults to show 80 hours a month of work, volunteering, school or job training, or about $580 a month in income. Check where you stand in about a minute.',
-    privacy: 'Nothing is saved. No name, no account, no AI: the official rules are applied by plain code.',
+    privacy: 'Nothing is saved. No name, no account. The check uses no AI: plain code applies the official rules. (The optional nearby search sends only your city.)',
     state: 'Where do you live?', usual: 'In a usual month…', job: 'Paid job', hours: 'hours', pay: 'pay before taxes ($)',
     gig: 'Gig apps (DoorDash, Uber, Instacart…)', gigHours: 'hours online', gigPay: 'payouts ($)', volunteer: 'Volunteering', training: 'Job training program',
     school: 'School', schoolHours: 'hours in class', credits: 'or credit hours this term', other: 'Other income, like unemployment ($)',

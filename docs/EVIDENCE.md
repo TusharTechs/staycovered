@@ -29,7 +29,7 @@ Arkansas, 2018: most people who lost coverage were unaware of the requirement or
 | Federal rule published | June 3 | `sources/` |
 | Federal rule corrected | June 29 | `sources/` |
 | CMS medical-frailty guidance | Sept 8 | `sources/` |
-| Nebraska: 9 substantive changes to its official page, Dec 2025 to Oct 2026 | various | `sources/changes_NE.md` |
+| Nebraska: 9 documented changes to its official page, Dec 2025 to Oct 2026 (at least 6 substantive), plus a live-detected rewrite on Oct 23 | various | `sources/changes_NE.md` |
 | Nebraska FAQ on whose income counts: changed between versions | 2026 | `sources/changes_NE.md` |
 
 States are implementing amid delayed federal guidance and cost constraints ([KFF survey](https://www.kff.org/medicaid/survey-offers-early-look-at-states-differing-approaches-to-implementing-medicaid-work-requirements-amid-cost-and-time-constraints-and-uncertainty-from-delayed-federal-guidance/); [Georgetown CCF](https://ccf.georgetown.edu/2026/02/11/implementing-costly-medicaid-work-reporting-requirements-who-will-foot-the-bill/)).
@@ -41,4 +41,4 @@ States are implementing amid delayed federal guidance and cost constraints ([KFF
 
 ## Why a general chatbot is not enough
 
-WorkReqBench (`bench/`) measures this directly. A frontier model answering from memory is wrong about rules that changed after its training date. A common example: it claims that a spouse's income does not count toward the $580 test. Under the federal rule it is MAGI household income, and Nebraska's FAQ says others' income "may count in some cases".
+WorkReqBench (`bench/`) measures this directly. A frontier model answering from memory is wrong about rules that changed after its training date. A common example: asked whether a spouse's income counts toward the $580 test, it answers about a different program (medically needy spend-down) under the wrong rules. Under the federal rule it is MAGI household income, and Nebraska's FAQ says others' income "may count in some cases".

@@ -182,6 +182,7 @@ def structured(
     max_repairs: int = 2,
     max_tokens: int = 4096,
     reasoning: bool = False,
+    temperature: float = 0.0,
 ) -> T:
     """Ask for JSON matching a pydantic schema. Uses json_schema response_format, then validates and repairs."""
     js = schema.model_json_schema()
@@ -193,11 +194,11 @@ def structured(
     last_err = ""
     for i in range(max_repairs + 1):
         try:
-            raw = chat(job, messages, model=model, response_format=rf, reasoning=reasoning, tag=tag, max_tokens=max_tokens)
+            raw = chat(job, messages, model=model, response_format=rf, reasoning=reasoning, tag=tag, max_tokens=max_tokens, temperature=temperature)
         except LLMError as e:
             if "response_format" in str(e) or "json_schema" in str(e):
                 rf = None  # server rejected structured output; fall back to prompt-only JSON
-                raw = chat(job, messages, model=model, reasoning=reasoning, tag=tag, max_tokens=max_tokens)
+                raw = chat(job, messages, model=model, reasoning=reasoning, tag=tag, max_tokens=max_tokens, temperature=temperature)
             else:
                 raise
         try:

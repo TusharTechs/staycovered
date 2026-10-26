@@ -162,7 +162,8 @@ def _s_nearby(rec, on):
     fresh = LIVE.get()
     reused = not fresh and nearby.cached(rec.case.location, "work_program") is not None
     r = nearby.find(rec.case.location, "work_program", fresh=fresh)
-    return {"headline": f"{len(r['options'])} job-training programs near {rec.case.location}", "details": [o["name"] for o in r["options"][:3]]
+    k = len(r["options"])
+    return {"headline": f"{k} job-training program{'s' if k != 1 else ''} near {rec.case.location}" if k else f"No verifiable job-training programs found near {rec.case.location}", "details": [o["name"] for o in r["options"][:3]]
             + [f"Sent to search: {r['sent_to_search']}"], "reused": f"Search results reused from {r['as_of']} for this city" if reused else None}
 
 
@@ -210,13 +211,28 @@ def _s_draft_message(rec, on):
              "respond_by": f"{ws.cure_deadline:%B} {ws.cure_deadline.day}, {ws.cure_deadline.year}" if ws.cure_deadline else None,
              "smallest_fix": paths[0].title if paths else None,
              "documents_to_send": [p.detail for p in paths[:1]], "agency_phone": "1-855-632-7633" if rec.case.jurisdiction == "NE" else "1-888-706-1535"}
-    m = llm.structured("answer", MSG_SYS.format(lang=lang), json.dumps(facts), ClientMessage, tag="agent_message", max_tokens=1500)
-    clean = lambda xs: [x.rstrip(",").lstrip("$") for x in xs]  # noqa: E731
+    clean = lambda xs: [x.rstrip(",.").lstrip("$") for x in xs]  # noqa: E731
     allowed = set(clean(_NUM.findall(json.dumps(facts))))
-    used = clean(_NUM.findall(m.sms + " " + " ".join(m.next_steps)))
-    bad = [u for u in used if u not in allowed]
-    return {"headline": m.sms, "details": m.next_steps + [f"Numbers checked against the worksheet: {len(used) - len(bad)} of {len(used)} match"
-                                                          + (f" ({', '.join(bad)} need review)" if bad else "")], "language": lang}
+    unverified = lambda text: [u for u in clean(_NUM.findall(text)) if u not in allowed]  # noqa: E731
+    m = llm.structured("answer", MSG_SYS.format(lang=lang), json.dumps(facts), ClientMessage, tag="agent_message", max_tokens=1500)
+    retried = False
+    if unverified(m.sms + " " + " ".join(m.next_steps)):
+        retried = True  # one retry, telling the model which numbers were not in the facts
+        bad = sorted(set(unverified(m.sms + " " + " ".join(m.next_steps))))
+        m = llm.structured("answer", MSG_SYS.format(lang=lang) + f"\nDo NOT use these numbers, they are not in the facts: {', '.join(bad)}.",
+                           json.dumps(facts), ClientMessage, tag="agent_message_retry", max_tokens=1500)
+    # anything still unverified is removed, sentence by sentence: no unchecked number reaches the client
+    sentences = re.split(r"(?<=[.!?])\s+", m.sms)
+    kept = [x for x in sentences if not unverified(x)]
+    steps = [x for x in m.next_steps if not unverified(x)]
+    removed = (len(sentences) - len(kept)) + (len(m.next_steps) - len(steps))
+    used = clean(_NUM.findall(" ".join(kept) + " " + " ".join(steps)))
+    note = f"Numbers checked against the worksheet: all {len(used)} match"
+    if retried:
+        note += "; the first draft used a number not in the case facts, so it was redrafted"
+    if removed:
+        note += f"; {removed} sentence{'s' if removed > 1 else ''} with an unverified number removed"
+    return {"headline": " ".join(kept), "details": steps + [note], "language": lang}
 
 
 def _s_package(rec, on):
