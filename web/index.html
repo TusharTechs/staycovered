@@ -14,6 +14,18 @@
     <meta property="og:url" content="https://staycovered.vercel.app" />
     <meta property="og:image" content="https://staycovered.vercel.app/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      // A page cached from before a deploy can point at a bundle that no longer exists: fetch a fresh copy once instead of showing a blank page.
+      addEventListener('error', function (e) {
+        var t = e.target
+        if (!t || t.tagName !== 'SCRIPT' || !/\/assets\//.test(t.src || '')) return
+        try { if (sessionStorage.getItem('sc-fresh')) return; sessionStorage.setItem('sc-fresh', '1') } catch (_) { return }
+        location.replace(location.pathname + location.search + (location.search ? '&' : '?') + '_fresh=' + Date.now() + location.hash)
+      }, true)
+      if (/[?&]_fresh=/.test(location.search)) {  // at most one fresh fetch per tab, so a real outage can't loop
+        history.replaceState(null, '', location.pathname + location.search.replace(/[?&]_fresh=\d+/, '').replace(/^&/, '?') + location.hash)
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
