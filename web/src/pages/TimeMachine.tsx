@@ -191,7 +191,14 @@ export default function TimeMachine() {
   )
 }
 
-function RuleChanges({ events, asOf }: { events: DriftEvent[]; asOf: string }) {
+const NOISE = new Set(['cosmetic', 'transient partial capture'])
+const BADGE: Record<string, string> = {
+  'rule change': 'bg-warn-soft text-warn', 'confirmed rewrite': 'bg-bad-soft text-bad', 'reworded: cited quotes to update': 'bg-brand-soft text-brand',
+}
+
+function RuleChanges({ events: all, asOf }: { events: DriftEvent[]; asOf: string }) {
+  const events = all.filter(e => !NOISE.has(e.classification ?? ''))
+  const filtered = all.length - events.length
   if (events.length === 0) return null
   const latest = [...events].reverse()
   return (
@@ -202,7 +209,11 @@ function RuleChanges({ events, asOf }: { events: DriftEvent[]; asOf: string }) {
             <div className="flex flex-wrap items-baseline gap-2">
               <span className="text-xs tabular-nums text-muted">{e.old_as_of} → {e.new_as_of}</span>
               <span className="text-sm font-medium">{e.summary?.headline ?? `${e.title} changed`}</span>
+              {e.live && <span className="rounded-full bg-paper border border-line px-2 py-0.5 text-[10px] uppercase tracking-wide text-muted">live · Tavily</span>}
+              {e.classification && BADGE[e.classification] && <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${BADGE[e.classification]}`}>{e.classification}</span>}
             </div>
+            {e.review_note && <p className="mt-1 text-xs text-muted">{e.review_note}</p>}
+            {e.stale_facts.length > 0 && <p className="mt-1 text-xs"><b>{e.stale_facts.length} rule fact{e.stale_facts.length > 1 ? 's' : ''}</b> cite text that is no longer on this page: held for re-verification before answers change.</p>}
             {e.summary?.details?.length ? <ul className="mt-1 list-disc pl-5 text-xs space-y-0.5">{e.summary.details.slice(0, 4).map((d, i) => <li key={i}>{d}</li>)}</ul> : null}
             {e.summary?.navigator_action && <p className="mt-1 text-xs"><b>Navigator action:</b> {e.summary.navigator_action}</p>}
             {e.affected_cases.length > 0 && (
@@ -217,6 +228,7 @@ function RuleChanges({ events, asOf }: { events: DriftEvent[]; asOf: string }) {
           </li>
         ))}
       </ol>
+      {filtered > 0 && <p className="mt-3 text-[11px] text-muted">{filtered} other detected edit{filtered > 1 ? 's were' : ' was'} reviewed and filtered out as cosmetic (cookie banners, email-protection tokens, reformatting) or as a capture glitch.</p>}
     </Card>
   )
 }

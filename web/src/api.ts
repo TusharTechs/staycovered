@@ -76,7 +76,7 @@ export const api = {
   explain: (id: string, lang: 'en' | 'es') => fetch(`/api/cases/${id}/explain` + q({ lang }), { method: 'POST' }).then(j<{ summary: string; what_to_do: string[]; deadline_sentence: string; keep_in_mind: string[]; spans: string[] }>),
   extraction: () => fetch('/api/extraction/results').then(j<Record<string, { model: string; docs: number; row_precision: number; row_recall: number; row_f1: number; doc_exact: number; injected_docs: number; injected_exact: number; usd: number }>>),
   mltc118: (id: string) => fetch(`/api/cases/${id}/mltc118`).then(j<{ form: string; fields: { field: string; label: string; value: string; reason: string }[] }>),
-  driftStatus: () => fetch('/api/drift/status').then(j<{ last_checked?: string; pages?: { url: string; title: string; jurisdiction: string; status: string }[]; changes_today?: number; total_live_changes?: number }>),
+  driftStatus: () => fetch('/api/drift/status').then(j<{ last_checked?: string; pages?: { url: string; title: string; jurisdiction: string; status: string }[]; changes_today?: number; total_live_changes?: number; track_record?: { since: string | null; pages: number; real_changes: number; filtered: number; by_class: Record<string, number>; stale_facts: number } }>),
   calls: () => fetch('/api/log/calls').then(j<Record<string, unknown>[]>),
   tavily: () => fetch('/api/log/tavily').then(j<Record<string, unknown>[]>),
   bench: () => fetch('/api/bench/results').then(j<Record<string, unknown>>),
@@ -142,6 +142,7 @@ export interface DriftEvent {
   old_as_of: string | null; new_as_of: string; added: string[]; removed: string[]; stale_facts: string[]
   summary: { headline: string; details: string[]; who_is_affected: string; navigator_action: string; substantive: boolean } | null
   affected_cases: { case_id: string; client_name: string; reasons: string[] }[]
+  live?: boolean; classification?: string; review_note?: string
 }
 
 export type Outcome = 'covered' | 'protected' | 'depends' | 'short' | 'paperwork'

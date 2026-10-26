@@ -30,7 +30,7 @@ jobs:
         run: |
           git config user.name "Tushar Agarwal"
           git config user.email "tusharaggarwal274@gmail.com"
-          git add data/cache/drift_status.json data/cache/live_events.json sources/manifest.json sources/text sources/raw
+          git add data/cache/drift_status.json data/cache/live_events.json sources/manifest.json sources/text sources/raw $(ls data/cache/drift_pending.json 2>/dev/null)
           if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
           git commit -m "Daily official-rules check"
           git push
