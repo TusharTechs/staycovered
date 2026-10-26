@@ -5,6 +5,18 @@ import { Card, Empty } from '../components/ui'
 type Call = { ts: number; job: string; tag: string; model: string; prompt_tokens: number; completion_tokens: number; usd: number; latency_s: number }
 type TCall = { ts: number; kind: string; payload: { urls?: string[]; url?: string; query?: string }; results: number; ok: boolean }
 
+
+const LIMITS: [string, string][] = [
+  ['No real users yet', 'Every client is synthetic. Navigator and legal-aid outreach has started, but no one has used StayCovered on a real case.'],
+  ['Two states modelled in full', 'Nebraska and Montana have full rule packs. Arkansas, Iowa and Georgia pages are monitored but not yet modelled.'],
+  ['Rules need a human after a rewrite', "drift-watch flags changes and stale quotes but never edits rule facts itself. After Nebraska's Oct 23 rewrite, 14 facts await re-verification."],
+  ['Our own benchmark', 'WorkReqBench is self-built. The human check was one non-expert grading 40 criteria blind (67.5% agreement with the AI grader). No expert review yet.'],
+  ['Documents are synthetic', "Extraction scores 0.995 F1 on unseen synthetic formats, but real phone photos and unusual pay stubs are untested. On Rosa's case 2 of 5 numbers need a human look."],
+  ['Interpretations we chose', "Income converts to hours as the larger of documented paid hours and income ÷ $7.25; weeks crossing months are split by days. Both are flagged 'confirm with the agency'."],
+  ['Exemptions are screening only', "StayCovered lists possible exemptions to raise; it doesn't decide them, and medical frailty is not assessed."],
+  ['Not production-ready', 'No sign-in or real client data. Real use needs Zero Data Retention on Token Factory and agency-specific review.'],
+]
+
 export default function UnderHood() {
   const [calls, setCalls] = useState<Call[]>([])
   const [tav, setTav] = useState<TCall[]>([])
@@ -65,6 +77,11 @@ export default function UnderHood() {
           <p className="mt-2 text-[11px] text-muted">Snapshot generated {sum.generated}. Live calls on this server appear in the cards above.</p>
         </Card>
       ) : null}
+      <Card title="Limitations: what isn't done yet" actions={<span className="text-xs text-muted">documented on purpose</span>}>
+        <ul className="grid gap-3 sm:grid-cols-2">
+          {LIMITS.map(([t, d]) => <li key={t} className="text-sm"><div className="font-medium">{t}</div><div className="text-xs text-muted">{d}</div></li>)}
+        </ul>
+      </Card>
       <Card title="Recent calls">
         <ul tabIndex={0} aria-label="Recent model calls" className="text-xs font-mono space-y-0.5 max-h-96 overflow-auto">
           {calls.slice().reverse().slice(0, 100).map((c, i) => (

@@ -19,6 +19,7 @@ Built for the Nebius × NVIDIA Global AI Hackathon 2026 (Best Apps and Agents). 
 | Self-check for people without a navigator (English/Spanish) | https://staycovered.vercel.app/check |
 | Policy sandbox: flip state choices, watch the caseload change | https://staycovered.vercel.app/sandbox |
 | Rule Time Machine: rules and answers as of any date | https://staycovered.vercel.app/time-machine |
+| **Watch the agent handle a notice** (one click, 30 s) | https://staycovered.vercel.app/cases/maria-lopez?run=1 |
 | Example case: Dani, $70 from staying covered (paths + nearby programs) | https://staycovered.vercel.app/cases/dani-ortiz |
 | Example case: Tom, same life, changing rules (forecast) | https://staycovered.vercel.app/cases/tom-becker |
 | WorkReqBench results | https://staycovered.vercel.app/bench |
@@ -66,6 +67,7 @@ How to read this:
 
 | Feature | What it means |
 |---|---|
+| **The StayCovered agent (start here)** | One click runs a case end to end as 10 visible steps: read the state's notice (Nemotron Nano) → explain it in the client's language (Nano) → read the client's documents (Nano, checked against the reviewed ledger) → apply the rules as of the date (code) → find the smallest proven fix (code) → forecast 12 months (code) → find nearby programs (Tavily Search + Super) → check the key rule against official text (Super + Nano) → draft a message for the client (Super, every number checked against the worksheet) → assemble the packet, state form and reminders. Each step shows its model, tokens, cost and time, and a receipt compares right-sized Nemotron with all-Ultra and a frontier API model (about 60× cheaper). Try it: [Maria's case](https://staycovered.vercel.app/cases/maria-lopez?run=1). |
 | **Attestation worksheet** | Messy client documents become a month-by-month worksheet against the 80-hour / $580 test. Inputs include gig-app weekly statements, pay stubs and volunteer letters. **Code does all arithmetic.** Every number links to the exact line in the client's document. Household MAGI income, the income-to-hours conversion, seasonal six-month averaging and weeks that cross months are handled explicitly. Gig payouts before expenses produce *"meets if expenses are ≤ $X"* instead of a false "meets". |
 | **Grounded answers, as of a date** | Nemotron Super answers from the rule facts and official passages that existed on the chosen date. Citations are checked verbatim against the captured source, and a second, cheap check (Nemotron Nano) confirms each quote actually supports the answer. Anything unsupported becomes "can't confirm — check with the agency". |
 | **Rule Time Machine** | Move through the real policy timeline and watch the rules, the answers and the caseload change. A frozen model's answer sits side by side for comparison. |
@@ -79,8 +81,8 @@ How to read this:
 | **Packet** | A PDF with the worksheet, evidence index, items to confirm with the agency, possible exemptions to raise, and the exact rules used. |
 | **Nebraska's real MLTC-118 form** | The state's actual Individual Declaration Form, pre-filled only where evidence exists. Each field shows its reason. SSN, date of birth and signatures are never filled. |
 | **Snap a photo** | Photos are read by OCR in the browser, so the image never leaves the device. PDFs use their text layer. The navigator reviews the text before Nemotron extracts it. |
-| **Always-on drift-watch** | A daily GitHub Actions job checks the official pages with Tavily and summarises real changes with Nemotron. It commits the status, and the site redeploys showing "last checked". |
-| **Guided tour** | A 13-step walkthrough for first-time visitors. |
+| **Always-on drift-watch** | A daily GitHub Actions job checks 8 official pages with Tavily and summarises changes with Nemotron. Site boilerplate is filtered, a page that suddenly shrinks is re-checked before anyone is alerted, and rule facts whose cited quote disappeared are held for re-verification. **Live since Oct 10, 2026: 5 real rule changes found** (including Nebraska's Oct 23 page rewrite, which removed 14 cited quotes, and Iowa's new reporting portal), **10 cosmetic edits and capture glitches filtered out.** Changed pages never feed answers until a person re-verifies the rule text. |
+| **Guided tour** | A 7-step walkthrough for first-time visitors. |
 | **Two states** | **Nebraska** and **Montana**, switchable in the header. The same household can get different results under each state's published rules. For example, a spouse's income counts toward $580 in Montana but only "may count" in Nebraska in 2026. Montana also needs 3 qualifying months at renewal and converts part-time credit hours to 13 hours each. |
 | **Accessible** | 0 axe-core violations on every page (WCAG 2.2 AA plus best practices). Keyboard operable with visible focus, live regions for answers, honours reduced-motion settings, responsive down to phone width, and a Spanish client view. |
 | **WorkReqBench** | An open benchmark of dated questions with rubrics cited to official text. See [`bench/README.md`](bench/README.md). |
@@ -160,6 +162,7 @@ Every call is logged with its tokens, cost and latency (*Under the hood* page).
 ```
 staycovered/
 ├── staycovered/                 Python backend (FastAPI)
+│   ├── agent.py                 the end-to-end agent: 10 steps, per-step model, tokens, cost
 │   ├── api.py                   HTTP API; also serves the built web app
 │   ├── config.py                models, routes, paths, spend caps
 │   ├── llm.py                   Nebius Token Factory client: retries, JSON schema, call log, daily budget
@@ -185,7 +188,7 @@ staycovered/
 ├── bench/                       WorkReqBench: questions, runner, judge, results, extraction benchmark
 ├── demo/seed.py                 synthetic demo caseload with gold extraction labels
 ├── data/                        demo cases, pre-computed caches, the official MLTC-118 PDF
-├── scripts/                     citation verifier, no-key smoke test, cache pre-warming, usage summary
+├── scripts/                     citation verifier, no-key smoke test, drift review, cache pre-warming, usage summary
 ├── tests/                       engine, paths, forecast, self-check and sandbox tests
 ├── docs/                        evidence, logo, social card
 ├── .github/workflows/           ci.yml (tests on 3 OSes, citations, web build, Docker) and drift-watch.yml (daily)
@@ -284,6 +287,17 @@ CI runs the first three on **Ubuntu, Windows and macOS**, builds the web app, an
 | PowerShell blocks the uv installer | The command above already uses `-ExecutionPolicy ByPass` for that one script. |
 | Demo cases look changed after experimenting | `git checkout data/cases` restores them. (`uv run python -m demo.seed` rebuilds them from scratch but drops cached explanations.) |
 | A new question says "can't confirm" or 503 | No `NEBIUS_API_KEY`, or the daily spend cap was reached; cached questions still work. |
+
+## Limitations (what isn't done yet)
+
+- **No real users yet.** Every client is synthetic. Navigator and legal-aid outreach has started, but no one has used StayCovered on a real case.
+- **Two states modelled in full.** Nebraska and Montana have full rule packs. Arkansas, Iowa and Georgia pages are monitored but not yet modelled.
+- **Rules need a human after a rewrite.** drift-watch flags changes and stale quotes but never edits rule facts itself. After Nebraska's Oct 23 rewrite, 14 facts await re-verification.
+- **Our own benchmark.** WorkReqBench is self-built. The human check was one non-expert grading 40 criteria blind (67.5% agreement with the AI grader). No expert review yet.
+- **Documents are synthetic.** Extraction scores 0.995 F1 on unseen synthetic formats, but real phone photos and unusual pay stubs are untested. On Rosa's case 2 of 5 numbers need a human look.
+- **Interpretations we chose.** Income converts to hours as the larger of documented paid hours and income ÷ $7.25; weeks crossing months are split by days. Both are flagged 'confirm with the agency'.
+- **Exemptions are screening only.** StayCovered lists possible exemptions to raise; it doesn't decide them, and medical frailty is not assessed.
+- **Not production-ready.** No sign-in or real client data. Real use needs Zero Data Retention on Token Factory and agency-specific review.
 
 ## Honesty notes
 
