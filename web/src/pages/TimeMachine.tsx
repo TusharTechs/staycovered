@@ -141,7 +141,7 @@ export default function TimeMachine() {
         </div>
       </Card>
 
-      <RuleChanges events={events.filter(e => e.new_as_of <= asOf && (e.summary?.substantive ?? true))} asOf={asOf} />
+      <RuleChanges events={events.filter(e => e.new_as_of <= asOf && (e.classification ? !NOISE.has(e.classification) : (e.summary?.substantive ?? true)))} asOf={asOf} />
 
       <div className="grid gap-5 lg:grid-cols-5">
         <Card className="lg:col-span-3" title={`What the official rules said on ${fmtDate(asOf)}`} actions={facts && <span className="text-xs text-muted">{facts.length} facts in force or announced</span>}>
