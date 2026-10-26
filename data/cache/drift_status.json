@@ -1,12 +1,11 @@
 {
- "last_checked": "2026-10-25T17:04+00:00",
+ "last_checked": "2026-10-26T19:20+00:00",
  "pages": [
   {
    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
    "title": "Nebraska DHHS \u2014 Medicaid Work Requirements",
    "jurisdiction": "NE",
-   "status": "unchanged",
-   "since": "2026-10-23"
+   "status": "unreachable"
   },
   {
    "url": "https://dhhs.ne.gov/Documents/MLTC-WR-Requirements-FAQ.pdf",
@@ -40,9 +39,8 @@
    "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
    "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
    "jurisdiction": "IA",
-   "status": "changed",
-   "snapshot": "ia-8baf74ba-2026-10-25",
-   "headline": "Updated language around reporting methods, added new Community Engagement Portal details, and revised income averaging wording."
+   "status": "unchanged",
+   "since": "2026-10-25"
   },
   {
    "url": "https://pathways.georgia.gov/about-pathways/faqs",
@@ -59,7 +57,7 @@
    "since": "2026-10-18"
   }
  ],
- "changes_today": 1,
+ "changes_today": 0,
  "total_live_changes": 15,
  "method": "Tavily Extract (advanced)"
 }
