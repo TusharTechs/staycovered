@@ -31,13 +31,13 @@ export default function Home() {
           People without a navigator can check themselves, in English or Spanish, with nothing saved.
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
-          <button onClick={tour.start} className="rounded-xl bg-brand px-5 py-3 text-base font-semibold text-white shadow-sm hover:opacity-90">
-            ▶ Take the guided tour
-          </button>
-          <Link to="/caseload" className="rounded-xl border border-line bg-white px-5 py-3 text-base font-medium hover:border-brand">Open the caseload</Link>
-          <Link to="/time-machine" className="rounded-xl border border-line bg-white px-5 py-3 text-base font-medium hover:border-brand">Rule Time Machine</Link>
+          <Link to="/cases/maria-lopez?run=1" className="rounded-xl bg-brand px-5 py-3 text-base font-semibold text-white shadow-sm hover:opacity-90">
+            ▶ Watch the agent handle a real notice (30 s)
+          </Link>
+          <button onClick={tour.start} className="rounded-xl border border-line bg-white px-5 py-3 text-base font-medium hover:border-brand">Take the guided tour</button>
           <Link to="/check" className="rounded-xl border border-line bg-white px-5 py-3 text-base font-medium hover:border-brand">Check your own coverage <span lang="es" className="text-muted">· en español</span></Link>
         </div>
+        <p className="mt-3 text-sm text-muted">One click: Nemotron reads Maria's notice and gig statements, code applies the rules, the agent finds the smallest proven fix, checks the rule against official text, and drafts her a message in Spanish. Every step shows its model, tokens and cost.</p>
       </section>
 
       <section className="grid gap-4 md:grid-cols-3">

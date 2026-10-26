@@ -80,6 +80,8 @@ export const api = {
   calls: () => fetch('/api/log/calls').then(j<Record<string, unknown>[]>),
   tavily: () => fetch('/api/log/tavily').then(j<Record<string, unknown>[]>),
   bench: () => fetch('/api/bench/results').then(j<Record<string, unknown>>),
+  agentPlan: () => fetch('/api/agent/plan').then(j<AgentStep[]>),
+  agentStep: (id: string, n: number) => fetch(`/api/cases/${id}/agent/step/${n}`, { method: 'POST' }).then(j<AgentStep>),
   session: () => fetch('/api/session').then(j<{ isolated: boolean; changed_cases: string[] }>),
   resetSession: () => fetch('/api/session/reset', { method: 'POST' }).then(j<{ reset_cases: number }>),
   plan: (id: string, as_of?: string) => fetch(`/api/cases/${id}/plan` + q({ as_of })).then(j<Plan>),
@@ -151,4 +153,10 @@ export interface Sandbox {
   baseline: { clients: SandboxClient[]; totals: SandboxTotals }
   scenario: { clients: SandboxClient[]; totals: SandboxTotals }
   flips: { id: string; client_name: string; before: Outcome; after: Outcome; why: string; months_delta: number }[]
+}
+
+export interface AgentStep {
+  n: number; id: string; title: string; actors: string[]; cached?: boolean; ran_at?: string
+  output?: { headline?: string; details?: string[]; skipped?: string; reused?: string | null; links?: { label: string; href: string }[]; months?: { month: string; status: string }[] }
+  metrics?: { models: string[]; llm_calls: number; tavily_calls: number; prompt_tokens: number; completion_tokens: number; usd: number; seconds: number; ultra_usd: number; frontier_usd: number }
 }

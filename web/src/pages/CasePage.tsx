@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { api, fmtDate, type CaseRecord, type MonthResult, type Plan, type Worksheet } from '../api'
 import { Card, Spinner, StatusPill } from '../components/ui'
 import AskBox from '../components/AskBox'
 import { imageToText, pdfToText } from '../ocr'
 import { useJuris, type Juris } from '../components/State'
 import { ForecastCard, PathsCard } from '../components/Plan'
+import AgentRun from '../components/AgentRun'
 
 const PATH: Record<string, string> = {
   hours: '80+ activity hours', income: 'income ≥ threshold',
@@ -14,6 +15,8 @@ const PATH: Record<string, string> = {
 
 export default function CasePage() {
   const { id } = useParams()
+  const [params] = useSearchParams()
+  const autoRun = params.get('run') === '1'
   const [data, setData] = useState<{ record: CaseRecord; worksheet: Worksheet } | null>(null)
   const [err, setErr] = useState('')
   const [open, setOpen] = useState<string | null>(null)
@@ -61,6 +64,9 @@ export default function CasePage() {
           <a href={`/api/cases/${rec.case.id}/packet.pdf`} className="rounded-lg bg-brand px-4 py-2.5 text-sm font-medium text-white hover:opacity-90">Download packet (PDF)</a>
         </div>
       </div>
+
+      <WhatToDo rec={rec} ws={ws} plan={plan} />
+      <div data-tour="agent"><AgentRun key={rec.case.id} caseId={rec.case.id} autoStart={autoRun} /></div>
 
       {rec.flags.length > 0 && (
         <div role="alert" className="rounded-xl border border-warn/40 bg-warn-soft p-3 text-sm text-warn">
@@ -310,5 +316,29 @@ function FormCard({ caseId }: { caseId: string }) {
       )}
       <a href={`/api/cases/${caseId}/mltc118.pdf`} className="mt-3 inline-block rounded-lg border border-brand px-3 py-1.5 text-sm text-brand hover:bg-brand-soft">Download pre-filled MLTC-118 (PDF)</a>
     </Card>
+  )
+}
+
+function WhatToDo({ rec, ws, plan }: { rec: CaseRecord; ws: Worksheet; plan: Plan | null }) {
+  const first = rec.client_name.split(' ')[0]
+  const days = ws.cure_deadline ? Math.round((new Date(ws.cure_deadline + 'T00:00:00').getTime() - new Date(ws.as_of + 'T00:00:00').getTime()) / 86400000) : null
+  const fix = plan?.paths.flatMap(g => g.paths).find(p => p.proven && p.kind !== 'ask_exemption')
+  const ask = plan?.paths.flatMap(g => g.paths).find(p => p.kind === 'ask_exemption')
+  const items: { k: string; v: string; tone?: string }[] = []
+  if (ws.cure_deadline) items.push({ k: 'Deadline', v: `Respond by ${fmtDate(ws.cure_deadline)}${days !== null ? ` (${days} days)` : ''}`, tone: days !== null && days <= 10 ? 'text-bad' : '' })
+  if (ws.overall === 'meets') items.push({ k: 'Status', v: `${first} meets the requirement. Send the proof already on file.` })
+  else if (fix) items.push({ k: 'Smallest fix', v: fix.title })
+  if (fix?.detail && ws.overall !== 'meets') items.push({ k: 'What to send', v: fix.detail })
+  if (ws.exemptions.length) items.push({ k: 'Exemption to raise', v: `${ws.exemptions[0].label}: tell the agency and keep proof.` })
+  else if (ask && ws.overall !== 'meets') items.push({ k: 'Also ask', v: `${ask.questions.length} quick exemption questions (see Paths below)` })
+  return (
+    <section data-tour="todo" aria-label="What to do now" className="rounded-2xl border border-line bg-white p-4">
+      <h2 className="text-sm font-semibold">What to do now</h2>
+      <dl className="mt-2 grid gap-x-6 gap-y-2 sm:grid-cols-2">
+        {items.map(i => (
+          <div key={i.k}><dt className="text-[11px] font-medium uppercase tracking-wide text-muted">{i.k}</dt><dd className={`text-sm ${i.tone ?? ''}`}>{i.v}</dd></div>
+        ))}
+      </dl>
+    </section>
   )
 }

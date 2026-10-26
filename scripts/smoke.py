@@ -24,6 +24,11 @@ for u in GET:
     print(r.status_code, u)
     if r.status_code != 200:
         failed.append(u)
+for n in range(10):
+    r = c.post(f"/api/cases/maria-lopez/agent/step/{n}")
+    if r.status_code != 200 or not r.json().get("cached"):
+        failed.append(f"agent step {n}")
+print("agent: 10 steps replayed" if not any(f.startswith("agent") for f in failed) else "agent FAILED")
 r = c.post("/api/selfcheck", json={"jurisdiction": "NE", "work_hours": 34, "wages": 510, "volunteer_hours": 18})
 print(r.status_code, "/api/selfcheck", r.json().get("status"))
 if r.status_code != 200 or r.json()["status"] != "does_not_meet":

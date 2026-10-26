@@ -48,7 +48,9 @@ export default function AskBox({ asOf, suggestions = [], compare = false, jurisd
             {res.grounded.citations.length > 0 && (
               <div className="mt-2 text-xs text-muted">Sources:{res.grounded.citations.map((c, i) => <Cite key={i} sourceId={c.source_id} quote={c.quote} label={`${c.title.slice(0, 40)} (${c.as_of})`} />)}</div>
             )}
-            {res.grounded.dropped_citations > 0 && <p className="mt-1 text-[11px] text-muted">{res.grounded.dropped_citations} citation(s) removed because the quote was not found verbatim in the source.</p>}
+            <p className="mt-2 inline-flex flex-wrap items-center gap-1.5 rounded-md bg-white/70 px-2 py-1 text-[11px]" title="Every quote is checked word for word against the captured official source; quotes that can't be found are dropped.">
+              <b>Evidence check:</b> {res.grounded.citations.length + res.grounded.dropped_citations} quotes proposed · <span className="text-ok">{res.grounded.citations.length} verified word for word</span> · {res.grounded.dropped_citations} dropped
+            </p>
             {res.grounded.confirm_with_agency && <p className="mt-2 text-[11px] text-muted">Confirm with {jurisdiction === 'MT' ? 'Montana DPHHS' : 'Nebraska DHHS'} before acting.</p>}
           </div>
         </div>

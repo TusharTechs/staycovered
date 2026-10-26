@@ -36,8 +36,13 @@ def allowlist() -> list[dict]:
 
 
 def _log_tavily(kind: str, payload: dict, n_results: int, ok: bool, err: str = "") -> None:
+    from ..llm import COLLECT
+
+    entry = {"ts": time.time(), "kind": kind, "payload": payload, "results": n_results, "ok": ok, "err": err}
     with TAVILY_LOG.open("a", encoding="utf-8") as f:
-        f.write(json.dumps({"ts": time.time(), "kind": kind, "payload": payload, "results": n_results, "ok": ok, "err": err}) + "\n")
+        f.write(json.dumps(entry) + "\n")
+    if (c := COLLECT.get()) is not None:
+        c.append(entry | {"model": "tavily/" + kind})
 
 
 def tavily_extract(urls: list[str]) -> dict[str, str]:

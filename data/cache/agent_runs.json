@@ -1,0 +1,3555 @@
+{
+ "282b7c2a492410763376dfe7": {
+  "n": 0,
+  "id": "read_notice",
+  "title": "Read the state's notice",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No state notice on file for this case."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "145004e8c49ac33f2c059559": {
+  "n": 1,
+  "id": "explain",
+  "title": "Explain it in the client's language",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No notice to explain."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "a0600d68517c01a55da69678": {
+  "n": 2,
+  "id": "read_documents",
+  "title": "Read the client's documents",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "3 of 3 numbers match the reviewed ledger",
+   "details": [
+    "Corner Grocers pay stub: 2 numbers read, each with its exact line",
+    "Food pantry volunteer letter: 1 numbers read, each with its exact line"
+   ]
+  },
+  "metrics": {
+   "models": [
+    "NVIDIA-Nemotron-3-Nano-30B-A3B"
+   ],
+   "llm_calls": 2,
+   "tavily_calls": 0,
+   "prompt_tokens": 2102,
+   "completion_tokens": 413,
+   "usd": 0.000225,
+   "seconds": 2.92,
+   "ultra_usd": 0.003341,
+   "frontier_usd": 0.016668
+  },
+  "ran_at": "2026-10-26"
+ },
+ "ce1134ca9a9446b74723829a": {
+  "n": 3,
+  "id": "apply_rules",
+  "title": "Apply the rules in force on the date",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Aisha meets the requirement",
+   "details": [
+    "Review: Months named in the agency's notice",
+    "2026-09: 72 of 80 hours, $702.00 of $580 income"
+   ],
+   "status": "meets"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.28,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "2535c76f11522a513e80b4df": {
+  "n": 4,
+  "id": "find_fixes",
+  "title": "Search for the smallest proven fix",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Nothing to fix: the documented month already qualifies.",
+   "details": []
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "b0fce9bbe3fa7d963780199c": {
+  "n": 5,
+  "id": "forecast",
+  "title": "Forecast the next 12 months",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "If nothing changes, Aisha stays covered through Sep 2027.",
+   "details": [
+    "First month at risk: none"
+   ],
+   "months": [
+    {
+     "month": "2026-10",
+     "status": "meets"
+    },
+    {
+     "month": "2026-11",
+     "status": "meets"
+    },
+    {
+     "month": "2026-12",
+     "status": "meets"
+    },
+    {
+     "month": "2027-01",
+     "status": "meets"
+    },
+    {
+     "month": "2027-02",
+     "status": "meets"
+    },
+    {
+     "month": "2027-03",
+     "status": "meets"
+    },
+    {
+     "month": "2027-04",
+     "status": "meets"
+    },
+    {
+     "month": "2027-05",
+     "status": "meets"
+    },
+    {
+     "month": "2027-06",
+     "status": "meets"
+    },
+    {
+     "month": "2027-07",
+     "status": "meets"
+    },
+    {
+     "month": "2027-08",
+     "status": "meets"
+    },
+    {
+     "month": "2027-09",
+     "status": "meets"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "5ee3b3bdb5bde381e4386159": {
+  "n": 6,
+  "id": "nearby",
+  "title": "Find places nearby to earn hours",
+  "actors": [
+   "Tavily Search",
+   "Nemotron Super"
+  ],
+  "output": {
+   "skipped": "No extra hours needed, so no search."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "4df3507b43d51399ed25cd15": {
+  "n": 7,
+  "id": "verify_rule",
+  "title": "Check the key rule against official text",
+  "actors": [
+   "Nemotron Super",
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "Your client has 30 calendar days from the date they receive the noncompliance notice to respond.",
+   "question": "How long does my client have to respond to a noncompliance notice?",
+   "reused": "Answer reused: the same official rules were in force when it was first checked",
+   "details": [
+    "Evidence check: 2 quotes proposed, 2 verified word for word, 0 dropped",
+    "Source: Medicaid Program; Community Engagement Requirement for Certain Individuals (Interim Final Rule with Comment Period, CMS-2454-IFC), 91 FR 33348 (2026-06-03)",
+    "Source: Nebraska Medicaid Work Requirements FAQ (April 29, 2026 revision) (2026-05-12)"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.23,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "b414e94afa7b81317b0baad6": {
+  "n": 8,
+  "id": "draft_message",
+  "title": "Draft a message for the client",
+  "actors": [
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "Hi Aisha! This is your Medicaid navigator. You meet the work requirement for the month in question\u2014no action needed on that part. Please respond by November 1, 2026 if you have other questions. Call us at 1-855-632-7633.",
+   "details": [
+    "No documents to send right now.",
+    "Keep your records handy.",
+    "Call if you need help.",
+    "Numbers checked against the worksheet: 6 of 6 match"
+   ],
+   "language": "English"
+  },
+  "metrics": {
+   "models": [
+    "nemotron-3-super-120b-a12b"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 270,
+   "completion_tokens": 97,
+   "usd": 0.000168,
+   "seconds": 1.05,
+   "ultra_usd": 0.000561,
+   "frontier_usd": 0.00302
+  },
+  "ran_at": "2026-10-26"
+ },
+ "6a09105f327efb449bbfc5f1": {
+  "n": 9,
+  "id": "package",
+  "title": "Assemble the packet, form and reminders",
+  "actors": [
+   "Code"
+  ],
+  "output": {
+   "headline": "Packet, state form and reminders are ready",
+   "details": [],
+   "links": [
+    {
+     "label": "Evidence packet (PDF)",
+     "href": "/api/cases/aisha-mohammed/packet.pdf"
+    },
+    {
+     "label": "Nebraska MLTC-118, pre-filled (PDF)",
+     "href": "/api/cases/aisha-mohammed/mltc118.pdf"
+    },
+    {
+     "label": "Calendar reminders (.ics)",
+     "href": "/api/cases/aisha-mohammed/reminders.ics"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "22cf884846ac7847fb2ee633": {
+  "n": 0,
+  "id": "read_notice",
+  "title": "Read the state's notice",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No state notice on file for this case."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "94c78404810e16ef0b628be9": {
+  "n": 1,
+  "id": "explain",
+  "title": "Explain it in the client's language",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No notice to explain."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "2a9e34ba42e0f0f7b0c26abe": {
+  "n": 2,
+  "id": "read_documents",
+  "title": "Read the client's documents",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "3 of 3 numbers match the reviewed ledger",
+   "details": [
+    "Rise & Shine Bakery pay stub: 2 numbers read, each with its exact line",
+    "Animal shelter volunteer letter: 1 numbers read, each with its exact line"
+   ]
+  },
+  "metrics": {
+   "models": [
+    "NVIDIA-Nemotron-3-Nano-30B-A3B"
+   ],
+   "llm_calls": 2,
+   "tavily_calls": 0,
+   "prompt_tokens": 2105,
+   "completion_tokens": 528,
+   "usd": 0.000253,
+   "seconds": 2.77,
+   "ultra_usd": 0.003689,
+   "frontier_usd": 0.01898
+  },
+  "ran_at": "2026-10-26"
+ },
+ "32229dbe8c3f85643fbbfe5c": {
+  "n": 3,
+  "id": "apply_rules",
+  "title": "Apply the rules in force on the date",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Dani falls short",
+   "details": [
+    "Review: Any one month in the 12 months before renewal",
+    "2026-09: 52 of 80 hours, $510.00 of $580 income"
+   ],
+   "status": "does_not_meet"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "a96a284d75b9493335a2a432": {
+  "n": 4,
+  "id": "find_fixes",
+  "title": "Search for the smallest proven fix",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Proof of 28 more qualifying hours in September 2026",
+   "details": [
+    "Proof of $70.00 more income in September 2026 (about 5 more paid hours at $15.00/hr)",
+    "2 fixes proven by re-running the rules"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "59284c267e9a39e74776b78e": {
+  "n": 5,
+  "id": "forecast",
+  "title": "Forecast the next 12 months",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "If nothing changes, Dani falls short every month. Smallest fix, each month: $70.00 more income (about 5 more paid hours at $15.00/hr) or 28 more qualifying hours (about 6.3 a week).",
+   "details": [
+    "First month at risk: 2026-10"
+   ],
+   "months": [
+    {
+     "month": "2026-10",
+     "status": "does_not_meet"
+    },
+    {
+     "month": "2026-11",
+     "status": "does_not_meet"
+    },
+    {
+     "month": "2026-12",
+     "status": "does_not_meet"
+    },
+    {
+     "month": "2027-01",
+     "status": "does_not_meet"
+    },
+    {
+     "month": "2027-02",
+     "status": "does_not_meet"
+    },
+    {
+     "month": "2027-03",
+     "status": "does_not_meet"
+    },
+    {
+     "month": "2027-04",
+     "status": "does_not_meet"
+    },
+    {
+     "month": "2027-05",
+     "status": "does_not_meet"
+    },
+    {
+     "month": "2027-06",
+     "status": "does_not_meet"
+    },
+    {
+     "month": "2027-07",
+     "status": "does_not_meet"
+    },
+    {
+     "month": "2027-08",
+     "status": "does_not_meet"
+    },
+    {
+     "month": "2027-09",
+     "status": "does_not_meet"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.03,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "9bf189507508d61e33f2cb30": {
+  "n": 6,
+  "id": "nearby",
+  "title": "Find places nearby to earn hours",
+  "actors": [
+   "Tavily Search",
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "3 job-training programs near Omaha, NE",
+   "details": [
+    "Heartland Workforce Solutions",
+    "Metropolitan Community College",
+    "Ponca Tribe of Nebraska WIOA Program",
+    "Sent to search: Omaha, Nebraska (no client details)"
+   ],
+   "reused": "Search results reused from 2026-10-10 for this city"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "d4f497bd9c345c5ed67b9c87": {
+  "n": 7,
+  "id": "verify_rule",
+  "title": "Check the key rule against official text",
+  "actors": [
+   "Nemotron Super",
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "According to Nebraska\u2019s work\u2011requirement rules, your spouse\u2019s income may be counted toward the $580 monthly threshold in some cases, but it depends on the specific circumstances outlined in state regulations.",
+   "question": "Does my client's spouse's income count toward the $580?",
+   "reused": "Answer reused: the same official rules were in force when it was first checked",
+   "details": [
+    "Evidence check: 1 quotes proposed, 1 verified word for word, 0 dropped",
+    "Source: Nebraska DHHS \u2014 Work Requirements FAQ (2026-10-10)"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "796da6df64b8b9abae8cd0f5": {
+  "n": 8,
+  "id": "draft_message",
+  "title": "Draft a message for the client",
+  "actors": [
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "Hi Dani! You need proof of 28 more qualifying hours in September 2026. Hours from another job, volunteering, classes, or job training count if you have a signed letter from the place. Call us at 1-855-632-7633 if you have questions.",
+   "details": [
+    "Get a signed letter showing 28+ hours from your activity in Sept 2026",
+    "Send the letter to your Medicaid caseworker",
+    "Call 1-855-632-7633 if you need help",
+    "Numbers checked against the worksheet: 12 of 12 match"
+   ],
+   "language": "English"
+  },
+  "metrics": {
+   "models": [
+    "nemotron-3-super-120b-a12b"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 306,
+   "completion_tokens": 133,
+   "usd": 0.000211,
+   "seconds": 1.48,
+   "ultra_usd": 0.000705,
+   "frontier_usd": 0.003884
+  },
+  "ran_at": "2026-10-26"
+ },
+ "d7440364b08e80ce245ce321": {
+  "n": 9,
+  "id": "package",
+  "title": "Assemble the packet, form and reminders",
+  "actors": [
+   "Code"
+  ],
+  "output": {
+   "headline": "Packet, state form and reminders are ready",
+   "details": [],
+   "links": [
+    {
+     "label": "Evidence packet (PDF)",
+     "href": "/api/cases/dani-ortiz/packet.pdf"
+    },
+    {
+     "label": "Nebraska MLTC-118, pre-filled (PDF)",
+     "href": "/api/cases/dani-ortiz/mltc118.pdf"
+    },
+    {
+     "label": "Calendar reminders (.ics)",
+     "href": "/api/cases/dani-ortiz/reminders.ics"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "dd9c6c9e9fdb6ca9ddeb7622": {
+  "n": 0,
+  "id": "read_notice",
+  "title": "Read the state's notice",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No state notice on file for this case."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "0977c98560a8e55770a90599": {
+  "n": 1,
+  "id": "explain",
+  "title": "Explain it in the client's language",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No notice to explain."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "f1ff1c08b3abb62b35dcf983": {
+  "n": 2,
+  "id": "read_documents",
+  "title": "Read the client's documents",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "2 of 2 numbers match the reviewed ledger",
+   "details": [
+    "Community college enrollment: 1 numbers read, each with its exact line",
+    "Food bank volunteer letter: 1 numbers read, each with its exact line"
+   ]
+  },
+  "metrics": {
+   "models": [
+    "NVIDIA-Nemotron-3-Nano-30B-A3B"
+   ],
+   "llm_calls": 2,
+   "tavily_calls": 0,
+   "prompt_tokens": 2082,
+   "completion_tokens": 339,
+   "usd": 0.000206,
+   "seconds": 2.04,
+   "ultra_usd": 0.003099,
+   "frontier_usd": 0.015108
+  },
+  "ran_at": "2026-10-26"
+ },
+ "249c0cfc851d50c4e4188d68": {
+  "n": 3,
+  "id": "apply_rules",
+  "title": "Apply the rules in force on the date",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Hannah meets the requirement",
+   "details": [
+    "Review: The 1 calendar month(s) before the application",
+    "2026-09: 82 of 80 hours, $0.00 of $580 income"
+   ],
+   "status": "meets"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "44e7d5af645f98a4e4cef954": {
+  "n": 4,
+  "id": "find_fixes",
+  "title": "Search for the smallest proven fix",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Nothing to fix: the documented month already qualifies.",
+   "details": []
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "72cbb7f4799daf2f6b3b20e5": {
+  "n": 5,
+  "id": "forecast",
+  "title": "Forecast the next 12 months",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "If nothing changes, Hannah stays covered through Sep 2027.",
+   "details": [
+    "First month at risk: none"
+   ],
+   "months": [
+    {
+     "month": "2026-10",
+     "status": "meets"
+    },
+    {
+     "month": "2026-11",
+     "status": "meets"
+    },
+    {
+     "month": "2026-12",
+     "status": "meets"
+    },
+    {
+     "month": "2027-01",
+     "status": "meets"
+    },
+    {
+     "month": "2027-02",
+     "status": "meets"
+    },
+    {
+     "month": "2027-03",
+     "status": "meets"
+    },
+    {
+     "month": "2027-04",
+     "status": "meets"
+    },
+    {
+     "month": "2027-05",
+     "status": "meets"
+    },
+    {
+     "month": "2027-06",
+     "status": "meets"
+    },
+    {
+     "month": "2027-07",
+     "status": "meets"
+    },
+    {
+     "month": "2027-08",
+     "status": "meets"
+    },
+    {
+     "month": "2027-09",
+     "status": "meets"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "45fc18a010da909966993049": {
+  "n": 6,
+  "id": "nearby",
+  "title": "Find places nearby to earn hours",
+  "actors": [
+   "Tavily Search",
+   "Nemotron Super"
+  ],
+  "output": {
+   "skipped": "No extra hours needed, so no search."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "44274be19e901a0b62a2c17c": {
+  "n": 7,
+  "id": "verify_rule",
+  "title": "Check the key rule against official text",
+  "actors": [
+   "Nemotron Super",
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "At redetermination, your client must show they met the community engagement requirement (or had a qualifying exclusion) for at least 3 months since their last redetermination; the months do not need to be consecutive.",
+   "question": "How many qualifying months does my client need at redetermination?",
+   "reused": "Answer reused: the same official rules were in force when it was first checked",
+   "details": [
+    "Evidence check: 2 quotes proposed, 2 verified word for word, 0 dropped",
+    "Source: Montana DPHHS - Changes to Medicaid (community engagement requirement) (2026-10-09)",
+    "Source: Montana DPHHS \u2014 Medicaid changes FAQ (2026-10-10)"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.02,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "888200d969cef2ee9f2c3627": {
+  "n": 8,
+  "id": "draft_message",
+  "title": "Draft a message for the client",
+  "actors": [
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "Hi Hannah! This is your Medicaid navigator. I see you met the work requirement for the month in question\u2014great job keeping up with it! No action needed on your end right now.",
+   "details": [
+    "Keep your records handy just in case.",
+    "Call us at 1-888-706-1535 if anything changes.",
+    "Numbers checked against the worksheet: 4 of 4 match"
+   ],
+   "language": "English"
+  },
+  "metrics": {
+   "models": [
+    "nemotron-3-super-120b-a12b"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 261,
+   "completion_tokens": 81,
+   "usd": 0.000151,
+   "seconds": 1.09,
+   "ultra_usd": 0.000504,
+   "frontier_usd": 0.002664
+  },
+  "ran_at": "2026-10-26"
+ },
+ "67548e0c9397d2808c43e311": {
+  "n": 9,
+  "id": "package",
+  "title": "Assemble the packet, form and reminders",
+  "actors": [
+   "Code"
+  ],
+  "output": {
+   "headline": "Packet, state form and reminders are ready",
+   "details": [],
+   "links": [
+    {
+     "label": "Evidence packet (PDF)",
+     "href": "/api/cases/hannah-pierce/packet.pdf"
+    },
+    {
+     "label": "Calendar reminders (.ics)",
+     "href": "/api/cases/hannah-pierce/reminders.ics"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "66a6401ee992634bdfd886d7": {
+  "n": 0,
+  "id": "read_notice",
+  "title": "Read the state's notice",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No state notice on file for this case."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "9c35cdf6f7e62e05e07ec027": {
+  "n": 1,
+  "id": "explain",
+  "title": "Explain it in the client's language",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No notice to explain."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "1edd78b3fa6dbb734123321a": {
+  "n": 2,
+  "id": "read_documents",
+  "title": "Read the client's documents",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "4 of 4 numbers match the reviewed ledger",
+   "details": [
+    "Prairie Roof earnings statement: 8 numbers read, each with its exact line"
+   ]
+  },
+  "metrics": {
+   "models": [
+    "NVIDIA-Nemotron-3-Nano-30B-A3B"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 1229,
+   "completion_tokens": 1176,
+   "usd": 0.000356,
+   "seconds": 3.78,
+   "ultra_usd": 0.004757,
+   "frontier_usd": 0.028436
+  },
+  "ran_at": "2026-10-26"
+ },
+ "d3a632a457b408885257c6ad": {
+  "n": 3,
+  "id": "apply_rules",
+  "title": "Apply the rules in force on the date",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "James meets the requirement",
+   "details": [
+    "Review: Any one month in the 12 months before renewal",
+    "2026-08: 0 of 80 hours, $1,701.00 of $580 income"
+   ],
+   "status": "meets"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "836b5070287c88fb12d82262": {
+  "n": 4,
+  "id": "find_fixes",
+  "title": "Search for the smallest proven fix",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Nothing to fix: the documented month already qualifies.",
+   "details": []
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "daebf1ac7ffaf0da5e263707": {
+  "n": 5,
+  "id": "forecast",
+  "title": "Forecast the next 12 months",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "If nothing changes, James stays covered through Sep 2027.",
+   "details": [
+    "First month at risk: none"
+   ],
+   "months": [
+    {
+     "month": "2026-10",
+     "status": "meets"
+    },
+    {
+     "month": "2026-11",
+     "status": "meets"
+    },
+    {
+     "month": "2026-12",
+     "status": "meets"
+    },
+    {
+     "month": "2027-01",
+     "status": "meets"
+    },
+    {
+     "month": "2027-02",
+     "status": "meets"
+    },
+    {
+     "month": "2027-03",
+     "status": "meets"
+    },
+    {
+     "month": "2027-04",
+     "status": "meets"
+    },
+    {
+     "month": "2027-05",
+     "status": "meets"
+    },
+    {
+     "month": "2027-06",
+     "status": "meets"
+    },
+    {
+     "month": "2027-07",
+     "status": "meets"
+    },
+    {
+     "month": "2027-08",
+     "status": "meets"
+    },
+    {
+     "month": "2027-09",
+     "status": "meets"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "38851039f39eb54c53c22560": {
+  "n": 6,
+  "id": "nearby",
+  "title": "Find places nearby to earn hours",
+  "actors": [
+   "Tavily Search",
+   "Nemotron Super"
+  ],
+  "output": {
+   "skipped": "No extra hours needed, so no search."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "89a84a9e0ebdc9a1249c363d": {
+  "n": 7,
+  "id": "verify_rule",
+  "title": "Check the key rule against official text",
+  "actors": [
+   "Nemotron Super",
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "According to Nebraska\u2019s work\u2011requirement rules, your spouse\u2019s income may be counted toward the $580 monthly threshold in some cases, but it depends on the specific circumstances outlined in state regulations.",
+   "question": "Does my client's spouse's income count toward the $580?",
+   "reused": "Answer reused: the same official rules were in force when it was first checked",
+   "details": [
+    "Evidence check: 1 quotes proposed, 1 verified word for word, 0 dropped",
+    "Source: Nebraska DHHS \u2014 Work Requirements FAQ (2026-10-10)"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "2caa05109adcb9aa62c47062": {
+  "n": 8,
+  "id": "draft_message",
+  "title": "Draft a message for the client",
+  "actors": [
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "Hi James! This is your Medicaid navigator. I see you met the work requirement for the month in question\u2014great job! No action needed on your end right now. If anything changes, just call us at 1-855-632-7633.",
+   "details": [
+    "Keep your documents handy in case we need them later.",
+    "Call 1-855-632-7633 if your work situation changes.",
+    "Numbers checked against the worksheet: 8 of 8 match"
+   ],
+   "language": "English"
+  },
+  "metrics": {
+   "models": [
+    "nemotron-3-super-120b-a12b"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 260,
+   "completion_tokens": 104,
+   "usd": 0.000172,
+   "seconds": 1.3,
+   "ultra_usd": 0.000572,
+   "frontier_usd": 0.00312
+  },
+  "ran_at": "2026-10-26"
+ },
+ "07f4fc3af43dc7ece2ecbf4a": {
+  "n": 9,
+  "id": "package",
+  "title": "Assemble the packet, form and reminders",
+  "actors": [
+   "Code"
+  ],
+  "output": {
+   "headline": "Packet, state form and reminders are ready",
+   "details": [],
+   "links": [
+    {
+     "label": "Evidence packet (PDF)",
+     "href": "/api/cases/james-carter/packet.pdf"
+    },
+    {
+     "label": "Nebraska MLTC-118, pre-filled (PDF)",
+     "href": "/api/cases/james-carter/mltc118.pdf"
+    },
+    {
+     "label": "Calendar reminders (.ics)",
+     "href": "/api/cases/james-carter/reminders.ics"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "d0ad62255566b459eeea490b": {
+  "n": 0,
+  "id": "read_notice",
+  "title": "Read the state's notice",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No state notice on file for this case."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "5d9e02bd9e5d5523ffbf72ed": {
+  "n": 1,
+  "id": "explain",
+  "title": "Explain it in the client's language",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No notice to explain."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "5f8baff536f3edad03925002": {
+  "n": 2,
+  "id": "read_documents",
+  "title": "Read the client's documents",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "Read 1 document",
+   "details": [
+    "College enrollment verification: 1 numbers read, each with its exact line"
+   ]
+  },
+  "metrics": {
+   "models": [
+    "NVIDIA-Nemotron-3-Nano-30B-A3B"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 1049,
+   "completion_tokens": 157,
+   "usd": 0.000101,
+   "seconds": 1.24,
+   "ultra_usd": 0.00152,
+   "frontier_usd": 0.007336
+  },
+  "ran_at": "2026-10-26"
+ },
+ "d0d3f2f23f05074be5164752": {
+  "n": 3,
+  "id": "apply_rules",
+  "title": "Apply the rules in force on the date",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Kayla has no evidence yet",
+   "details": [
+    "Review: Months named in the agency's notice",
+    "2026-08: 0 of 80 hours, $0.00 of $580 income",
+    "Possible exemption: Parent or caretaker of a child 13 or younger"
+   ],
+   "status": "insufficient_evidence"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "8d45c58c7977579eadc138b7": {
+  "n": 4,
+  "id": "find_fixes",
+  "title": "Search for the smallest proven fix",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Proof of 80 more qualifying hours in August 2026",
+   "details": [
+    "Proof of $580.00 more income in August 2026",
+    "2 fixes proven by re-running the rules"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "d35d413f5414b666dc4b495c": {
+  "n": 5,
+  "id": "forecast",
+  "title": "Forecast the next 12 months",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "No documented month to project yet. Start with the paths below: proof for the month in question, or an exemption.",
+   "details": [
+    "First month at risk: none"
+   ],
+   "months": []
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "e483889ac3a8c997b1890211": {
+  "n": 6,
+  "id": "nearby",
+  "title": "Find places nearby to earn hours",
+  "actors": [
+   "Tavily Search",
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "2 job-training programs near Lincoln, NE",
+   "details": [
+    "American Job Center - Lincoln",
+    "City of Lincoln Bridges to Careers Program",
+    "Sent to search: Lincoln, Nebraska (no client details)"
+   ],
+   "reused": "Search results reused from 2026-10-10 for this city"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "789987aff93e8e707157f6a1": {
+  "n": 7,
+  "id": "verify_rule",
+  "title": "Check the key rule against official text",
+  "actors": [
+   "Nemotron Super",
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "Your client has 30 calendar days from the date they receive the noncompliance notice to respond.",
+   "question": "How long does my client have to respond to a noncompliance notice?",
+   "reused": "Answer reused: the same official rules were in force when it was first checked",
+   "details": [
+    "Evidence check: 2 quotes proposed, 2 verified word for word, 0 dropped",
+    "Source: Medicaid Program; Community Engagement Requirement for Certain Individuals (Interim Final Rule with Comment Period, CMS-2454-IFC), 91 FR 33348 (2026-06-03)",
+    "Source: Nebraska Medicaid Work Requirements FAQ (April 29, 2026 revision) (2026-05-12)"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "ef9cb4a5229433453e3aeac5": {
+  "n": 8,
+  "id": "draft_message",
+  "title": "Draft a message for the client",
+  "actors": [
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "Hi Kayla! This is your Medicaid navigator. You need to send proof or ask about an exemption by October 28, 2026. The smallest fix is showing Proof of 80 more qualifying hours in August 2026. Hours you\u2019ve already done (like another job, volunteering, classes, or training) that aren\u2019t on your current documents can count\u2014just get a signed letter from the place. Call us at 1-855-632-7633 if you have questions.",
+   "details": [
+    "Gather proof of 80+ qualifying hours from August 2026.",
+    "Get a signed letter for any extra hours (other job, volunteering, etc.).",
+    "Send documents or call 1-855-632-7633 by October 28, 2026.",
+    "Numbers checked against the worksheet: 16 of 16 match"
+   ],
+   "language": "English"
+  },
+  "metrics": {
+   "models": [
+    "nemotron-3-super-120b-a12b"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 317,
+   "completion_tokens": 194,
+   "usd": 0.00027,
+   "seconds": 1.42,
+   "ultra_usd": 0.000899,
+   "frontier_usd": 0.005148
+  },
+  "ran_at": "2026-10-26"
+ },
+ "d036fbc97e0d79c51069e66a": {
+  "n": 9,
+  "id": "package",
+  "title": "Assemble the packet, form and reminders",
+  "actors": [
+   "Code"
+  ],
+  "output": {
+   "headline": "Packet, state form and reminders are ready",
+   "details": [],
+   "links": [
+    {
+     "label": "Evidence packet (PDF)",
+     "href": "/api/cases/kayla-brooks/packet.pdf"
+    },
+    {
+     "label": "Nebraska MLTC-118, pre-filled (PDF)",
+     "href": "/api/cases/kayla-brooks/mltc118.pdf"
+    },
+    {
+     "label": "Calendar reminders (.ics)",
+     "href": "/api/cases/kayla-brooks/reminders.ics"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "3f2f6ae6c272159eb7ff4c7b": {
+  "n": 0,
+  "id": "read_notice",
+  "title": "Read the state's notice",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No state notice on file for this case."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "24cdf957702925811d3fc5c2": {
+  "n": 1,
+  "id": "explain",
+  "title": "Explain it in the client's language",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No notice to explain."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "64f9aa7d173c01317d9a481e": {
+  "n": 2,
+  "id": "read_documents",
+  "title": "Read the client's documents",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "1 of 1 numbers match the reviewed ledger",
+   "details": [
+    "Joanne's pay statement: 1 numbers read, each with its exact line"
+   ]
+  },
+  "metrics": {
+   "models": [
+    "NVIDIA-Nemotron-3-Nano-30B-A3B"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 1043,
+   "completion_tokens": 134,
+   "usd": 9.5e-05,
+   "seconds": 0.78,
+   "ultra_usd": 0.001445,
+   "frontier_usd": 0.006852
+  },
+  "ran_at": "2026-10-26"
+ },
+ "a18d04c6774b59ab6bf27dde": {
+  "n": 3,
+  "id": "apply_rules",
+  "title": "Apply the rules in force on the date",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Marcus meets the requirement",
+   "details": [
+    "Review: The 1 calendar month(s) before the application",
+    "2026-09: 0 of 80 hours, $0.00 of $580 income"
+   ],
+   "status": "meets"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "04b03eabd9d635d7c7d63e83": {
+  "n": 4,
+  "id": "find_fixes",
+  "title": "Search for the smallest proven fix",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Nothing to fix: the documented month already qualifies.",
+   "details": []
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "8a93538ece3022a5b3725302": {
+  "n": 5,
+  "id": "forecast",
+  "title": "Forecast the next 12 months",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "If nothing changes, Marcus stays covered through Sep 2027.",
+   "details": [
+    "First month at risk: none"
+   ],
+   "months": [
+    {
+     "month": "2026-10",
+     "status": "meets"
+    },
+    {
+     "month": "2026-11",
+     "status": "meets"
+    },
+    {
+     "month": "2026-12",
+     "status": "meets"
+    },
+    {
+     "month": "2027-01",
+     "status": "meets"
+    },
+    {
+     "month": "2027-02",
+     "status": "meets"
+    },
+    {
+     "month": "2027-03",
+     "status": "meets"
+    },
+    {
+     "month": "2027-04",
+     "status": "meets"
+    },
+    {
+     "month": "2027-05",
+     "status": "meets"
+    },
+    {
+     "month": "2027-06",
+     "status": "meets"
+    },
+    {
+     "month": "2027-07",
+     "status": "meets"
+    },
+    {
+     "month": "2027-08",
+     "status": "meets"
+    },
+    {
+     "month": "2027-09",
+     "status": "meets"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "8cd5ae6a166e8565268e1094": {
+  "n": 6,
+  "id": "nearby",
+  "title": "Find places nearby to earn hours",
+  "actors": [
+   "Tavily Search",
+   "Nemotron Super"
+  ],
+  "output": {
+   "skipped": "No extra hours needed, so no search."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "418b9d6c6f8285f84fbafd29": {
+  "n": 7,
+  "id": "verify_rule",
+  "title": "Check the key rule against official text",
+  "actors": [
+   "Nemotron Super",
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "At redetermination, your client must show they met the community engagement requirement (or had a qualifying exclusion) for at least 3 months since their last redetermination; the months do not need to be consecutive.",
+   "question": "How many qualifying months does my client need at redetermination?",
+   "reused": "Answer reused: the same official rules were in force when it was first checked",
+   "details": [
+    "Evidence check: 2 quotes proposed, 2 verified word for word, 0 dropped",
+    "Source: Montana DPHHS - Changes to Medicaid (community engagement requirement) (2026-10-09)",
+    "Source: Montana DPHHS \u2014 Medicaid changes FAQ (2026-10-10)"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "465642e5ee943d6d3262488a": {
+  "n": 8,
+  "id": "draft_message",
+  "title": "Draft a message for the client",
+  "actors": [
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "Hi Marcus! I checked your case\u2014you meet the work requirement for the month in question. No action needed on your end right now.",
+   "details": [
+    "Keep any future documents ready if asked.",
+    "Call 1-888-706-1535 if you have questions.",
+    "Numbers checked against the worksheet: 4 of 4 match"
+   ],
+   "language": "English"
+  },
+  "metrics": {
+   "models": [
+    "nemotron-3-super-120b-a12b"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 260,
+   "completion_tokens": 70,
+   "usd": 0.000141,
+   "seconds": 1.08,
+   "ultra_usd": 0.00047,
+   "frontier_usd": 0.00244
+  },
+  "ran_at": "2026-10-26"
+ },
+ "fc6bf881e0a290dccc343deb": {
+  "n": 9,
+  "id": "package",
+  "title": "Assemble the packet, form and reminders",
+  "actors": [
+   "Code"
+  ],
+  "output": {
+   "headline": "Packet, state form and reminders are ready",
+   "details": [],
+   "links": [
+    {
+     "label": "Evidence packet (PDF)",
+     "href": "/api/cases/marcus-lee/packet.pdf"
+    },
+    {
+     "label": "Calendar reminders (.ics)",
+     "href": "/api/cases/marcus-lee/reminders.ics"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "c2bdb0168f8aac8645daa955": {
+  "n": 0,
+  "id": "read_notice",
+  "title": "Read the state's notice",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "Noncompliance notice about 2026-08",
+   "details": [
+    "Respond by: 2026-10-20",
+    "Asks for: proof of your hours or income for August 2026",
+    "6 of 7 supporting phrases found word for word in the letter"
+   ]
+  },
+  "metrics": {
+   "models": [
+    "NVIDIA-Nemotron-3-Nano-30B-A3B"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 640,
+   "completion_tokens": 322,
+   "usd": 0.000116,
+   "seconds": 1.3,
+   "ultra_usd": 0.001606,
+   "frontier_usd": 0.009
+  },
+  "ran_at": "2026-10-26"
+ },
+ "d4af41f1b669c12922e62264": {
+  "n": 1,
+  "id": "explain",
+  "title": "Explain it in the client's language",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "La carta dice que el programa Medicaid necesita que usted trabaje, estudie, haga voluntariado o participe en un programa de trabajo por al menos 80 horas al mes, o que gane al menos $580 al mes. No se muestra que haya cumplido con esto en agosto de 2026.",
+   "details": [
+    "Env\u00ede prueba de sus horas o ingresos de agosto de 2026",
+    "O explique por qu\u00e9 deber\u00eda estar exento",
+    "7 phrases tied to the letter, 0 dropped"
+   ],
+   "language": "es"
+  },
+  "metrics": {
+   "models": [
+    "NVIDIA-Nemotron-3-Nano-30B-A3B"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 622,
+   "completion_tokens": 345,
+   "usd": 0.00012,
+   "seconds": 1.36,
+   "ultra_usd": 0.001657,
+   "frontier_usd": 0.009388
+  },
+  "ran_at": "2026-10-26"
+ },
+ "1d458335d47e750e94b85b0e": {
+  "n": 2,
+  "id": "read_documents",
+  "title": "Read the client's documents",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "12 of 12 numbers match the reviewed ledger",
+   "details": [
+    "DashBite weekly earnings: 10 numbers read, each with its exact line",
+    "CartHop monthly statement: 2 numbers read, each with its exact line"
+   ]
+  },
+  "metrics": {
+   "models": [
+    "NVIDIA-Nemotron-3-Nano-30B-A3B"
+   ],
+   "llm_calls": 2,
+   "tavily_calls": 0,
+   "prompt_tokens": 2378,
+   "completion_tokens": 1817,
+   "usd": 0.000579,
+   "seconds": 7.25,
+   "ultra_usd": 0.007829,
+   "frontier_usd": 0.045852
+  },
+  "ran_at": "2026-10-26"
+ },
+ "c79f9d40df781416a94d644e": {
+  "n": 3,
+  "id": "apply_rules",
+  "title": "Apply the rules in force on the date",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Maria meets it only if a condition holds",
+   "details": [
+    "Review: Months named in the agency's notice",
+    "2026-08: 65.34 of 80 hours, $813.31 of $580 income",
+    "Condition: Business expenses for the month are $233.31 or less ($813.31 is gig/self-employment payout before costs like fuel and phone)."
+   ],
+   "status": "conditional"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "9d43e9953fc748cc7bec265e": {
+  "n": 4,
+  "id": "find_fixes",
+  "title": "Search for the smallest proven fix",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Show August 2026 business expenses of $233.31 or less",
+   "details": [
+    "Proof of 14.75 more qualifying hours in August 2026",
+    "Proof of $580.00 more income in August 2026",
+    "3 fixes proven by re-running the rules"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "7416b78080244d951d2442b3": {
+  "n": 5,
+  "id": "forecast",
+  "title": "Forecast the next 12 months",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "If nothing changes, every month for Maria depends on the same thing: business expenses for the month are $233.31 or less. Settling it once settles the pattern.",
+   "details": [
+    "First month at risk: 2026-10"
+   ],
+   "months": [
+    {
+     "month": "2026-10",
+     "status": "conditional"
+    },
+    {
+     "month": "2026-11",
+     "status": "conditional"
+    },
+    {
+     "month": "2026-12",
+     "status": "conditional"
+    },
+    {
+     "month": "2027-01",
+     "status": "conditional"
+    },
+    {
+     "month": "2027-02",
+     "status": "conditional"
+    },
+    {
+     "month": "2027-03",
+     "status": "conditional"
+    },
+    {
+     "month": "2027-04",
+     "status": "conditional"
+    },
+    {
+     "month": "2027-05",
+     "status": "conditional"
+    },
+    {
+     "month": "2027-06",
+     "status": "conditional"
+    },
+    {
+     "month": "2027-07",
+     "status": "conditional"
+    },
+    {
+     "month": "2027-08",
+     "status": "conditional"
+    },
+    {
+     "month": "2027-09",
+     "status": "conditional"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.03,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "c23a2c4e44fd5e790d255a21": {
+  "n": 6,
+  "id": "nearby",
+  "title": "Find places nearby to earn hours",
+  "actors": [
+   "Tavily Search",
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "3 job-training programs near Omaha, NE",
+   "details": [
+    "Heartland Workforce Solutions",
+    "Metropolitan Community College",
+    "Ponca Tribe of Nebraska WIOA Program",
+    "Sent to search: Omaha, Nebraska (no client details)"
+   ],
+   "reused": "Search results reused from 2026-10-10 for this city"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "0c039939341601be0aa18431": {
+  "n": 7,
+  "id": "verify_rule",
+  "title": "Check the key rule against official text",
+  "actors": [
+   "Nemotron Super",
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "Your client has 30 calendar days from the date they receive the noncompliance notice to respond.",
+   "question": "How long does my client have to respond to a noncompliance notice?",
+   "reused": "Answer reused: the same official rules were in force when it was first checked",
+   "details": [
+    "Evidence check: 2 quotes proposed, 2 verified word for word, 0 dropped",
+    "Source: Medicaid Program; Community Engagement Requirement for Certain Individuals (Interim Final Rule with Comment Period, CMS-2454-IFC), 91 FR 33348 (2026-06-03)",
+    "Source: Nebraska Medicaid Work Requirements FAQ (April 29, 2026 revision) (2026-05-12)"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "a1595200d89d52b58e499a9e": {
+  "n": 8,
+  "id": "draft_message",
+  "title": "Draft a message for the client",
+  "actors": [
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "Hola Maria, para cumplir con el requisito solo necesitas mostrar que tus gastos de negocio en agosto 2026 fueron de $233.31 o menos. Puedes enviar un registro de kilometraje o recibos (gasolina, tel\u00e9fono, tarifas de plataforma). Los pagos de gig se calculan antes de restar costos; si tus gastos est\u00e1n bajo ese monto, lo que queda a\u00fan cuenta. Llama al 1-855-632-7633 si tienes preguntas.",
+   "details": [
+    "Re\u00fane tu registro de kilometraje o recibos de agosto 2026.",
+    "Env\u00eda los documentos mostrando gastos de $233.31 o menos.",
+    "Llama al 1-855-632-7633 si necesitas ayuda.",
+    "Numbers checked against the worksheet: 12 of 12 match"
+   ],
+   "language": "Spanish"
+  },
+  "metrics": {
+   "models": [
+    "nemotron-3-super-120b-a12b"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 326,
+   "completion_tokens": 188,
+   "usd": 0.000267,
+   "seconds": 1.67,
+   "ultra_usd": 0.00089,
+   "frontier_usd": 0.005064
+  },
+  "ran_at": "2026-10-26"
+ },
+ "7e5fc11e46844279b07dd2d8": {
+  "n": 9,
+  "id": "package",
+  "title": "Assemble the packet, form and reminders",
+  "actors": [
+   "Code"
+  ],
+  "output": {
+   "headline": "Packet, state form and reminders are ready",
+   "details": [],
+   "links": [
+    {
+     "label": "Evidence packet (PDF)",
+     "href": "/api/cases/maria-lopez/packet.pdf"
+    },
+    {
+     "label": "Nebraska MLTC-118, pre-filled (PDF)",
+     "href": "/api/cases/maria-lopez/mltc118.pdf"
+    },
+    {
+     "label": "Calendar reminders (.ics)",
+     "href": "/api/cases/maria-lopez/reminders.ics"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "af8713f62d434d4421c784c4": {
+  "n": 0,
+  "id": "read_notice",
+  "title": "Read the state's notice",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No state notice on file for this case."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "5b0e9be18d0be04a50ed9a2c": {
+  "n": 1,
+  "id": "explain",
+  "title": "Explain it in the client's language",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No notice to explain."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "c57fe807579fa22f8227abbb": {
+  "n": 2,
+  "id": "read_documents",
+  "title": "Read the client's documents",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No income or activity documents yet."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "b01c1374949b55c25534378a": {
+  "n": 3,
+  "id": "apply_rules",
+  "title": "Apply the rules in force on the date",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Robert has no evidence yet",
+   "details": [
+    "Review: Months named in the agency's notice",
+    "2026-09: 0 of 80 hours, $0.00 of $580 income",
+    "Possible exemption: Possible medical frailty: type 2 diabetes with neuropathy, recent hospitalization"
+   ],
+   "status": "insufficient_evidence"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "e16d3ad2ad1ad9e18bab04fa": {
+  "n": 4,
+  "id": "find_fixes",
+  "title": "Search for the smallest proven fix",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Proof of 80 more qualifying hours in September 2026",
+   "details": [
+    "Proof of $580.00 more income in September 2026",
+    "2 fixes proven by re-running the rules"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "c848f9b618e4b37d396260bd": {
+  "n": 5,
+  "id": "forecast",
+  "title": "Forecast the next 12 months",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "No documented month to project yet. Start with the paths below: proof for the month in question, or an exemption.",
+   "details": [
+    "First month at risk: none"
+   ],
+   "months": []
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "3f5f275c0db79dbf99709923": {
+  "n": 6,
+  "id": "nearby",
+  "title": "Find places nearby to earn hours",
+  "actors": [
+   "Tavily Search",
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "3 job-training programs near Omaha, NE",
+   "details": [
+    "Heartland Workforce Solutions",
+    "Metropolitan Community College",
+    "Ponca Tribe of Nebraska WIOA Program",
+    "Sent to search: Omaha, Nebraska (no client details)"
+   ],
+   "reused": "Search results reused from 2026-10-10 for this city"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "7821b101c006336342c72f57": {
+  "n": 7,
+  "id": "verify_rule",
+  "title": "Check the key rule against official text",
+  "actors": [
+   "Nemotron Super",
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "Your client has 30 calendar days from the date they receive the noncompliance notice to respond.",
+   "question": "How long does my client have to respond to a noncompliance notice?",
+   "reused": "Answer reused: the same official rules were in force when it was first checked",
+   "details": [
+    "Evidence check: 2 quotes proposed, 2 verified word for word, 0 dropped",
+    "Source: Medicaid Program; Community Engagement Requirement for Certain Individuals (Interim Final Rule with Comment Period, CMS-2454-IFC), 91 FR 33348 (2026-06-03)",
+    "Source: Nebraska Medicaid Work Requirements FAQ (April 29, 2026 revision) (2026-05-12)"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "71420fe77b0251c80679f235": {
+  "n": 8,
+  "id": "draft_message",
+  "title": "Draft a message for the client",
+  "actors": [
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "Hi Robert, you need to send proof by November 5, 2026. Smallest fix: Proof of 80 more qualifying hours in September 2026. Hours already done but not on these documents count\u2014another job, volunteering, classes or job training. A signed letter from the place is enough. Call agency at 1-855-632-7633 if needed.",
+   "details": [
+    "Gather proof of 80+ qualifying hours from Sept 2026",
+    "Get a signed letter from your employer, volunteer site, class, or training program",
+    "Send documents before November 5, 2026",
+    "Numbers checked against the worksheet: 12 of 12 match"
+   ],
+   "language": "English"
+  },
+  "metrics": {
+   "models": [
+    "nemotron-3-super-120b-a12b"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 315,
+   "completion_tokens": 152,
+   "usd": 0.000231,
+   "seconds": 1.28,
+   "ultra_usd": 0.000771,
+   "frontier_usd": 0.0043
+  },
+  "ran_at": "2026-10-26"
+ },
+ "280e4c77c7d21fa19f7e7e72": {
+  "n": 9,
+  "id": "package",
+  "title": "Assemble the packet, form and reminders",
+  "actors": [
+   "Code"
+  ],
+  "output": {
+   "headline": "Packet, state form and reminders are ready",
+   "details": [],
+   "links": [
+    {
+     "label": "Evidence packet (PDF)",
+     "href": "/api/cases/robert-nguyen/packet.pdf"
+    },
+    {
+     "label": "Nebraska MLTC-118, pre-filled (PDF)",
+     "href": "/api/cases/robert-nguyen/mltc118.pdf"
+    },
+    {
+     "label": "Calendar reminders (.ics)",
+     "href": "/api/cases/robert-nguyen/reminders.ics"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "15748e4238d998c4d50988e3": {
+  "n": 0,
+  "id": "read_notice",
+  "title": "Read the state's notice",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No state notice on file for this case."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "1a3cfab9d90a2d95d7f5a02e": {
+  "n": 1,
+  "id": "explain",
+  "title": "Explain it in the client's language",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No notice to explain."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "a26c330aa27ad5ed97c0495b": {
+  "n": 2,
+  "id": "read_documents",
+  "title": "Read the client's documents",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "3 of 5 numbers match the reviewed ledger; 2 need a human look",
+   "details": [
+    "Bright Corners earnings summary: 2 numbers read, each with its exact line",
+    "Food bank volunteer letter: 3 numbers read, each with its exact line"
+   ]
+  },
+  "metrics": {
+   "models": [
+    "NVIDIA-Nemotron-3-Nano-30B-A3B"
+   ],
+   "llm_calls": 2,
+   "tavily_calls": 0,
+   "prompt_tokens": 2105,
+   "completion_tokens": 718,
+   "usd": 0.000298,
+   "seconds": 4.18,
+   "ultra_usd": 0.004259,
+   "frontier_usd": 0.02278
+  },
+  "ran_at": "2026-10-26"
+ },
+ "9502497618d3479d40fd3801": {
+  "n": 3,
+  "id": "apply_rules",
+  "title": "Apply the rules in force on the date",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Rosa falls short",
+   "details": [
+    "Review: At least 3 qualifying months in the 12 months since the last renewal",
+    "2026-09: 30 of 80 hours, $420.00 of $580 income"
+   ],
+   "status": "does_not_meet"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "964d0f3c7df31c51ac72c3e6": {
+  "n": 4,
+  "id": "find_fixes",
+  "title": "Search for the smallest proven fix",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Proof of 50 more qualifying hours in July 2026",
+   "details": [
+    "Proof of $362.50 more income in July 2026",
+    "2 fixes proven by re-running the rules"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "35f2c4c5d748ed9c46c18cdb": {
+  "n": 5,
+  "id": "forecast",
+  "title": "Forecast the next 12 months",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "If nothing changes, Rosa stays covered through Sep 2027.",
+   "details": [
+    "First month at risk: none"
+   ],
+   "months": [
+    {
+     "month": "2026-10",
+     "status": "meets"
+    },
+    {
+     "month": "2026-11",
+     "status": "meets"
+    },
+    {
+     "month": "2026-12",
+     "status": "meets"
+    },
+    {
+     "month": "2027-01",
+     "status": "meets"
+    },
+    {
+     "month": "2027-02",
+     "status": "meets"
+    },
+    {
+     "month": "2027-03",
+     "status": "meets"
+    },
+    {
+     "month": "2027-04",
+     "status": "meets"
+    },
+    {
+     "month": "2027-05",
+     "status": "meets"
+    },
+    {
+     "month": "2027-06",
+     "status": "meets"
+    },
+    {
+     "month": "2027-07",
+     "status": "meets"
+    },
+    {
+     "month": "2027-08",
+     "status": "meets"
+    },
+    {
+     "month": "2027-09",
+     "status": "meets"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "41a5e053248840adc94204c5": {
+  "n": 6,
+  "id": "nearby",
+  "title": "Find places nearby to earn hours",
+  "actors": [
+   "Tavily Search",
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "2 job-training programs near Missoula, MT",
+   "details": [
+    "Workforce Innovation & Opportunity Act Youth Program - Human Resource Council",
+    "Job Service Montana",
+    "Sent to search: Missoula, Montana (no client details)"
+   ],
+   "reused": "Search results reused from 2026-10-10 for this city"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "9e2f777bba4fa7f954a1a9ce": {
+  "n": 7,
+  "id": "verify_rule",
+  "title": "Check the key rule against official text",
+  "actors": [
+   "Nemotron Super",
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "At redetermination, your client must show they met the community engagement requirement (or had a qualifying exclusion) for at least 3 months since their last redetermination; the months do not need to be consecutive.",
+   "question": "How many qualifying months does my client need at redetermination?",
+   "reused": "Answer reused: the same official rules were in force when it was first checked",
+   "details": [
+    "Evidence check: 2 quotes proposed, 2 verified word for word, 0 dropped",
+    "Source: Montana DPHHS - Changes to Medicaid (community engagement requirement) (2026-10-09)",
+    "Source: Montana DPHHS \u2014 Medicaid changes FAQ (2026-10-10)"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "eca933992e40f7f1d5b2606a": {
+  "n": 8,
+  "id": "draft_message",
+  "title": "Draft a message for the client",
+  "actors": [
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "Hi Rosa! You're close\u2014just need proof of 50 more qualifying hours in July 2026 (like a signed letter from work, volunteer site, class, or training). Call us at 1-888-706-1535 if you have questions.",
+   "details": [
+    "Get a signed letter showing 50+ hours from July 2026",
+    "Send it to your Medicaid office",
+    "Call 1-888-706-1535 for help",
+    "Numbers checked against the worksheet: 12 of 12 match"
+   ],
+   "language": "English"
+  },
+  "metrics": {
+   "models": [
+    "nemotron-3-super-120b-a12b"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 305,
+   "completion_tokens": 121,
+   "usd": 0.0002,
+   "seconds": 1.08,
+   "ultra_usd": 0.000668,
+   "frontier_usd": 0.00364
+  },
+  "ran_at": "2026-10-26"
+ },
+ "95ff70ca925aee97a527cd9c": {
+  "n": 9,
+  "id": "package",
+  "title": "Assemble the packet, form and reminders",
+  "actors": [
+   "Code"
+  ],
+  "output": {
+   "headline": "Packet, state form and reminders are ready",
+   "details": [],
+   "links": [
+    {
+     "label": "Evidence packet (PDF)",
+     "href": "/api/cases/rosa-delgado/packet.pdf"
+    },
+    {
+     "label": "Calendar reminders (.ics)",
+     "href": "/api/cases/rosa-delgado/reminders.ics"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "f70d0d10718f0d9db3ccd9eb": {
+  "n": 0,
+  "id": "read_notice",
+  "title": "Read the state's notice",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No state notice on file for this case."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "6206ab016b063bee7d482c4f": {
+  "n": 1,
+  "id": "explain",
+  "title": "Explain it in the client's language",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No notice to explain."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "a4e79b311bc9927b100a4f4b": {
+  "n": 2,
+  "id": "read_documents",
+  "title": "Read the client's documents",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "3 of 3 numbers match the reviewed ledger",
+   "details": [
+    "Big Sky Trail Outfitters earnings: 6 numbers read, each with its exact line"
+   ]
+  },
+  "metrics": {
+   "models": [
+    "NVIDIA-Nemotron-3-Nano-30B-A3B"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 1179,
+   "completion_tokens": 892,
+   "usd": 0.000285,
+   "seconds": 3.78,
+   "ultra_usd": 0.003855,
+   "frontier_usd": 0.022556
+  },
+  "ran_at": "2026-10-26"
+ },
+ "c3525c203095e8bd36b21202": {
+  "n": 3,
+  "id": "apply_rules",
+  "title": "Apply the rules in force on the date",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Sam meets the requirement",
+   "details": [
+    "Review: At least 3 qualifying months in the 12 months since the last renewal",
+    "2026-08: 0 of 80 hours, $2,370.00 of $580 income"
+   ],
+   "status": "meets"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "ea69a3bcf2f08d62590ce6d2": {
+  "n": 4,
+  "id": "find_fixes",
+  "title": "Search for the smallest proven fix",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Nothing to fix: the documented month already qualifies.",
+   "details": []
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "e6055997a29951d16559f513": {
+  "n": 5,
+  "id": "forecast",
+  "title": "Forecast the next 12 months",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "If nothing changes, Sam stays covered through Sep 2027.",
+   "details": [
+    "First month at risk: none"
+   ],
+   "months": [
+    {
+     "month": "2026-10",
+     "status": "meets"
+    },
+    {
+     "month": "2026-11",
+     "status": "meets"
+    },
+    {
+     "month": "2026-12",
+     "status": "meets"
+    },
+    {
+     "month": "2027-01",
+     "status": "meets"
+    },
+    {
+     "month": "2027-02",
+     "status": "meets"
+    },
+    {
+     "month": "2027-03",
+     "status": "meets"
+    },
+    {
+     "month": "2027-04",
+     "status": "meets"
+    },
+    {
+     "month": "2027-05",
+     "status": "meets"
+    },
+    {
+     "month": "2027-06",
+     "status": "meets"
+    },
+    {
+     "month": "2027-07",
+     "status": "meets"
+    },
+    {
+     "month": "2027-08",
+     "status": "meets"
+    },
+    {
+     "month": "2027-09",
+     "status": "meets"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "abac0b889661129f98592db6": {
+  "n": 6,
+  "id": "nearby",
+  "title": "Find places nearby to earn hours",
+  "actors": [
+   "Tavily Search",
+   "Nemotron Super"
+  ],
+  "output": {
+   "skipped": "No extra hours needed, so no search."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "a885c5ae5dd444fe4bc513ff": {
+  "n": 7,
+  "id": "verify_rule",
+  "title": "Check the key rule against official text",
+  "actors": [
+   "Nemotron Super",
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "At redetermination, your client must show they met the community engagement requirement (or had a qualifying exclusion) for at least 3 months since their last redetermination; the months do not need to be consecutive.",
+   "question": "How many qualifying months does my client need at redetermination?",
+   "reused": "Answer reused: the same official rules were in force when it was first checked",
+   "details": [
+    "Evidence check: 2 quotes proposed, 2 verified word for word, 0 dropped",
+    "Source: Montana DPHHS - Changes to Medicaid (community engagement requirement) (2026-10-09)",
+    "Source: Montana DPHHS \u2014 Medicaid changes FAQ (2026-10-10)"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "1054e80c51c014019f15ddc5": {
+  "n": 8,
+  "id": "draft_message",
+  "title": "Draft a message for the client",
+  "actors": [
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "Hi Sam! This is your Medicaid navigator. I see you met the work requirement for last month\u2014great job! No action needed on your end right now. If anything changes, just call us at 1-888-706-1535.",
+   "details": [
+    "Keep your documents ready in case we ask later.",
+    "Call the agency if your work hours change.",
+    "No reply needed unless you have questions.",
+    "Numbers checked against the worksheet: 4 of 4 match"
+   ],
+   "language": "English"
+  },
+  "metrics": {
+   "models": [
+    "nemotron-3-super-120b-a12b"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 260,
+   "completion_tokens": 97,
+   "usd": 0.000165,
+   "seconds": 0.98,
+   "ultra_usd": 0.000551,
+   "frontier_usd": 0.00298
+  },
+  "ran_at": "2026-10-26"
+ },
+ "8b387261975cfef55fb95ee7": {
+  "n": 9,
+  "id": "package",
+  "title": "Assemble the packet, form and reminders",
+  "actors": [
+   "Code"
+  ],
+  "output": {
+   "headline": "Packet, state form and reminders are ready",
+   "details": [],
+   "links": [
+    {
+     "label": "Evidence packet (PDF)",
+     "href": "/api/cases/sam-whitaker/packet.pdf"
+    },
+    {
+     "label": "Calendar reminders (.ics)",
+     "href": "/api/cases/sam-whitaker/reminders.ics"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "67cad2a7ea5477b106b0aa82": {
+  "n": 0,
+  "id": "read_notice",
+  "title": "Read the state's notice",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No state notice on file for this case."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "c6d5fe9512df453419a0235e": {
+  "n": 1,
+  "id": "explain",
+  "title": "Explain it in the client's language",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "skipped": "No notice to explain."
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "3e2239765076d2c2ecc31954": {
+  "n": 2,
+  "id": "read_documents",
+  "title": "Read the client's documents",
+  "actors": [
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "1 of 1 numbers match the reviewed ledger",
+   "details": [
+    "Linda's pay statement: 1 numbers read, each with its exact line"
+   ]
+  },
+  "metrics": {
+   "models": [
+    "NVIDIA-Nemotron-3-Nano-30B-A3B"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 1045,
+   "completion_tokens": 139,
+   "usd": 9.6e-05,
+   "seconds": 0.93,
+   "ultra_usd": 0.001462,
+   "frontier_usd": 0.00696
+  },
+  "ran_at": "2026-10-26"
+ },
+ "09aa715db7a7f66f3c557b97": {
+  "n": 3,
+  "id": "apply_rules",
+  "title": "Apply the rules in force on the date",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Tom meets it only if a condition holds",
+   "details": [
+    "Review: Any one month in the 12 months before renewal",
+    "2026-09: 0 of 80 hours, $0.00 of $580 income",
+    "Condition: The agency counts other household members' income for this client (Nebraska: 'may count in some cases', 477 NAC 16)."
+   ],
+   "status": "conditional"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "19f4a0ed202935f52b9d9ae1": {
+  "n": 4,
+  "id": "find_fixes",
+  "title": "Search for the smallest proven fix",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Ask the agency to count the household's income",
+   "details": [
+    "Proof of 80 more qualifying hours in September 2026",
+    "Proof of $580.00 more income in September 2026",
+    "3 fixes proven by re-running the rules"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "116ce0b789c883db7637db96": {
+  "n": 5,
+  "id": "forecast",
+  "title": "Forecast the next 12 months",
+  "actors": [
+   "Rules engine (code)"
+  ],
+  "output": {
+   "headline": "Same life, different rules: Tom starts to qualify clearly in Jan 2027, because whose income counts toward the income test changes.",
+   "details": [
+    "First month at risk: 2026-10"
+   ],
+   "months": [
+    {
+     "month": "2026-10",
+     "status": "conditional"
+    },
+    {
+     "month": "2026-11",
+     "status": "conditional"
+    },
+    {
+     "month": "2026-12",
+     "status": "conditional"
+    },
+    {
+     "month": "2027-01",
+     "status": "meets"
+    },
+    {
+     "month": "2027-02",
+     "status": "meets"
+    },
+    {
+     "month": "2027-03",
+     "status": "meets"
+    },
+    {
+     "month": "2027-04",
+     "status": "meets"
+    },
+    {
+     "month": "2027-05",
+     "status": "meets"
+    },
+    {
+     "month": "2027-06",
+     "status": "meets"
+    },
+    {
+     "month": "2027-07",
+     "status": "meets"
+    },
+    {
+     "month": "2027-08",
+     "status": "meets"
+    },
+    {
+     "month": "2027-09",
+     "status": "meets"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "81c48f794f5c3ba3567e2155": {
+  "n": 6,
+  "id": "nearby",
+  "title": "Find places nearby to earn hours",
+  "actors": [
+   "Tavily Search",
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "1 job-training programs near Grand Island, NE",
+   "details": [
+    "American Job Center - Grand Island",
+    "Sent to search: Grand Island, Nebraska (no client details)"
+   ],
+   "reused": "Search results reused from 2026-10-10 for this city"
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "fc793f60b217a57371d34830": {
+  "n": 7,
+  "id": "verify_rule",
+  "title": "Check the key rule against official text",
+  "actors": [
+   "Nemotron Super",
+   "Nemotron Nano"
+  ],
+  "output": {
+   "headline": "According to Nebraska\u2019s work\u2011requirement rules, your spouse\u2019s income may be counted toward the $580 monthly threshold in some cases, but it depends on the specific circumstances outlined in state regulations.",
+   "question": "Does my client's spouse's income count toward the $580?",
+   "reused": "Answer reused: the same official rules were in force when it was first checked",
+   "details": [
+    "Evidence check: 1 quotes proposed, 1 verified word for word, 0 dropped",
+    "Source: Nebraska DHHS \u2014 Work Requirements FAQ (2026-10-10)"
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.01,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ },
+ "19ce1fec1b67a6df05297174": {
+  "n": 8,
+  "id": "draft_message",
+  "title": "Draft a message for the client",
+  "actors": [
+   "Nemotron Super"
+  ],
+  "output": {
+   "headline": "Hi Tom, you can meet the requirement if we show that your household\u2019s income counts. Ask the agency: \u2018Can you count the household\u2019s income?\u2019 Nebraska says it may count now; by Jan 2027, federal rules will require it. Call 1-855-632-7633.",
+   "details": [
+    "Call the agency at 1-855-632-7633",
+    "Ask them to count your household\u2019s income",
+    "Numbers checked against the worksheet: 9 of 9 match"
+   ],
+   "language": "English"
+  },
+  "metrics": {
+   "models": [
+    "nemotron-3-super-120b-a12b"
+   ],
+   "llm_calls": 1,
+   "tavily_calls": 0,
+   "prompt_tokens": 304,
+   "completion_tokens": 111,
+   "usd": 0.000191,
+   "seconds": 1.25,
+   "ultra_usd": 0.000637,
+   "frontier_usd": 0.003436
+  },
+  "ran_at": "2026-10-26"
+ },
+ "13a4f48389b84cf03b8df4cb": {
+  "n": 9,
+  "id": "package",
+  "title": "Assemble the packet, form and reminders",
+  "actors": [
+   "Code"
+  ],
+  "output": {
+   "headline": "Packet, state form and reminders are ready",
+   "details": [],
+   "links": [
+    {
+     "label": "Evidence packet (PDF)",
+     "href": "/api/cases/tom-becker/packet.pdf"
+    },
+    {
+     "label": "Nebraska MLTC-118, pre-filled (PDF)",
+     "href": "/api/cases/tom-becker/mltc118.pdf"
+    },
+    {
+     "label": "Calendar reminders (.ics)",
+     "href": "/api/cases/tom-becker/reminders.ics"
+    }
+   ]
+  },
+  "metrics": {
+   "models": [],
+   "llm_calls": 0,
+   "tavily_calls": 0,
+   "prompt_tokens": 0,
+   "completion_tokens": 0,
+   "usd": 0,
+   "seconds": 0.0,
+   "ultra_usd": 0.0,
+   "frontier_usd": 0.0
+  },
+  "ran_at": "2026-10-26"
+ }
+}

@@ -236,6 +236,30 @@ class AskIn(BaseModel):
     compare_closed_book: bool = False
 
 
+def ask_cached(question: str, jurisdiction: str, on: date, compare: bool = False) -> dict:
+    """Grounded answer as of a date: served from the cache when the same rules were in force, else computed."""
+    key = _cache_key("ask", question, jurisdiction, on.isoformat(), compare)
+    kkey = _cache_key("ask-k", question, jurisdiction, _knowledge(jurisdiction, on), compare)
+    hit = _cache_get(key) or _cache_get(kkey)
+    if hit:
+        g = hit["grounded"]
+        same = {} if g["as_of"] == on.isoformat() else {"same_rules_as": g["as_of"]}  # identical rules and sources then
+        return hit | {"grounded": g | {"as_of": on.isoformat()}, "cached": True} | same
+    res = answer_mod.answer(question, jurisdiction, on)
+    out = {"grounded": json.loads(res.model_dump_json())}
+    if compare:
+        # the frozen answer does not depend on the date: share it across dates
+        fk = _cache_key("frozen", question, jurisdiction)
+        frozen = _cache_get(fk)
+        if not frozen:
+            frozen = {"text": answer_mod.closed_book(question, jurisdiction)}
+            _cache_put(fk, frozen)
+        out["closed_book"] = frozen["text"]
+    _cache_put(key, out)
+    _cache_put(kkey, out)
+    return out
+
+
 @app.post("/api/ask")
 def ask(q: AskIn, req: Request) -> dict:
     on = _d(q.as_of)
@@ -243,29 +267,35 @@ def ask(q: AskIn, req: Request) -> dict:
         raise HTTPException(413, "Question too long (600 characters max).")
     key = _cache_key("ask", q.question, q.jurisdiction, on.isoformat(), q.compare_closed_book)
     kkey = _cache_key("ask-k", q.question, q.jurisdiction, _knowledge(q.jurisdiction, on), q.compare_closed_book)
-    hit = _cache_get(key) or _cache_get(kkey)
-    if hit:
-        g = hit["grounded"]
-        same = {} if g["as_of"] == on.isoformat() else {"same_rules_as": g["as_of"]}  # identical rules and sources then
-        return hit | {"grounded": g | {"as_of": on.isoformat()}, "cached": True} | same
-    _rate_limit(req)
+    if not (_cache_get(key) or _cache_get(kkey)):
+        _rate_limit(req)
+    return _llm_guard(lambda: ask_cached(q.question, q.jurisdiction, on, q.compare_closed_book))
 
-    def run() -> dict:
-        res = answer_mod.answer(q.question, q.jurisdiction, on)
-        out = {"grounded": json.loads(res.model_dump_json())}
-        if q.compare_closed_book:
-            # the frozen answer does not depend on the date: share it across dates
-            fk = _cache_key("frozen", q.question, q.jurisdiction)
-            frozen = _cache_get(fk)
-            if not frozen:
-                frozen = {"text": answer_mod.closed_book(q.question, q.jurisdiction)}
-                _cache_put(fk, frozen)
-            out["closed_book"] = frozen["text"]
-        _cache_put(key, out)
-        _cache_put(kkey, out)
-        return out
 
-    return _llm_guard(run)
+# ---------- the agent: one case end to end ----------
+
+@app.get("/api/agent/plan")
+def agent_plan() -> list[dict]:
+    from . import agent
+    return agent.plan()
+
+
+@app.post("/api/cases/{case_id}/agent/step/{n}")
+def agent_step(case_id: str, n: int, req: Request, live: bool = False) -> dict:
+    from . import agent
+
+    if not 0 <= n < len(agent.STEPS):
+        raise HTTPException(404, "no such step")
+    try:
+        store.load(case_id)
+    except FileNotFoundError:
+        raise HTTPException(404, "case not found")
+    if live and config.ON_VERCEL:
+        live = False  # the public demo replays recorded steps unless the case changed
+    res = _llm_guard(lambda: agent.run_step(case_id, n, live=live))
+    if not res.get("cached"):
+        _rate_limit(req)
+    return res
 
 
 # ---------- rules, sources, time machine ----------

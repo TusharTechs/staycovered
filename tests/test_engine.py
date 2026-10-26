@@ -253,3 +253,22 @@ def test_sandbox_levers_move_the_right_clients():
     assert ex["scenario"]["totals"]["paperwork"] == 0 and ex["scenario"]["totals"]["protected"] == 2
     mt = {f["id"]: f for f in sandbox.run("MT", {"income_to_hours": False}, on)["flips"]}
     assert mt["rosa-delgado"]["after"] == "short"
+
+
+# ---------- the agent ----------
+
+from staycovered import agent  # noqa: E402
+
+
+def test_agent_replays_recorded_steps_without_a_key():
+    steps = [agent.run_step("maria-lopez", n) for n in range(len(agent.STEPS))]
+    assert all(s["cached"] for s in steps)
+    assert steps[2]["output"]["headline"].startswith("12 of 12 numbers match")
+    assert "12 of 12 match" in steps[8]["output"]["details"][-1]  # numbers in the client message checked
+    r = agent.receipt(steps)
+    assert 0 < r["usd"] < r["ultra_usd"] < r["frontier_usd"]
+
+
+def test_agent_code_steps_run_live_for_free():
+    s = agent.run_step("dani-ortiz", 4, live=True)  # smallest proven fix: plain code
+    assert s["metrics"]["llm_calls"] == 0 and "$70.00 more income" in s["output"]["headline"] + " ".join(s["output"]["details"])

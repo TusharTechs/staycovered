@@ -6,10 +6,12 @@ Every call is appended to data/runtime/calls.jsonl so the UI can show routing, t
 from __future__ import annotations
 
 import json
+from contextlib import contextmanager
+from contextvars import ContextVar
 import re
 import time
 import uuid
-from typing import Any, Type, TypeVar
+from typing import Any, Iterator, Type, TypeVar
 
 from openai import APIConnectionError, APIStatusError, OpenAI, RateLimitError
 from pydantic import BaseModel, ValidationError
@@ -69,9 +71,25 @@ def client() -> OpenAI:
     return _client
 
 
+# Agent runs collect the calls made inside each step (model, tokens, cost, latency) to show a per-step receipt.
+COLLECT: ContextVar[list | None] = ContextVar("collect_calls", default=None)
+
+
+@contextmanager
+def collect() -> Iterator[list]:
+    calls: list = []
+    token = COLLECT.set(calls)
+    try:
+        yield calls
+    finally:
+        COLLECT.reset(token)
+
+
 def _log(entry: dict[str, Any]) -> None:
     with CALL_LOG.open("a", encoding="utf-8") as f:
         f.write(json.dumps(entry) + "\n")
+    if (c := COLLECT.get()) is not None:
+        c.append(entry)
 
 
 def _cost(model_id: str, usage: Any) -> float:
