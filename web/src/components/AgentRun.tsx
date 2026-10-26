@@ -19,9 +19,13 @@ export default function AgentRun({ caseId, autoStart = false, live = false, onDo
   const [running, setRunning] = useState(false)
   const stop = useRef(false)
   const started = useRef(false)
+  const follow = useRef(true)
+  const list = useRef<HTMLOListElement>(null)
+  const receipt = useRef<HTMLDivElement>(null)
 
   const run = async () => {
     stop.current = false
+    follow.current = true
     setRunning(true)
     const plan = await api.agentPlan()
     setRows(plan.map(p => ({ ...p, state: 'waiting' } as Row)))
@@ -46,12 +50,38 @@ export default function AgentRun({ caseId, autoStart = false, live = false, onDo
 
   useEffect(() => { if (autoStart && !started.current) { started.current = true; run() } }, [autoStart])
 
+  // while it runs, stop following the moment the reader scrolls on their own
+  useEffect(() => {
+    if (!running) return
+    const off = () => { follow.current = false }
+    const keys = (e: KeyboardEvent) => { if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(e.key)) off() }
+    window.addEventListener('wheel', off, { passive: true })
+    window.addEventListener('touchmove', off, { passive: true })
+    window.addEventListener('keydown', keys)
+    return () => { window.removeEventListener('wheel', off); window.removeEventListener('touchmove', off); window.removeEventListener('keydown', keys) }
+  }, [running])
+
   const done = rows.filter(r => r.state === 'done')
+  const finished = rows.length > 0 && done.length === rows.length
+
+  // keep the step that is running (then the receipt) on screen, so the run never looks stuck below the fold
+  useEffect(() => {
+    const i = rows.findIndex(r => r.state === 'running')
+    const el = i >= 0 ? list.current?.children[i] : finished ? receipt.current : null
+    if (!el || !follow.current) return
+    const raf = requestAnimationFrame(() => {
+      const b = el.getBoundingClientRect()
+      if (b.top >= 80 && b.bottom <= window.innerHeight - 80) return
+      const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      el.scrollIntoView({ block: b.height > window.innerHeight - 160 ? 'start' : 'center', behavior: smooth ? 'smooth' : 'auto' })
+    })
+    return () => cancelAnimationFrame(raf)
+  }, [rows, finished])
+
   const tot = done.reduce((a, r) => ({
     usd: a.usd + (r.metrics?.usd ?? 0), ultra: a.ultra + (r.metrics?.ultra_usd ?? 0), frontier: a.frontier + (r.metrics?.frontier_usd ?? 0),
     tokens: a.tokens + (r.metrics ? r.metrics.prompt_tokens + r.metrics.completion_tokens : 0), seconds: a.seconds + (r.metrics?.seconds ?? 0),
   }), { usd: 0, ultra: 0, frontier: 0, tokens: 0, seconds: 0 })
-  const finished = rows.length > 0 && done.length === rows.length
   const msg = rows.find(r => r.id === 'draft_message')?.output
   const pkg = rows.find(r => r.id === 'package')?.output
 
@@ -76,7 +106,7 @@ export default function AgentRun({ caseId, autoStart = false, live = false, onDo
         <div className="h-full bg-brand transition-all duration-500" style={{ width: `${(done.length / rows.length) * 100}%` }} />
       </div>
 
-      <ol className="mt-4 space-y-2" aria-live="polite">
+      <ol ref={list} className="mt-4 space-y-2" aria-live="polite">
         {rows.map(r => {
           const o = r.output
           return (
@@ -114,7 +144,7 @@ export default function AgentRun({ caseId, autoStart = false, live = false, onDo
       </ol>
 
       {finished && (
-        <div className="mt-4 rounded-xl bg-paper p-4">
+        <div ref={receipt} className="mt-4 rounded-xl bg-paper p-4">
           <div className="text-sm font-semibold">Receipt for this case</div>
           <p className="mt-0.5 text-xs text-muted">{tot.tokens.toLocaleString()} tokens across Nemotron Nano and Super, each step routed to the model size chosen for its job; {tot.seconds.toFixed(1)}s of work. The same tokens, priced:</p>
           <div className="mt-3 space-y-2">

@@ -49,17 +49,20 @@ function Overlay({ step, index, next, back, stop }: { step: Step; index: number;
   useLayoutEffect(() => {
     let tries = 0
     let raf = 0
+    let ro: ResizeObserver | null = null
     const find = () => {
       const el = document.querySelector(`[data-tour="${step.target}"]`) as HTMLElement | null
       if (el) {
         el.scrollIntoView({ block: 'center', behavior: 'auto' })
         requestAnimationFrame(() => requestAnimationFrame(() => setRect(el.getBoundingClientRect())))
+        ro = new ResizeObserver(() => setRect(el.getBoundingClientRect()))  // the target can grow, e.g. the agent run
+        ro.observe(el)
       } else if (tries++ < 60) raf = window.setTimeout(find, 100)
       else setRect(null)
     }
     setRect(null)
     find()
-    return () => clearTimeout(raf)
+    return () => { clearTimeout(raf); ro?.disconnect() }
   }, [step, loc.pathname, loc.search])
 
   useEffect(() => {
@@ -82,11 +85,13 @@ function Overlay({ step, index, next, back, stop }: { step: Step; index: number;
   const CARD_H = 220
   const below = rect ? rect.bottom + 14 : 0
   const above = rect ? rect.top - CARD_H - 14 : 0
+  const tall = !!rect && rect.height > window.innerHeight * 0.6  // a tall target: keep the card in a corner, off its content
   const cardTop = !rect ? window.innerHeight / 2 - 100
     : below + CARD_H < window.innerHeight ? below
     : above > 16 ? above
     : Math.max(16, window.innerHeight - CARD_H - 16)
-  const cardLeft = rect ? Math.max(16, Math.min(window.innerWidth - 400, rect.left)) : window.innerWidth / 2 - 190
+  const cardLeft = tall ? Math.max(16, window.innerWidth - 396)
+    : rect ? Math.max(16, Math.min(window.innerWidth - 400, rect.left)) : window.innerWidth / 2 - 190
 
   return (
     <div className="fixed inset-0 z-50 pointer-events-none" role="dialog" aria-modal="false" aria-label={step.title}>
