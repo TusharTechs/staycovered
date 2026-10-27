@@ -1395,5 +1395,20 @@
     "text_path": "sources/text/IA/ia-8baf74ba-2026-10-25.txt",
     "sha256": "0203e25f6f015db0bf356c870a68c374ac76943606ef8c43eeec2f2f2140f6c8",
     "notes": "captured by drift-watch via tavily-extract"
+  },
+  {
+    "id": "ne-88f65eb8-2026-10-27",
+    "jurisdiction": "NE",
+    "title": "Nebraska DHHS \u2014 Medicaid Work Requirements",
+    "publisher": "",
+    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
+    "wayback_url": null,
+    "as_of": "2026-10-27",
+    "retrieved_at": "2026-10-27T18:42:34+00:00",
+    "content_type": "text/plain",
+    "raw_path": "sources/raw/NE/ne-88f65eb8-2026-10-27.tavily.txt",
+    "text_path": "sources/text/NE/ne-88f65eb8-2026-10-27.txt",
+    "sha256": "23383a1bc53b9a54eb524aea8ef553a943c7fff9950ad6483beda8982a4bfaaa",
+    "notes": "captured by drift-watch via tavily-extract"
   }
 ]

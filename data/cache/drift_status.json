@@ -1,11 +1,13 @@
 {
- "last_checked": "2026-10-26T19:20+00:00",
+ "last_checked": "2026-10-27T18:42+00:00",
  "pages": [
   {
    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
    "title": "Nebraska DHHS \u2014 Medicaid Work Requirements",
    "jurisdiction": "NE",
-   "status": "unreachable"
+   "status": "changed",
+   "snapshot": "ne-88f65eb8-2026-10-27",
+   "headline": "Updated formatting and added detail to work requirements page including reporting methods, exemption criteria, and resource links"
   },
   {
    "url": "https://dhhs.ne.gov/Documents/MLTC-WR-Requirements-FAQ.pdf",
@@ -57,7 +59,7 @@
    "since": "2026-10-18"
   }
  ],
- "changes_today": 0,
- "total_live_changes": 15,
+ "changes_today": 1,
+ "total_live_changes": 16,
  "method": "Tavily Extract (advanced)"
 }
