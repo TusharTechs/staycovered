@@ -1,5 +1,5 @@
 {
- "last_checked": "2026-11-01T18:26+00:00",
+ "last_checked": "2026-11-02T22:19+00:00",
  "pages": [
   {
    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
@@ -27,8 +27,8 @@
    "title": "Montana DPHHS \u2014 Medicaid changes FAQ",
    "jurisdiction": "MT",
    "status": "cosmetic change",
-   "snapshot": "mt-e06e50b3-2026-11-01",
-   "headline": "Montana updated formatting and added cookie consent notice while keeping core Medicaid community engagement rules unchanged"
+   "snapshot": "mt-e06e50b3-2026-11-02",
+   "headline": "Montana restored previously removed Medicaid community engagement FAQ content after accidental deletion"
   },
   {
    "url": "https://humanservices.arkansas.gov/divisions-shared-services/medical-services/healthcare-programs/arhome/arhome-community-engagement-requirement/",
