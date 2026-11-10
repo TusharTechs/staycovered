@@ -1,5 +1,5 @@
 {
- "last_checked": "2026-11-09T22:59+00:00",
+ "last_checked": "2026-11-10T20:28+00:00",
  "pages": [
   {
    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
@@ -40,9 +40,8 @@
    "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
    "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
    "jurisdiction": "IA",
-   "status": "changed",
-   "snapshot": "ia-8baf74ba-2026-11-09",
-   "headline": "The page was restructured into sections with clearer headings and added a FAQ, but core requirements remain unchanged."
+   "status": "unchanged",
+   "since": "2026-11-09"
   },
   {
    "url": "https://pathways.georgia.gov/about-pathways/faqs",
@@ -59,7 +58,7 @@
    "since": "2026-10-18"
   }
  ],
- "changes_today": 1,
+ "changes_today": 0,
  "total_live_changes": 17,
  "method": "Tavily Extract (advanced)"
 }
