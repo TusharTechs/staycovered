@@ -1485,5 +1485,20 @@
     "text_path": "sources/text/IA/ia-8baf74ba-2026-11-09.txt",
     "sha256": "2108f660bd9564603a39d6a42d76e197a63eb26e97872bc8b111c7f8843bcb2f",
     "notes": "captured by drift-watch via tavily-extract"
+  },
+  {
+    "id": "ia-8baf74ba-2026-11-15",
+    "jurisdiction": "IA",
+    "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
+    "publisher": "",
+    "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
+    "wayback_url": null,
+    "as_of": "2026-11-15",
+    "retrieved_at": "2026-11-15T19:22:52+00:00",
+    "content_type": "text/plain",
+    "raw_path": "sources/raw/IA/ia-8baf74ba-2026-11-15.tavily.txt",
+    "text_path": "sources/text/IA/ia-8baf74ba-2026-11-15.txt",
+    "sha256": "6c48c57b7c49e9bf91e25097d9f9fe241a6460d33baf1d15eab1ccf36451e361",
+    "notes": "captured by drift-watch via tavily-extract"
   }
 ]
