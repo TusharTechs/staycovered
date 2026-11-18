@@ -1500,5 +1500,35 @@
     "text_path": "sources/text/IA/ia-8baf74ba-2026-11-15.txt",
     "sha256": "6c48c57b7c49e9bf91e25097d9f9fe241a6460d33baf1d15eab1ccf36451e361",
     "notes": "captured by drift-watch via tavily-extract"
+  },
+  {
+    "id": "ar-8f8aeebe-2026-11-18",
+    "jurisdiction": "AR",
+    "title": "Arkansas DHS \u2014 ARHOME community engagement requirement",
+    "publisher": "",
+    "url": "https://humanservices.arkansas.gov/divisions-shared-services/medical-services/healthcare-programs/arhome/arhome-community-engagement-requirement/",
+    "wayback_url": null,
+    "as_of": "2026-11-18",
+    "retrieved_at": "2026-11-18T21:26:27+00:00",
+    "content_type": "text/plain",
+    "raw_path": "sources/raw/AR/ar-8f8aeebe-2026-11-18.tavily.txt",
+    "text_path": "sources/text/AR/ar-8f8aeebe-2026-11-18.txt",
+    "sha256": "ce81c1a07346687a0a0c6cbdc998ad5dc7534f72b95cb4ca8bf7e3e437cd1140",
+    "notes": "captured by drift-watch via tavily-extract"
+  },
+  {
+    "id": "ia-8baf74ba-2026-11-18",
+    "jurisdiction": "IA",
+    "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
+    "publisher": "",
+    "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
+    "wayback_url": null,
+    "as_of": "2026-11-18",
+    "retrieved_at": "2026-11-18T21:26:30+00:00",
+    "content_type": "text/plain",
+    "raw_path": "sources/raw/IA/ia-8baf74ba-2026-11-18.tavily.txt",
+    "text_path": "sources/text/IA/ia-8baf74ba-2026-11-18.txt",
+    "sha256": "fd06c077ab194c2ed457efb1168ee94dffa83d83fa3b808564795bf20b285200",
+    "notes": "captured by drift-watch via tavily-extract"
   }
 ]
