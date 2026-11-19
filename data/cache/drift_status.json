@@ -1,5 +1,5 @@
 {
- "last_checked": "2026-11-18T21:26+00:00",
+ "last_checked": "2026-11-19T21:36+00:00",
  "pages": [
   {
    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
@@ -33,17 +33,15 @@
    "url": "https://humanservices.arkansas.gov/divisions-shared-services/medical-services/healthcare-programs/arhome/arhome-community-engagement-requirement/",
    "title": "Arkansas DHS \u2014 ARHOME community engagement requirement",
    "jurisdiction": "AR",
-   "status": "cosmetic change",
-   "snapshot": "ar-8f8aeebe-2026-11-18",
-   "headline": "Removed beneficiary outreach email guidance and added general statement about employment benefits"
+   "status": "unchanged",
+   "since": "2026-11-18"
   },
   {
    "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
    "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
    "jurisdiction": "IA",
-   "status": "changed",
-   "snapshot": "ia-8baf74ba-2026-11-18",
-   "headline": "Updated examples of acceptable proof and added clarification on caregiver verification and SNAP/FIP work requirement exclusions"
+   "status": "unchanged",
+   "since": "2026-11-18"
   },
   {
    "url": "https://pathways.georgia.gov/about-pathways/faqs",
@@ -56,11 +54,12 @@
    "url": "https://www.medicaid.gov/resources-for-states/working-families-tax-cut-legislation/community-engagement",
    "title": "Medicaid.gov \u2014 Community engagement",
    "jurisdiction": "US",
-   "status": "unchanged",
-   "since": "2026-10-18"
+   "status": "cosmetic change",
+   "snapshot": "us-1bc44268-2026-11-19",
+   "headline": "Removed introductory content and security notices while retaining core policy statement"
   }
  ],
- "changes_today": 1,
+ "changes_today": 0,
  "total_live_changes": 18,
  "method": "Tavily Extract (advanced)"
 }

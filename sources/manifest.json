@@ -1530,5 +1530,20 @@
     "text_path": "sources/text/IA/ia-8baf74ba-2026-11-18.txt",
     "sha256": "fd06c077ab194c2ed457efb1168ee94dffa83d83fa3b808564795bf20b285200",
     "notes": "captured by drift-watch via tavily-extract"
+  },
+  {
+    "id": "us-1bc44268-2026-11-19",
+    "jurisdiction": "US",
+    "title": "Medicaid.gov \u2014 Community engagement",
+    "publisher": "",
+    "url": "https://www.medicaid.gov/resources-for-states/working-families-tax-cut-legislation/community-engagement",
+    "wayback_url": null,
+    "as_of": "2026-11-19",
+    "retrieved_at": "2026-11-19T21:36:48+00:00",
+    "content_type": "text/plain",
+    "raw_path": "sources/raw/US/us-1bc44268-2026-11-19.tavily.txt",
+    "text_path": "sources/text/US/us-1bc44268-2026-11-19.txt",
+    "sha256": "503044af0795b7c6fd6f3b713189bee0d822db7dc1a3d60837a174998deb5a17",
+    "notes": "captured by drift-watch via tavily-extract"
   }
 ]
