@@ -1545,5 +1545,20 @@
     "text_path": "sources/text/US/us-1bc44268-2026-11-19.txt",
     "sha256": "503044af0795b7c6fd6f3b713189bee0d822db7dc1a3d60837a174998deb5a17",
     "notes": "captured by drift-watch via tavily-extract"
+  },
+  {
+    "id": "mt-5a5f1f40-2026-11-20",
+    "jurisdiction": "MT",
+    "title": "Montana DPHHS \u2014 Medicaid changes",
+    "publisher": "",
+    "url": "https://dphhs.mt.gov/medicaidchanges",
+    "wayback_url": null,
+    "as_of": "2026-11-20",
+    "retrieved_at": "2026-11-20T21:06:03+00:00",
+    "content_type": "text/plain",
+    "raw_path": "sources/raw/MT/mt-5a5f1f40-2026-11-20.tavily.txt",
+    "text_path": "sources/text/MT/mt-5a5f1f40-2026-11-20.txt",
+    "sha256": "ebfe32a7f100c169208756df1da36ecc438b58b47e87c970ec77e8a750e45b98",
+    "notes": "captured by drift-watch via tavily-extract"
   }
 ]

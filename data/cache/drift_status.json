@@ -1,5 +1,5 @@
 {
- "last_checked": "2026-11-19T21:36+00:00",
+ "last_checked": "2026-11-20T21:06+00:00",
  "pages": [
   {
    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
@@ -19,8 +19,9 @@
    "url": "https://dphhs.mt.gov/medicaidchanges",
    "title": "Montana DPHHS \u2014 Medicaid changes",
    "jurisdiction": "MT",
-   "status": "unchanged",
-   "since": "2026-10-22"
+   "status": "changed",
+   "snapshot": "mt-5a5f1f40-2026-11-20",
+   "headline": "Removed mention of upcoming retroactive coverage changes effective Jan 1, 2027"
   },
   {
    "url": "https://dphhs.mt.gov/medicaidchanges/faqs",
@@ -54,12 +55,11 @@
    "url": "https://www.medicaid.gov/resources-for-states/working-families-tax-cut-legislation/community-engagement",
    "title": "Medicaid.gov \u2014 Community engagement",
    "jurisdiction": "US",
-   "status": "cosmetic change",
-   "snapshot": "us-1bc44268-2026-11-19",
-   "headline": "Removed introductory content and security notices while retaining core policy statement"
+   "status": "unchanged",
+   "since": "2026-11-19"
   }
  ],
- "changes_today": 0,
- "total_live_changes": 18,
+ "changes_today": 1,
+ "total_live_changes": 19,
  "method": "Tavily Extract (advanced)"
 }

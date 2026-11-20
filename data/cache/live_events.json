@@ -1162,5 +1162,85 @@
   "classification": "rule change",
   "reviewed": "automatic (single judgement; re-run scripts/review_drift.py for a 3-vote review)",
   "affected_cases": []
+ },
+ {
+  "url": "https://dphhs.mt.gov/medicaidchanges",
+  "title": "Montana DPHHS \u2014 Medicaid changes",
+  "jurisdiction": "MT",
+  "old_id": "mt-5a5f1f40-2026-10-22",
+  "new_id": "mt-5a5f1f40-2026-11-20",
+  "old_as_of": "2026-10-22",
+  "new_as_of": "2026-11-20",
+  "added": [
+   "Changes to Medicaid Please Note: The information on this website is current as of Sept.",
+   "Eligibility Requirements To be eligible for Medicaid Expansion, you must show one of the following: You are meeting the community engagement requirement or You qualify for an exclusion to the communityengagement requirement Eligibility and compliance are verified during the initial application process and during the redetermination process.",
+   "How to Apply Online (Self-Service Portal) Apply online at apply.mt.gov <!--THE END--> By mail: Human and Community Services DivisionPO Box 202925Helena, MT 59602-2925 <!--THE END--> In person at a local eligibility office, also known as an Office ofPublic Assistance or OPA \\Note: Supporting documentation and appendices are optional at the time of application.",
+   "By Phone Call the Public Assistance Helpline (PAHL) at 1-888-706-1535 Overview Some individuals enrolled in Medicaid Expansion must meet the monthly community engagement requirement unless they are a specified excluded individual.",
+   "Required Hours If you are aged 19 to 64, you must complete 80 hourseach month of approved activities, unless you qualifyfor an exclusion.",
+   "Qualifying Activities Qualifying activities include: Working at a job (paid or in-kind), demonstrated by income of at least $580 per month or docmentation of 80 hours of work if income cannot be verified Community service or volunteeringwith a not-for-profit organization Participating in an approved state or federal workforce training or job readiness program Doing an internship or apprenticeship Going to school at least half time Combining activities (for example, you could work 60 hours and complete 20 hours of community service) Verification You must prove you are meeting this requirement.",
+   "Reporting Changes Members must report changes that may affect eligibility, including: Citizenship or immigration status Household composition (marriage/divorce, birth/adoption, someone moves in/out) Income Employment or education status How to Report You can report changes through: Online at apply.mt.gov By phone at 1-888-706-1535 Call the DPHHS Public Assistance Helpline (PAHL) By mail at: Human and Community Services DivisionPO Box 202925Helena, MT 59602-2925 In person at a local eligibility office, also known as an office of Public Assistance or OPA Notices Enrollees will receivetimelyand adequate notice regarding: Eligibility decisions Noncompliance with community engagement requirements To avoid missing notices, keep your mailing address and contact information up to date in the Self Service Portal.",
+   "Appeals All enrollees have the right to appeal adverse actions through a Fair Hearingin accordance withfederal Medicaid regulations."
+  ],
+  "removed": [
+   "![DPHHS Home Page](../index) ABOUT NEWS AND EVENTS CONTACT OFFICE LOCATIONS I am looking for + - Wellness and Prevention Services Diseases and Conditions Emergency Preparedness and Response Environmental Health Family Health Healthy Living Injury, - Violence and Safety Injury Prevention Laboratory Services Data and Statistics Health Data and Statistical Reports DPHHS Dashboards A Healthier Montana Senior Services Adult Protective Services ADRC Resource Directory Aging and Disability Resource Center (ADRC) Aging Horizons Aging Services Area Agencies on Aging Assisted Living (Licensure) Centenarians Estate Planning / Legal Services Home and Community Based Services Information and Assistance/Referral Lifespan Respite Long Term Care Ombudsman Montana Pharmacy Assist Program Nursing Facilities and other Living Options Nutrition Options Counseling Senior and Long Term Care Division SHIP - State Health Insurance Assistance Program + - Health Coverage and Other Assistance Montana Medicaid Federal Marketplace Assistance Programs Child and Adult Care Food Program Children's Special Health Services Healthy Montana Kids Healthy Montana Kids Plus Montanans with Disabilities Children's Mental Health Services SNAP (Supplemental Nutritional Assistance Program) TANF (Temporary Assistance for Needy Families Home Energy, Water and Weatherization Assistance Programs WIC (Women, Infants and Children) Disability Services Adult Protective and Legal Services Aging & Disability Resource Center (ADRC) Americans with Disabilities Act Blind and Low Vision Services Children's Mental Health DDP Medicaid Waiver Overview Developmental Disabilities Program Disability Determination Services Disability Employment & Transitions Home and Community Based Services Independent Living Services Lifespan Respite Intensive Behavior Center Montana Relay Public Transportation Coordination Long Term Care Ombudsman Qualified Sign Language Interpreters Vocational Rehabilitation Youth Transitions + - Family Services Adolescent Health Child and Adult Care Food Program Child Care Providers Child Support Services Children's Special Health Services Children's Trust Fund Early Childhood Services Bureau Montanans with Disabilities Pregnancy and Early Childhood Licensing and Certification Certifying healthcare services Licensing healthcare and residential services Licensing childcare Licensing Restaurants Facilities State-Run Healthcare Facilities Montana State Hospital - Warm Springs Mental Health Nursing Care Center - Lewistown Intensive Behavioral Center - Boulder Montana Chemical Dependency Center - Butte Veterans' Homes Eastern Montana Veteran's Home - Glendive Montana Veteran's Home - Columbia Falls Southwest Montana Veteran's Home - Butte I am a + DPHHS Provider + MT Medicaid + Childcare + Healthcare + DPHHS Partner + Tribal + Tribal Websites + Building Healthy Systems + A Healthier Montana + Local + Local Health Departments + Building Healthy Systems + A Healthier Montana + Person Interested In + - Child Support Services Diseases and Conditions Emergency Preparedness and Response Environmental Health Family Health Healthy Living Injury, - Violence and Safety Injury Prevention Laboratory A-Z Index DPHHS is offering one-time incentive payments to recruit employees at Montana's state-run health care facilities.",
+   "For more information go to Work4DPHHS.com Changes to Medicaid Please Note: The information on this website is current as of Sept.",
+   "Frequently Asked Questions (FAQs) Eligibility Requirements To be eligible for Medicaid Expansion, you must show one of the following: You are meeting the community engagement requirement or You qualify for an exclusion to the community engagement requirement Eligibility and compliance are verified during the initial application process and during the redetermination process.",
+   "How to Apply Online (Self-Service Portal) Apply online at apply.mt.gov Paper Application (Mail or in Person) By mail: Human and Community Services Division PO Box 202925 Helena, MT 59602-2925 In person at a local eligibility office, also known as an Office of Public Assistance or OPA \\Note: Supporting documentation and appendices are optional at the time of application.",
+   "Required Hours If you are aged 19 to 64, you must complete 80 hours each month of approved activities, unless you qualify for an exclusion.",
+   "Qualifying Activities Qualifying activities include: Working at a job (paid or in-kind), demonstrated by income of at least $580 per month or docmentation of 80 hours of work if income cannot be verified Community service or volunteering with a not-for-profit organization Participating in an approved state or federal workforce training or job readiness program Doing an internship or apprenticeship Going to school at least half time Combining activities (for example, you could work 60 hours and complete 20 hours of community service) Verification You must prove you are meeting this requirement.",
+   "1 also changes retroactive coverage for the Medicaid Expansion population from 3 months to 1 month, effective January 1, 2027.",
+   "For people in other eligibility groups, retroactive coverage will change from 3 months to 2 months.",
+   "Individuals must still request retroactive coverage.",
+   "Additionally, individuals must meet all eligibility requirements for the retroactive period.",
+   "Reporting Changes Members must report changes that may affect eligibility, including: Citizenship or immigration status Household composition (marriage/divorce, birth/adoption, someone moves in/out) Income Employment or education status How to Report You can report changes through: Online at apply.mt.gov By phone at 1-888-706-1535 + Call the DPHHS Public Assistance Helpline (PAHL) By mail at: + Human and Community Services Division PO Box 202925 Helena, MT 59602-2925 In person at a local eligibility office, also known as an office of Public Assistance or OPA Notices Enrollees will receive timely and adequate notice regarding: Eligibility decisions Noncompliance with community engagement requirements To avoid missing notices, keep your mailing address and contact information up to date in the Self Service Portal.",
+   "Appeals All enrollees have the right to appeal adverse actions through a Fair Hearing in accordance with federal Medicaid regulations."
+  ],
+  "stale_facts": [
+   "MT.reporting.in_person",
+   "MT.reporting.mail",
+   "MT.requirement.activities",
+   "MT.requirement.hours_80"
+  ],
+  "summary": {
+   "headline": "Removed mention of upcoming retroactive coverage changes effective Jan 1, 2027",
+   "details": [
+    "The section stating that retroactive coverage would change from 3 months to 1 month for Medicaid Expansion and from 3 months to 2 months for other eligibility groups, effective January 1, 2027, was removed."
+   ],
+   "who_is_affected": "Individuals applying for or receiving Medicaid Expansion or other eligibility groups who may seek retroactive coverage",
+   "navigator_action": "Inform clients that no change to retroactive coverage periods is currently in effect based on this website update; prior notice of future changes is no longer displayed.",
+   "substantive": true
+  },
+  "classification": "rule change",
+  "reviewed": "automatic (single judgement; re-run scripts/review_drift.py for a 3-vote review)",
+  "affected_cases": [
+   {
+    "case_id": "hannah-pierce",
+    "client_name": "Hannah Pierce",
+    "reasons": [
+     "uses rules that changed: MT.requirement.hours_80"
+    ]
+   },
+   {
+    "case_id": "marcus-lee",
+    "client_name": "Marcus Lee",
+    "reasons": [
+     "uses rules that changed: MT.requirement.hours_80"
+    ]
+   },
+   {
+    "case_id": "rosa-delgado",
+    "client_name": "Rosa Delgado",
+    "reasons": [
+     "uses rules that changed: MT.requirement.hours_80"
+    ]
+   },
+   {
+    "case_id": "sam-whitaker",
+    "client_name": "Sam Whitaker",
+    "reasons": [
+     "uses rules that changed: MT.requirement.hours_80"
+    ]
+   }
+  ]
  }
 ]
