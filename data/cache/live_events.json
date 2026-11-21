@@ -1242,5 +1242,52 @@
     ]
    }
   ]
+ },
+ {
+  "url": "https://dphhs.mt.gov/medicaidchanges/faqs",
+  "title": "Montana DPHHS \u2014 Medicaid changes FAQ",
+  "jurisdiction": "MT",
+  "old_id": "mt-e06e50b3-2026-11-06",
+  "new_id": "mt-e06e50b3-2026-11-21",
+  "old_as_of": "2026-11-06",
+  "new_as_of": "2026-11-21",
+  "added": [
+   "Frequently Asked Questions On July 1, 2026, under the House Reconciliation bill (H.R.",
+   "The community engagement requirement requires non-excluded adults on Medicaid Expansion, aged 19-64, toparticipate in community engagement activities to keeptheir health coverage.",
+   "Participating in an alcohol or drug addiction treatment program An individual qualifies for an exclusion based on participation in a drug or alcohol treatment program if they are in a treatment program thatincludes one or more services at or above ASAM Level 2.1 at the time of their application or redetermination.",
+   "Any Medicaid-enrolled provider at a private non-profit organization or institution or anypublicly-operatedcommunity mental health center that provides clinical services at ASAM Level 2.1 or above.",
+   "An individual may qualify forboth of theseexclusions.",
+   "Please reference the verification matrix foradditionalinformation.",
+   "DPHHS will send updated noticesindicatingwhether members need to meet the community engagement requirement, how they can comply, and how to verify they have completed them.",
+   "Members are encouraged to create an account on theSelf ServicePortal and opt-in to email communications."
+  ],
+  "removed": [
+   "![DPHHS Home Page](../index) ABOUT NEWS AND EVENTS CONTACT OFFICE LOCATIONS I am looking for + - Wellness and Prevention Services Diseases and Conditions Emergency Preparedness and Response Environmental Health Family Health Healthy Living Injury, - Violence and Safety Injury Prevention Laboratory Services Data and Statistics Health Data and Statistical Reports DPHHS Dashboards A Healthier Montana Senior Services Adult Protective Services ADRC Resource Directory Aging and Disability Resource Center (ADRC) Aging Horizons Aging Services Area Agencies on Aging Assisted Living (Licensure) Centenarians Estate Planning / Legal Services Home and Community Based Services Information and Assistance/Referral Lifespan Respite Long Term Care Ombudsman Montana Pharmacy Assist Program Nursing Facilities and other Living Options Nutrition Options Counseling Senior and Long Term Care Division SHIP - State Health Insurance Assistance Program + - Health Coverage and Other Assistance Montana Medicaid Federal Marketplace Assistance Programs Child and Adult Care Food Program Children's Special Health Services Healthy Montana Kids Healthy Montana Kids Plus Montanans with Disabilities Children's Mental Health Services SNAP (Supplemental Nutritional Assistance Program) TANF (Temporary Assistance for Needy Families Home Energy, Water and Weatherization Assistance Programs WIC (Women, Infants and Children) Disability Services Adult Protective and Legal Services Aging & Disability Resource Center (ADRC) Americans with Disabilities Act Blind and Low Vision Services Children's Mental Health DDP Medicaid Waiver Overview Developmental Disabilities Program Disability Determination Services Disability Employment & Transitions Home and Community Based Services Independent Living Services Lifespan Respite Intensive Behavior Center Montana Relay Public Transportation Coordination Long Term Care Ombudsman Qualified Sign Language Interpreters Vocational Rehabilitation Youth Transitions + - Family Services Adolescent Health Child and Adult Care Food Program Child Care Providers Child Support Services Children's Special Health Services Children's Trust Fund Early Childhood Services Bureau Montanans with Disabilities Pregnancy and Early Childhood Licensing and Certification Certifying healthcare services Licensing healthcare and residential services Licensing childcare Licensing Restaurants Facilities State-Run Healthcare Facilities Montana State Hospital - Warm Springs Mental Health Nursing Care Center - Lewistown Intensive Behavioral Center - Boulder Montana Chemical Dependency Center - Butte Veterans' Homes Eastern Montana Veteran's Home - Glendive Montana Veteran's Home - Columbia Falls Southwest Montana Veteran's Home - Butte I am a + DPHHS Provider + MT Medicaid + Childcare + Healthcare + DPHHS Partner + Tribal + Tribal Websites + Building Healthy Systems + A Healthier Montana + Local + Local Health Departments + Building Healthy Systems + A Healthier Montana + Person Interested In + - Child Support Services Diseases and Conditions Emergency Preparedness and Response Environmental Health Family Health Healthy Living Injury, - Violence and Safety Injury Prevention Laboratory A-Z Index DPHHS is offering one-time incentive payments to recruit employees at Montana's state-run health care facilities.",
+   "For more information go to Work4DPHHS.com Frequently Asked Questions On July 1, 2026, under the House Reconciliation bill (H.R.",
+   "The community engagement requirement requires non-excluded adults on Medicaid Expansion, aged 19-64, to participate in community engagement activities to keep their health coverage.",
+   "Participating in an alcohol or drug addiction treatment program + An individual qualifies for an exclusion based on participation in a drug or alcohol treatment program if they are in a treatment program that includes one or more services at or above ASAM Level 2.1 at the time of their application or redetermination.",
+   "+ Any Medicaid-enrolled provider at a private non-profit organization or institution or any publicly-operated community mental health center that provides clinical services at ASAM Level 2.1 or above.",
+   "An individual may qualify for both of these exclusions.",
+   "This does not impact eligibility.",
+   "DPHHS will send updated notices indicating whether members need to meet the community engagement requirement, how they can comply, and how to verify they have completed them.",
+   "Members are encouraged to create an account on the Self Service Portal and opt-in to email communications."
+  ],
+  "stale_facts": [
+   "MT.applicability.population",
+   "MT.exemption.sud_treatment_asam"
+  ],
+  "summary": {
+   "headline": "Minor wording updates to Medicaid community engagement requirement description",
+   "details": [
+    "Removed spaces around verbs in sentences describing participation in community engagement activities and keeping health coverage.",
+    "Added a sentence directing users to reference the verification matrix for additional information."
+   ],
+   "who_is_affected": "Medicaid Expansion members aged 19-64 who are subject to the community engagement requirement",
+   "navigator_action": "No action needed for open cases; continue to assist members with compliance and verification as previously guided.",
+   "substantive": false
+  },
+  "classification": "reworded: cited quotes to update",
+  "reviewed": "automatic (single judgement; re-run scripts/review_drift.py for a 3-vote review)",
+  "affected_cases": []
  }
 ]
