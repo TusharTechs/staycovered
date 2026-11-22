@@ -1,11 +1,13 @@
 {
- "last_checked": "2026-11-21T20:06+00:00",
+ "last_checked": "2026-11-22T20:22+00:00",
  "pages": [
   {
    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
    "title": "Nebraska DHHS \u2014 Medicaid Work Requirements",
    "jurisdiction": "NE",
-   "status": "unreachable"
+   "status": "possible partial capture",
+   "since": "2026-10-27",
+   "note": "page text shrank from 3619 to 1494 words; held for re-check tomorrow before any case is flagged"
   },
   {
    "url": "https://dhhs.ne.gov/Documents/MLTC-WR-Requirements-FAQ.pdf",
@@ -25,9 +27,8 @@
    "url": "https://dphhs.mt.gov/medicaidchanges/faqs",
    "title": "Montana DPHHS \u2014 Medicaid changes FAQ",
    "jurisdiction": "MT",
-   "status": "changed",
-   "snapshot": "mt-e06e50b3-2026-11-21",
-   "headline": "Minor wording updates to Medicaid community engagement requirement description"
+   "status": "unchanged",
+   "since": "2026-11-21"
   },
   {
    "url": "https://humanservices.arkansas.gov/divisions-shared-services/medical-services/healthcare-programs/arhome/arhome-community-engagement-requirement/",
@@ -40,9 +41,8 @@
    "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
    "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
    "jurisdiction": "IA",
-   "status": "cosmetic change",
-   "snapshot": "ia-8baf74ba-2026-11-21",
-   "headline": "Updated FAQ resources added provider-specific materials and member/provider presentation slides while removing generic FAQ download link and email contact."
+   "status": "unchanged",
+   "since": "2026-11-21"
   },
   {
    "url": "https://pathways.georgia.gov/about-pathways/faqs",
@@ -59,7 +59,7 @@
    "since": "2026-11-19"
   }
  ],
- "changes_today": 1,
+ "changes_today": 0,
  "total_live_changes": 20,
  "method": "Tavily Extract (advanced)"
 }
