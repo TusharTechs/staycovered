@@ -1398,5 +1398,47 @@
     ]
    }
   ]
+ },
+ {
+  "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
+  "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
+  "jurisdiction": "IA",
+  "old_id": "ia-8baf74ba-2026-11-21",
+  "new_id": "ia-8baf74ba-2026-11-24",
+  "old_as_of": "2026-11-21",
+  "new_as_of": "2026-11-24",
+  "added": [
+   "To report a change call 1-877-347-5678 or by emailing [\\[email protected\\]](https://hhs.iowa.gov/cdn-cgi/l/email-protection#8bc2c6c8d8c8cbe3e3f8a5e2e4fceaa5ece4fd) Volunteer Iowa'splatform provides an easy way to find and sign up for local volunteer opportunities that qualify toward these requirements.",
+   "Get Connected Iowa HHS will contact you if they need information about your Community Engagement activities."
+  ],
+  "removed": [
+   "About By December 1, 2026, certain Iowa Health and Wellness Plan (IHAWP) members must meet monthly requirements to enroll and maintain coverage.",
+   "How to Meet New Requirements There are several ways to meet these new requirements, including working, participating in an education or work program, completing community service, or combining different activities.",
+   "Exclusions Some people on the IHAWP program are excluded from these new requirements.",
+   "Frequently Asked Questions (FAQ) List items for Community Engagement Requirements FAQ Download a digital or print-friendly (158.22 KB) .pdf version of the general FAQ.",
+   "To report a change call 1-877-347-5678 or by emailing \\[email protected] Get Connectedplatform provides an easy way to find and sign up for local volunteer opportunities that qualify toward these requirements.",
+   "Iowa HHS will contact you if they need information about your Community Engagement activities.",
+   "Email us at \\[email protected] Member and Provider Presentations List items for IHAWP Community Engagement Webinars Presentation Slides (11.19.2026) (2.72 MB) .pdf Recording (11.19.2026) Passcode: bx\\%xm&2"
+  ],
+  "stale_facts": [],
+  "summary": {
+   "headline": "Updated reporting contact format and removed outdated content about deadlines, exclusions, FAQs, presentations, and Get Connected platform details",
+   "details": [
+    "Removed the December 1, 2026 deadline statement for meeting monthly requirements.",
+    "Removed the section explaining how to meet requirements through work, education, or community service.",
+    "Removed the exclusions section for certain IHAWP members.",
+    "Removed the FAQ section and link to downloadable PDF.",
+    "Removed the Get Connected platform description as a standalone bullet point.",
+    "Removed Member and Provider Presentations including webinar slides, recording, and passcode.",
+    "Updated the reporting contact email to use a protected link format via Iowa HHS website.",
+    "Rephrased and combined 'Get Connected' and 'Iowa HHS will contact you' into a single sentence."
+   ],
+   "who_is_affected": "Iowa Health and Wellness Plan (IHAWP) members subject to community engagement requirements",
+   "navigator_action": "Verify current reporting methods with members and direct them to the updated email link; remove references to outdated deadlines, FAQs, presentations, and standalone Get Connected descriptions when assisting with compliance.",
+   "substantive": true
+  },
+  "classification": "rule change",
+  "reviewed": "automatic (single judgement; re-run scripts/review_drift.py for a 3-vote review)",
+  "affected_cases": []
  }
 ]
