@@ -1440,5 +1440,135 @@
   "classification": "rule change",
   "reviewed": "automatic (single judgement; re-run scripts/review_drift.py for a 3-vote review)",
   "affected_cases": []
+ },
+ {
+  "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
+  "title": "Nebraska DHHS \u2014 Medicaid Work Requirements",
+  "jurisdiction": "NE",
+  "old_id": "ne-88f65eb8-2026-11-24",
+  "new_id": "ne-88f65eb8-2026-11-25",
+  "old_as_of": "2026-11-24",
+  "new_as_of": "2026-11-25",
+  "added": [
+   "https://ad.ipredictive.com/d/track/rtis A 1x1 image, likely be a tacker probe"
+  ],
+  "removed": [
+   "1 (the \"One Big Beautiful Bill Act\") was passed into federal law on July 4, 2025, and made many changes to the Medicaid program.",
+   "Starting May 1, 2026, members and applicants eligible under Medicaid expansion will have to meet work requirements to keep or get Medicaid coverage.",
+   "Some people enrolled in Nebraska Medicaid through Medicaid expansion may not have to complete work requirement activities (see list of exemptions below).",
+   "Members with renewal dates in May or June 2026 will not have to show they've met work requirements until their renewal in 2027.",
+   "Members can check their renewal date by logging into iServe.",
+   "Medicaid members and new applicants who are eligible under Medicaid expansion are temporarily exempt from completing work requirements if they lived in the following counties during a qualifying month: Arthur, Buffalo, Dawson, Fillmore, Gage, Garden, Grant, Howard, Jefferson, Lincoln, Morrill, Nemaha, Thayer, Thurston.",
+   "Go to Temporary Hardships under How do I Know if I'm Exempt?",
+   "on this webpage to learn how residents of these counties qualify for a temporary hardship exemption.",
+   "For an overview of the new Medicaid work requirements, please watch this video.",
+   "Click here for the Spanish video.",
+   "Do I have to meet Work Requirements?",
+   "If you're an able-bodied adult who is applying for or who already has Medicaid coverage through Medicaid expansion (also known as Heritage Health Adult), you must meet work requirements unless you have an exemption.",
+   "People enrolled through Medicaid expansion are Medicaid members who: Work requirements only apply to you if you are applying for or already have Medicaid coverage through Medicaid expansion.",
+   "Some people may qualify for work requirement exemptions, including temporary hardships.",
+   "You may not need to complete work requirement activities if: Other mandatory exceptions may apply.",
+   "You may be excused from completing work requirements if you have met any of the following temporary hardship reasons in a qualifying month.",
+   "Medical Hardships - You must submit a declaration to DHHS (online, by phone, by mail, or in person) if: County-Based Hardships - DHHS will automatically excuse you if you resided in a county during the time one of the following hardships was in effect: Counties Currently Under Temporary Hardships: Dawson, Arthur, Grant, Garden, Lincoln, Morrill, Buffalo, Fillmore, Gage, Howard, Jefferson, Nemaha, Thayer, Thurston If you have resided in one of these counties during a qualifying month while a temporary hardship was in effect and you lost your Medicaid coverage because of not meeting work requirements, DHHS will reprocess your application or renewal.",
+   "You do not need to take any action.",
+   "Read this table to see which month or months you had to live in the counties to qualify for the temporary hardship exemption.",
+   "New Applicants - You qualify for this exemption if you have applied for Medicaid since April 2026 and you lived in Dawson County during the calendar month before you applied.",
+   "For example, if you lived in Dawson County in May and applied for Medicaid in June.",
+   "Existing Members - You qualify for this exemption if you are in the Medicaid expansion group and you have lived in Dawson County during any month since February 2026.",
+   "New Applicants - You qualify for this exemption if you lived in one of these counties during April 2026 and you applied for Medicaid in May 2026.",
+   "Existing Members - You qualify for this exemption if you lived in one these counties during March 2026 and have a Medicaid renewal in any month between July 2026 and February 2027.",
+   "You also qualify for this exemption if you lived in one of these counties during April 2026 and have a Medicaid renewal in any month between July 2026 and March 2027."
+  ],
+  "stale_facts": [
+   "NE.applicability.expansion_only",
+   "NE.cure.county_hardship_reprocess",
+   "NE.cure.response_deadline_30_days",
+   "NE.exemption.other_mandatory",
+   "NE.exemption.temporary_hardship.county_automatic",
+   "NE.exemption.temporary_hardship.dawson_table",
+   "NE.exemption.temporary_hardship.fourteen_counties_banner",
+   "NE.exemption.temporary_hardship.severe_weather_counties",
+   "NE.exemption.temporary_hardship.wildfire_counties",
+   "NE.income_alternative.monthly_580",
+   "NE.income_alternative.seasonal_six_month_average",
+   "NE.lookback.existing_members.twelve_months",
+   "NE.lookback.new_applicants.activities_and_income",
+   "NE.lookback.new_applicants.exemption",
+   "NE.lookback.new_applicants.temporary_hardship",
+   "NE.process.report_changes",
+   "NE.requirement.combine_hours",
+   "NE.requirement.hours_80",
+   "NE.start_date.existing_enrollees.renewal_based",
+   "NE.timeline.may_june_2026_renewals_deferred",
+   "NE.verification.data_first",
+   "NE.verification.no_documents_unless_asked",
+   "NE.verification.request_notice"
+  ],
+  "summary": {
+   "headline": "Removed detailed guidance on Medicaid work requirements effective May 1, 2026, including eligibility rules, exemptions, reporting procedures, and compliance methods.",
+   "details": [
+    "Removed explanation of when work requirements begin (May 1, 2026) and who they apply to (Medicaid expansion members/applicants).",
+    "Removed list of temporary hardship exemptions based on county residence (Arthur, Buffalo, Dawson, etc.) and qualifying months.",
+    "Removed details on how to verify compliance (80 hours/month, $580 income, seasonal work averaging).",
+    "Removed procedures for showing compliance (DHHS verification, notice/response process, 30-day deadline).",
+    "Removed information about renewal timelines and when members must start meeting requirements based on renewal date."
+   ],
+   "who_is_affected": "Medicaid expansion members and applicants in Nebraska who were previously subject to or seeking exemptions from work requirements.",
+   "navigator_action": "Verify current work requirement status with DHHS, as all prior guidance on exemptions, compliance methods, and timelines has been removed; re-screen open cases for potential loss of coverage or need to reapply.",
+   "substantive": true
+  },
+  "classification": "rule change",
+  "reviewed": "automatic (single judgement; re-run scripts/review_drift.py for a 3-vote review)",
+  "affected_cases": [
+   {
+    "case_id": "aisha-mohammed",
+    "client_name": "Aisha Mohammed",
+    "reasons": [
+     "uses rules that changed: NE.income_alternative.monthly_580, NE.requirement.hours_80"
+    ]
+   },
+   {
+    "case_id": "dani-ortiz",
+    "client_name": "Dani Ortiz",
+    "reasons": [
+     "uses rules that changed: NE.income_alternative.monthly_580, NE.requirement.hours_80"
+    ]
+   },
+   {
+    "case_id": "james-carter",
+    "client_name": "James Carter",
+    "reasons": [
+     "uses rules that changed: NE.income_alternative.monthly_580, NE.income_alternative.seasonal_six_month_average, NE.requirement.hours_80"
+    ]
+   },
+   {
+    "case_id": "kayla-brooks",
+    "client_name": "Kayla Brooks",
+    "reasons": [
+     "uses rules that changed: NE.income_alternative.monthly_580, NE.requirement.hours_80"
+    ]
+   },
+   {
+    "case_id": "maria-lopez",
+    "client_name": "Maria Lopez",
+    "reasons": [
+     "uses rules that changed: NE.income_alternative.monthly_580, NE.requirement.hours_80"
+    ]
+   },
+   {
+    "case_id": "robert-nguyen",
+    "client_name": "Robert Nguyen",
+    "reasons": [
+     "uses rules that changed: NE.income_alternative.monthly_580, NE.requirement.hours_80"
+    ]
+   },
+   {
+    "case_id": "tom-becker",
+    "client_name": "Tom Becker",
+    "reasons": [
+     "uses rules that changed: NE.income_alternative.monthly_580, NE.requirement.hours_80"
+    ]
+   }
+  ]
  }
 ]

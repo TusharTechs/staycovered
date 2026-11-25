@@ -1,13 +1,13 @@
 {
- "last_checked": "2026-11-24T23:01+00:00",
+ "last_checked": "2026-11-25T22:34+00:00",
  "pages": [
   {
    "url": "https://dhhs.ne.gov/Pages/WorkRequirements.aspx",
    "title": "Nebraska DHHS \u2014 Medicaid Work Requirements",
    "jurisdiction": "NE",
-   "status": "possible partial capture",
-   "since": "2026-11-24",
-   "note": "page text shrank from 1494 to 15 words; held for re-check tomorrow before any case is flagged"
+   "status": "changed",
+   "snapshot": "ne-88f65eb8-2026-11-25",
+   "headline": "Removed detailed guidance on Medicaid work requirements effective May 1, 2026, including eligibility rules, exemptions, reporting procedures, and compliance methods."
   },
   {
    "url": "https://dhhs.ne.gov/Documents/MLTC-WR-Requirements-FAQ.pdf",
@@ -41,9 +41,8 @@
    "url": "https://hhs.iowa.gov/medicaid/plans-programs/iowa-health-wellness-plan/ihawp-community-engagement-requirements",
    "title": "Iowa HHS \u2014 IHAWP community engagement requirements",
    "jurisdiction": "IA",
-   "status": "changed",
-   "snapshot": "ia-8baf74ba-2026-11-24",
-   "headline": "Updated reporting contact format and removed outdated content about deadlines, exclusions, FAQs, presentations, and Get Connected platform details"
+   "status": "unchanged",
+   "since": "2026-11-24"
   },
   {
    "url": "https://pathways.georgia.gov/about-pathways/faqs",
@@ -61,6 +60,6 @@
   }
  ],
  "changes_today": 1,
- "total_live_changes": 22,
+ "total_live_changes": 23,
  "method": "Tavily Extract (advanced)"
 }
