@@ -1570,5 +1570,38 @@
     ]
    }
   ]
+ },
+ {
+  "url": "https://dphhs.mt.gov/medicaidchanges",
+  "title": "Montana DPHHS \u2014 Medicaid changes",
+  "jurisdiction": "MT",
+  "old_id": "mt-5a5f1f40-2026-11-20",
+  "new_id": "mt-5a5f1f40-2026-11-26",
+  "old_as_of": "2026-11-20",
+  "new_as_of": "2026-11-26",
+  "added": [
+   "Changes to Medicaid Please Note: The information on this website is current as of Nov.",
+   "Starting January 1, 2027, retroactive coverage limits will change to: Two months for most adult groups, children, and pregnant women.",
+   "One month for Medicaid Expansion DPHHS applies the limit based on the coverage group assigned after the eligibility determination.",
+   "An individual may request up to two months of retroactive coverage when they apply, but the coverage group they are assigned to after the eligibility determination will determine whether one or two months of coverage may be provided.",
+   "This change affects how far back coverage may begin-not whether someone qualifies for Medicaid.",
+   "The person must also have been eligible during the time that they are requesting retroactive coverage for."
+  ],
+  "removed": [
+   "Changes to Medicaid Please Note: The information on this website is current as of Sept."
+  ],
+  "stale_facts": [],
+  "summary": {
+   "headline": "Montana Medicaid retroactive coverage limits updated effective January 1, 2027",
+   "details": [
+    "Starting January 1, 2027, retroactive coverage limits will be set at two months for most adult groups, children, and pregnant women."
+   ],
+   "who_is_affected": "Applicants seeking retroactive Medicaid coverage in Montana beginning January 1, 2027",
+   "navigator_action": "Inform applicants applying on or after January 1, 2027, that retroactive coverage may extend up to two months depending on their assigned coverage group, and clarify that eligibility during the requested period is still required.",
+   "substantive": true
+  },
+  "classification": "rule change",
+  "reviewed": "automatic (single judgement; re-run scripts/review_drift.py for a 3-vote review)",
+  "affected_cases": []
  }
 ]
