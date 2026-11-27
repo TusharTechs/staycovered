@@ -1603,5 +1603,48 @@
   "classification": "rule change",
   "reviewed": "automatic (single judgement; re-run scripts/review_drift.py for a 3-vote review)",
   "affected_cases": []
+ },
+ {
+  "url": "https://dphhs.mt.gov/medicaidchanges/faqs",
+  "title": "Montana DPHHS \u2014 Medicaid changes FAQ",
+  "jurisdiction": "MT",
+  "old_id": "mt-e06e50b3-2026-11-21",
+  "new_id": "mt-e06e50b3-2026-11-27",
+  "old_as_of": "2026-11-21",
+  "new_as_of": "2026-11-27",
+  "added": [
+   "If I apply for a exclusion to the community engagement requirement, how do I know if it is granted?",
+   "Exlusions for community engagement are evaluated as a part of an individual's whole case.",
+   "You can view the status of your application or renewal as a whole through the Self-Service Portal.",
+   "Similarly, at redetermination, DPHHS will first attempt to auto renew you using existing data sources.",
+   "In most cases, the client is responsible for submitting documentation for their case.",
+   "A Community Assister may also manage information and submit documentation on behalf of a client.",
+   "Providers can only submit documentation on behalf of a client if they are a verified Community Assister for that member.",
+   "The Community Assister Portal launched in late May 2026 and is available for use.",
+   "More information on the Community Assister Portal can be found at apply.mt.gov.",
+   "How can providers reach DPHHS with questions?",
+   "DPHHS encourages providers, members, and advocates to continue to share questions and feedback with the Department through the feedback form on our website at medicaidchanges.mt.gov.",
+   "The Department will provide a response as soon as possible."
+  ],
+  "removed": [
+   "Similarly, at redetermination, DPHHS will first attempt to ex parte you using existing data sources."
+  ],
+  "stale_facts": [],
+  "summary": {
+   "headline": "Updated guidance on exemption applications, case review processes, and provider/assister roles under Medicaid community engagement requirements",
+   "details": [
+    "Clarified that exclusions (exemptions) for the community engagement requirement are evaluated as part of an individual's whole case during redetermination or application processing.",
+    "Added that applicants can check the status of their exclusion request via the Self-Service Portal as part of their overall case status.",
+    "Replaced 'ex parte' language with 'auto renew' using existing data sources at redetermination, indicating a shift in how eligibility is assessed without client action.",
+    "Specified that clients are generally responsible for submitting documentation, but Community Assisters and verified providers may submit on their behalf under defined conditions.",
+    "Announced the launch and availability of the Community Assister Portal since late May 2026, with access via apply.mt.gov and support contact through medicaidchanges.mt.gov feedback form."
+   ],
+   "who_is_affected": "Medicaid applicants, members, providers, and Community Assisters involved in community engagement requirement exemptions or case management",
+   "navigator_action": "Review open cases to ensure clients understand how to check exemption status via the Self-Service Portal and confirm whether documentation submission responsibilities lie with the client, assister, or verified provider.",
+   "substantive": true
+  },
+  "classification": "rule change",
+  "reviewed": "automatic (single judgement; re-run scripts/review_drift.py for a 3-vote review)",
+  "affected_cases": []
  }
 ]
